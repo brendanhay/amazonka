@@ -82,7 +82,7 @@ newUntagResource pArn_ =
 
 -- | The keys of the tags that you want to remove from the resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.Maybe [Prelude.Text])
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.mapping Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to remove
 -- tags from. To get the ARN, send a GET request with the resource name.

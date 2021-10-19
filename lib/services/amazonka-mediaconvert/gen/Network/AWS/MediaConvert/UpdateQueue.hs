@@ -28,8 +28,8 @@ module Network.AWS.MediaConvert.UpdateQueue
 
     -- * Request Lenses
     updateQueue_status,
-    updateQueue_reservationPlanSettings,
     updateQueue_description,
+    updateQueue_reservationPlanSettings,
     updateQueue_name,
 
     -- * Destructuring the Response
@@ -56,6 +56,8 @@ data UpdateQueue = UpdateQueue'
     -- are running when you pause the queue continue to run until they finish
     -- or result in an error.
     status :: Prelude.Maybe QueueStatus,
+    -- | The new description for the queue, if you are changing it.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The new details of your pricing plan for your reserved queue. When you
     -- set up a new pricing plan to replace an expired one, you enter into
     -- another 12-month commitment. When you add capacity to your queue by
@@ -63,8 +65,6 @@ data UpdateQueue = UpdateQueue'
     -- 12 months from when you add capacity. After you make these commitments,
     -- you can\'t cancel them.
     reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
-    -- | The new description for the queue, if you are changing it.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue that you are modifying.
     name :: Prelude.Text
   }
@@ -83,14 +83,14 @@ data UpdateQueue = UpdateQueue'
 -- are running when you pause the queue continue to run until they finish
 -- or result in an error.
 --
+-- 'description', 'updateQueue_description' - The new description for the queue, if you are changing it.
+--
 -- 'reservationPlanSettings', 'updateQueue_reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you
 -- set up a new pricing plan to replace an expired one, you enter into
 -- another 12-month commitment. When you add capacity to your queue by
 -- increasing the number of RTS, you extend the term of your commitment to
 -- 12 months from when you add capacity. After you make these commitments,
 -- you can\'t cancel them.
---
--- 'description', 'updateQueue_description' - The new description for the queue, if you are changing it.
 --
 -- 'name', 'updateQueue_name' - The name of the queue that you are modifying.
 newUpdateQueue ::
@@ -100,8 +100,8 @@ newUpdateQueue ::
 newUpdateQueue pName_ =
   UpdateQueue'
     { status = Prelude.Nothing,
-      reservationPlanSettings = Prelude.Nothing,
       description = Prelude.Nothing,
+      reservationPlanSettings = Prelude.Nothing,
       name = pName_
     }
 
@@ -112,6 +112,10 @@ newUpdateQueue pName_ =
 updateQueue_status :: Lens.Lens' UpdateQueue (Prelude.Maybe QueueStatus)
 updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueue' {} a -> s {status = a} :: UpdateQueue)
 
+-- | The new description for the queue, if you are changing it.
+updateQueue_description :: Lens.Lens' UpdateQueue (Prelude.Maybe Prelude.Text)
+updateQueue_description = Lens.lens (\UpdateQueue' {description} -> description) (\s@UpdateQueue' {} a -> s {description = a} :: UpdateQueue)
+
 -- | The new details of your pricing plan for your reserved queue. When you
 -- set up a new pricing plan to replace an expired one, you enter into
 -- another 12-month commitment. When you add capacity to your queue by
@@ -120,10 +124,6 @@ updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueu
 -- you can\'t cancel them.
 updateQueue_reservationPlanSettings :: Lens.Lens' UpdateQueue (Prelude.Maybe ReservationPlanSettings)
 updateQueue_reservationPlanSettings = Lens.lens (\UpdateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@UpdateQueue' {} a -> s {reservationPlanSettings = a} :: UpdateQueue)
-
--- | The new description for the queue, if you are changing it.
-updateQueue_description :: Lens.Lens' UpdateQueue (Prelude.Maybe Prelude.Text)
-updateQueue_description = Lens.lens (\UpdateQueue' {description} -> description) (\s@UpdateQueue' {} a -> s {description = a} :: UpdateQueue)
 
 -- | The name of the queue that you are modifying.
 updateQueue_name :: Lens.Lens' UpdateQueue Prelude.Text
@@ -160,9 +160,9 @@ instance Core.ToJSON UpdateQueue where
     Core.object
       ( Prelude.catMaybes
           [ ("status" Core..=) Prelude.<$> status,
+            ("description" Core..=) Prelude.<$> description,
             ("reservationPlanSettings" Core..=)
-              Prelude.<$> reservationPlanSettings,
-            ("description" Core..=) Prelude.<$> description
+              Prelude.<$> reservationPlanSettings
           ]
       )
 

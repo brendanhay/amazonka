@@ -29,7 +29,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTimecodeConfig' smart constructor.
 data TimecodeConfig = TimecodeConfig'
-  { -- | If you use an editing platform that relies on an anchor timecode, use
+  { -- | Only use when you set Source (TimecodeSource) to Specified start
+    -- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
+    -- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
+    -- or (HH:MM:SS;FF).
+    start :: Prelude.Maybe Prelude.Text,
+    -- | Only applies to outputs that support program-date-time stamp. Use
+    -- Timestamp offset (TimestampOffset) to overwrite the timecode date
+    -- without affecting the time and frame number. Provide the new date as a
+    -- string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must
+    -- also enable Insert program-date-time (InsertProgramDateTime) in the
+    -- output settings. For example, if the date part of your timecodes is
+    -- 2002-1-25 and you want to change it to one year later, set Timestamp
+    -- offset (TimestampOffset) to 2003-1-25.
+    timestampOffset :: Prelude.Maybe Prelude.Text,
+    -- | If you use an editing platform that relies on an anchor timecode, use
     -- Anchor Timecode (Anchor) to specify a timecode that will match the input
     -- video frame to the output video frame. Use 24-hour format with frame
     -- number, (HH:MM:SS:FF) or (HH:MM:SS;FF). This setting ignores frame rate
@@ -54,21 +68,7 @@ data TimecodeConfig = TimecodeConfig'
     -- initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set
     -- the timecode of the initial frame to a value other than zero. You use
     -- Start timecode (Start) to provide this value.
-    source :: Prelude.Maybe TimecodeSource,
-    -- | Only applies to outputs that support program-date-time stamp. Use
-    -- Timestamp offset (TimestampOffset) to overwrite the timecode date
-    -- without affecting the time and frame number. Provide the new date as a
-    -- string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must
-    -- also enable Insert program-date-time (InsertProgramDateTime) in the
-    -- output settings. For example, if the date part of your timecodes is
-    -- 2002-1-25 and you want to change it to one year later, set Timestamp
-    -- offset (TimestampOffset) to 2003-1-25.
-    timestampOffset :: Prelude.Maybe Prelude.Text,
-    -- | Only use when you set Source (TimecodeSource) to Specified start
-    -- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
-    -- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
-    -- or (HH:MM:SS;FF).
-    start :: Prelude.Maybe Prelude.Text
+    source :: Prelude.Maybe TimecodeSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,20 @@ data TimecodeConfig = TimecodeConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'start', 'timecodeConfig_start' - Only use when you set Source (TimecodeSource) to Specified start
+-- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
+-- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
+-- or (HH:MM:SS;FF).
+--
+-- 'timestampOffset', 'timecodeConfig_timestampOffset' - Only applies to outputs that support program-date-time stamp. Use
+-- Timestamp offset (TimestampOffset) to overwrite the timecode date
+-- without affecting the time and frame number. Provide the new date as a
+-- string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must
+-- also enable Insert program-date-time (InsertProgramDateTime) in the
+-- output settings. For example, if the date part of your timecodes is
+-- 2002-1-25 and you want to change it to one year later, set Timestamp
+-- offset (TimestampOffset) to 2003-1-25.
 --
 -- 'anchor', 'timecodeConfig_anchor' - If you use an editing platform that relies on an anchor timecode, use
 -- Anchor Timecode (Anchor) to specify a timecode that will match the input
@@ -105,8 +119,24 @@ data TimecodeConfig = TimecodeConfig'
 -- initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set
 -- the timecode of the initial frame to a value other than zero. You use
 -- Start timecode (Start) to provide this value.
---
--- 'timestampOffset', 'timecodeConfig_timestampOffset' - Only applies to outputs that support program-date-time stamp. Use
+newTimecodeConfig ::
+  TimecodeConfig
+newTimecodeConfig =
+  TimecodeConfig'
+    { start = Prelude.Nothing,
+      timestampOffset = Prelude.Nothing,
+      anchor = Prelude.Nothing,
+      source = Prelude.Nothing
+    }
+
+-- | Only use when you set Source (TimecodeSource) to Specified start
+-- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
+-- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
+-- or (HH:MM:SS;FF).
+timecodeConfig_start :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Text)
+timecodeConfig_start = Lens.lens (\TimecodeConfig' {start} -> start) (\s@TimecodeConfig' {} a -> s {start = a} :: TimecodeConfig)
+
+-- | Only applies to outputs that support program-date-time stamp. Use
 -- Timestamp offset (TimestampOffset) to overwrite the timecode date
 -- without affecting the time and frame number. Provide the new date as a
 -- string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must
@@ -114,20 +144,8 @@ data TimecodeConfig = TimecodeConfig'
 -- output settings. For example, if the date part of your timecodes is
 -- 2002-1-25 and you want to change it to one year later, set Timestamp
 -- offset (TimestampOffset) to 2003-1-25.
---
--- 'start', 'timecodeConfig_start' - Only use when you set Source (TimecodeSource) to Specified start
--- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
--- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
--- or (HH:MM:SS;FF).
-newTimecodeConfig ::
-  TimecodeConfig
-newTimecodeConfig =
-  TimecodeConfig'
-    { anchor = Prelude.Nothing,
-      source = Prelude.Nothing,
-      timestampOffset = Prelude.Nothing,
-      start = Prelude.Nothing
-    }
+timecodeConfig_timestampOffset :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Text)
+timecodeConfig_timestampOffset = Lens.lens (\TimecodeConfig' {timestampOffset} -> timestampOffset) (\s@TimecodeConfig' {} a -> s {timestampOffset = a} :: TimecodeConfig)
 
 -- | If you use an editing platform that relies on an anchor timecode, use
 -- Anchor Timecode (Anchor) to specify a timecode that will match the input
@@ -159,34 +177,16 @@ timecodeConfig_anchor = Lens.lens (\TimecodeConfig' {anchor} -> anchor) (\s@Time
 timecodeConfig_source :: Lens.Lens' TimecodeConfig (Prelude.Maybe TimecodeSource)
 timecodeConfig_source = Lens.lens (\TimecodeConfig' {source} -> source) (\s@TimecodeConfig' {} a -> s {source = a} :: TimecodeConfig)
 
--- | Only applies to outputs that support program-date-time stamp. Use
--- Timestamp offset (TimestampOffset) to overwrite the timecode date
--- without affecting the time and frame number. Provide the new date as a
--- string in the format \"yyyy-mm-dd\". To use Time stamp offset, you must
--- also enable Insert program-date-time (InsertProgramDateTime) in the
--- output settings. For example, if the date part of your timecodes is
--- 2002-1-25 and you want to change it to one year later, set Timestamp
--- offset (TimestampOffset) to 2003-1-25.
-timecodeConfig_timestampOffset :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Text)
-timecodeConfig_timestampOffset = Lens.lens (\TimecodeConfig' {timestampOffset} -> timestampOffset) (\s@TimecodeConfig' {} a -> s {timestampOffset = a} :: TimecodeConfig)
-
--- | Only use when you set Source (TimecodeSource) to Specified start
--- (SPECIFIEDSTART). Use Start timecode (Start) to specify the timecode for
--- the initial frame. Use 24-hour format with frame number, (HH:MM:SS:FF)
--- or (HH:MM:SS;FF).
-timecodeConfig_start :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Text)
-timecodeConfig_start = Lens.lens (\TimecodeConfig' {start} -> start) (\s@TimecodeConfig' {} a -> s {start = a} :: TimecodeConfig)
-
 instance Core.FromJSON TimecodeConfig where
   parseJSON =
     Core.withObject
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Prelude.<$> (x Core..:? "anchor")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Core..:? "start")
             Prelude.<*> (x Core..:? "timestampOffset")
-            Prelude.<*> (x Core..:? "start")
+            Prelude.<*> (x Core..:? "anchor")
+            Prelude.<*> (x Core..:? "source")
       )
 
 instance Prelude.Hashable TimecodeConfig
@@ -197,10 +197,10 @@ instance Core.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("anchor" Core..=) Prelude.<$> anchor,
-            ("source" Core..=) Prelude.<$> source,
+          [ ("start" Core..=) Prelude.<$> start,
             ("timestampOffset" Core..=)
               Prelude.<$> timestampOffset,
-            ("start" Core..=) Prelude.<$> start
+            ("anchor" Core..=) Prelude.<$> anchor,
+            ("source" Core..=) Prelude.<$> source
           ]
       )

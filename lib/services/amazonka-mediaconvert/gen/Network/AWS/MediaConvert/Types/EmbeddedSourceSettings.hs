@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEmbeddedSourceSettings' smart constructor.
 data EmbeddedSourceSettings = EmbeddedSourceSettings'
-  { -- | By default, the service terminates any unterminated captions at the end
-    -- of each input. If you want the caption to continue onto your next input,
-    -- disable this setting.
-    terminateCaptions :: Prelude.Maybe EmbeddedTerminateCaptions,
-    -- | Specify whether this set of input captions appears in your outputs in
+  { -- | Specify whether this set of input captions appears in your outputs in
     -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
     -- MediaConvert includes the captions data in two ways: it passes the 608
     -- data through using the 608 compatibility bytes fields of the 708
     -- wrapper, and it also translates the 608 data into 708.
     convert608To708 :: Prelude.Maybe EmbeddedConvert608To708,
+    -- | By default, the service terminates any unterminated captions at the end
+    -- of each input. If you want the caption to continue onto your next input,
+    -- disable this setting.
+    terminateCaptions :: Prelude.Maybe EmbeddedTerminateCaptions,
     -- | Specifies the video track index used for extracting captions. The system
     -- only supports one input video track, so this should always be set to
     -- \'1\'.
@@ -57,15 +57,15 @@ data EmbeddedSourceSettings = EmbeddedSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terminateCaptions', 'embeddedSourceSettings_terminateCaptions' - By default, the service terminates any unterminated captions at the end
--- of each input. If you want the caption to continue onto your next input,
--- disable this setting.
---
 -- 'convert608To708', 'embeddedSourceSettings_convert608To708' - Specify whether this set of input captions appears in your outputs in
 -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
 -- MediaConvert includes the captions data in two ways: it passes the 608
 -- data through using the 608 compatibility bytes fields of the 708
 -- wrapper, and it also translates the 608 data into 708.
+--
+-- 'terminateCaptions', 'embeddedSourceSettings_terminateCaptions' - By default, the service terminates any unterminated captions at the end
+-- of each input. If you want the caption to continue onto your next input,
+-- disable this setting.
 --
 -- 'source608TrackNumber', 'embeddedSourceSettings_source608TrackNumber' - Specifies the video track index used for extracting captions. The system
 -- only supports one input video track, so this should always be set to
@@ -77,18 +77,12 @@ newEmbeddedSourceSettings ::
   EmbeddedSourceSettings
 newEmbeddedSourceSettings =
   EmbeddedSourceSettings'
-    { terminateCaptions =
+    { convert608To708 =
         Prelude.Nothing,
-      convert608To708 = Prelude.Nothing,
+      terminateCaptions = Prelude.Nothing,
       source608TrackNumber = Prelude.Nothing,
       source608ChannelNumber = Prelude.Nothing
     }
-
--- | By default, the service terminates any unterminated captions at the end
--- of each input. If you want the caption to continue onto your next input,
--- disable this setting.
-embeddedSourceSettings_terminateCaptions :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedTerminateCaptions)
-embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {terminateCaptions} -> terminateCaptions) (\s@EmbeddedSourceSettings' {} a -> s {terminateCaptions = a} :: EmbeddedSourceSettings)
 
 -- | Specify whether this set of input captions appears in your outputs in
 -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
@@ -97,6 +91,12 @@ embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {
 -- wrapper, and it also translates the 608 data into 708.
 embeddedSourceSettings_convert608To708 :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedConvert608To708)
 embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {convert608To708} -> convert608To708) (\s@EmbeddedSourceSettings' {} a -> s {convert608To708 = a} :: EmbeddedSourceSettings)
+
+-- | By default, the service terminates any unterminated captions at the end
+-- of each input. If you want the caption to continue onto your next input,
+-- disable this setting.
+embeddedSourceSettings_terminateCaptions :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedTerminateCaptions)
+embeddedSourceSettings_terminateCaptions = Lens.lens (\EmbeddedSourceSettings' {terminateCaptions} -> terminateCaptions) (\s@EmbeddedSourceSettings' {} a -> s {terminateCaptions = a} :: EmbeddedSourceSettings)
 
 -- | Specifies the video track index used for extracting captions. The system
 -- only supports one input video track, so this should always be set to
@@ -115,8 +115,8 @@ instance Core.FromJSON EmbeddedSourceSettings where
       "EmbeddedSourceSettings"
       ( \x ->
           EmbeddedSourceSettings'
-            Prelude.<$> (x Core..:? "terminateCaptions")
-            Prelude.<*> (x Core..:? "convert608To708")
+            Prelude.<$> (x Core..:? "convert608To708")
+            Prelude.<*> (x Core..:? "terminateCaptions")
             Prelude.<*> (x Core..:? "source608TrackNumber")
             Prelude.<*> (x Core..:? "source608ChannelNumber")
       )
@@ -129,10 +129,10 @@ instance Core.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("terminateCaptions" Core..=)
-              Prelude.<$> terminateCaptions,
-            ("convert608To708" Core..=)
+          [ ("convert608To708" Core..=)
               Prelude.<$> convert608To708,
+            ("terminateCaptions" Core..=)
+              Prelude.<$> terminateCaptions,
             ("source608TrackNumber" Core..=)
               Prelude.<$> source608TrackNumber,
             ("source608ChannelNumber" Core..=)

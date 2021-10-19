@@ -29,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newWavSettings' smart constructor.
 data WavSettings = WavSettings'
-  { -- | The service defaults to using RIFF for WAV outputs. If your output audio
-    -- is likely to exceed 4 GB in file size, or if you otherwise need the
-    -- extended support of the RF64 format, set your output WAV file format to
-    -- RF64.
-    format :: Prelude.Maybe WavFormat,
+  { -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
+    -- quality for this audio track.
+    bitDepth :: Prelude.Maybe Prelude.Natural,
     -- | Specify the number of channels in this output audio track. Valid values
     -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
     -- to 64.
     channels :: Prelude.Maybe Prelude.Natural,
-    -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
-    -- quality for this audio track.
-    bitDepth :: Prelude.Maybe Prelude.Natural,
+    -- | The service defaults to using RIFF for WAV outputs. If your output audio
+    -- is likely to exceed 4 GB in file size, or if you otherwise need the
+    -- extended support of the RF64 format, set your output WAV file format to
+    -- RF64.
+    format :: Prelude.Maybe WavFormat,
     -- | Sample rate in Hz.
     sampleRate :: Prelude.Maybe Prelude.Natural
   }
@@ -54,35 +54,33 @@ data WavSettings = WavSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'format', 'wavSettings_format' - The service defaults to using RIFF for WAV outputs. If your output audio
--- is likely to exceed 4 GB in file size, or if you otherwise need the
--- extended support of the RF64 format, set your output WAV file format to
--- RF64.
+-- 'bitDepth', 'wavSettings_bitDepth' - Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
+-- quality for this audio track.
 --
 -- 'channels', 'wavSettings_channels' - Specify the number of channels in this output audio track. Valid values
 -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
 -- to 64.
 --
--- 'bitDepth', 'wavSettings_bitDepth' - Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
--- quality for this audio track.
+-- 'format', 'wavSettings_format' - The service defaults to using RIFF for WAV outputs. If your output audio
+-- is likely to exceed 4 GB in file size, or if you otherwise need the
+-- extended support of the RF64 format, set your output WAV file format to
+-- RF64.
 --
 -- 'sampleRate', 'wavSettings_sampleRate' - Sample rate in Hz.
 newWavSettings ::
   WavSettings
 newWavSettings =
   WavSettings'
-    { format = Prelude.Nothing,
+    { bitDepth = Prelude.Nothing,
       channels = Prelude.Nothing,
-      bitDepth = Prelude.Nothing,
+      format = Prelude.Nothing,
       sampleRate = Prelude.Nothing
     }
 
--- | The service defaults to using RIFF for WAV outputs. If your output audio
--- is likely to exceed 4 GB in file size, or if you otherwise need the
--- extended support of the RF64 format, set your output WAV file format to
--- RF64.
-wavSettings_format :: Lens.Lens' WavSettings (Prelude.Maybe WavFormat)
-wavSettings_format = Lens.lens (\WavSettings' {format} -> format) (\s@WavSettings' {} a -> s {format = a} :: WavSettings)
+-- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
+-- quality for this audio track.
+wavSettings_bitDepth :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
+wavSettings_bitDepth = Lens.lens (\WavSettings' {bitDepth} -> bitDepth) (\s@WavSettings' {} a -> s {bitDepth = a} :: WavSettings)
 
 -- | Specify the number of channels in this output audio track. Valid values
 -- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up
@@ -90,10 +88,12 @@ wavSettings_format = Lens.lens (\WavSettings' {format} -> format) (\s@WavSetting
 wavSettings_channels :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
 wavSettings_channels = Lens.lens (\WavSettings' {channels} -> channels) (\s@WavSettings' {} a -> s {channels = a} :: WavSettings)
 
--- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
--- quality for this audio track.
-wavSettings_bitDepth :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
-wavSettings_bitDepth = Lens.lens (\WavSettings' {bitDepth} -> bitDepth) (\s@WavSettings' {} a -> s {bitDepth = a} :: WavSettings)
+-- | The service defaults to using RIFF for WAV outputs. If your output audio
+-- is likely to exceed 4 GB in file size, or if you otherwise need the
+-- extended support of the RF64 format, set your output WAV file format to
+-- RF64.
+wavSettings_format :: Lens.Lens' WavSettings (Prelude.Maybe WavFormat)
+wavSettings_format = Lens.lens (\WavSettings' {format} -> format) (\s@WavSettings' {} a -> s {format = a} :: WavSettings)
 
 -- | Sample rate in Hz.
 wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Natural)
@@ -105,9 +105,9 @@ instance Core.FromJSON WavSettings where
       "WavSettings"
       ( \x ->
           WavSettings'
-            Prelude.<$> (x Core..:? "format")
+            Prelude.<$> (x Core..:? "bitDepth")
             Prelude.<*> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "bitDepth")
+            Prelude.<*> (x Core..:? "format")
             Prelude.<*> (x Core..:? "sampleRate")
       )
 
@@ -119,9 +119,9 @@ instance Core.ToJSON WavSettings where
   toJSON WavSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("format" Core..=) Prelude.<$> format,
+          [ ("bitDepth" Core..=) Prelude.<$> bitDepth,
             ("channels" Core..=) Prelude.<$> channels,
-            ("bitDepth" Core..=) Prelude.<$> bitDepth,
+            ("format" Core..=) Prelude.<$> format,
             ("sampleRate" Core..=) Prelude.<$> sampleRate
           ]
       )

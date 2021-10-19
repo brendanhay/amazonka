@@ -27,9 +27,9 @@ module Network.AWS.MediaConvert.UpdatePreset
     newUpdatePreset,
 
     -- * Request Lenses
+    updatePreset_settings,
     updatePreset_category,
     updatePreset_description,
-    updatePreset_settings,
     updatePreset_name,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdatePreset' smart constructor.
 data UpdatePreset = UpdatePreset'
-  { -- | The new category for the preset, if you are changing it.
+  { -- | Settings for preset
+    settings :: Prelude.Maybe PresetSettings,
+    -- | The new category for the preset, if you are changing it.
     category :: Prelude.Maybe Prelude.Text,
     -- | The new description for the preset, if you are changing it.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Settings for preset
-    settings :: Prelude.Maybe PresetSettings,
     -- | The name of the preset you are modifying.
     name :: Prelude.Text
   }
@@ -70,11 +70,11 @@ data UpdatePreset = UpdatePreset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settings', 'updatePreset_settings' - Settings for preset
+--
 -- 'category', 'updatePreset_category' - The new category for the preset, if you are changing it.
 --
 -- 'description', 'updatePreset_description' - The new description for the preset, if you are changing it.
---
--- 'settings', 'updatePreset_settings' - Settings for preset
 --
 -- 'name', 'updatePreset_name' - The name of the preset you are modifying.
 newUpdatePreset ::
@@ -83,11 +83,15 @@ newUpdatePreset ::
   UpdatePreset
 newUpdatePreset pName_ =
   UpdatePreset'
-    { category = Prelude.Nothing,
+    { settings = Prelude.Nothing,
+      category = Prelude.Nothing,
       description = Prelude.Nothing,
-      settings = Prelude.Nothing,
       name = pName_
     }
+
+-- | Settings for preset
+updatePreset_settings :: Lens.Lens' UpdatePreset (Prelude.Maybe PresetSettings)
+updatePreset_settings = Lens.lens (\UpdatePreset' {settings} -> settings) (\s@UpdatePreset' {} a -> s {settings = a} :: UpdatePreset)
 
 -- | The new category for the preset, if you are changing it.
 updatePreset_category :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
@@ -96,10 +100,6 @@ updatePreset_category = Lens.lens (\UpdatePreset' {category} -> category) (\s@Up
 -- | The new description for the preset, if you are changing it.
 updatePreset_description :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
 updatePreset_description = Lens.lens (\UpdatePreset' {description} -> description) (\s@UpdatePreset' {} a -> s {description = a} :: UpdatePreset)
-
--- | Settings for preset
-updatePreset_settings :: Lens.Lens' UpdatePreset (Prelude.Maybe PresetSettings)
-updatePreset_settings = Lens.lens (\UpdatePreset' {settings} -> settings) (\s@UpdatePreset' {} a -> s {settings = a} :: UpdatePreset)
 
 -- | The name of the preset you are modifying.
 updatePreset_name :: Lens.Lens' UpdatePreset Prelude.Text
@@ -135,9 +135,9 @@ instance Core.ToJSON UpdatePreset where
   toJSON UpdatePreset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("category" Core..=) Prelude.<$> category,
-            ("description" Core..=) Prelude.<$> description,
-            ("settings" Core..=) Prelude.<$> settings
+          [ ("settings" Core..=) Prelude.<$> settings,
+            ("category" Core..=) Prelude.<$> category,
+            ("description" Core..=) Prelude.<$> description
           ]
       )
 

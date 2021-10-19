@@ -80,7 +80,7 @@ newTeletextDestinationSettings =
 -- data, don\'t use this field. When you pass through a set of Teletext
 -- pages, your output has the same page types as your input.
 teletextDestinationSettings_pageTypes :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe [TeletextPageType])
-teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Prelude.. Lens.mapping Lens._Coerce
+teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set pageNumber to the Teletext page number for the destination captions
 -- for this output. This value must be a three-digit hexadecimal string;

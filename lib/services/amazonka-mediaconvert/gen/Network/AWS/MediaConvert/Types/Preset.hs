@@ -31,19 +31,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPreset' smart constructor.
 data Preset = Preset'
-  { -- | An optional category you create to organize your presets.
-    category :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp in epoch seconds for preset creation.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The timestamp in epoch seconds when the preset was last updated.
+    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | An identifier for this resource that is unique within all of AWS.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp in epoch seconds when the preset was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | An optional description you create for each preset.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp in epoch seconds for preset creation.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | An optional category you create to organize your presets.
+    category :: Prelude.Maybe Prelude.Text,
     -- | A preset can be of two types: system or custom. System or built-in
     -- preset can\'t be modified or deleted by the user.
     type' :: Prelude.Maybe Type,
+    -- | An optional description you create for each preset.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Settings for preset
     settings :: PresetSettings,
     -- | A name you create for each preset. Each name must be unique within your
@@ -60,18 +60,18 @@ data Preset = Preset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'category', 'preset_category' - An optional category you create to organize your presets.
---
--- 'createdAt', 'preset_createdAt' - The timestamp in epoch seconds for preset creation.
+-- 'lastUpdated', 'preset_lastUpdated' - The timestamp in epoch seconds when the preset was last updated.
 --
 -- 'arn', 'preset_arn' - An identifier for this resource that is unique within all of AWS.
 --
--- 'lastUpdated', 'preset_lastUpdated' - The timestamp in epoch seconds when the preset was last updated.
+-- 'createdAt', 'preset_createdAt' - The timestamp in epoch seconds for preset creation.
 --
--- 'description', 'preset_description' - An optional description you create for each preset.
+-- 'category', 'preset_category' - An optional category you create to organize your presets.
 --
 -- 'type'', 'preset_type' - A preset can be of two types: system or custom. System or built-in
 -- preset can\'t be modified or deleted by the user.
+--
+-- 'description', 'preset_description' - An optional description you create for each preset.
 --
 -- 'settings', 'preset_settings' - Settings for preset
 --
@@ -85,40 +85,40 @@ newPreset ::
   Preset
 newPreset pSettings_ pName_ =
   Preset'
-    { category = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { lastUpdated = Prelude.Nothing,
       arn = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      description = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      category = Prelude.Nothing,
       type' = Prelude.Nothing,
+      description = Prelude.Nothing,
       settings = pSettings_,
       name = pName_
     }
-
--- | An optional category you create to organize your presets.
-preset_category :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
-preset_category = Lens.lens (\Preset' {category} -> category) (\s@Preset' {} a -> s {category = a} :: Preset)
-
--- | The timestamp in epoch seconds for preset creation.
-preset_createdAt :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
-preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Core._Time
-
--- | An identifier for this resource that is unique within all of AWS.
-preset_arn :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
-preset_arn = Lens.lens (\Preset' {arn} -> arn) (\s@Preset' {} a -> s {arn = a} :: Preset)
 
 -- | The timestamp in epoch seconds when the preset was last updated.
 preset_lastUpdated :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
 preset_lastUpdated = Lens.lens (\Preset' {lastUpdated} -> lastUpdated) (\s@Preset' {} a -> s {lastUpdated = a} :: Preset) Prelude.. Lens.mapping Core._Time
 
--- | An optional description you create for each preset.
-preset_description :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
-preset_description = Lens.lens (\Preset' {description} -> description) (\s@Preset' {} a -> s {description = a} :: Preset)
+-- | An identifier for this resource that is unique within all of AWS.
+preset_arn :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_arn = Lens.lens (\Preset' {arn} -> arn) (\s@Preset' {} a -> s {arn = a} :: Preset)
+
+-- | The timestamp in epoch seconds for preset creation.
+preset_createdAt :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
+preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Core._Time
+
+-- | An optional category you create to organize your presets.
+preset_category :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_category = Lens.lens (\Preset' {category} -> category) (\s@Preset' {} a -> s {category = a} :: Preset)
 
 -- | A preset can be of two types: system or custom. System or built-in
 -- preset can\'t be modified or deleted by the user.
 preset_type :: Lens.Lens' Preset (Prelude.Maybe Type)
 preset_type = Lens.lens (\Preset' {type'} -> type') (\s@Preset' {} a -> s {type' = a} :: Preset)
+
+-- | An optional description you create for each preset.
+preset_description :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_description = Lens.lens (\Preset' {description} -> description) (\s@Preset' {} a -> s {description = a} :: Preset)
 
 -- | Settings for preset
 preset_settings :: Lens.Lens' Preset PresetSettings
@@ -135,12 +135,12 @@ instance Core.FromJSON Preset where
       "Preset"
       ( \x ->
           Preset'
-            Prelude.<$> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "lastUpdated")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "category")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "settings")
             Prelude.<*> (x Core..: "name")
       )

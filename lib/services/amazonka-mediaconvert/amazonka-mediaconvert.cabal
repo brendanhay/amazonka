@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-mediaconvert
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Elemental MediaConvert SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -53,12 +53,14 @@ library
     Network.AWS.MediaConvert.CreatePreset
     Network.AWS.MediaConvert.CreateQueue
     Network.AWS.MediaConvert.DeleteJobTemplate
+    Network.AWS.MediaConvert.DeletePolicy
     Network.AWS.MediaConvert.DeletePreset
     Network.AWS.MediaConvert.DeleteQueue
     Network.AWS.MediaConvert.DescribeEndpoints
     Network.AWS.MediaConvert.DisassociateCertificate
     Network.AWS.MediaConvert.GetJob
     Network.AWS.MediaConvert.GetJobTemplate
+    Network.AWS.MediaConvert.GetPolicy
     Network.AWS.MediaConvert.GetPreset
     Network.AWS.MediaConvert.GetQueue
     Network.AWS.MediaConvert.Lens
@@ -67,6 +69,7 @@ library
     Network.AWS.MediaConvert.ListPresets
     Network.AWS.MediaConvert.ListQueues
     Network.AWS.MediaConvert.ListTagsForResource
+    Network.AWS.MediaConvert.PutPolicy
     Network.AWS.MediaConvert.TagResource
     Network.AWS.MediaConvert.Types
     Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
@@ -371,6 +374,7 @@ library
     Network.AWS.MediaConvert.Types.InputDecryptionSettings
     Network.AWS.MediaConvert.Types.InputDenoiseFilter
     Network.AWS.MediaConvert.Types.InputFilterEnable
+    Network.AWS.MediaConvert.Types.InputPolicy
     Network.AWS.MediaConvert.Types.InputPsiControl
     Network.AWS.MediaConvert.Types.InputRotate
     Network.AWS.MediaConvert.Types.InputSampleRange
@@ -489,6 +493,7 @@ library
     Network.AWS.MediaConvert.Types.OutputSdt
     Network.AWS.MediaConvert.Types.OutputSettings
     Network.AWS.MediaConvert.Types.PartnerWatermarking
+    Network.AWS.MediaConvert.Types.Policy
     Network.AWS.MediaConvert.Types.Preset
     Network.AWS.MediaConvert.Types.PresetListBy
     Network.AWS.MediaConvert.Types.PresetSettings
@@ -614,8 +619,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-mediaconvert-test
   type:             exitcode-stdio-1.0
@@ -633,9 +638,9 @@ test-suite amazonka-mediaconvert-test
     Test.AWS.MediaConvert.Internal
 
   build-depends:
-    , amazonka               >=1.6.1 && <1.6.2
+    , amazonka               ^>=2.0
     , amazonka-mediaconvert
-    , amazonka-test          >=1.6.1 && <1.6.2
+    , amazonka-test          ^>=2.0
     , base
     , bytestring
     , case-insensitive

@@ -53,24 +53,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newH264Settings' smart constructor.
 data H264Settings = H264Settings'
-  { -- | Only use this setting when you change the default value, AUTO, for the
-    -- setting H264AdaptiveQuantization. When you keep all defaults, excluding
-    -- H264AdaptiveQuantization and all other adaptive quantization from your
-    -- JSON job specification, MediaConvert automatically applies the best
-    -- types of quantization for your video content. When you set
-    -- H264AdaptiveQuantization to a value other than AUTO, the default value
-    -- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
-    -- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
-    -- a visual flicker that can arise when the encoder saves bits by copying
-    -- some macroblocks many times from frame to frame, and then refreshes them
-    -- at the I-frame. When you enable this setting, the encoder updates these
-    -- macroblocks slightly more often to smooth out the flicker. To manually
-    -- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
-    -- quantization (H264AdaptiveQuantization) to a value other than AUTO.
-    flickerAdaptiveQuantization :: Prelude.Maybe H264FlickerAdaptiveQuantization,
-    -- | Percentage of the buffer that should initially be filled (HRD buffer
-    -- model).
-    hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
+  { -- | Inserts timecode for each frame as 4 bytes of an unregistered SEI
+    -- message.
+    unregisteredSeiTimecode :: Prelude.Maybe H264UnregisteredSeiTimecode,
+    -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
+    -- you want to trade off encoding speed for output video quality. The
+    -- default behavior is faster, lower quality, single-pass encoding.
+    qualityTuningLevel :: Prelude.Maybe H264QualityTuningLevel,
     -- | Only use this setting when you change the default value, AUTO, for the
     -- setting H264AdaptiveQuantization. When you keep all defaults, excluding
     -- H264AdaptiveQuantization and all other adaptive quantization from your
@@ -96,10 +85,82 @@ data H264Settings = H264Settings'
     -- H264TemporalAdaptiveQuantization, you must set Adaptive quantization
     -- (H264AdaptiveQuantization) to a value other than AUTO.
     temporalAdaptiveQuantization :: Prelude.Maybe H264TemporalAdaptiveQuantization,
-    -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
-    -- you want to trade off encoding speed for output video quality. The
-    -- default behavior is faster, lower quality, single-pass encoding.
-    qualityTuningLevel :: Prelude.Maybe H264QualityTuningLevel,
+    -- | Enable this setting to insert I-frames at scene changes that the service
+    -- automatically detects. This improves video quality and is enabled by
+    -- default. If this output uses QVBR, choose Transition detection
+    -- (TRANSITION_DETECTION) for further video quality improvement. For more
+    -- information about QVBR, see
+    -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
+    sceneChangeDetect :: Prelude.Maybe H264SceneChangeDetect,
+    -- | Percentage of the buffer that should initially be filled (HRD buffer
+    -- model).
+    hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
+    -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
+    -- per second (fps). Enable slow PAL to create a 25 fps output. When you
+    -- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
+    -- resamples your audio to keep it synchronized with the video. Note that
+    -- enabling this setting will slightly reduce the duration of your video.
+    -- Required settings: You must also set Framerate to 25. In your JSON job
+    -- specification, set (framerateControl) to (SPECIFIED),
+    -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
+    slowPal :: Prelude.Maybe H264SlowPal,
+    -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+    -- the console, this corresponds to any value other than Follow source.
+    -- When you specify an output pixel aspect ratio (PAR) that is different
+    -- from your input video PAR, provide your output PAR as a ratio. For
+    -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+    -- In this example, the value for parNumerator is 40.
+    parNumerator :: Prelude.Maybe Prelude.Natural,
+    -- | GOP Length (keyframe interval) in frames or seconds. Must be greater
+    -- than zero.
+    gopSize :: Prelude.Maybe Prelude.Double,
+    -- | Specify the number of B-frames that MediaConvert puts between reference
+    -- frames in this output. Valid values are whole numbers from 0 through 7.
+    -- When you don\'t specify a value, MediaConvert defaults to 2.
+    numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates if the GOP Size in H264 is specified in frames or seconds. If
+    -- seconds the system will convert the GOP Size into a frame count at run
+    -- time.
+    gopSizeUnits :: Prelude.Maybe H264GopSizeUnits,
+    -- | Size of buffer (HRD buffer model) in bits. For example, enter five
+    -- megabits as 5000000.
+    hrdBufferSize :: Prelude.Maybe Prelude.Natural,
+    -- | Number of slices per picture. Must be less than or equal to the number
+    -- of macroblock rows for progressive pictures, and less than or equal to
+    -- half the number of macroblock rows for interlaced pictures.
+    slices :: Prelude.Maybe Prelude.Natural,
+    -- | Use this setting to specify whether this output has a variable bitrate
+    -- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
+    -- (QVBR).
+    rateControlMode :: Prelude.Maybe H264RateControlMode,
+    -- | Number of reference frames to use. The encoder may use more than
+    -- requested if using B-frames and\/or interlaced encoding.
+    numberReferenceFrames :: Prelude.Maybe Prelude.Natural,
+    -- | When you do frame rate conversion from 23.976 frames per second (fps) to
+    -- 29.97 fps, and your output scan type is interlaced, you can optionally
+    -- enable hard or soft telecine to create a smoother picture. Hard telecine
+    -- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
+    -- with a 23.976 output that signals to the video player device to do the
+    -- conversion during play back. When you keep the default value, None
+    -- (NONE), MediaConvert does a standard frame rate conversion to 29.97
+    -- without doing anything with the field polarity to create a smoother
+    -- picture.
+    telecine :: Prelude.Maybe H264Telecine,
+    -- | Choose Adaptive to improve subjective video quality for high-motion
+    -- content. This will cause the service to use fewer B-frames (which infer
+    -- information based on other frames) for high-motion portions of the video
+    -- and more B-frames for low-motion portions. The maximum number of
+    -- B-frames is limited by the value you provide for the setting B frames
+    -- between reference frames (numberBFramesBetweenReferenceFrames).
+    dynamicSubGop :: Prelude.Maybe H264DynamicSubGop,
+    -- | Enforces separation between repeated (cadence) I-frames and I-frames
+    -- inserted by Scene Change Detection. If a scene change I-frame is within
+    -- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
+    -- stretched to the scene change I-frame. GOP stretch requires enabling
+    -- lookahead as well as setting I-interval. The normal cadence resumes for
+    -- the next GOP. This setting is only used when Scene Change Detect is
+    -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+    minIInterval :: Prelude.Maybe Prelude.Natural,
     -- | Choose the scan line type for the output. Keep the default value,
     -- Progressive (PROGRESSIVE) to create a progressive output, regardless of
     -- the scan type of your input. Use Top field first (TOP_FIELD) or Bottom
@@ -114,8 +175,158 @@ data H264Settings = H264Settings'
     -- output will be interlaced with top field bottom field first, depending
     -- on which of the Follow options you choose.
     interlaceMode :: Prelude.Maybe H264InterlaceMode,
+    -- | Optional. Specify how the service determines the pixel aspect ratio
+    -- (PAR) for this output. The default behavior, Follow source
+    -- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+    -- output. To specify a different PAR in the console, choose any value
+    -- other than Follow source. To specify a different PAR by editing the JSON
+    -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+    -- setting, you must also specify values for the parNumerator and
+    -- parDenominator settings.
+    parControl :: Prelude.Maybe H264ParControl,
     -- | Places a PPS header on each encoded picture, even if repeated.
     repeatPps :: Prelude.Maybe H264RepeatPps,
+    -- | Use this setting for interlaced outputs, when your output frame rate is
+    -- half of your input frame rate. In this situation, choose Optimized
+    -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
+    -- output. In this case, each progressive frame from the input corresponds
+    -- to an interlaced field in the output. Keep the default value, Basic
+    -- interlacing (INTERLACED), for all other output frame rates. With basic
+    -- interlacing, MediaConvert performs any frame rate conversion first and
+    -- then interlaces the frames. When you choose Optimized interlacing and
+    -- you set your output frame rate to a value that isn\'t suitable for
+    -- optimized interlacing, MediaConvert automatically falls back to basic
+    -- interlacing. Required settings: To use optimized interlacing, you must
+    -- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
+    -- optimized interlacing for hard telecine outputs. You must also set
+    -- Interlace mode (interlaceMode) to a value other than Progressive
+    -- (PROGRESSIVE).
+    scanTypeConversionMode :: Prelude.Maybe H264ScanTypeConversionMode,
+    -- | Only use this setting when you change the default value, AUTO, for the
+    -- setting H264AdaptiveQuantization. When you keep all defaults, excluding
+    -- H264AdaptiveQuantization and all other adaptive quantization from your
+    -- JSON job specification, MediaConvert automatically applies the best
+    -- types of quantization for your video content. When you set
+    -- H264AdaptiveQuantization to a value other than AUTO, the default value
+    -- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
+    -- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
+    -- a visual flicker that can arise when the encoder saves bits by copying
+    -- some macroblocks many times from frame to frame, and then refreshes them
+    -- at the I-frame. When you enable this setting, the encoder updates these
+    -- macroblocks slightly more often to smooth out the flicker. To manually
+    -- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
+    -- quantization (H264AdaptiveQuantization) to a value other than AUTO.
+    flickerAdaptiveQuantization :: Prelude.Maybe H264FlickerAdaptiveQuantization,
+    -- | Settings for quality-defined variable bitrate encoding with the H.265
+    -- codec. Use these settings only when you set QVBR for Rate control mode
+    -- (RateControlMode).
+    qvbrSettings :: Prelude.Maybe H264QvbrSettings,
+    -- | Ignore this setting unless you need to comply with a specification that
+    -- requires a specific value. If you don\'t have a specification
+    -- requirement, we recommend that you adjust the softness of your output by
+    -- using a lower value for the setting Sharpness (sharpness) or by enabling
+    -- a noise reducer filter (noiseReducerFilter). The Softness (softness)
+    -- setting specifies the quantization matrices that the encoder uses. Keep
+    -- the default value, 0, for flat quantization. Choose the value 1 or 16 to
+    -- use the default JVT softening quantization matricies from the H.264
+    -- specification. Choose a value from 17 to 128 to use planar
+    -- interpolation. Increasing values from 17 to 128 result in increasing
+    -- reduction of high-frequency data. The value 128 results in the softest
+    -- video.
+    softness :: Prelude.Maybe Prelude.Natural,
+    -- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
+    -- the AVC-I License.
+    codecProfile :: Prelude.Maybe H264CodecProfile,
+    -- | Specify the average bitrate in bits per second. Required for VBR and
+    -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
+    -- the nearest multiple of 1000.
+    bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+    -- fraction. In this example, use 1001 for the value of
+    -- FramerateDenominator. When you use the console for transcode jobs that
+    -- use frame rate conversion, provide the value as a decimal number for
+    -- Framerate. In this example, specify 23.976.
+    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Choose the method that you want MediaConvert to use when increasing or
+    -- decreasing the frame rate. We recommend using drop duplicate
+    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
+    -- 30 fps. For numerically complex conversions, you can use interpolate
+    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
+    -- might introduce undesirable video artifacts. For complex frame rate
+    -- conversions, especially if your source video has already been converted
+    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
+    -- motion-compensated interpolation. FrameFormer chooses the best
+    -- conversion method frame by frame. Note that using FrameFormer increases
+    -- the transcoding time and incurs a significant add-on cost.
+    framerateConversionAlgorithm :: Prelude.Maybe H264FramerateConversionAlgorithm,
+    -- | Specify an H.264 level that is consistent with your output video
+    -- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
+    codecLevel :: Prelude.Maybe H264CodecLevel,
+    -- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or
+    -- CAVLC.
+    entropyEncoding :: Prelude.Maybe H264EntropyEncoding,
+    -- | If you are using the console, use the Framerate setting to specify the
+    -- frame rate for this output. If you want to keep the same frame rate as
+    -- the input video, choose Follow source. If you want to do frame rate
+    -- conversion, choose a frame rate from the dropdown list or choose Custom.
+    -- The framerates shown in the dropdown list are decimal approximations of
+    -- fractions. If you choose Custom, specify your frame rate as a fraction.
+    -- If you are creating your transcoding job specification as a JSON file
+    -- without the console, use FramerateControl to specify which value the
+    -- service uses for the frame rate for this output. Choose
+    -- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+    -- from the input. Choose SPECIFIED if you want the service to use the
+    -- frame rate you specify in the settings FramerateNumerator and
+    -- FramerateDenominator.
+    framerateControl :: Prelude.Maybe H264FramerateControl,
+    -- | Keep the default value, Auto (AUTO), for this setting to have
+    -- MediaConvert automatically apply the best types of quantization for your
+    -- video content. When you want to apply your quantization settings
+    -- manually, you must set H264AdaptiveQuantization to a value other than
+    -- Auto (AUTO). Use this setting to specify the strength of any adaptive
+    -- quantization filters that you enable. If you don\'t want MediaConvert to
+    -- do any adaptive quantization in this transcode, set Adaptive
+    -- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
+    -- The value that you choose here applies to the following settings:
+    -- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
+    -- H264TemporalAdaptiveQuantization.
+    adaptiveQuantization :: Prelude.Maybe H264AdaptiveQuantization,
+    -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+    -- fraction. In this example, use 24000 for the value of
+    -- FramerateNumerator. When you use the console for transcode jobs that use
+    -- frame rate conversion, provide the value as a decimal number for
+    -- Framerate. In this example, specify 23.976.
+    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    -- | If enable, use reference B frames for GOP structures that have B frames
+    -- > 1.
+    gopBReference :: Prelude.Maybe H264GopBReference,
+    -- | Maximum bitrate in bits\/second. For example, enter five megabits per
+    -- second as 5000000. Required when Rate control mode is QVBR.
+    maxBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Produces a bitstream compliant with SMPTE RP-2027.
+    syntax :: Prelude.Maybe H264Syntax,
+    -- | The video encoding method for your MPEG-4 AVC output. Keep the default
+    -- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
+    -- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
+    -- create separate interlaced fields. Choose MBAFF to disable PAFF and have
+    -- MediaConvert use MBAFF encoding for interlaced outputs.
+    fieldEncoding :: Prelude.Maybe H264FieldEncoding,
+    -- | Frequency of closed GOPs. In streaming applications, it is recommended
+    -- that this be set to 1 so a decoder joining mid-stream will receive an
+    -- IDR frame as quickly as possible. Setting this value to 0 will break
+    -- output segmenting.
+    gopClosedCadence :: Prelude.Maybe Prelude.Natural,
+    -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+    -- the console, this corresponds to any value other than Follow source.
+    -- When you specify an output pixel aspect ratio (PAR) that is different
+    -- from your input video PAR, provide your output PAR as a ratio. For
+    -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+    -- In this example, the value for parDenominator is 33.
+    parDenominator :: Prelude.Maybe Prelude.Natural,
     -- | Only use this setting when you change the default value, Auto (AUTO),
     -- for the setting H264AdaptiveQuantization. When you keep all defaults,
     -- excluding H264AdaptiveQuantization and all other adaptive quantization
@@ -142,218 +353,7 @@ data H264Settings = H264Settings'
     -- or Higher. To manually enable or disable
     -- H264SpatialAdaptiveQuantization, you must set Adaptive quantization
     -- (H264AdaptiveQuantization) to a value other than AUTO.
-    spatialAdaptiveQuantization :: Prelude.Maybe H264SpatialAdaptiveQuantization,
-    -- | If enable, use reference B frames for GOP structures that have B frames
-    -- > 1.
-    gopBReference :: Prelude.Maybe H264GopBReference,
-    -- | The video encoding method for your MPEG-4 AVC output. Keep the default
-    -- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
-    -- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
-    -- create separate interlaced fields. Choose MBAFF to disable PAFF and have
-    -- MediaConvert use MBAFF encoding for interlaced outputs.
-    fieldEncoding :: Prelude.Maybe H264FieldEncoding,
-    -- | When you do frame rate conversion from 23.976 frames per second (fps) to
-    -- 29.97 fps, and your output scan type is interlaced, you can optionally
-    -- enable hard or soft telecine to create a smoother picture. Hard telecine
-    -- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
-    -- with a 23.976 output that signals to the video player device to do the
-    -- conversion during play back. When you keep the default value, None
-    -- (NONE), MediaConvert does a standard frame rate conversion to 29.97
-    -- without doing anything with the field polarity to create a smoother
-    -- picture.
-    telecine :: Prelude.Maybe H264Telecine,
-    -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
-    -- fraction. In this example, use 24000 for the value of
-    -- FramerateNumerator. When you use the console for transcode jobs that use
-    -- frame rate conversion, provide the value as a decimal number for
-    -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Use this setting to specify whether this output has a variable bitrate
-    -- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
-    -- (QVBR).
-    rateControlMode :: Prelude.Maybe H264RateControlMode,
-    -- | Number of reference frames to use. The encoder may use more than
-    -- requested if using B-frames and\/or interlaced encoding.
-    numberReferenceFrames :: Prelude.Maybe Prelude.Natural,
-    -- | Number of slices per picture. Must be less than or equal to the number
-    -- of macroblock rows for progressive pictures, and less than or equal to
-    -- half the number of macroblock rows for interlaced pictures.
-    slices :: Prelude.Maybe Prelude.Natural,
-    -- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or
-    -- CAVLC.
-    entropyEncoding :: Prelude.Maybe H264EntropyEncoding,
-    -- | Indicates if the GOP Size in H264 is specified in frames or seconds. If
-    -- seconds the system will convert the GOP Size into a frame count at run
-    -- time.
-    gopSizeUnits :: Prelude.Maybe H264GopSizeUnits,
-    -- | Ignore this setting unless you need to comply with a specification that
-    -- requires a specific value. If you don\'t have a specification
-    -- requirement, we recommend that you adjust the softness of your output by
-    -- using a lower value for the setting Sharpness (sharpness) or by enabling
-    -- a noise reducer filter (noiseReducerFilter). The Softness (softness)
-    -- setting specifies the quantization matrices that the encoder uses. Keep
-    -- the default value, 0, for flat quantization. Choose the value 1 or 16 to
-    -- use the default JVT softening quantization matricies from the H.264
-    -- specification. Choose a value from 17 to 128 to use planar
-    -- interpolation. Increasing values from 17 to 128 result in increasing
-    -- reduction of high-frequency data. The value 128 results in the softest
-    -- video.
-    softness :: Prelude.Maybe Prelude.Natural,
-    -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
-    -- fraction. In this example, use 1001 for the value of
-    -- FramerateDenominator. When you use the console for transcode jobs that
-    -- use frame rate conversion, provide the value as a decimal number for
-    -- Framerate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
-    -- | GOP Length (keyframe interval) in frames or seconds. Must be greater
-    -- than zero.
-    gopSize :: Prelude.Maybe Prelude.Double,
-    -- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
-    -- the AVC-I License.
-    codecProfile :: Prelude.Maybe H264CodecProfile,
-    -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
-    -- the console, this corresponds to any value other than Follow source.
-    -- When you specify an output pixel aspect ratio (PAR) that is different
-    -- from your input video PAR, provide your output PAR as a ratio. For
-    -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
-    -- In this example, the value for parNumerator is 40.
-    parNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Enable this setting to insert I-frames at scene changes that the service
-    -- automatically detects. This improves video quality and is enabled by
-    -- default. If this output uses QVBR, choose Transition detection
-    -- (TRANSITION_DETECTION) for further video quality improvement. For more
-    -- information about QVBR, see
-    -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
-    sceneChangeDetect :: Prelude.Maybe H264SceneChangeDetect,
-    -- | Inserts timecode for each frame as 4 bytes of an unregistered SEI
-    -- message.
-    unregisteredSeiTimecode :: Prelude.Maybe H264UnregisteredSeiTimecode,
-    -- | Optional. Specify how the service determines the pixel aspect ratio
-    -- (PAR) for this output. The default behavior, Follow source
-    -- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
-    -- output. To specify a different PAR in the console, choose any value
-    -- other than Follow source. To specify a different PAR by editing the JSON
-    -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
-    -- setting, you must also specify values for the parNumerator and
-    -- parDenominator settings.
-    parControl :: Prelude.Maybe H264ParControl,
-    -- | Use this setting for interlaced outputs, when your output frame rate is
-    -- half of your input frame rate. In this situation, choose Optimized
-    -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
-    -- output. In this case, each progressive frame from the input corresponds
-    -- to an interlaced field in the output. Keep the default value, Basic
-    -- interlacing (INTERLACED), for all other output frame rates. With basic
-    -- interlacing, MediaConvert performs any frame rate conversion first and
-    -- then interlaces the frames. When you choose Optimized interlacing and
-    -- you set your output frame rate to a value that isn\'t suitable for
-    -- optimized interlacing, MediaConvert automatically falls back to basic
-    -- interlacing. Required settings: To use optimized interlacing, you must
-    -- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
-    -- optimized interlacing for hard telecine outputs. You must also set
-    -- Interlace mode (interlaceMode) to a value other than Progressive
-    -- (PROGRESSIVE).
-    scanTypeConversionMode :: Prelude.Maybe H264ScanTypeConversionMode,
-    -- | Enforces separation between repeated (cadence) I-frames and I-frames
-    -- inserted by Scene Change Detection. If a scene change I-frame is within
-    -- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
-    -- stretched to the scene change I-frame. GOP stretch requires enabling
-    -- lookahead as well as setting I-interval. The normal cadence resumes for
-    -- the next GOP. This setting is only used when Scene Change Detect is
-    -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-    minIInterval :: Prelude.Maybe Prelude.Natural,
-    -- | Frequency of closed GOPs. In streaming applications, it is recommended
-    -- that this be set to 1 so a decoder joining mid-stream will receive an
-    -- IDR frame as quickly as possible. Setting this value to 0 will break
-    -- output segmenting.
-    gopClosedCadence :: Prelude.Maybe Prelude.Natural,
-    -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
-    -- the console, this corresponds to any value other than Follow source.
-    -- When you specify an output pixel aspect ratio (PAR) that is different
-    -- from your input video PAR, provide your output PAR as a ratio. For
-    -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
-    -- In this example, the value for parDenominator is 33.
-    parDenominator :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum bitrate in bits\/second. For example, enter five megabits per
-    -- second as 5000000. Required when Rate control mode is QVBR.
-    maxBitrate :: Prelude.Maybe Prelude.Natural,
-    -- | Produces a bitstream compliant with SMPTE RP-2027.
-    syntax :: Prelude.Maybe H264Syntax,
-    -- | Choose Adaptive to improve subjective video quality for high-motion
-    -- content. This will cause the service to use fewer B-frames (which infer
-    -- information based on other frames) for high-motion portions of the video
-    -- and more B-frames for low-motion portions. The maximum number of
-    -- B-frames is limited by the value you provide for the setting B frames
-    -- between reference frames (numberBFramesBetweenReferenceFrames).
-    dynamicSubGop :: Prelude.Maybe H264DynamicSubGop,
-    -- | Size of buffer (HRD buffer model) in bits. For example, enter five
-    -- megabits as 5000000.
-    hrdBufferSize :: Prelude.Maybe Prelude.Natural,
-    -- | Keep the default value, Auto (AUTO), for this setting to have
-    -- MediaConvert automatically apply the best types of quantization for your
-    -- video content. When you want to apply your quantization settings
-    -- manually, you must set H264AdaptiveQuantization to a value other than
-    -- Auto (AUTO). Use this setting to specify the strength of any adaptive
-    -- quantization filters that you enable. If you don\'t want MediaConvert to
-    -- do any adaptive quantization in this transcode, set Adaptive
-    -- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
-    -- The value that you choose here applies to the following settings:
-    -- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
-    -- H264TemporalAdaptiveQuantization.
-    adaptiveQuantization :: Prelude.Maybe H264AdaptiveQuantization,
-    -- | If you are using the console, use the Framerate setting to specify the
-    -- frame rate for this output. If you want to keep the same frame rate as
-    -- the input video, choose Follow source. If you want to do frame rate
-    -- conversion, choose a frame rate from the dropdown list or choose Custom.
-    -- The framerates shown in the dropdown list are decimal approximations of
-    -- fractions. If you choose Custom, specify your frame rate as a fraction.
-    -- If you are creating your transcoding job specification as a JSON file
-    -- without the console, use FramerateControl to specify which value the
-    -- service uses for the frame rate for this output. Choose
-    -- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
-    -- from the input. Choose SPECIFIED if you want the service to use the
-    -- frame rate you specify in the settings FramerateNumerator and
-    -- FramerateDenominator.
-    framerateControl :: Prelude.Maybe H264FramerateControl,
-    -- | Specify an H.264 level that is consistent with your output video
-    -- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
-    codecLevel :: Prelude.Maybe H264CodecLevel,
-    -- | Choose the method that you want MediaConvert to use when increasing or
-    -- decreasing the frame rate. We recommend using drop duplicate
-    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
-    -- 30 fps. For numerically complex conversions, you can use interpolate
-    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
-    -- might introduce undesirable video artifacts. For complex frame rate
-    -- conversions, especially if your source video has already been converted
-    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
-    -- motion-compensated interpolation. FrameFormer chooses the best
-    -- conversion method frame by frame. Note that using FrameFormer increases
-    -- the transcoding time and incurs a significant add-on cost.
-    framerateConversionAlgorithm :: Prelude.Maybe H264FramerateConversionAlgorithm,
-    -- | Specify the number of B-frames that MediaConvert puts between reference
-    -- frames in this output. Valid values are whole numbers from 0 through 7.
-    -- When you don\'t specify a value, MediaConvert defaults to 2.
-    numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the average bitrate in bits per second. Required for VBR and
-    -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
-    -- the nearest multiple of 1000.
-    bitrate :: Prelude.Maybe Prelude.Natural,
-    -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
-    -- per second (fps). Enable slow PAL to create a 25 fps output. When you
-    -- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
-    -- resamples your audio to keep it synchronized with the video. Note that
-    -- enabling this setting will slightly reduce the duration of your video.
-    -- Required settings: You must also set Framerate to 25. In your JSON job
-    -- specification, set (framerateControl) to (SPECIFIED),
-    -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-    slowPal :: Prelude.Maybe H264SlowPal,
-    -- | Settings for quality-defined variable bitrate encoding with the H.265
-    -- codec. Use these settings only when you set QVBR for Rate control mode
-    -- (RateControlMode).
-    qvbrSettings :: Prelude.Maybe H264QvbrSettings
+    spatialAdaptiveQuantization :: Prelude.Maybe H264SpatialAdaptiveQuantization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -365,23 +365,12 @@ data H264Settings = H264Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flickerAdaptiveQuantization', 'h264Settings_flickerAdaptiveQuantization' - Only use this setting when you change the default value, AUTO, for the
--- setting H264AdaptiveQuantization. When you keep all defaults, excluding
--- H264AdaptiveQuantization and all other adaptive quantization from your
--- JSON job specification, MediaConvert automatically applies the best
--- types of quantization for your video content. When you set
--- H264AdaptiveQuantization to a value other than AUTO, the default value
--- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
--- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
--- a visual flicker that can arise when the encoder saves bits by copying
--- some macroblocks many times from frame to frame, and then refreshes them
--- at the I-frame. When you enable this setting, the encoder updates these
--- macroblocks slightly more often to smooth out the flicker. To manually
--- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
--- quantization (H264AdaptiveQuantization) to a value other than AUTO.
+-- 'unregisteredSeiTimecode', 'h264Settings_unregisteredSeiTimecode' - Inserts timecode for each frame as 4 bytes of an unregistered SEI
+-- message.
 --
--- 'hrdBufferInitialFillPercentage', 'h264Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
--- model).
+-- 'qualityTuningLevel', 'h264Settings_qualityTuningLevel' - Optional. Use Quality tuning level (qualityTuningLevel) to choose how
+-- you want to trade off encoding speed for output video quality. The
+-- default behavior is faster, lower quality, single-pass encoding.
 --
 -- 'temporalAdaptiveQuantization', 'h264Settings_temporalAdaptiveQuantization' - Only use this setting when you change the default value, AUTO, for the
 -- setting H264AdaptiveQuantization. When you keep all defaults, excluding
@@ -408,9 +397,81 @@ data H264Settings = H264Settings'
 -- H264TemporalAdaptiveQuantization, you must set Adaptive quantization
 -- (H264AdaptiveQuantization) to a value other than AUTO.
 --
--- 'qualityTuningLevel', 'h264Settings_qualityTuningLevel' - Optional. Use Quality tuning level (qualityTuningLevel) to choose how
--- you want to trade off encoding speed for output video quality. The
--- default behavior is faster, lower quality, single-pass encoding.
+-- 'sceneChangeDetect', 'h264Settings_sceneChangeDetect' - Enable this setting to insert I-frames at scene changes that the service
+-- automatically detects. This improves video quality and is enabled by
+-- default. If this output uses QVBR, choose Transition detection
+-- (TRANSITION_DETECTION) for further video quality improvement. For more
+-- information about QVBR, see
+-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
+--
+-- 'hrdBufferInitialFillPercentage', 'h264Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
+-- model).
+--
+-- 'slowPal', 'h264Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
+-- per second (fps). Enable slow PAL to create a 25 fps output. When you
+-- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
+-- resamples your audio to keep it synchronized with the video. Note that
+-- enabling this setting will slightly reduce the duration of your video.
+-- Required settings: You must also set Framerate to 25. In your JSON job
+-- specification, set (framerateControl) to (SPECIFIED),
+-- (framerateNumerator) to 25 and (framerateDenominator) to 1.
+--
+-- 'parNumerator', 'h264Settings_parNumerator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+-- the console, this corresponds to any value other than Follow source.
+-- When you specify an output pixel aspect ratio (PAR) that is different
+-- from your input video PAR, provide your output PAR as a ratio. For
+-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+-- In this example, the value for parNumerator is 40.
+--
+-- 'gopSize', 'h264Settings_gopSize' - GOP Length (keyframe interval) in frames or seconds. Must be greater
+-- than zero.
+--
+-- 'numberBFramesBetweenReferenceFrames', 'h264Settings_numberBFramesBetweenReferenceFrames' - Specify the number of B-frames that MediaConvert puts between reference
+-- frames in this output. Valid values are whole numbers from 0 through 7.
+-- When you don\'t specify a value, MediaConvert defaults to 2.
+--
+-- 'gopSizeUnits', 'h264Settings_gopSizeUnits' - Indicates if the GOP Size in H264 is specified in frames or seconds. If
+-- seconds the system will convert the GOP Size into a frame count at run
+-- time.
+--
+-- 'hrdBufferSize', 'h264Settings_hrdBufferSize' - Size of buffer (HRD buffer model) in bits. For example, enter five
+-- megabits as 5000000.
+--
+-- 'slices', 'h264Settings_slices' - Number of slices per picture. Must be less than or equal to the number
+-- of macroblock rows for progressive pictures, and less than or equal to
+-- half the number of macroblock rows for interlaced pictures.
+--
+-- 'rateControlMode', 'h264Settings_rateControlMode' - Use this setting to specify whether this output has a variable bitrate
+-- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
+-- (QVBR).
+--
+-- 'numberReferenceFrames', 'h264Settings_numberReferenceFrames' - Number of reference frames to use. The encoder may use more than
+-- requested if using B-frames and\/or interlaced encoding.
+--
+-- 'telecine', 'h264Settings_telecine' - When you do frame rate conversion from 23.976 frames per second (fps) to
+-- 29.97 fps, and your output scan type is interlaced, you can optionally
+-- enable hard or soft telecine to create a smoother picture. Hard telecine
+-- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
+-- with a 23.976 output that signals to the video player device to do the
+-- conversion during play back. When you keep the default value, None
+-- (NONE), MediaConvert does a standard frame rate conversion to 29.97
+-- without doing anything with the field polarity to create a smoother
+-- picture.
+--
+-- 'dynamicSubGop', 'h264Settings_dynamicSubGop' - Choose Adaptive to improve subjective video quality for high-motion
+-- content. This will cause the service to use fewer B-frames (which infer
+-- information based on other frames) for high-motion portions of the video
+-- and more B-frames for low-motion portions. The maximum number of
+-- B-frames is limited by the value you provide for the setting B frames
+-- between reference frames (numberBFramesBetweenReferenceFrames).
+--
+-- 'minIInterval', 'h264Settings_minIInterval' - Enforces separation between repeated (cadence) I-frames and I-frames
+-- inserted by Scene Change Detection. If a scene change I-frame is within
+-- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
+-- stretched to the scene change I-frame. GOP stretch requires enabling
+-- lookahead as well as setting I-interval. The normal cadence resumes for
+-- the next GOP. This setting is only used when Scene Change Detect is
+-- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
 --
 -- 'interlaceMode', 'h264Settings_interlaceMode' - Choose the scan line type for the output. Keep the default value,
 -- Progressive (PROGRESSIVE) to create a progressive output, regardless of
@@ -426,7 +487,157 @@ data H264Settings = H264Settings'
 -- output will be interlaced with top field bottom field first, depending
 -- on which of the Follow options you choose.
 --
+-- 'parControl', 'h264Settings_parControl' - Optional. Specify how the service determines the pixel aspect ratio
+-- (PAR) for this output. The default behavior, Follow source
+-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+-- output. To specify a different PAR in the console, choose any value
+-- other than Follow source. To specify a different PAR by editing the JSON
+-- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+-- setting, you must also specify values for the parNumerator and
+-- parDenominator settings.
+--
 -- 'repeatPps', 'h264Settings_repeatPps' - Places a PPS header on each encoded picture, even if repeated.
+--
+-- 'scanTypeConversionMode', 'h264Settings_scanTypeConversionMode' - Use this setting for interlaced outputs, when your output frame rate is
+-- half of your input frame rate. In this situation, choose Optimized
+-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
+-- output. In this case, each progressive frame from the input corresponds
+-- to an interlaced field in the output. Keep the default value, Basic
+-- interlacing (INTERLACED), for all other output frame rates. With basic
+-- interlacing, MediaConvert performs any frame rate conversion first and
+-- then interlaces the frames. When you choose Optimized interlacing and
+-- you set your output frame rate to a value that isn\'t suitable for
+-- optimized interlacing, MediaConvert automatically falls back to basic
+-- interlacing. Required settings: To use optimized interlacing, you must
+-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
+-- optimized interlacing for hard telecine outputs. You must also set
+-- Interlace mode (interlaceMode) to a value other than Progressive
+-- (PROGRESSIVE).
+--
+-- 'flickerAdaptiveQuantization', 'h264Settings_flickerAdaptiveQuantization' - Only use this setting when you change the default value, AUTO, for the
+-- setting H264AdaptiveQuantization. When you keep all defaults, excluding
+-- H264AdaptiveQuantization and all other adaptive quantization from your
+-- JSON job specification, MediaConvert automatically applies the best
+-- types of quantization for your video content. When you set
+-- H264AdaptiveQuantization to a value other than AUTO, the default value
+-- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
+-- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
+-- a visual flicker that can arise when the encoder saves bits by copying
+-- some macroblocks many times from frame to frame, and then refreshes them
+-- at the I-frame. When you enable this setting, the encoder updates these
+-- macroblocks slightly more often to smooth out the flicker. To manually
+-- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
+-- quantization (H264AdaptiveQuantization) to a value other than AUTO.
+--
+-- 'qvbrSettings', 'h264Settings_qvbrSettings' - Settings for quality-defined variable bitrate encoding with the H.265
+-- codec. Use these settings only when you set QVBR for Rate control mode
+-- (RateControlMode).
+--
+-- 'softness', 'h264Settings_softness' - Ignore this setting unless you need to comply with a specification that
+-- requires a specific value. If you don\'t have a specification
+-- requirement, we recommend that you adjust the softness of your output by
+-- using a lower value for the setting Sharpness (sharpness) or by enabling
+-- a noise reducer filter (noiseReducerFilter). The Softness (softness)
+-- setting specifies the quantization matrices that the encoder uses. Keep
+-- the default value, 0, for flat quantization. Choose the value 1 or 16 to
+-- use the default JVT softening quantization matricies from the H.264
+-- specification. Choose a value from 17 to 128 to use planar
+-- interpolation. Increasing values from 17 to 128 result in increasing
+-- reduction of high-frequency data. The value 128 results in the softest
+-- video.
+--
+-- 'codecProfile', 'h264Settings_codecProfile' - H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
+-- the AVC-I License.
+--
+-- 'bitrate', 'h264Settings_bitrate' - Specify the average bitrate in bits per second. Required for VBR and
+-- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
+-- the nearest multiple of 1000.
+--
+-- 'framerateDenominator', 'h264Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+--
+-- 'framerateConversionAlgorithm', 'h264Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
+-- decreasing the frame rate. We recommend using drop duplicate
+-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
+-- 30 fps. For numerically complex conversions, you can use interpolate
+-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
+-- might introduce undesirable video artifacts. For complex frame rate
+-- conversions, especially if your source video has already been converted
+-- from its original cadence, use FrameFormer (FRAMEFORMER) to do
+-- motion-compensated interpolation. FrameFormer chooses the best
+-- conversion method frame by frame. Note that using FrameFormer increases
+-- the transcoding time and incurs a significant add-on cost.
+--
+-- 'codecLevel', 'h264Settings_codecLevel' - Specify an H.264 level that is consistent with your output video
+-- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
+--
+-- 'entropyEncoding', 'h264Settings_entropyEncoding' - Entropy encoding mode. Use CABAC (must be in Main or High profile) or
+-- CAVLC.
+--
+-- 'framerateControl', 'h264Settings_framerateControl' - If you are using the console, use the Framerate setting to specify the
+-- frame rate for this output. If you want to keep the same frame rate as
+-- the input video, choose Follow source. If you want to do frame rate
+-- conversion, choose a frame rate from the dropdown list or choose Custom.
+-- The framerates shown in the dropdown list are decimal approximations of
+-- fractions. If you choose Custom, specify your frame rate as a fraction.
+-- If you are creating your transcoding job specification as a JSON file
+-- without the console, use FramerateControl to specify which value the
+-- service uses for the frame rate for this output. Choose
+-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+-- from the input. Choose SPECIFIED if you want the service to use the
+-- frame rate you specify in the settings FramerateNumerator and
+-- FramerateDenominator.
+--
+-- 'adaptiveQuantization', 'h264Settings_adaptiveQuantization' - Keep the default value, Auto (AUTO), for this setting to have
+-- MediaConvert automatically apply the best types of quantization for your
+-- video content. When you want to apply your quantization settings
+-- manually, you must set H264AdaptiveQuantization to a value other than
+-- Auto (AUTO). Use this setting to specify the strength of any adaptive
+-- quantization filters that you enable. If you don\'t want MediaConvert to
+-- do any adaptive quantization in this transcode, set Adaptive
+-- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
+-- The value that you choose here applies to the following settings:
+-- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
+-- H264TemporalAdaptiveQuantization.
+--
+-- 'framerateNumerator', 'h264Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+--
+-- 'gopBReference', 'h264Settings_gopBReference' - If enable, use reference B frames for GOP structures that have B frames
+-- > 1.
+--
+-- 'maxBitrate', 'h264Settings_maxBitrate' - Maximum bitrate in bits\/second. For example, enter five megabits per
+-- second as 5000000. Required when Rate control mode is QVBR.
+--
+-- 'syntax', 'h264Settings_syntax' - Produces a bitstream compliant with SMPTE RP-2027.
+--
+-- 'fieldEncoding', 'h264Settings_fieldEncoding' - The video encoding method for your MPEG-4 AVC output. Keep the default
+-- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
+-- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
+-- create separate interlaced fields. Choose MBAFF to disable PAFF and have
+-- MediaConvert use MBAFF encoding for interlaced outputs.
+--
+-- 'gopClosedCadence', 'h264Settings_gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended
+-- that this be set to 1 so a decoder joining mid-stream will receive an
+-- IDR frame as quickly as possible. Setting this value to 0 will break
+-- output segmenting.
+--
+-- 'parDenominator', 'h264Settings_parDenominator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+-- the console, this corresponds to any value other than Follow source.
+-- When you specify an output pixel aspect ratio (PAR) that is different
+-- from your input video PAR, provide your output PAR as a ratio. For
+-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+-- In this example, the value for parDenominator is 33.
 --
 -- 'spatialAdaptiveQuantization', 'h264Settings_spatialAdaptiveQuantization' - Only use this setting when you change the default value, Auto (AUTO),
 -- for the setting H264AdaptiveQuantization. When you keep all defaults,
@@ -454,286 +665,64 @@ data H264Settings = H264Settings'
 -- or Higher. To manually enable or disable
 -- H264SpatialAdaptiveQuantization, you must set Adaptive quantization
 -- (H264AdaptiveQuantization) to a value other than AUTO.
---
--- 'gopBReference', 'h264Settings_gopBReference' - If enable, use reference B frames for GOP structures that have B frames
--- > 1.
---
--- 'fieldEncoding', 'h264Settings_fieldEncoding' - The video encoding method for your MPEG-4 AVC output. Keep the default
--- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
--- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
--- create separate interlaced fields. Choose MBAFF to disable PAFF and have
--- MediaConvert use MBAFF encoding for interlaced outputs.
---
--- 'telecine', 'h264Settings_telecine' - When you do frame rate conversion from 23.976 frames per second (fps) to
--- 29.97 fps, and your output scan type is interlaced, you can optionally
--- enable hard or soft telecine to create a smoother picture. Hard telecine
--- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
--- with a 23.976 output that signals to the video player device to do the
--- conversion during play back. When you keep the default value, None
--- (NONE), MediaConvert does a standard frame rate conversion to 29.97
--- without doing anything with the field polarity to create a smoother
--- picture.
---
--- 'framerateNumerator', 'h264Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
---
--- 'rateControlMode', 'h264Settings_rateControlMode' - Use this setting to specify whether this output has a variable bitrate
--- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
--- (QVBR).
---
--- 'numberReferenceFrames', 'h264Settings_numberReferenceFrames' - Number of reference frames to use. The encoder may use more than
--- requested if using B-frames and\/or interlaced encoding.
---
--- 'slices', 'h264Settings_slices' - Number of slices per picture. Must be less than or equal to the number
--- of macroblock rows for progressive pictures, and less than or equal to
--- half the number of macroblock rows for interlaced pictures.
---
--- 'entropyEncoding', 'h264Settings_entropyEncoding' - Entropy encoding mode. Use CABAC (must be in Main or High profile) or
--- CAVLC.
---
--- 'gopSizeUnits', 'h264Settings_gopSizeUnits' - Indicates if the GOP Size in H264 is specified in frames or seconds. If
--- seconds the system will convert the GOP Size into a frame count at run
--- time.
---
--- 'softness', 'h264Settings_softness' - Ignore this setting unless you need to comply with a specification that
--- requires a specific value. If you don\'t have a specification
--- requirement, we recommend that you adjust the softness of your output by
--- using a lower value for the setting Sharpness (sharpness) or by enabling
--- a noise reducer filter (noiseReducerFilter). The Softness (softness)
--- setting specifies the quantization matrices that the encoder uses. Keep
--- the default value, 0, for flat quantization. Choose the value 1 or 16 to
--- use the default JVT softening quantization matricies from the H.264
--- specification. Choose a value from 17 to 128 to use planar
--- interpolation. Increasing values from 17 to 128 result in increasing
--- reduction of high-frequency data. The value 128 results in the softest
--- video.
---
--- 'framerateDenominator', 'h264Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
---
--- 'gopSize', 'h264Settings_gopSize' - GOP Length (keyframe interval) in frames or seconds. Must be greater
--- than zero.
---
--- 'codecProfile', 'h264Settings_codecProfile' - H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
--- the AVC-I License.
---
--- 'parNumerator', 'h264Settings_parNumerator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
--- the console, this corresponds to any value other than Follow source.
--- When you specify an output pixel aspect ratio (PAR) that is different
--- from your input video PAR, provide your output PAR as a ratio. For
--- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
--- In this example, the value for parNumerator is 40.
---
--- 'sceneChangeDetect', 'h264Settings_sceneChangeDetect' - Enable this setting to insert I-frames at scene changes that the service
--- automatically detects. This improves video quality and is enabled by
--- default. If this output uses QVBR, choose Transition detection
--- (TRANSITION_DETECTION) for further video quality improvement. For more
--- information about QVBR, see
--- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
---
--- 'unregisteredSeiTimecode', 'h264Settings_unregisteredSeiTimecode' - Inserts timecode for each frame as 4 bytes of an unregistered SEI
--- message.
---
--- 'parControl', 'h264Settings_parControl' - Optional. Specify how the service determines the pixel aspect ratio
--- (PAR) for this output. The default behavior, Follow source
--- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
--- output. To specify a different PAR in the console, choose any value
--- other than Follow source. To specify a different PAR by editing the JSON
--- job specification, choose SPECIFIED. When you choose SPECIFIED for this
--- setting, you must also specify values for the parNumerator and
--- parDenominator settings.
---
--- 'scanTypeConversionMode', 'h264Settings_scanTypeConversionMode' - Use this setting for interlaced outputs, when your output frame rate is
--- half of your input frame rate. In this situation, choose Optimized
--- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
--- output. In this case, each progressive frame from the input corresponds
--- to an interlaced field in the output. Keep the default value, Basic
--- interlacing (INTERLACED), for all other output frame rates. With basic
--- interlacing, MediaConvert performs any frame rate conversion first and
--- then interlaces the frames. When you choose Optimized interlacing and
--- you set your output frame rate to a value that isn\'t suitable for
--- optimized interlacing, MediaConvert automatically falls back to basic
--- interlacing. Required settings: To use optimized interlacing, you must
--- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
--- optimized interlacing for hard telecine outputs. You must also set
--- Interlace mode (interlaceMode) to a value other than Progressive
--- (PROGRESSIVE).
---
--- 'minIInterval', 'h264Settings_minIInterval' - Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
---
--- 'gopClosedCadence', 'h264Settings_gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
---
--- 'parDenominator', 'h264Settings_parDenominator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
--- the console, this corresponds to any value other than Follow source.
--- When you specify an output pixel aspect ratio (PAR) that is different
--- from your input video PAR, provide your output PAR as a ratio. For
--- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
--- In this example, the value for parDenominator is 33.
---
--- 'maxBitrate', 'h264Settings_maxBitrate' - Maximum bitrate in bits\/second. For example, enter five megabits per
--- second as 5000000. Required when Rate control mode is QVBR.
---
--- 'syntax', 'h264Settings_syntax' - Produces a bitstream compliant with SMPTE RP-2027.
---
--- 'dynamicSubGop', 'h264Settings_dynamicSubGop' - Choose Adaptive to improve subjective video quality for high-motion
--- content. This will cause the service to use fewer B-frames (which infer
--- information based on other frames) for high-motion portions of the video
--- and more B-frames for low-motion portions. The maximum number of
--- B-frames is limited by the value you provide for the setting B frames
--- between reference frames (numberBFramesBetweenReferenceFrames).
---
--- 'hrdBufferSize', 'h264Settings_hrdBufferSize' - Size of buffer (HRD buffer model) in bits. For example, enter five
--- megabits as 5000000.
---
--- 'adaptiveQuantization', 'h264Settings_adaptiveQuantization' - Keep the default value, Auto (AUTO), for this setting to have
--- MediaConvert automatically apply the best types of quantization for your
--- video content. When you want to apply your quantization settings
--- manually, you must set H264AdaptiveQuantization to a value other than
--- Auto (AUTO). Use this setting to specify the strength of any adaptive
--- quantization filters that you enable. If you don\'t want MediaConvert to
--- do any adaptive quantization in this transcode, set Adaptive
--- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
--- The value that you choose here applies to the following settings:
--- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
--- H264TemporalAdaptiveQuantization.
---
--- 'framerateControl', 'h264Settings_framerateControl' - If you are using the console, use the Framerate setting to specify the
--- frame rate for this output. If you want to keep the same frame rate as
--- the input video, choose Follow source. If you want to do frame rate
--- conversion, choose a frame rate from the dropdown list or choose Custom.
--- The framerates shown in the dropdown list are decimal approximations of
--- fractions. If you choose Custom, specify your frame rate as a fraction.
--- If you are creating your transcoding job specification as a JSON file
--- without the console, use FramerateControl to specify which value the
--- service uses for the frame rate for this output. Choose
--- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
--- from the input. Choose SPECIFIED if you want the service to use the
--- frame rate you specify in the settings FramerateNumerator and
--- FramerateDenominator.
---
--- 'codecLevel', 'h264Settings_codecLevel' - Specify an H.264 level that is consistent with your output video
--- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
---
--- 'framerateConversionAlgorithm', 'h264Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
---
--- 'numberBFramesBetweenReferenceFrames', 'h264Settings_numberBFramesBetweenReferenceFrames' - Specify the number of B-frames that MediaConvert puts between reference
--- frames in this output. Valid values are whole numbers from 0 through 7.
--- When you don\'t specify a value, MediaConvert defaults to 2.
---
--- 'bitrate', 'h264Settings_bitrate' - Specify the average bitrate in bits per second. Required for VBR and
--- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
--- the nearest multiple of 1000.
---
--- 'slowPal', 'h264Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
--- per second (fps). Enable slow PAL to create a 25 fps output. When you
--- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
--- resamples your audio to keep it synchronized with the video. Note that
--- enabling this setting will slightly reduce the duration of your video.
--- Required settings: You must also set Framerate to 25. In your JSON job
--- specification, set (framerateControl) to (SPECIFIED),
--- (framerateNumerator) to 25 and (framerateDenominator) to 1.
---
--- 'qvbrSettings', 'h264Settings_qvbrSettings' - Settings for quality-defined variable bitrate encoding with the H.265
--- codec. Use these settings only when you set QVBR for Rate control mode
--- (RateControlMode).
 newH264Settings ::
   H264Settings
 newH264Settings =
   H264Settings'
-    { flickerAdaptiveQuantization =
+    { unregisteredSeiTimecode =
         Prelude.Nothing,
-      hrdBufferInitialFillPercentage = Prelude.Nothing,
-      temporalAdaptiveQuantization = Prelude.Nothing,
       qualityTuningLevel = Prelude.Nothing,
-      interlaceMode = Prelude.Nothing,
-      repeatPps = Prelude.Nothing,
-      spatialAdaptiveQuantization = Prelude.Nothing,
-      gopBReference = Prelude.Nothing,
-      fieldEncoding = Prelude.Nothing,
-      telecine = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing,
-      rateControlMode = Prelude.Nothing,
-      numberReferenceFrames = Prelude.Nothing,
-      slices = Prelude.Nothing,
-      entropyEncoding = Prelude.Nothing,
-      gopSizeUnits = Prelude.Nothing,
-      softness = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      gopSize = Prelude.Nothing,
-      codecProfile = Prelude.Nothing,
-      parNumerator = Prelude.Nothing,
+      temporalAdaptiveQuantization = Prelude.Nothing,
       sceneChangeDetect = Prelude.Nothing,
-      unregisteredSeiTimecode = Prelude.Nothing,
-      parControl = Prelude.Nothing,
-      scanTypeConversionMode = Prelude.Nothing,
-      minIInterval = Prelude.Nothing,
-      gopClosedCadence = Prelude.Nothing,
-      parDenominator = Prelude.Nothing,
-      maxBitrate = Prelude.Nothing,
-      syntax = Prelude.Nothing,
-      dynamicSubGop = Prelude.Nothing,
-      hrdBufferSize = Prelude.Nothing,
-      adaptiveQuantization = Prelude.Nothing,
-      framerateControl = Prelude.Nothing,
-      codecLevel = Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
+      hrdBufferInitialFillPercentage = Prelude.Nothing,
+      slowPal = Prelude.Nothing,
+      parNumerator = Prelude.Nothing,
+      gopSize = Prelude.Nothing,
       numberBFramesBetweenReferenceFrames =
         Prelude.Nothing,
+      gopSizeUnits = Prelude.Nothing,
+      hrdBufferSize = Prelude.Nothing,
+      slices = Prelude.Nothing,
+      rateControlMode = Prelude.Nothing,
+      numberReferenceFrames = Prelude.Nothing,
+      telecine = Prelude.Nothing,
+      dynamicSubGop = Prelude.Nothing,
+      minIInterval = Prelude.Nothing,
+      interlaceMode = Prelude.Nothing,
+      parControl = Prelude.Nothing,
+      repeatPps = Prelude.Nothing,
+      scanTypeConversionMode = Prelude.Nothing,
+      flickerAdaptiveQuantization = Prelude.Nothing,
+      qvbrSettings = Prelude.Nothing,
+      softness = Prelude.Nothing,
+      codecProfile = Prelude.Nothing,
       bitrate = Prelude.Nothing,
-      slowPal = Prelude.Nothing,
-      qvbrSettings = Prelude.Nothing
+      framerateDenominator = Prelude.Nothing,
+      framerateConversionAlgorithm = Prelude.Nothing,
+      codecLevel = Prelude.Nothing,
+      entropyEncoding = Prelude.Nothing,
+      framerateControl = Prelude.Nothing,
+      adaptiveQuantization = Prelude.Nothing,
+      framerateNumerator = Prelude.Nothing,
+      gopBReference = Prelude.Nothing,
+      maxBitrate = Prelude.Nothing,
+      syntax = Prelude.Nothing,
+      fieldEncoding = Prelude.Nothing,
+      gopClosedCadence = Prelude.Nothing,
+      parDenominator = Prelude.Nothing,
+      spatialAdaptiveQuantization = Prelude.Nothing
     }
 
--- | Only use this setting when you change the default value, AUTO, for the
--- setting H264AdaptiveQuantization. When you keep all defaults, excluding
--- H264AdaptiveQuantization and all other adaptive quantization from your
--- JSON job specification, MediaConvert automatically applies the best
--- types of quantization for your video content. When you set
--- H264AdaptiveQuantization to a value other than AUTO, the default value
--- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
--- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
--- a visual flicker that can arise when the encoder saves bits by copying
--- some macroblocks many times from frame to frame, and then refreshes them
--- at the I-frame. When you enable this setting, the encoder updates these
--- macroblocks slightly more often to smooth out the flicker. To manually
--- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
--- quantization (H264AdaptiveQuantization) to a value other than AUTO.
-h264Settings_flickerAdaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264FlickerAdaptiveQuantization)
-h264Settings_flickerAdaptiveQuantization = Lens.lens (\H264Settings' {flickerAdaptiveQuantization} -> flickerAdaptiveQuantization) (\s@H264Settings' {} a -> s {flickerAdaptiveQuantization = a} :: H264Settings)
+-- | Inserts timecode for each frame as 4 bytes of an unregistered SEI
+-- message.
+h264Settings_unregisteredSeiTimecode :: Lens.Lens' H264Settings (Prelude.Maybe H264UnregisteredSeiTimecode)
+h264Settings_unregisteredSeiTimecode = Lens.lens (\H264Settings' {unregisteredSeiTimecode} -> unregisteredSeiTimecode) (\s@H264Settings' {} a -> s {unregisteredSeiTimecode = a} :: H264Settings)
 
--- | Percentage of the buffer that should initially be filled (HRD buffer
--- model).
-h264Settings_hrdBufferInitialFillPercentage :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_hrdBufferInitialFillPercentage = Lens.lens (\H264Settings' {hrdBufferInitialFillPercentage} -> hrdBufferInitialFillPercentage) (\s@H264Settings' {} a -> s {hrdBufferInitialFillPercentage = a} :: H264Settings)
+-- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
+-- you want to trade off encoding speed for output video quality. The
+-- default behavior is faster, lower quality, single-pass encoding.
+h264Settings_qualityTuningLevel :: Lens.Lens' H264Settings (Prelude.Maybe H264QualityTuningLevel)
+h264Settings_qualityTuningLevel = Lens.lens (\H264Settings' {qualityTuningLevel} -> qualityTuningLevel) (\s@H264Settings' {} a -> s {qualityTuningLevel = a} :: H264Settings)
 
 -- | Only use this setting when you change the default value, AUTO, for the
 -- setting H264AdaptiveQuantization. When you keep all defaults, excluding
@@ -762,11 +751,109 @@ h264Settings_hrdBufferInitialFillPercentage = Lens.lens (\H264Settings' {hrdBuff
 h264Settings_temporalAdaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264TemporalAdaptiveQuantization)
 h264Settings_temporalAdaptiveQuantization = Lens.lens (\H264Settings' {temporalAdaptiveQuantization} -> temporalAdaptiveQuantization) (\s@H264Settings' {} a -> s {temporalAdaptiveQuantization = a} :: H264Settings)
 
--- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
--- you want to trade off encoding speed for output video quality. The
--- default behavior is faster, lower quality, single-pass encoding.
-h264Settings_qualityTuningLevel :: Lens.Lens' H264Settings (Prelude.Maybe H264QualityTuningLevel)
-h264Settings_qualityTuningLevel = Lens.lens (\H264Settings' {qualityTuningLevel} -> qualityTuningLevel) (\s@H264Settings' {} a -> s {qualityTuningLevel = a} :: H264Settings)
+-- | Enable this setting to insert I-frames at scene changes that the service
+-- automatically detects. This improves video quality and is enabled by
+-- default. If this output uses QVBR, choose Transition detection
+-- (TRANSITION_DETECTION) for further video quality improvement. For more
+-- information about QVBR, see
+-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
+h264Settings_sceneChangeDetect :: Lens.Lens' H264Settings (Prelude.Maybe H264SceneChangeDetect)
+h264Settings_sceneChangeDetect = Lens.lens (\H264Settings' {sceneChangeDetect} -> sceneChangeDetect) (\s@H264Settings' {} a -> s {sceneChangeDetect = a} :: H264Settings)
+
+-- | Percentage of the buffer that should initially be filled (HRD buffer
+-- model).
+h264Settings_hrdBufferInitialFillPercentage :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_hrdBufferInitialFillPercentage = Lens.lens (\H264Settings' {hrdBufferInitialFillPercentage} -> hrdBufferInitialFillPercentage) (\s@H264Settings' {} a -> s {hrdBufferInitialFillPercentage = a} :: H264Settings)
+
+-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
+-- per second (fps). Enable slow PAL to create a 25 fps output. When you
+-- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
+-- resamples your audio to keep it synchronized with the video. Note that
+-- enabling this setting will slightly reduce the duration of your video.
+-- Required settings: You must also set Framerate to 25. In your JSON job
+-- specification, set (framerateControl) to (SPECIFIED),
+-- (framerateNumerator) to 25 and (framerateDenominator) to 1.
+h264Settings_slowPal :: Lens.Lens' H264Settings (Prelude.Maybe H264SlowPal)
+h264Settings_slowPal = Lens.lens (\H264Settings' {slowPal} -> slowPal) (\s@H264Settings' {} a -> s {slowPal = a} :: H264Settings)
+
+-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+-- the console, this corresponds to any value other than Follow source.
+-- When you specify an output pixel aspect ratio (PAR) that is different
+-- from your input video PAR, provide your output PAR as a ratio. For
+-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+-- In this example, the value for parNumerator is 40.
+h264Settings_parNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_parNumerator = Lens.lens (\H264Settings' {parNumerator} -> parNumerator) (\s@H264Settings' {} a -> s {parNumerator = a} :: H264Settings)
+
+-- | GOP Length (keyframe interval) in frames or seconds. Must be greater
+-- than zero.
+h264Settings_gopSize :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Double)
+h264Settings_gopSize = Lens.lens (\H264Settings' {gopSize} -> gopSize) (\s@H264Settings' {} a -> s {gopSize = a} :: H264Settings)
+
+-- | Specify the number of B-frames that MediaConvert puts between reference
+-- frames in this output. Valid values are whole numbers from 0 through 7.
+-- When you don\'t specify a value, MediaConvert defaults to 2.
+h264Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\H264Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@H264Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: H264Settings)
+
+-- | Indicates if the GOP Size in H264 is specified in frames or seconds. If
+-- seconds the system will convert the GOP Size into a frame count at run
+-- time.
+h264Settings_gopSizeUnits :: Lens.Lens' H264Settings (Prelude.Maybe H264GopSizeUnits)
+h264Settings_gopSizeUnits = Lens.lens (\H264Settings' {gopSizeUnits} -> gopSizeUnits) (\s@H264Settings' {} a -> s {gopSizeUnits = a} :: H264Settings)
+
+-- | Size of buffer (HRD buffer model) in bits. For example, enter five
+-- megabits as 5000000.
+h264Settings_hrdBufferSize :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_hrdBufferSize = Lens.lens (\H264Settings' {hrdBufferSize} -> hrdBufferSize) (\s@H264Settings' {} a -> s {hrdBufferSize = a} :: H264Settings)
+
+-- | Number of slices per picture. Must be less than or equal to the number
+-- of macroblock rows for progressive pictures, and less than or equal to
+-- half the number of macroblock rows for interlaced pictures.
+h264Settings_slices :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_slices = Lens.lens (\H264Settings' {slices} -> slices) (\s@H264Settings' {} a -> s {slices = a} :: H264Settings)
+
+-- | Use this setting to specify whether this output has a variable bitrate
+-- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
+-- (QVBR).
+h264Settings_rateControlMode :: Lens.Lens' H264Settings (Prelude.Maybe H264RateControlMode)
+h264Settings_rateControlMode = Lens.lens (\H264Settings' {rateControlMode} -> rateControlMode) (\s@H264Settings' {} a -> s {rateControlMode = a} :: H264Settings)
+
+-- | Number of reference frames to use. The encoder may use more than
+-- requested if using B-frames and\/or interlaced encoding.
+h264Settings_numberReferenceFrames :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_numberReferenceFrames = Lens.lens (\H264Settings' {numberReferenceFrames} -> numberReferenceFrames) (\s@H264Settings' {} a -> s {numberReferenceFrames = a} :: H264Settings)
+
+-- | When you do frame rate conversion from 23.976 frames per second (fps) to
+-- 29.97 fps, and your output scan type is interlaced, you can optionally
+-- enable hard or soft telecine to create a smoother picture. Hard telecine
+-- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
+-- with a 23.976 output that signals to the video player device to do the
+-- conversion during play back. When you keep the default value, None
+-- (NONE), MediaConvert does a standard frame rate conversion to 29.97
+-- without doing anything with the field polarity to create a smoother
+-- picture.
+h264Settings_telecine :: Lens.Lens' H264Settings (Prelude.Maybe H264Telecine)
+h264Settings_telecine = Lens.lens (\H264Settings' {telecine} -> telecine) (\s@H264Settings' {} a -> s {telecine = a} :: H264Settings)
+
+-- | Choose Adaptive to improve subjective video quality for high-motion
+-- content. This will cause the service to use fewer B-frames (which infer
+-- information based on other frames) for high-motion portions of the video
+-- and more B-frames for low-motion portions. The maximum number of
+-- B-frames is limited by the value you provide for the setting B frames
+-- between reference frames (numberBFramesBetweenReferenceFrames).
+h264Settings_dynamicSubGop :: Lens.Lens' H264Settings (Prelude.Maybe H264DynamicSubGop)
+h264Settings_dynamicSubGop = Lens.lens (\H264Settings' {dynamicSubGop} -> dynamicSubGop) (\s@H264Settings' {} a -> s {dynamicSubGop = a} :: H264Settings)
+
+-- | Enforces separation between repeated (cadence) I-frames and I-frames
+-- inserted by Scene Change Detection. If a scene change I-frame is within
+-- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
+-- stretched to the scene change I-frame. GOP stretch requires enabling
+-- lookahead as well as setting I-interval. The normal cadence resumes for
+-- the next GOP. This setting is only used when Scene Change Detect is
+-- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+h264Settings_minIInterval :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_minIInterval = Lens.lens (\H264Settings' {minIInterval} -> minIInterval) (\s@H264Settings' {} a -> s {minIInterval = a} :: H264Settings)
 
 -- | Choose the scan line type for the output. Keep the default value,
 -- Progressive (PROGRESSIVE) to create a progressive output, regardless of
@@ -784,9 +871,199 @@ h264Settings_qualityTuningLevel = Lens.lens (\H264Settings' {qualityTuningLevel}
 h264Settings_interlaceMode :: Lens.Lens' H264Settings (Prelude.Maybe H264InterlaceMode)
 h264Settings_interlaceMode = Lens.lens (\H264Settings' {interlaceMode} -> interlaceMode) (\s@H264Settings' {} a -> s {interlaceMode = a} :: H264Settings)
 
+-- | Optional. Specify how the service determines the pixel aspect ratio
+-- (PAR) for this output. The default behavior, Follow source
+-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+-- output. To specify a different PAR in the console, choose any value
+-- other than Follow source. To specify a different PAR by editing the JSON
+-- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+-- setting, you must also specify values for the parNumerator and
+-- parDenominator settings.
+h264Settings_parControl :: Lens.Lens' H264Settings (Prelude.Maybe H264ParControl)
+h264Settings_parControl = Lens.lens (\H264Settings' {parControl} -> parControl) (\s@H264Settings' {} a -> s {parControl = a} :: H264Settings)
+
 -- | Places a PPS header on each encoded picture, even if repeated.
 h264Settings_repeatPps :: Lens.Lens' H264Settings (Prelude.Maybe H264RepeatPps)
 h264Settings_repeatPps = Lens.lens (\H264Settings' {repeatPps} -> repeatPps) (\s@H264Settings' {} a -> s {repeatPps = a} :: H264Settings)
+
+-- | Use this setting for interlaced outputs, when your output frame rate is
+-- half of your input frame rate. In this situation, choose Optimized
+-- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
+-- output. In this case, each progressive frame from the input corresponds
+-- to an interlaced field in the output. Keep the default value, Basic
+-- interlacing (INTERLACED), for all other output frame rates. With basic
+-- interlacing, MediaConvert performs any frame rate conversion first and
+-- then interlaces the frames. When you choose Optimized interlacing and
+-- you set your output frame rate to a value that isn\'t suitable for
+-- optimized interlacing, MediaConvert automatically falls back to basic
+-- interlacing. Required settings: To use optimized interlacing, you must
+-- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
+-- optimized interlacing for hard telecine outputs. You must also set
+-- Interlace mode (interlaceMode) to a value other than Progressive
+-- (PROGRESSIVE).
+h264Settings_scanTypeConversionMode :: Lens.Lens' H264Settings (Prelude.Maybe H264ScanTypeConversionMode)
+h264Settings_scanTypeConversionMode = Lens.lens (\H264Settings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@H264Settings' {} a -> s {scanTypeConversionMode = a} :: H264Settings)
+
+-- | Only use this setting when you change the default value, AUTO, for the
+-- setting H264AdaptiveQuantization. When you keep all defaults, excluding
+-- H264AdaptiveQuantization and all other adaptive quantization from your
+-- JSON job specification, MediaConvert automatically applies the best
+-- types of quantization for your video content. When you set
+-- H264AdaptiveQuantization to a value other than AUTO, the default value
+-- for H264FlickerAdaptiveQuantization is Disabled (DISABLED). Change this
+-- value to Enabled (ENABLED) to reduce I-frame pop. I-frame pop appears as
+-- a visual flicker that can arise when the encoder saves bits by copying
+-- some macroblocks many times from frame to frame, and then refreshes them
+-- at the I-frame. When you enable this setting, the encoder updates these
+-- macroblocks slightly more often to smooth out the flicker. To manually
+-- enable or disable H264FlickerAdaptiveQuantization, you must set Adaptive
+-- quantization (H264AdaptiveQuantization) to a value other than AUTO.
+h264Settings_flickerAdaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264FlickerAdaptiveQuantization)
+h264Settings_flickerAdaptiveQuantization = Lens.lens (\H264Settings' {flickerAdaptiveQuantization} -> flickerAdaptiveQuantization) (\s@H264Settings' {} a -> s {flickerAdaptiveQuantization = a} :: H264Settings)
+
+-- | Settings for quality-defined variable bitrate encoding with the H.265
+-- codec. Use these settings only when you set QVBR for Rate control mode
+-- (RateControlMode).
+h264Settings_qvbrSettings :: Lens.Lens' H264Settings (Prelude.Maybe H264QvbrSettings)
+h264Settings_qvbrSettings = Lens.lens (\H264Settings' {qvbrSettings} -> qvbrSettings) (\s@H264Settings' {} a -> s {qvbrSettings = a} :: H264Settings)
+
+-- | Ignore this setting unless you need to comply with a specification that
+-- requires a specific value. If you don\'t have a specification
+-- requirement, we recommend that you adjust the softness of your output by
+-- using a lower value for the setting Sharpness (sharpness) or by enabling
+-- a noise reducer filter (noiseReducerFilter). The Softness (softness)
+-- setting specifies the quantization matrices that the encoder uses. Keep
+-- the default value, 0, for flat quantization. Choose the value 1 or 16 to
+-- use the default JVT softening quantization matricies from the H.264
+-- specification. Choose a value from 17 to 128 to use planar
+-- interpolation. Increasing values from 17 to 128 result in increasing
+-- reduction of high-frequency data. The value 128 results in the softest
+-- video.
+h264Settings_softness :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_softness = Lens.lens (\H264Settings' {softness} -> softness) (\s@H264Settings' {} a -> s {softness = a} :: H264Settings)
+
+-- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
+-- the AVC-I License.
+h264Settings_codecProfile :: Lens.Lens' H264Settings (Prelude.Maybe H264CodecProfile)
+h264Settings_codecProfile = Lens.lens (\H264Settings' {codecProfile} -> codecProfile) (\s@H264Settings' {} a -> s {codecProfile = a} :: H264Settings)
+
+-- | Specify the average bitrate in bits per second. Required for VBR and
+-- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
+-- the nearest multiple of 1000.
+h264Settings_bitrate :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_bitrate = Lens.lens (\H264Settings' {bitrate} -> bitrate) (\s@H264Settings' {} a -> s {bitrate = a} :: H264Settings)
+
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+h264Settings_framerateDenominator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_framerateDenominator = Lens.lens (\H264Settings' {framerateDenominator} -> framerateDenominator) (\s@H264Settings' {} a -> s {framerateDenominator = a} :: H264Settings)
+
+-- | Choose the method that you want MediaConvert to use when increasing or
+-- decreasing the frame rate. We recommend using drop duplicate
+-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
+-- 30 fps. For numerically complex conversions, you can use interpolate
+-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
+-- might introduce undesirable video artifacts. For complex frame rate
+-- conversions, especially if your source video has already been converted
+-- from its original cadence, use FrameFormer (FRAMEFORMER) to do
+-- motion-compensated interpolation. FrameFormer chooses the best
+-- conversion method frame by frame. Note that using FrameFormer increases
+-- the transcoding time and incurs a significant add-on cost.
+h264Settings_framerateConversionAlgorithm :: Lens.Lens' H264Settings (Prelude.Maybe H264FramerateConversionAlgorithm)
+h264Settings_framerateConversionAlgorithm = Lens.lens (\H264Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@H264Settings' {} a -> s {framerateConversionAlgorithm = a} :: H264Settings)
+
+-- | Specify an H.264 level that is consistent with your output video
+-- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
+h264Settings_codecLevel :: Lens.Lens' H264Settings (Prelude.Maybe H264CodecLevel)
+h264Settings_codecLevel = Lens.lens (\H264Settings' {codecLevel} -> codecLevel) (\s@H264Settings' {} a -> s {codecLevel = a} :: H264Settings)
+
+-- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or
+-- CAVLC.
+h264Settings_entropyEncoding :: Lens.Lens' H264Settings (Prelude.Maybe H264EntropyEncoding)
+h264Settings_entropyEncoding = Lens.lens (\H264Settings' {entropyEncoding} -> entropyEncoding) (\s@H264Settings' {} a -> s {entropyEncoding = a} :: H264Settings)
+
+-- | If you are using the console, use the Framerate setting to specify the
+-- frame rate for this output. If you want to keep the same frame rate as
+-- the input video, choose Follow source. If you want to do frame rate
+-- conversion, choose a frame rate from the dropdown list or choose Custom.
+-- The framerates shown in the dropdown list are decimal approximations of
+-- fractions. If you choose Custom, specify your frame rate as a fraction.
+-- If you are creating your transcoding job specification as a JSON file
+-- without the console, use FramerateControl to specify which value the
+-- service uses for the frame rate for this output. Choose
+-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+-- from the input. Choose SPECIFIED if you want the service to use the
+-- frame rate you specify in the settings FramerateNumerator and
+-- FramerateDenominator.
+h264Settings_framerateControl :: Lens.Lens' H264Settings (Prelude.Maybe H264FramerateControl)
+h264Settings_framerateControl = Lens.lens (\H264Settings' {framerateControl} -> framerateControl) (\s@H264Settings' {} a -> s {framerateControl = a} :: H264Settings)
+
+-- | Keep the default value, Auto (AUTO), for this setting to have
+-- MediaConvert automatically apply the best types of quantization for your
+-- video content. When you want to apply your quantization settings
+-- manually, you must set H264AdaptiveQuantization to a value other than
+-- Auto (AUTO). Use this setting to specify the strength of any adaptive
+-- quantization filters that you enable. If you don\'t want MediaConvert to
+-- do any adaptive quantization in this transcode, set Adaptive
+-- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
+-- The value that you choose here applies to the following settings:
+-- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
+-- H264TemporalAdaptiveQuantization.
+h264Settings_adaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264AdaptiveQuantization)
+h264Settings_adaptiveQuantization = Lens.lens (\H264Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@H264Settings' {} a -> s {adaptiveQuantization = a} :: H264Settings)
+
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+h264Settings_framerateNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_framerateNumerator = Lens.lens (\H264Settings' {framerateNumerator} -> framerateNumerator) (\s@H264Settings' {} a -> s {framerateNumerator = a} :: H264Settings)
+
+-- | If enable, use reference B frames for GOP structures that have B frames
+-- > 1.
+h264Settings_gopBReference :: Lens.Lens' H264Settings (Prelude.Maybe H264GopBReference)
+h264Settings_gopBReference = Lens.lens (\H264Settings' {gopBReference} -> gopBReference) (\s@H264Settings' {} a -> s {gopBReference = a} :: H264Settings)
+
+-- | Maximum bitrate in bits\/second. For example, enter five megabits per
+-- second as 5000000. Required when Rate control mode is QVBR.
+h264Settings_maxBitrate :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_maxBitrate = Lens.lens (\H264Settings' {maxBitrate} -> maxBitrate) (\s@H264Settings' {} a -> s {maxBitrate = a} :: H264Settings)
+
+-- | Produces a bitstream compliant with SMPTE RP-2027.
+h264Settings_syntax :: Lens.Lens' H264Settings (Prelude.Maybe H264Syntax)
+h264Settings_syntax = Lens.lens (\H264Settings' {syntax} -> syntax) (\s@H264Settings' {} a -> s {syntax = a} :: H264Settings)
+
+-- | The video encoding method for your MPEG-4 AVC output. Keep the default
+-- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
+-- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
+-- create separate interlaced fields. Choose MBAFF to disable PAFF and have
+-- MediaConvert use MBAFF encoding for interlaced outputs.
+h264Settings_fieldEncoding :: Lens.Lens' H264Settings (Prelude.Maybe H264FieldEncoding)
+h264Settings_fieldEncoding = Lens.lens (\H264Settings' {fieldEncoding} -> fieldEncoding) (\s@H264Settings' {} a -> s {fieldEncoding = a} :: H264Settings)
+
+-- | Frequency of closed GOPs. In streaming applications, it is recommended
+-- that this be set to 1 so a decoder joining mid-stream will receive an
+-- IDR frame as quickly as possible. Setting this value to 0 will break
+-- output segmenting.
+h264Settings_gopClosedCadence :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_gopClosedCadence = Lens.lens (\H264Settings' {gopClosedCadence} -> gopClosedCadence) (\s@H264Settings' {} a -> s {gopClosedCadence = a} :: H264Settings)
+
+-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
+-- the console, this corresponds to any value other than Follow source.
+-- When you specify an output pixel aspect ratio (PAR) that is different
+-- from your input video PAR, provide your output PAR as a ratio. For
+-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
+-- In this example, the value for parDenominator is 33.
+h264Settings_parDenominator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
+h264Settings_parDenominator = Lens.lens (\H264Settings' {parDenominator} -> parDenominator) (\s@H264Settings' {} a -> s {parDenominator = a} :: H264Settings)
 
 -- | Only use this setting when you change the default value, Auto (AUTO),
 -- for the setting H264AdaptiveQuantization. When you keep all defaults,
@@ -817,329 +1094,52 @@ h264Settings_repeatPps = Lens.lens (\H264Settings' {repeatPps} -> repeatPps) (\s
 h264Settings_spatialAdaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264SpatialAdaptiveQuantization)
 h264Settings_spatialAdaptiveQuantization = Lens.lens (\H264Settings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@H264Settings' {} a -> s {spatialAdaptiveQuantization = a} :: H264Settings)
 
--- | If enable, use reference B frames for GOP structures that have B frames
--- > 1.
-h264Settings_gopBReference :: Lens.Lens' H264Settings (Prelude.Maybe H264GopBReference)
-h264Settings_gopBReference = Lens.lens (\H264Settings' {gopBReference} -> gopBReference) (\s@H264Settings' {} a -> s {gopBReference = a} :: H264Settings)
-
--- | The video encoding method for your MPEG-4 AVC output. Keep the default
--- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
--- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
--- create separate interlaced fields. Choose MBAFF to disable PAFF and have
--- MediaConvert use MBAFF encoding for interlaced outputs.
-h264Settings_fieldEncoding :: Lens.Lens' H264Settings (Prelude.Maybe H264FieldEncoding)
-h264Settings_fieldEncoding = Lens.lens (\H264Settings' {fieldEncoding} -> fieldEncoding) (\s@H264Settings' {} a -> s {fieldEncoding = a} :: H264Settings)
-
--- | When you do frame rate conversion from 23.976 frames per second (fps) to
--- 29.97 fps, and your output scan type is interlaced, you can optionally
--- enable hard or soft telecine to create a smoother picture. Hard telecine
--- (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output
--- with a 23.976 output that signals to the video player device to do the
--- conversion during play back. When you keep the default value, None
--- (NONE), MediaConvert does a standard frame rate conversion to 29.97
--- without doing anything with the field polarity to create a smoother
--- picture.
-h264Settings_telecine :: Lens.Lens' H264Settings (Prelude.Maybe H264Telecine)
-h264Settings_telecine = Lens.lens (\H264Settings' {telecine} -> telecine) (\s@H264Settings' {} a -> s {telecine = a} :: H264Settings)
-
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
-h264Settings_framerateNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_framerateNumerator = Lens.lens (\H264Settings' {framerateNumerator} -> framerateNumerator) (\s@H264Settings' {} a -> s {framerateNumerator = a} :: H264Settings)
-
--- | Use this setting to specify whether this output has a variable bitrate
--- (VBR), constant bitrate (CBR) or quality-defined variable bitrate
--- (QVBR).
-h264Settings_rateControlMode :: Lens.Lens' H264Settings (Prelude.Maybe H264RateControlMode)
-h264Settings_rateControlMode = Lens.lens (\H264Settings' {rateControlMode} -> rateControlMode) (\s@H264Settings' {} a -> s {rateControlMode = a} :: H264Settings)
-
--- | Number of reference frames to use. The encoder may use more than
--- requested if using B-frames and\/or interlaced encoding.
-h264Settings_numberReferenceFrames :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_numberReferenceFrames = Lens.lens (\H264Settings' {numberReferenceFrames} -> numberReferenceFrames) (\s@H264Settings' {} a -> s {numberReferenceFrames = a} :: H264Settings)
-
--- | Number of slices per picture. Must be less than or equal to the number
--- of macroblock rows for progressive pictures, and less than or equal to
--- half the number of macroblock rows for interlaced pictures.
-h264Settings_slices :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_slices = Lens.lens (\H264Settings' {slices} -> slices) (\s@H264Settings' {} a -> s {slices = a} :: H264Settings)
-
--- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or
--- CAVLC.
-h264Settings_entropyEncoding :: Lens.Lens' H264Settings (Prelude.Maybe H264EntropyEncoding)
-h264Settings_entropyEncoding = Lens.lens (\H264Settings' {entropyEncoding} -> entropyEncoding) (\s@H264Settings' {} a -> s {entropyEncoding = a} :: H264Settings)
-
--- | Indicates if the GOP Size in H264 is specified in frames or seconds. If
--- seconds the system will convert the GOP Size into a frame count at run
--- time.
-h264Settings_gopSizeUnits :: Lens.Lens' H264Settings (Prelude.Maybe H264GopSizeUnits)
-h264Settings_gopSizeUnits = Lens.lens (\H264Settings' {gopSizeUnits} -> gopSizeUnits) (\s@H264Settings' {} a -> s {gopSizeUnits = a} :: H264Settings)
-
--- | Ignore this setting unless you need to comply with a specification that
--- requires a specific value. If you don\'t have a specification
--- requirement, we recommend that you adjust the softness of your output by
--- using a lower value for the setting Sharpness (sharpness) or by enabling
--- a noise reducer filter (noiseReducerFilter). The Softness (softness)
--- setting specifies the quantization matrices that the encoder uses. Keep
--- the default value, 0, for flat quantization. Choose the value 1 or 16 to
--- use the default JVT softening quantization matricies from the H.264
--- specification. Choose a value from 17 to 128 to use planar
--- interpolation. Increasing values from 17 to 128 result in increasing
--- reduction of high-frequency data. The value 128 results in the softest
--- video.
-h264Settings_softness :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_softness = Lens.lens (\H264Settings' {softness} -> softness) (\s@H264Settings' {} a -> s {softness = a} :: H264Settings)
-
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
-h264Settings_framerateDenominator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_framerateDenominator = Lens.lens (\H264Settings' {framerateDenominator} -> framerateDenominator) (\s@H264Settings' {} a -> s {framerateDenominator = a} :: H264Settings)
-
--- | GOP Length (keyframe interval) in frames or seconds. Must be greater
--- than zero.
-h264Settings_gopSize :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Double)
-h264Settings_gopSize = Lens.lens (\H264Settings' {gopSize} -> gopSize) (\s@H264Settings' {} a -> s {gopSize = a} :: H264Settings)
-
--- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
--- the AVC-I License.
-h264Settings_codecProfile :: Lens.Lens' H264Settings (Prelude.Maybe H264CodecProfile)
-h264Settings_codecProfile = Lens.lens (\H264Settings' {codecProfile} -> codecProfile) (\s@H264Settings' {} a -> s {codecProfile = a} :: H264Settings)
-
--- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
--- the console, this corresponds to any value other than Follow source.
--- When you specify an output pixel aspect ratio (PAR) that is different
--- from your input video PAR, provide your output PAR as a ratio. For
--- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
--- In this example, the value for parNumerator is 40.
-h264Settings_parNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_parNumerator = Lens.lens (\H264Settings' {parNumerator} -> parNumerator) (\s@H264Settings' {} a -> s {parNumerator = a} :: H264Settings)
-
--- | Enable this setting to insert I-frames at scene changes that the service
--- automatically detects. This improves video quality and is enabled by
--- default. If this output uses QVBR, choose Transition detection
--- (TRANSITION_DETECTION) for further video quality improvement. For more
--- information about QVBR, see
--- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/cbr-vbr-qvbr.
-h264Settings_sceneChangeDetect :: Lens.Lens' H264Settings (Prelude.Maybe H264SceneChangeDetect)
-h264Settings_sceneChangeDetect = Lens.lens (\H264Settings' {sceneChangeDetect} -> sceneChangeDetect) (\s@H264Settings' {} a -> s {sceneChangeDetect = a} :: H264Settings)
-
--- | Inserts timecode for each frame as 4 bytes of an unregistered SEI
--- message.
-h264Settings_unregisteredSeiTimecode :: Lens.Lens' H264Settings (Prelude.Maybe H264UnregisteredSeiTimecode)
-h264Settings_unregisteredSeiTimecode = Lens.lens (\H264Settings' {unregisteredSeiTimecode} -> unregisteredSeiTimecode) (\s@H264Settings' {} a -> s {unregisteredSeiTimecode = a} :: H264Settings)
-
--- | Optional. Specify how the service determines the pixel aspect ratio
--- (PAR) for this output. The default behavior, Follow source
--- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
--- output. To specify a different PAR in the console, choose any value
--- other than Follow source. To specify a different PAR by editing the JSON
--- job specification, choose SPECIFIED. When you choose SPECIFIED for this
--- setting, you must also specify values for the parNumerator and
--- parDenominator settings.
-h264Settings_parControl :: Lens.Lens' H264Settings (Prelude.Maybe H264ParControl)
-h264Settings_parControl = Lens.lens (\H264Settings' {parControl} -> parControl) (\s@H264Settings' {} a -> s {parControl = a} :: H264Settings)
-
--- | Use this setting for interlaced outputs, when your output frame rate is
--- half of your input frame rate. In this situation, choose Optimized
--- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
--- output. In this case, each progressive frame from the input corresponds
--- to an interlaced field in the output. Keep the default value, Basic
--- interlacing (INTERLACED), for all other output frame rates. With basic
--- interlacing, MediaConvert performs any frame rate conversion first and
--- then interlaces the frames. When you choose Optimized interlacing and
--- you set your output frame rate to a value that isn\'t suitable for
--- optimized interlacing, MediaConvert automatically falls back to basic
--- interlacing. Required settings: To use optimized interlacing, you must
--- set Telecine (telecine) to None (NONE) or Soft (SOFT). You can\'t use
--- optimized interlacing for hard telecine outputs. You must also set
--- Interlace mode (interlaceMode) to a value other than Progressive
--- (PROGRESSIVE).
-h264Settings_scanTypeConversionMode :: Lens.Lens' H264Settings (Prelude.Maybe H264ScanTypeConversionMode)
-h264Settings_scanTypeConversionMode = Lens.lens (\H264Settings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@H264Settings' {} a -> s {scanTypeConversionMode = a} :: H264Settings)
-
--- | Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-h264Settings_minIInterval :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_minIInterval = Lens.lens (\H264Settings' {minIInterval} -> minIInterval) (\s@H264Settings' {} a -> s {minIInterval = a} :: H264Settings)
-
--- | Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
-h264Settings_gopClosedCadence :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_gopClosedCadence = Lens.lens (\H264Settings' {gopClosedCadence} -> gopClosedCadence) (\s@H264Settings' {} a -> s {gopClosedCadence = a} :: H264Settings)
-
--- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
--- the console, this corresponds to any value other than Follow source.
--- When you specify an output pixel aspect ratio (PAR) that is different
--- from your input video PAR, provide your output PAR as a ratio. For
--- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
--- In this example, the value for parDenominator is 33.
-h264Settings_parDenominator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_parDenominator = Lens.lens (\H264Settings' {parDenominator} -> parDenominator) (\s@H264Settings' {} a -> s {parDenominator = a} :: H264Settings)
-
--- | Maximum bitrate in bits\/second. For example, enter five megabits per
--- second as 5000000. Required when Rate control mode is QVBR.
-h264Settings_maxBitrate :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_maxBitrate = Lens.lens (\H264Settings' {maxBitrate} -> maxBitrate) (\s@H264Settings' {} a -> s {maxBitrate = a} :: H264Settings)
-
--- | Produces a bitstream compliant with SMPTE RP-2027.
-h264Settings_syntax :: Lens.Lens' H264Settings (Prelude.Maybe H264Syntax)
-h264Settings_syntax = Lens.lens (\H264Settings' {syntax} -> syntax) (\s@H264Settings' {} a -> s {syntax = a} :: H264Settings)
-
--- | Choose Adaptive to improve subjective video quality for high-motion
--- content. This will cause the service to use fewer B-frames (which infer
--- information based on other frames) for high-motion portions of the video
--- and more B-frames for low-motion portions. The maximum number of
--- B-frames is limited by the value you provide for the setting B frames
--- between reference frames (numberBFramesBetweenReferenceFrames).
-h264Settings_dynamicSubGop :: Lens.Lens' H264Settings (Prelude.Maybe H264DynamicSubGop)
-h264Settings_dynamicSubGop = Lens.lens (\H264Settings' {dynamicSubGop} -> dynamicSubGop) (\s@H264Settings' {} a -> s {dynamicSubGop = a} :: H264Settings)
-
--- | Size of buffer (HRD buffer model) in bits. For example, enter five
--- megabits as 5000000.
-h264Settings_hrdBufferSize :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_hrdBufferSize = Lens.lens (\H264Settings' {hrdBufferSize} -> hrdBufferSize) (\s@H264Settings' {} a -> s {hrdBufferSize = a} :: H264Settings)
-
--- | Keep the default value, Auto (AUTO), for this setting to have
--- MediaConvert automatically apply the best types of quantization for your
--- video content. When you want to apply your quantization settings
--- manually, you must set H264AdaptiveQuantization to a value other than
--- Auto (AUTO). Use this setting to specify the strength of any adaptive
--- quantization filters that you enable. If you don\'t want MediaConvert to
--- do any adaptive quantization in this transcode, set Adaptive
--- quantization (H264AdaptiveQuantization) to Off (OFF). Related settings:
--- The value that you choose here applies to the following settings:
--- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
--- H264TemporalAdaptiveQuantization.
-h264Settings_adaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264AdaptiveQuantization)
-h264Settings_adaptiveQuantization = Lens.lens (\H264Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@H264Settings' {} a -> s {adaptiveQuantization = a} :: H264Settings)
-
--- | If you are using the console, use the Framerate setting to specify the
--- frame rate for this output. If you want to keep the same frame rate as
--- the input video, choose Follow source. If you want to do frame rate
--- conversion, choose a frame rate from the dropdown list or choose Custom.
--- The framerates shown in the dropdown list are decimal approximations of
--- fractions. If you choose Custom, specify your frame rate as a fraction.
--- If you are creating your transcoding job specification as a JSON file
--- without the console, use FramerateControl to specify which value the
--- service uses for the frame rate for this output. Choose
--- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
--- from the input. Choose SPECIFIED if you want the service to use the
--- frame rate you specify in the settings FramerateNumerator and
--- FramerateDenominator.
-h264Settings_framerateControl :: Lens.Lens' H264Settings (Prelude.Maybe H264FramerateControl)
-h264Settings_framerateControl = Lens.lens (\H264Settings' {framerateControl} -> framerateControl) (\s@H264Settings' {} a -> s {framerateControl = a} :: H264Settings)
-
--- | Specify an H.264 level that is consistent with your output video
--- settings. If you aren\'t sure what level to specify, choose Auto (AUTO).
-h264Settings_codecLevel :: Lens.Lens' H264Settings (Prelude.Maybe H264CodecLevel)
-h264Settings_codecLevel = Lens.lens (\H264Settings' {codecLevel} -> codecLevel) (\s@H264Settings' {} a -> s {codecLevel = a} :: H264Settings)
-
--- | Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
-h264Settings_framerateConversionAlgorithm :: Lens.Lens' H264Settings (Prelude.Maybe H264FramerateConversionAlgorithm)
-h264Settings_framerateConversionAlgorithm = Lens.lens (\H264Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@H264Settings' {} a -> s {framerateConversionAlgorithm = a} :: H264Settings)
-
--- | Specify the number of B-frames that MediaConvert puts between reference
--- frames in this output. Valid values are whole numbers from 0 through 7.
--- When you don\'t specify a value, MediaConvert defaults to 2.
-h264Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\H264Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@H264Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: H264Settings)
-
--- | Specify the average bitrate in bits per second. Required for VBR and
--- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
--- the nearest multiple of 1000.
-h264Settings_bitrate :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
-h264Settings_bitrate = Lens.lens (\H264Settings' {bitrate} -> bitrate) (\s@H264Settings' {} a -> s {bitrate = a} :: H264Settings)
-
--- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
--- per second (fps). Enable slow PAL to create a 25 fps output. When you
--- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
--- resamples your audio to keep it synchronized with the video. Note that
--- enabling this setting will slightly reduce the duration of your video.
--- Required settings: You must also set Framerate to 25. In your JSON job
--- specification, set (framerateControl) to (SPECIFIED),
--- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-h264Settings_slowPal :: Lens.Lens' H264Settings (Prelude.Maybe H264SlowPal)
-h264Settings_slowPal = Lens.lens (\H264Settings' {slowPal} -> slowPal) (\s@H264Settings' {} a -> s {slowPal = a} :: H264Settings)
-
--- | Settings for quality-defined variable bitrate encoding with the H.265
--- codec. Use these settings only when you set QVBR for Rate control mode
--- (RateControlMode).
-h264Settings_qvbrSettings :: Lens.Lens' H264Settings (Prelude.Maybe H264QvbrSettings)
-h264Settings_qvbrSettings = Lens.lens (\H264Settings' {qvbrSettings} -> qvbrSettings) (\s@H264Settings' {} a -> s {qvbrSettings = a} :: H264Settings)
-
 instance Core.FromJSON H264Settings where
   parseJSON =
     Core.withObject
       "H264Settings"
       ( \x ->
           H264Settings'
-            Prelude.<$> (x Core..:? "flickerAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
-            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Prelude.<$> (x Core..:? "unregisteredSeiTimecode")
             Prelude.<*> (x Core..:? "qualityTuningLevel")
-            Prelude.<*> (x Core..:? "interlaceMode")
-            Prelude.<*> (x Core..:? "repeatPps")
-            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "gopBReference")
-            Prelude.<*> (x Core..:? "fieldEncoding")
-            Prelude.<*> (x Core..:? "telecine")
-            Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Core..:? "sceneChangeDetect")
+            Prelude.<*> (x Core..:? "hrdBufferInitialFillPercentage")
+            Prelude.<*> (x Core..:? "slowPal")
+            Prelude.<*> (x Core..:? "parNumerator")
+            Prelude.<*> (x Core..:? "gopSize")
+            Prelude.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
+            Prelude.<*> (x Core..:? "gopSizeUnits")
+            Prelude.<*> (x Core..:? "hrdBufferSize")
+            Prelude.<*> (x Core..:? "slices")
             Prelude.<*> (x Core..:? "rateControlMode")
             Prelude.<*> (x Core..:? "numberReferenceFrames")
-            Prelude.<*> (x Core..:? "slices")
-            Prelude.<*> (x Core..:? "entropyEncoding")
-            Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "softness")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..:? "codecProfile")
-            Prelude.<*> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "sceneChangeDetect")
-            Prelude.<*> (x Core..:? "unregisteredSeiTimecode")
-            Prelude.<*> (x Core..:? "parControl")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
+            Prelude.<*> (x Core..:? "telecine")
+            Prelude.<*> (x Core..:? "dynamicSubGop")
             Prelude.<*> (x Core..:? "minIInterval")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "parDenominator")
+            Prelude.<*> (x Core..:? "interlaceMode")
+            Prelude.<*> (x Core..:? "parControl")
+            Prelude.<*> (x Core..:? "repeatPps")
+            Prelude.<*> (x Core..:? "scanTypeConversionMode")
+            Prelude.<*> (x Core..:? "flickerAdaptiveQuantization")
+            Prelude.<*> (x Core..:? "qvbrSettings")
+            Prelude.<*> (x Core..:? "softness")
+            Prelude.<*> (x Core..:? "codecProfile")
+            Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Core..:? "codecLevel")
+            Prelude.<*> (x Core..:? "entropyEncoding")
+            Prelude.<*> (x Core..:? "framerateControl")
+            Prelude.<*> (x Core..:? "adaptiveQuantization")
+            Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<*> (x Core..:? "gopBReference")
             Prelude.<*> (x Core..:? "maxBitrate")
             Prelude.<*> (x Core..:? "syntax")
-            Prelude.<*> (x Core..:? "dynamicSubGop")
-            Prelude.<*> (x Core..:? "hrdBufferSize")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "codecLevel")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "qvbrSettings")
+            Prelude.<*> (x Core..:? "fieldEncoding")
+            Prelude.<*> (x Core..:? "gopClosedCadence")
+            Prelude.<*> (x Core..:? "parDenominator")
+            Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable H264Settings
@@ -1150,64 +1150,64 @@ instance Core.ToJSON H264Settings where
   toJSON H264Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("flickerAdaptiveQuantization" Core..=)
-              Prelude.<$> flickerAdaptiveQuantization,
-            ("hrdBufferInitialFillPercentage" Core..=)
-              Prelude.<$> hrdBufferInitialFillPercentage,
-            ("temporalAdaptiveQuantization" Core..=)
-              Prelude.<$> temporalAdaptiveQuantization,
+          [ ("unregisteredSeiTimecode" Core..=)
+              Prelude.<$> unregisteredSeiTimecode,
             ("qualityTuningLevel" Core..=)
               Prelude.<$> qualityTuningLevel,
-            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
-            ("repeatPps" Core..=) Prelude.<$> repeatPps,
-            ("spatialAdaptiveQuantization" Core..=)
-              Prelude.<$> spatialAdaptiveQuantization,
-            ("gopBReference" Core..=) Prelude.<$> gopBReference,
-            ("fieldEncoding" Core..=) Prelude.<$> fieldEncoding,
-            ("telecine" Core..=) Prelude.<$> telecine,
-            ("framerateNumerator" Core..=)
-              Prelude.<$> framerateNumerator,
+            ("temporalAdaptiveQuantization" Core..=)
+              Prelude.<$> temporalAdaptiveQuantization,
+            ("sceneChangeDetect" Core..=)
+              Prelude.<$> sceneChangeDetect,
+            ("hrdBufferInitialFillPercentage" Core..=)
+              Prelude.<$> hrdBufferInitialFillPercentage,
+            ("slowPal" Core..=) Prelude.<$> slowPal,
+            ("parNumerator" Core..=) Prelude.<$> parNumerator,
+            ("gopSize" Core..=) Prelude.<$> gopSize,
+            ("numberBFramesBetweenReferenceFrames" Core..=)
+              Prelude.<$> numberBFramesBetweenReferenceFrames,
+            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
+            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
+            ("slices" Core..=) Prelude.<$> slices,
             ("rateControlMode" Core..=)
               Prelude.<$> rateControlMode,
             ("numberReferenceFrames" Core..=)
               Prelude.<$> numberReferenceFrames,
-            ("slices" Core..=) Prelude.<$> slices,
-            ("entropyEncoding" Core..=)
-              Prelude.<$> entropyEncoding,
-            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("softness" Core..=) Prelude.<$> softness,
-            ("framerateDenominator" Core..=)
-              Prelude.<$> framerateDenominator,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
-            ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("sceneChangeDetect" Core..=)
-              Prelude.<$> sceneChangeDetect,
-            ("unregisteredSeiTimecode" Core..=)
-              Prelude.<$> unregisteredSeiTimecode,
+            ("telecine" Core..=) Prelude.<$> telecine,
+            ("dynamicSubGop" Core..=) Prelude.<$> dynamicSubGop,
+            ("minIInterval" Core..=) Prelude.<$> minIInterval,
+            ("interlaceMode" Core..=) Prelude.<$> interlaceMode,
             ("parControl" Core..=) Prelude.<$> parControl,
+            ("repeatPps" Core..=) Prelude.<$> repeatPps,
             ("scanTypeConversionMode" Core..=)
               Prelude.<$> scanTypeConversionMode,
-            ("minIInterval" Core..=) Prelude.<$> minIInterval,
+            ("flickerAdaptiveQuantization" Core..=)
+              Prelude.<$> flickerAdaptiveQuantization,
+            ("qvbrSettings" Core..=) Prelude.<$> qvbrSettings,
+            ("softness" Core..=) Prelude.<$> softness,
+            ("codecProfile" Core..=) Prelude.<$> codecProfile,
+            ("bitrate" Core..=) Prelude.<$> bitrate,
+            ("framerateDenominator" Core..=)
+              Prelude.<$> framerateDenominator,
+            ("framerateConversionAlgorithm" Core..=)
+              Prelude.<$> framerateConversionAlgorithm,
+            ("codecLevel" Core..=) Prelude.<$> codecLevel,
+            ("entropyEncoding" Core..=)
+              Prelude.<$> entropyEncoding,
+            ("framerateControl" Core..=)
+              Prelude.<$> framerateControl,
+            ("adaptiveQuantization" Core..=)
+              Prelude.<$> adaptiveQuantization,
+            ("framerateNumerator" Core..=)
+              Prelude.<$> framerateNumerator,
+            ("gopBReference" Core..=) Prelude.<$> gopBReference,
+            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
+            ("syntax" Core..=) Prelude.<$> syntax,
+            ("fieldEncoding" Core..=) Prelude.<$> fieldEncoding,
             ("gopClosedCadence" Core..=)
               Prelude.<$> gopClosedCadence,
             ("parDenominator" Core..=)
               Prelude.<$> parDenominator,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("syntax" Core..=) Prelude.<$> syntax,
-            ("dynamicSubGop" Core..=) Prelude.<$> dynamicSubGop,
-            ("hrdBufferSize" Core..=) Prelude.<$> hrdBufferSize,
-            ("adaptiveQuantization" Core..=)
-              Prelude.<$> adaptiveQuantization,
-            ("framerateControl" Core..=)
-              Prelude.<$> framerateControl,
-            ("codecLevel" Core..=) Prelude.<$> codecLevel,
-            ("framerateConversionAlgorithm" Core..=)
-              Prelude.<$> framerateConversionAlgorithm,
-            ("numberBFramesBetweenReferenceFrames" Core..=)
-              Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("qvbrSettings" Core..=) Prelude.<$> qvbrSettings
+            ("spatialAdaptiveQuantization" Core..=)
+              Prelude.<$> spatialAdaptiveQuantization
           ]
       )

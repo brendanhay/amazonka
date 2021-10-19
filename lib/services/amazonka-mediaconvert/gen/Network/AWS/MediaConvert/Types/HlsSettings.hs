@@ -31,7 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { -- | List all the audio groups that are used with the video output stream.
+  { -- | Specify whether to flag this audio track as descriptive video service
+    -- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+    -- MediaConvert includes the parameter
+    -- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+    -- EXT-X-MEDIA entry for this track. When you keep the default choice,
+    -- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+    -- flag can help with accessibility on Apple devices. For more information,
+    -- see the Apple documentation.
+    descriptiveVideoServiceFlag :: Prelude.Maybe HlsDescriptiveVideoServiceFlag,
+    -- | List all the audio groups that are used with the video output stream.
     -- Input all the audio GROUP-IDs that are associated to the video, separate
     -- by \',\'.
     audioRenditionSets :: Prelude.Maybe Prelude.Text,
@@ -43,6 +52,8 @@ data HlsSettings = HlsSettings'
     -- child manifest to the parent manifest. When you don\'t need the I-frame
     -- only child manifest, keep the default value Exclude (EXCLUDE).
     iFrameOnlyManifest :: Prelude.Maybe HlsIFrameOnlyManifest,
+    -- | Specifies the group to which the audio rendition belongs.
+    audioGroupId :: Prelude.Maybe Prelude.Text,
     -- | Use this setting to add an identifying string to the filename of each
     -- segment. The service adds this string between the name modifier and
     -- segment index number. You can use format identifiers in the string. For
@@ -56,17 +67,6 @@ data HlsSettings = HlsSettings'
     -- output has video, the service will place the output into an MPEG2-TS
     -- container.
     audioOnlyContainer :: Prelude.Maybe HlsAudioOnlyContainer,
-    -- | Specify whether to flag this audio track as descriptive video service
-    -- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
-    -- MediaConvert includes the parameter
-    -- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
-    -- EXT-X-MEDIA entry for this track. When you keep the default choice,
-    -- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
-    -- flag can help with accessibility on Apple devices. For more information,
-    -- see the Apple documentation.
-    descriptiveVideoServiceFlag :: Prelude.Maybe HlsDescriptiveVideoServiceFlag,
-    -- | Specifies the group to which the audio rendition belongs.
-    audioGroupId :: Prelude.Maybe Prelude.Text,
     -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
     -- The client can play back this audio-only stream instead of video in
     -- low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS
@@ -91,6 +91,15 @@ data HlsSettings = HlsSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'descriptiveVideoServiceFlag', 'hlsSettings_descriptiveVideoServiceFlag' - Specify whether to flag this audio track as descriptive video service
+-- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+-- MediaConvert includes the parameter
+-- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+-- EXT-X-MEDIA entry for this track. When you keep the default choice,
+-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+-- flag can help with accessibility on Apple devices. For more information,
+-- see the Apple documentation.
+--
 -- 'audioRenditionSets', 'hlsSettings_audioRenditionSets' - List all the audio groups that are used with the video output stream.
 -- Input all the audio GROUP-IDs that are associated to the video, separate
 -- by \',\'.
@@ -102,6 +111,8 @@ data HlsSettings = HlsSettings'
 -- MediaConvert adds both the I-frame only child manifest and the regular
 -- child manifest to the parent manifest. When you don\'t need the I-frame
 -- only child manifest, keep the default value Exclude (EXCLUDE).
+--
+-- 'audioGroupId', 'hlsSettings_audioGroupId' - Specifies the group to which the audio rendition belongs.
 --
 -- 'segmentModifier', 'hlsSettings_segmentModifier' - Use this setting to add an identifying string to the filename of each
 -- segment. The service adds this string between the name modifier and
@@ -115,17 +126,6 @@ data HlsSettings = HlsSettings'
 -- raw container. Regardless of the value that you specify here, if this
 -- output has video, the service will place the output into an MPEG2-TS
 -- container.
---
--- 'descriptiveVideoServiceFlag', 'hlsSettings_descriptiveVideoServiceFlag' - Specify whether to flag this audio track as descriptive video service
--- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
--- MediaConvert includes the parameter
--- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
--- EXT-X-MEDIA entry for this track. When you keep the default choice,
--- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
--- flag can help with accessibility on Apple devices. For more information,
--- see the Apple documentation.
---
--- 'audioGroupId', 'hlsSettings_audioGroupId' - Specifies the group to which the audio rendition belongs.
 --
 -- 'audioTrackType', 'hlsSettings_audioTrackType' - Four types of audio-only tracks are supported: Audio-Only Variant Stream
 -- The client can play back this audio-only stream instead of video in
@@ -143,14 +143,26 @@ newHlsSettings ::
   HlsSettings
 newHlsSettings =
   HlsSettings'
-    { audioRenditionSets = Prelude.Nothing,
+    { descriptiveVideoServiceFlag =
+        Prelude.Nothing,
+      audioRenditionSets = Prelude.Nothing,
       iFrameOnlyManifest = Prelude.Nothing,
+      audioGroupId = Prelude.Nothing,
       segmentModifier = Prelude.Nothing,
       audioOnlyContainer = Prelude.Nothing,
-      descriptiveVideoServiceFlag = Prelude.Nothing,
-      audioGroupId = Prelude.Nothing,
       audioTrackType = Prelude.Nothing
     }
+
+-- | Specify whether to flag this audio track as descriptive video service
+-- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+-- MediaConvert includes the parameter
+-- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+-- EXT-X-MEDIA entry for this track. When you keep the default choice,
+-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+-- flag can help with accessibility on Apple devices. For more information,
+-- see the Apple documentation.
+hlsSettings_descriptiveVideoServiceFlag :: Lens.Lens' HlsSettings (Prelude.Maybe HlsDescriptiveVideoServiceFlag)
+hlsSettings_descriptiveVideoServiceFlag = Lens.lens (\HlsSettings' {descriptiveVideoServiceFlag} -> descriptiveVideoServiceFlag) (\s@HlsSettings' {} a -> s {descriptiveVideoServiceFlag = a} :: HlsSettings)
 
 -- | List all the audio groups that are used with the video output stream.
 -- Input all the audio GROUP-IDs that are associated to the video, separate
@@ -168,6 +180,10 @@ hlsSettings_audioRenditionSets = Lens.lens (\HlsSettings' {audioRenditionSets} -
 hlsSettings_iFrameOnlyManifest :: Lens.Lens' HlsSettings (Prelude.Maybe HlsIFrameOnlyManifest)
 hlsSettings_iFrameOnlyManifest = Lens.lens (\HlsSettings' {iFrameOnlyManifest} -> iFrameOnlyManifest) (\s@HlsSettings' {} a -> s {iFrameOnlyManifest = a} :: HlsSettings)
 
+-- | Specifies the group to which the audio rendition belongs.
+hlsSettings_audioGroupId :: Lens.Lens' HlsSettings (Prelude.Maybe Prelude.Text)
+hlsSettings_audioGroupId = Lens.lens (\HlsSettings' {audioGroupId} -> audioGroupId) (\s@HlsSettings' {} a -> s {audioGroupId = a} :: HlsSettings)
+
 -- | Use this setting to add an identifying string to the filename of each
 -- segment. The service adds this string between the name modifier and
 -- segment index number. You can use format identifiers in the string. For
@@ -184,21 +200,6 @@ hlsSettings_segmentModifier = Lens.lens (\HlsSettings' {segmentModifier} -> segm
 -- container.
 hlsSettings_audioOnlyContainer :: Lens.Lens' HlsSettings (Prelude.Maybe HlsAudioOnlyContainer)
 hlsSettings_audioOnlyContainer = Lens.lens (\HlsSettings' {audioOnlyContainer} -> audioOnlyContainer) (\s@HlsSettings' {} a -> s {audioOnlyContainer = a} :: HlsSettings)
-
--- | Specify whether to flag this audio track as descriptive video service
--- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
--- MediaConvert includes the parameter
--- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
--- EXT-X-MEDIA entry for this track. When you keep the default choice,
--- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
--- flag can help with accessibility on Apple devices. For more information,
--- see the Apple documentation.
-hlsSettings_descriptiveVideoServiceFlag :: Lens.Lens' HlsSettings (Prelude.Maybe HlsDescriptiveVideoServiceFlag)
-hlsSettings_descriptiveVideoServiceFlag = Lens.lens (\HlsSettings' {descriptiveVideoServiceFlag} -> descriptiveVideoServiceFlag) (\s@HlsSettings' {} a -> s {descriptiveVideoServiceFlag = a} :: HlsSettings)
-
--- | Specifies the group to which the audio rendition belongs.
-hlsSettings_audioGroupId :: Lens.Lens' HlsSettings (Prelude.Maybe Prelude.Text)
-hlsSettings_audioGroupId = Lens.lens (\HlsSettings' {audioGroupId} -> audioGroupId) (\s@HlsSettings' {} a -> s {audioGroupId = a} :: HlsSettings)
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
 -- The client can play back this audio-only stream instead of video in
@@ -221,12 +222,12 @@ instance Core.FromJSON HlsSettings where
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            Prelude.<$> (x Core..:? "audioRenditionSets")
+            Prelude.<$> (x Core..:? "descriptiveVideoServiceFlag")
+            Prelude.<*> (x Core..:? "audioRenditionSets")
             Prelude.<*> (x Core..:? "iFrameOnlyManifest")
+            Prelude.<*> (x Core..:? "audioGroupId")
             Prelude.<*> (x Core..:? "segmentModifier")
             Prelude.<*> (x Core..:? "audioOnlyContainer")
-            Prelude.<*> (x Core..:? "descriptiveVideoServiceFlag")
-            Prelude.<*> (x Core..:? "audioGroupId")
             Prelude.<*> (x Core..:? "audioTrackType")
       )
 
@@ -238,17 +239,17 @@ instance Core.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("audioRenditionSets" Core..=)
+          [ ("descriptiveVideoServiceFlag" Core..=)
+              Prelude.<$> descriptiveVideoServiceFlag,
+            ("audioRenditionSets" Core..=)
               Prelude.<$> audioRenditionSets,
             ("iFrameOnlyManifest" Core..=)
               Prelude.<$> iFrameOnlyManifest,
+            ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
             ("segmentModifier" Core..=)
               Prelude.<$> segmentModifier,
             ("audioOnlyContainer" Core..=)
               Prelude.<$> audioOnlyContainer,
-            ("descriptiveVideoServiceFlag" Core..=)
-              Prelude.<$> descriptiveVideoServiceFlag,
-            ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
             ("audioTrackType" Core..=)
               Prelude.<$> audioTrackType
           ]

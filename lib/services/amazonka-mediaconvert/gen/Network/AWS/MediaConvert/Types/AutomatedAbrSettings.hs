@@ -30,12 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutomatedAbrSettings' smart constructor.
 data AutomatedAbrSettings = AutomatedAbrSettings'
-  { -- | Optional. The minimum target bitrate used in your automated ABR stack.
-    -- Use this value to set a lower limit on the bitrate of video delivered to
-    -- viewers with slow internet connections. If you don\'t specify a value,
-    -- MediaConvert uses 600,000 (600 kb\/s) by default.
-    minAbrBitrate :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. The maximum number of renditions that MediaConvert will create
+  { -- | Optional. The maximum number of renditions that MediaConvert will create
     -- in your automated ABR stack. The number of renditions is determined
     -- automatically, based on analysis of each job, but will never exceed this
     -- limit. When you set this to Auto in the console, which is equivalent to
@@ -47,7 +42,12 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
     -- highest-quality rendition. This is the rendition that is delivered to
     -- viewers with the fastest internet connections. If you don\'t specify a
     -- value, MediaConvert uses 8,000,000 (8 mb\/s) by default.
-    maxAbrBitrate :: Prelude.Maybe Prelude.Natural
+    maxAbrBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Optional. The minimum target bitrate used in your automated ABR stack.
+    -- Use this value to set a lower limit on the bitrate of video delivered to
+    -- viewers with slow internet connections. If you don\'t specify a value,
+    -- MediaConvert uses 600,000 (600 kb\/s) by default.
+    minAbrBitrate :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,11 +58,6 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'minAbrBitrate', 'automatedAbrSettings_minAbrBitrate' - Optional. The minimum target bitrate used in your automated ABR stack.
--- Use this value to set a lower limit on the bitrate of video delivered to
--- viewers with slow internet connections. If you don\'t specify a value,
--- MediaConvert uses 600,000 (600 kb\/s) by default.
 --
 -- 'maxRenditions', 'automatedAbrSettings_maxRenditions' - Optional. The maximum number of renditions that MediaConvert will create
 -- in your automated ABR stack. The number of renditions is determined
@@ -76,22 +71,20 @@ data AutomatedAbrSettings = AutomatedAbrSettings'
 -- highest-quality rendition. This is the rendition that is delivered to
 -- viewers with the fastest internet connections. If you don\'t specify a
 -- value, MediaConvert uses 8,000,000 (8 mb\/s) by default.
+--
+-- 'minAbrBitrate', 'automatedAbrSettings_minAbrBitrate' - Optional. The minimum target bitrate used in your automated ABR stack.
+-- Use this value to set a lower limit on the bitrate of video delivered to
+-- viewers with slow internet connections. If you don\'t specify a value,
+-- MediaConvert uses 600,000 (600 kb\/s) by default.
 newAutomatedAbrSettings ::
   AutomatedAbrSettings
 newAutomatedAbrSettings =
   AutomatedAbrSettings'
-    { minAbrBitrate =
+    { maxRenditions =
         Prelude.Nothing,
-      maxRenditions = Prelude.Nothing,
-      maxAbrBitrate = Prelude.Nothing
+      maxAbrBitrate = Prelude.Nothing,
+      minAbrBitrate = Prelude.Nothing
     }
-
--- | Optional. The minimum target bitrate used in your automated ABR stack.
--- Use this value to set a lower limit on the bitrate of video delivered to
--- viewers with slow internet connections. If you don\'t specify a value,
--- MediaConvert uses 600,000 (600 kb\/s) by default.
-automatedAbrSettings_minAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
-automatedAbrSettings_minAbrBitrate = Lens.lens (\AutomatedAbrSettings' {minAbrBitrate} -> minAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {minAbrBitrate = a} :: AutomatedAbrSettings)
 
 -- | Optional. The maximum number of renditions that MediaConvert will create
 -- in your automated ABR stack. The number of renditions is determined
@@ -110,15 +103,22 @@ automatedAbrSettings_maxRenditions = Lens.lens (\AutomatedAbrSettings' {maxRendi
 automatedAbrSettings_maxAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
 automatedAbrSettings_maxAbrBitrate = Lens.lens (\AutomatedAbrSettings' {maxAbrBitrate} -> maxAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {maxAbrBitrate = a} :: AutomatedAbrSettings)
 
+-- | Optional. The minimum target bitrate used in your automated ABR stack.
+-- Use this value to set a lower limit on the bitrate of video delivered to
+-- viewers with slow internet connections. If you don\'t specify a value,
+-- MediaConvert uses 600,000 (600 kb\/s) by default.
+automatedAbrSettings_minAbrBitrate :: Lens.Lens' AutomatedAbrSettings (Prelude.Maybe Prelude.Natural)
+automatedAbrSettings_minAbrBitrate = Lens.lens (\AutomatedAbrSettings' {minAbrBitrate} -> minAbrBitrate) (\s@AutomatedAbrSettings' {} a -> s {minAbrBitrate = a} :: AutomatedAbrSettings)
+
 instance Core.FromJSON AutomatedAbrSettings where
   parseJSON =
     Core.withObject
       "AutomatedAbrSettings"
       ( \x ->
           AutomatedAbrSettings'
-            Prelude.<$> (x Core..:? "minAbrBitrate")
-            Prelude.<*> (x Core..:? "maxRenditions")
+            Prelude.<$> (x Core..:? "maxRenditions")
             Prelude.<*> (x Core..:? "maxAbrBitrate")
+            Prelude.<*> (x Core..:? "minAbrBitrate")
       )
 
 instance Prelude.Hashable AutomatedAbrSettings
@@ -129,8 +129,8 @@ instance Core.ToJSON AutomatedAbrSettings where
   toJSON AutomatedAbrSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("minAbrBitrate" Core..=) Prelude.<$> minAbrBitrate,
-            ("maxRenditions" Core..=) Prelude.<$> maxRenditions,
-            ("maxAbrBitrate" Core..=) Prelude.<$> maxAbrBitrate
+          [ ("maxRenditions" Core..=) Prelude.<$> maxRenditions,
+            ("maxAbrBitrate" Core..=) Prelude.<$> maxAbrBitrate,
+            ("minAbrBitrate" Core..=) Prelude.<$> minAbrBitrate
           ]
       )

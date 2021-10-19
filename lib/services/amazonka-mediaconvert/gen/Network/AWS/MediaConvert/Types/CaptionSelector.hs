@@ -31,15 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
-  { -- | The specific language to extract from source. If input is SCTE-27,
-    -- complete this field and\/or PID to select the caption language to
-    -- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
-    -- this field and\/or PID to select the caption language to extract. If
-    -- input is DVB-Sub that is being passed through, omit this field (and PID
-    -- field); there is no way to extract a specific language with pass-through
-    -- captions.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The specific language to extract from source, using the ISO 639-2 or ISO
+  { -- | The specific language to extract from source, using the ISO 639-2 or ISO
     -- 639-3 three-letter language code. If input is SCTE-27, complete this
     -- field and\/or PID to select the caption language to extract. If input is
     -- DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and\/or
@@ -47,6 +39,14 @@ data CaptionSelector = CaptionSelector'
     -- is being passed through, omit this field (and PID field); there is no
     -- way to extract a specific language with pass-through captions.
     customLanguageCode :: Prelude.Maybe Prelude.Text,
+    -- | The specific language to extract from source. If input is SCTE-27,
+    -- complete this field and\/or PID to select the caption language to
+    -- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
+    -- this field and\/or PID to select the caption language to extract. If
+    -- input is DVB-Sub that is being passed through, omit this field (and PID
+    -- field); there is no way to extract a specific language with pass-through
+    -- captions.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml
     -- file, specify the URI of the input captions source file. If your input
     -- captions are IMSC in an IMF package, use TrackSourceSettings instead of
@@ -63,14 +63,6 @@ data CaptionSelector = CaptionSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'captionSelector_languageCode' - The specific language to extract from source. If input is SCTE-27,
--- complete this field and\/or PID to select the caption language to
--- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
--- this field and\/or PID to select the caption language to extract. If
--- input is DVB-Sub that is being passed through, omit this field (and PID
--- field); there is no way to extract a specific language with pass-through
--- captions.
---
 -- 'customLanguageCode', 'captionSelector_customLanguageCode' - The specific language to extract from source, using the ISO 639-2 or ISO
 -- 639-3 three-letter language code. If input is SCTE-27, complete this
 -- field and\/or PID to select the caption language to extract. If input is
@@ -78,6 +70,14 @@ data CaptionSelector = CaptionSelector'
 -- PID to select the caption language to extract. If input is DVB-Sub that
 -- is being passed through, omit this field (and PID field); there is no
 -- way to extract a specific language with pass-through captions.
+--
+-- 'languageCode', 'captionSelector_languageCode' - The specific language to extract from source. If input is SCTE-27,
+-- complete this field and\/or PID to select the caption language to
+-- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
+-- this field and\/or PID to select the caption language to extract. If
+-- input is DVB-Sub that is being passed through, omit this field (and PID
+-- field); there is no way to extract a specific language with pass-through
+-- captions.
 --
 -- 'sourceSettings', 'captionSelector_sourceSettings' - If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml
 -- file, specify the URI of the input captions source file. If your input
@@ -87,20 +87,11 @@ newCaptionSelector ::
   CaptionSelector
 newCaptionSelector =
   CaptionSelector'
-    { languageCode = Prelude.Nothing,
-      customLanguageCode = Prelude.Nothing,
+    { customLanguageCode =
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       sourceSettings = Prelude.Nothing
     }
-
--- | The specific language to extract from source. If input is SCTE-27,
--- complete this field and\/or PID to select the caption language to
--- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
--- this field and\/or PID to select the caption language to extract. If
--- input is DVB-Sub that is being passed through, omit this field (and PID
--- field); there is no way to extract a specific language with pass-through
--- captions.
-captionSelector_languageCode :: Lens.Lens' CaptionSelector (Prelude.Maybe LanguageCode)
-captionSelector_languageCode = Lens.lens (\CaptionSelector' {languageCode} -> languageCode) (\s@CaptionSelector' {} a -> s {languageCode = a} :: CaptionSelector)
 
 -- | The specific language to extract from source, using the ISO 639-2 or ISO
 -- 639-3 three-letter language code. If input is SCTE-27, complete this
@@ -111,6 +102,16 @@ captionSelector_languageCode = Lens.lens (\CaptionSelector' {languageCode} -> la
 -- way to extract a specific language with pass-through captions.
 captionSelector_customLanguageCode :: Lens.Lens' CaptionSelector (Prelude.Maybe Prelude.Text)
 captionSelector_customLanguageCode = Lens.lens (\CaptionSelector' {customLanguageCode} -> customLanguageCode) (\s@CaptionSelector' {} a -> s {customLanguageCode = a} :: CaptionSelector)
+
+-- | The specific language to extract from source. If input is SCTE-27,
+-- complete this field and\/or PID to select the caption language to
+-- extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete
+-- this field and\/or PID to select the caption language to extract. If
+-- input is DVB-Sub that is being passed through, omit this field (and PID
+-- field); there is no way to extract a specific language with pass-through
+-- captions.
+captionSelector_languageCode :: Lens.Lens' CaptionSelector (Prelude.Maybe LanguageCode)
+captionSelector_languageCode = Lens.lens (\CaptionSelector' {languageCode} -> languageCode) (\s@CaptionSelector' {} a -> s {languageCode = a} :: CaptionSelector)
 
 -- | If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml
 -- file, specify the URI of the input captions source file. If your input
@@ -125,8 +126,8 @@ instance Core.FromJSON CaptionSelector where
       "CaptionSelector"
       ( \x ->
           CaptionSelector'
-            Prelude.<$> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "customLanguageCode")
+            Prelude.<$> (x Core..:? "customLanguageCode")
+            Prelude.<*> (x Core..:? "languageCode")
             Prelude.<*> (x Core..:? "sourceSettings")
       )
 
@@ -138,9 +139,9 @@ instance Core.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("customLanguageCode" Core..=)
+          [ ("customLanguageCode" Core..=)
               Prelude.<$> customLanguageCode,
+            ("languageCode" Core..=) Prelude.<$> languageCode,
             ("sourceSettings" Core..=)
               Prelude.<$> sourceSettings
           ]

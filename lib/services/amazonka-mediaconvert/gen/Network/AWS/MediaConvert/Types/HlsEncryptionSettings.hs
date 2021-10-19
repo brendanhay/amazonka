@@ -37,11 +37,6 @@ data HlsEncryptionSettings = HlsEncryptionSettings'
     -- master playlist. This allows for offline Apple HLS FairPlay content
     -- protection.
     offlineEncrypted :: Prelude.Maybe HlsOfflineEncrypted,
-    -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
-    -- settings when doing DRM encryption with a SPEKE-compliant key provider.
-    -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
-    -- instead.
-    spekeKeyProvider :: Prelude.Maybe SpekeKeyProvider,
     -- | Encrypts the segments with the given encryption scheme. Leave blank to
     -- disable. Selecting \'Disabled\' in the web interface also disables
     -- encryption.
@@ -50,17 +45,22 @@ data HlsEncryptionSettings = HlsEncryptionSettings'
     -- string. If this parameter is not set then the Initialization Vector will
     -- follow the segment number by default.
     constantInitializationVector :: Prelude.Maybe Prelude.Text,
+    -- | Specify whether your DRM encryption key is static or from a key provider
+    -- that follows the SPEKE standard. For more information about SPEKE, see
+    -- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
+    type' :: Prelude.Maybe HlsKeyProviderType,
+    -- | Use these settings to set up encryption with a static key provider.
+    staticKeyProvider :: Prelude.Maybe StaticKeyProvider,
+    -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
+    -- settings when doing DRM encryption with a SPEKE-compliant key provider.
+    -- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
+    -- instead.
+    spekeKeyProvider :: Prelude.Maybe SpekeKeyProvider,
     -- | The Initialization Vector is a 128-bit number used in conjunction with
     -- the key for encrypting blocks. If set to INCLUDE, Initialization Vector
     -- is listed in the manifest. Otherwise Initialization Vector is not in the
     -- manifest.
-    initializationVectorInManifest :: Prelude.Maybe HlsInitializationVectorInManifest,
-    -- | Use these settings to set up encryption with a static key provider.
-    staticKeyProvider :: Prelude.Maybe StaticKeyProvider,
-    -- | Specify whether your DRM encryption key is static or from a key provider
-    -- that follows the SPEKE standard. For more information about SPEKE, see
-    -- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
-    type' :: Prelude.Maybe HlsKeyProviderType
+    initializationVectorInManifest :: Prelude.Maybe HlsInitializationVectorInManifest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,11 +76,6 @@ data HlsEncryptionSettings = HlsEncryptionSettings'
 -- master playlist. This allows for offline Apple HLS FairPlay content
 -- protection.
 --
--- 'spekeKeyProvider', 'hlsEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these
--- settings when doing DRM encryption with a SPEKE-compliant key provider.
--- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
--- instead.
---
 -- 'encryptionMethod', 'hlsEncryptionSettings_encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to
 -- disable. Selecting \'Disabled\' in the web interface also disables
 -- encryption.
@@ -89,28 +84,33 @@ data HlsEncryptionSettings = HlsEncryptionSettings'
 -- string. If this parameter is not set then the Initialization Vector will
 -- follow the segment number by default.
 --
+-- 'type'', 'hlsEncryptionSettings_type' - Specify whether your DRM encryption key is static or from a key provider
+-- that follows the SPEKE standard. For more information about SPEKE, see
+-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
+--
+-- 'staticKeyProvider', 'hlsEncryptionSettings_staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+--
+-- 'spekeKeyProvider', 'hlsEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these
+-- settings when doing DRM encryption with a SPEKE-compliant key provider.
+-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
+-- instead.
+--
 -- 'initializationVectorInManifest', 'hlsEncryptionSettings_initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with
 -- the key for encrypting blocks. If set to INCLUDE, Initialization Vector
 -- is listed in the manifest. Otherwise Initialization Vector is not in the
 -- manifest.
---
--- 'staticKeyProvider', 'hlsEncryptionSettings_staticKeyProvider' - Use these settings to set up encryption with a static key provider.
---
--- 'type'', 'hlsEncryptionSettings_type' - Specify whether your DRM encryption key is static or from a key provider
--- that follows the SPEKE standard. For more information about SPEKE, see
--- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
 newHlsEncryptionSettings ::
   HlsEncryptionSettings
 newHlsEncryptionSettings =
   HlsEncryptionSettings'
     { offlineEncrypted =
         Prelude.Nothing,
-      spekeKeyProvider = Prelude.Nothing,
       encryptionMethod = Prelude.Nothing,
       constantInitializationVector = Prelude.Nothing,
-      initializationVectorInManifest = Prelude.Nothing,
+      type' = Prelude.Nothing,
       staticKeyProvider = Prelude.Nothing,
-      type' = Prelude.Nothing
+      spekeKeyProvider = Prelude.Nothing,
+      initializationVectorInManifest = Prelude.Nothing
     }
 
 -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the
@@ -118,13 +118,6 @@ newHlsEncryptionSettings =
 -- protection.
 hlsEncryptionSettings_offlineEncrypted :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe HlsOfflineEncrypted)
 hlsEncryptionSettings_offlineEncrypted = Lens.lens (\HlsEncryptionSettings' {offlineEncrypted} -> offlineEncrypted) (\s@HlsEncryptionSettings' {} a -> s {offlineEncrypted = a} :: HlsEncryptionSettings)
-
--- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
--- settings when doing DRM encryption with a SPEKE-compliant key provider.
--- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
--- instead.
-hlsEncryptionSettings_spekeKeyProvider :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
-hlsEncryptionSettings_spekeKeyProvider = Lens.lens (\HlsEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@HlsEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: HlsEncryptionSettings)
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to
 -- disable. Selecting \'Disabled\' in the web interface also disables
@@ -138,22 +131,29 @@ hlsEncryptionSettings_encryptionMethod = Lens.lens (\HlsEncryptionSettings' {enc
 hlsEncryptionSettings_constantInitializationVector :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe Prelude.Text)
 hlsEncryptionSettings_constantInitializationVector = Lens.lens (\HlsEncryptionSettings' {constantInitializationVector} -> constantInitializationVector) (\s@HlsEncryptionSettings' {} a -> s {constantInitializationVector = a} :: HlsEncryptionSettings)
 
+-- | Specify whether your DRM encryption key is static or from a key provider
+-- that follows the SPEKE standard. For more information about SPEKE, see
+-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
+hlsEncryptionSettings_type :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe HlsKeyProviderType)
+hlsEncryptionSettings_type = Lens.lens (\HlsEncryptionSettings' {type'} -> type') (\s@HlsEncryptionSettings' {} a -> s {type' = a} :: HlsEncryptionSettings)
+
+-- | Use these settings to set up encryption with a static key provider.
+hlsEncryptionSettings_staticKeyProvider :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe StaticKeyProvider)
+hlsEncryptionSettings_staticKeyProvider = Lens.lens (\HlsEncryptionSettings' {staticKeyProvider} -> staticKeyProvider) (\s@HlsEncryptionSettings' {} a -> s {staticKeyProvider = a} :: HlsEncryptionSettings)
+
+-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
+-- settings when doing DRM encryption with a SPEKE-compliant key provider.
+-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings
+-- instead.
+hlsEncryptionSettings_spekeKeyProvider :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe SpekeKeyProvider)
+hlsEncryptionSettings_spekeKeyProvider = Lens.lens (\HlsEncryptionSettings' {spekeKeyProvider} -> spekeKeyProvider) (\s@HlsEncryptionSettings' {} a -> s {spekeKeyProvider = a} :: HlsEncryptionSettings)
+
 -- | The Initialization Vector is a 128-bit number used in conjunction with
 -- the key for encrypting blocks. If set to INCLUDE, Initialization Vector
 -- is listed in the manifest. Otherwise Initialization Vector is not in the
 -- manifest.
 hlsEncryptionSettings_initializationVectorInManifest :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe HlsInitializationVectorInManifest)
 hlsEncryptionSettings_initializationVectorInManifest = Lens.lens (\HlsEncryptionSettings' {initializationVectorInManifest} -> initializationVectorInManifest) (\s@HlsEncryptionSettings' {} a -> s {initializationVectorInManifest = a} :: HlsEncryptionSettings)
-
--- | Use these settings to set up encryption with a static key provider.
-hlsEncryptionSettings_staticKeyProvider :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe StaticKeyProvider)
-hlsEncryptionSettings_staticKeyProvider = Lens.lens (\HlsEncryptionSettings' {staticKeyProvider} -> staticKeyProvider) (\s@HlsEncryptionSettings' {} a -> s {staticKeyProvider = a} :: HlsEncryptionSettings)
-
--- | Specify whether your DRM encryption key is static or from a key provider
--- that follows the SPEKE standard. For more information about SPEKE, see
--- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.
-hlsEncryptionSettings_type :: Lens.Lens' HlsEncryptionSettings (Prelude.Maybe HlsKeyProviderType)
-hlsEncryptionSettings_type = Lens.lens (\HlsEncryptionSettings' {type'} -> type') (\s@HlsEncryptionSettings' {} a -> s {type' = a} :: HlsEncryptionSettings)
 
 instance Core.FromJSON HlsEncryptionSettings where
   parseJSON =
@@ -162,12 +162,12 @@ instance Core.FromJSON HlsEncryptionSettings where
       ( \x ->
           HlsEncryptionSettings'
             Prelude.<$> (x Core..:? "offlineEncrypted")
-            Prelude.<*> (x Core..:? "spekeKeyProvider")
             Prelude.<*> (x Core..:? "encryptionMethod")
             Prelude.<*> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "initializationVectorInManifest")
-            Prelude.<*> (x Core..:? "staticKeyProvider")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "staticKeyProvider")
+            Prelude.<*> (x Core..:? "spekeKeyProvider")
+            Prelude.<*> (x Core..:? "initializationVectorInManifest")
       )
 
 instance Prelude.Hashable HlsEncryptionSettings
@@ -180,16 +180,16 @@ instance Core.ToJSON HlsEncryptionSettings where
       ( Prelude.catMaybes
           [ ("offlineEncrypted" Core..=)
               Prelude.<$> offlineEncrypted,
-            ("spekeKeyProvider" Core..=)
-              Prelude.<$> spekeKeyProvider,
             ("encryptionMethod" Core..=)
               Prelude.<$> encryptionMethod,
             ("constantInitializationVector" Core..=)
               Prelude.<$> constantInitializationVector,
-            ("initializationVectorInManifest" Core..=)
-              Prelude.<$> initializationVectorInManifest,
+            ("type" Core..=) Prelude.<$> type',
             ("staticKeyProvider" Core..=)
               Prelude.<$> staticKeyProvider,
-            ("type" Core..=) Prelude.<$> type'
+            ("spekeKeyProvider" Core..=)
+              Prelude.<$> spekeKeyProvider,
+            ("initializationVectorInManifest" Core..=)
+              Prelude.<$> initializationVectorInManifest
           ]
       )

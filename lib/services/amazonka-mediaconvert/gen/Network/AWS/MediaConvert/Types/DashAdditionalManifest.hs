@@ -80,7 +80,7 @@ dashAdditionalManifest_manifestNameModifier = Lens.lens (\DashAdditionalManifest
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
 dashAdditionalManifest_selectedOutputs :: Lens.Lens' DashAdditionalManifest (Prelude.Maybe [Prelude.Text])
-dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
+dashAdditionalManifest_selectedOutputs = Lens.lens (\DashAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@DashAdditionalManifest' {} a -> s {selectedOutputs = a} :: DashAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DashAdditionalManifest where
   parseJSON =

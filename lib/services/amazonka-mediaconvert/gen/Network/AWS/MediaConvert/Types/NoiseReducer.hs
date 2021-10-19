@@ -35,10 +35,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNoiseReducer' smart constructor.
 data NoiseReducer = NoiseReducer'
-  { -- | Noise reducer filter settings for spatial filter.
-    spatialFilterSettings :: Prelude.Maybe NoiseReducerSpatialFilterSettings,
-    -- | Noise reducer filter settings for temporal filter.
+  { -- | Noise reducer filter settings for temporal filter.
     temporalFilterSettings :: Prelude.Maybe NoiseReducerTemporalFilterSettings,
+    -- | Noise reducer filter settings for spatial filter.
+    spatialFilterSettings :: Prelude.Maybe NoiseReducerSpatialFilterSettings,
     -- | Settings for a noise reducer filter
     filterSettings :: Prelude.Maybe NoiseReducerFilterSettings,
     -- | Use Noise reducer filter (NoiseReducerFilter) to select one of the
@@ -60,9 +60,9 @@ data NoiseReducer = NoiseReducer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spatialFilterSettings', 'noiseReducer_spatialFilterSettings' - Noise reducer filter settings for spatial filter.
---
 -- 'temporalFilterSettings', 'noiseReducer_temporalFilterSettings' - Noise reducer filter settings for temporal filter.
+--
+-- 'spatialFilterSettings', 'noiseReducer_spatialFilterSettings' - Noise reducer filter settings for spatial filter.
 --
 -- 'filterSettings', 'noiseReducer_filterSettings' - Settings for a noise reducer filter
 --
@@ -77,20 +77,20 @@ newNoiseReducer ::
   NoiseReducer
 newNoiseReducer =
   NoiseReducer'
-    { spatialFilterSettings =
+    { temporalFilterSettings =
         Prelude.Nothing,
-      temporalFilterSettings = Prelude.Nothing,
+      spatialFilterSettings = Prelude.Nothing,
       filterSettings = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
 
--- | Noise reducer filter settings for spatial filter.
-noiseReducer_spatialFilterSettings :: Lens.Lens' NoiseReducer (Prelude.Maybe NoiseReducerSpatialFilterSettings)
-noiseReducer_spatialFilterSettings = Lens.lens (\NoiseReducer' {spatialFilterSettings} -> spatialFilterSettings) (\s@NoiseReducer' {} a -> s {spatialFilterSettings = a} :: NoiseReducer)
-
 -- | Noise reducer filter settings for temporal filter.
 noiseReducer_temporalFilterSettings :: Lens.Lens' NoiseReducer (Prelude.Maybe NoiseReducerTemporalFilterSettings)
 noiseReducer_temporalFilterSettings = Lens.lens (\NoiseReducer' {temporalFilterSettings} -> temporalFilterSettings) (\s@NoiseReducer' {} a -> s {temporalFilterSettings = a} :: NoiseReducer)
+
+-- | Noise reducer filter settings for spatial filter.
+noiseReducer_spatialFilterSettings :: Lens.Lens' NoiseReducer (Prelude.Maybe NoiseReducerSpatialFilterSettings)
+noiseReducer_spatialFilterSettings = Lens.lens (\NoiseReducer' {spatialFilterSettings} -> spatialFilterSettings) (\s@NoiseReducer' {} a -> s {spatialFilterSettings = a} :: NoiseReducer)
 
 -- | Settings for a noise reducer filter
 noiseReducer_filterSettings :: Lens.Lens' NoiseReducer (Prelude.Maybe NoiseReducerFilterSettings)
@@ -112,8 +112,8 @@ instance Core.FromJSON NoiseReducer where
       "NoiseReducer"
       ( \x ->
           NoiseReducer'
-            Prelude.<$> (x Core..:? "spatialFilterSettings")
-            Prelude.<*> (x Core..:? "temporalFilterSettings")
+            Prelude.<$> (x Core..:? "temporalFilterSettings")
+            Prelude.<*> (x Core..:? "spatialFilterSettings")
             Prelude.<*> (x Core..:? "filterSettings")
             Prelude.<*> (x Core..:? "filter")
       )
@@ -126,10 +126,10 @@ instance Core.ToJSON NoiseReducer where
   toJSON NoiseReducer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("spatialFilterSettings" Core..=)
-              Prelude.<$> spatialFilterSettings,
-            ("temporalFilterSettings" Core..=)
+          [ ("temporalFilterSettings" Core..=)
               Prelude.<$> temporalFilterSettings,
+            ("spatialFilterSettings" Core..=)
+              Prelude.<$> spatialFilterSettings,
             ("filterSettings" Core..=)
               Prelude.<$> filterSettings,
             ("filter" Core..=) Prelude.<$> filter'

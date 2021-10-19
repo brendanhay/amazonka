@@ -90,7 +90,7 @@ cmafAdditionalManifest_manifestNameModifier = Lens.lens (\CmafAdditionalManifest
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
 cmafAdditionalManifest_selectedOutputs :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe [Prelude.Text])
-cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
+cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CmafAdditionalManifest where
   parseJSON =

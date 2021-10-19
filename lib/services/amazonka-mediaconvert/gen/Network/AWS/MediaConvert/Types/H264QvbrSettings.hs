@@ -37,6 +37,13 @@ data H264QvbrSettings = H264QvbrSettings'
     -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
     -- actual QVBR quality level is 7.33.
     qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double,
+    -- | Use this setting only when Rate control mode is QVBR and Quality tuning
+    -- level is Multi-pass HQ. For Max average bitrate values suited to the
+    -- complexity of your input video, the service limits the average bitrate
+    -- of the video part of this output to the value that you choose. That is,
+    -- the total size of the video element is less than or equal to the value
+    -- you set multiplied by the number of seconds of encoded output.
+    maxAverageBitrate :: Prelude.Maybe Prelude.Natural,
     -- | Use this setting only when you set Rate control mode (RateControlMode)
     -- to QVBR. Specify the target quality level for this output. MediaConvert
     -- determines the right number of bits to use for each part of the video to
@@ -50,14 +57,7 @@ data H264QvbrSettings = H264QvbrSettings'
     -- value for the setting qvbrQualityLevelFineTune. For example, if you want
     -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
     -- qvbrQualityLevelFineTune to .33.
-    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural,
-    -- | Use this setting only when Rate control mode is QVBR and Quality tuning
-    -- level is Multi-pass HQ. For Max average bitrate values suited to the
-    -- complexity of your input video, the service limits the average bitrate
-    -- of the video part of this output to the value that you choose. That is,
-    -- the total size of the video element is less than or equal to the value
-    -- you set multiplied by the number of seconds of encoded output.
-    maxAverageBitrate :: Prelude.Maybe Prelude.Natural
+    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,13 @@ data H264QvbrSettings = H264QvbrSettings'
 -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
 -- actual QVBR quality level is 7.33.
 --
+-- 'maxAverageBitrate', 'h264QvbrSettings_maxAverageBitrate' - Use this setting only when Rate control mode is QVBR and Quality tuning
+-- level is Multi-pass HQ. For Max average bitrate values suited to the
+-- complexity of your input video, the service limits the average bitrate
+-- of the video part of this output to the value that you choose. That is,
+-- the total size of the video element is less than or equal to the value
+-- you set multiplied by the number of seconds of encoded output.
+--
 -- 'qvbrQualityLevel', 'h264QvbrSettings_qvbrQualityLevel' - Use this setting only when you set Rate control mode (RateControlMode)
 -- to QVBR. Specify the target quality level for this output. MediaConvert
 -- determines the right number of bits to use for each part of the video to
@@ -90,21 +97,14 @@ data H264QvbrSettings = H264QvbrSettings'
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
 -- qvbrQualityLevelFineTune to .33.
---
--- 'maxAverageBitrate', 'h264QvbrSettings_maxAverageBitrate' - Use this setting only when Rate control mode is QVBR and Quality tuning
--- level is Multi-pass HQ. For Max average bitrate values suited to the
--- complexity of your input video, the service limits the average bitrate
--- of the video part of this output to the value that you choose. That is,
--- the total size of the video element is less than or equal to the value
--- you set multiplied by the number of seconds of encoded output.
 newH264QvbrSettings ::
   H264QvbrSettings
 newH264QvbrSettings =
   H264QvbrSettings'
     { qvbrQualityLevelFineTune =
         Prelude.Nothing,
-      qvbrQualityLevel = Prelude.Nothing,
-      maxAverageBitrate = Prelude.Nothing
+      maxAverageBitrate = Prelude.Nothing,
+      qvbrQualityLevel = Prelude.Nothing
     }
 
 -- | Optional. Specify a value here to set the QVBR quality to a level that
@@ -116,6 +116,15 @@ newH264QvbrSettings =
 -- actual QVBR quality level is 7.33.
 h264QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Double)
 h264QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H264QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@H264QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: H264QvbrSettings)
+
+-- | Use this setting only when Rate control mode is QVBR and Quality tuning
+-- level is Multi-pass HQ. For Max average bitrate values suited to the
+-- complexity of your input video, the service limits the average bitrate
+-- of the video part of this output to the value that you choose. That is,
+-- the total size of the video element is less than or equal to the value
+-- you set multiplied by the number of seconds of encoded output.
+h264QvbrSettings_maxAverageBitrate :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Natural)
+h264QvbrSettings_maxAverageBitrate = Lens.lens (\H264QvbrSettings' {maxAverageBitrate} -> maxAverageBitrate) (\s@H264QvbrSettings' {} a -> s {maxAverageBitrate = a} :: H264QvbrSettings)
 
 -- | Use this setting only when you set Rate control mode (RateControlMode)
 -- to QVBR. Specify the target quality level for this output. MediaConvert
@@ -133,15 +142,6 @@ h264QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H264QvbrSettings' {qvbrQ
 h264QvbrSettings_qvbrQualityLevel :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Natural)
 h264QvbrSettings_qvbrQualityLevel = Lens.lens (\H264QvbrSettings' {qvbrQualityLevel} -> qvbrQualityLevel) (\s@H264QvbrSettings' {} a -> s {qvbrQualityLevel = a} :: H264QvbrSettings)
 
--- | Use this setting only when Rate control mode is QVBR and Quality tuning
--- level is Multi-pass HQ. For Max average bitrate values suited to the
--- complexity of your input video, the service limits the average bitrate
--- of the video part of this output to the value that you choose. That is,
--- the total size of the video element is less than or equal to the value
--- you set multiplied by the number of seconds of encoded output.
-h264QvbrSettings_maxAverageBitrate :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Natural)
-h264QvbrSettings_maxAverageBitrate = Lens.lens (\H264QvbrSettings' {maxAverageBitrate} -> maxAverageBitrate) (\s@H264QvbrSettings' {} a -> s {maxAverageBitrate = a} :: H264QvbrSettings)
-
 instance Core.FromJSON H264QvbrSettings where
   parseJSON =
     Core.withObject
@@ -149,8 +149,8 @@ instance Core.FromJSON H264QvbrSettings where
       ( \x ->
           H264QvbrSettings'
             Prelude.<$> (x Core..:? "qvbrQualityLevelFineTune")
-            Prelude.<*> (x Core..:? "qvbrQualityLevel")
             Prelude.<*> (x Core..:? "maxAverageBitrate")
+            Prelude.<*> (x Core..:? "qvbrQualityLevel")
       )
 
 instance Prelude.Hashable H264QvbrSettings
@@ -163,9 +163,9 @@ instance Core.ToJSON H264QvbrSettings where
       ( Prelude.catMaybes
           [ ("qvbrQualityLevelFineTune" Core..=)
               Prelude.<$> qvbrQualityLevelFineTune,
-            ("qvbrQualityLevel" Core..=)
-              Prelude.<$> qvbrQualityLevel,
             ("maxAverageBitrate" Core..=)
-              Prelude.<$> maxAverageBitrate
+              Prelude.<$> maxAverageBitrate,
+            ("qvbrQualityLevel" Core..=)
+              Prelude.<$> qvbrQualityLevel
           ]
       )

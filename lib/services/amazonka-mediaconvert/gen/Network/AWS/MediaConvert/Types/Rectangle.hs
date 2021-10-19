@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data Rectangle = Rectangle'
   { -- | Height of rectangle in pixels. Specify only even numbers.
     height :: Prelude.Maybe Prelude.Natural,
-    -- | The distance, in pixels, between the rectangle and the top edge of the
-    -- video frame. Specify only even numbers.
-    y :: Prelude.Maybe Prelude.Natural,
     -- | Width of rectangle in pixels. Specify only even numbers.
     width :: Prelude.Maybe Prelude.Natural,
     -- | The distance, in pixels, between the rectangle and the left edge of the
     -- video frame. Specify only even numbers.
-    x :: Prelude.Maybe Prelude.Natural
+    x :: Prelude.Maybe Prelude.Natural,
+    -- | The distance, in pixels, between the rectangle and the top edge of the
+    -- video frame. Specify only even numbers.
+    y :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,31 +50,26 @@ data Rectangle = Rectangle'
 --
 -- 'height', 'rectangle_height' - Height of rectangle in pixels. Specify only even numbers.
 --
--- 'y', 'rectangle_y' - The distance, in pixels, between the rectangle and the top edge of the
--- video frame. Specify only even numbers.
---
 -- 'width', 'rectangle_width' - Width of rectangle in pixels. Specify only even numbers.
 --
 -- 'x', 'rectangle_x' - The distance, in pixels, between the rectangle and the left edge of the
+-- video frame. Specify only even numbers.
+--
+-- 'y', 'rectangle_y' - The distance, in pixels, between the rectangle and the top edge of the
 -- video frame. Specify only even numbers.
 newRectangle ::
   Rectangle
 newRectangle =
   Rectangle'
     { height = Prelude.Nothing,
-      y = Prelude.Nothing,
       width = Prelude.Nothing,
-      x = Prelude.Nothing
+      x = Prelude.Nothing,
+      y = Prelude.Nothing
     }
 
 -- | Height of rectangle in pixels. Specify only even numbers.
 rectangle_height :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_height = Lens.lens (\Rectangle' {height} -> height) (\s@Rectangle' {} a -> s {height = a} :: Rectangle)
-
--- | The distance, in pixels, between the rectangle and the top edge of the
--- video frame. Specify only even numbers.
-rectangle_y :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
-rectangle_y = Lens.lens (\Rectangle' {y} -> y) (\s@Rectangle' {} a -> s {y = a} :: Rectangle)
 
 -- | Width of rectangle in pixels. Specify only even numbers.
 rectangle_width :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
@@ -85,6 +80,11 @@ rectangle_width = Lens.lens (\Rectangle' {width} -> width) (\s@Rectangle' {} a -
 rectangle_x :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
 rectangle_x = Lens.lens (\Rectangle' {x} -> x) (\s@Rectangle' {} a -> s {x = a} :: Rectangle)
 
+-- | The distance, in pixels, between the rectangle and the top edge of the
+-- video frame. Specify only even numbers.
+rectangle_y :: Lens.Lens' Rectangle (Prelude.Maybe Prelude.Natural)
+rectangle_y = Lens.lens (\Rectangle' {y} -> y) (\s@Rectangle' {} a -> s {y = a} :: Rectangle)
+
 instance Core.FromJSON Rectangle where
   parseJSON =
     Core.withObject
@@ -92,9 +92,9 @@ instance Core.FromJSON Rectangle where
       ( \x ->
           Rectangle'
             Prelude.<$> (x Core..:? "height")
-            Prelude.<*> (x Core..:? "y")
             Prelude.<*> (x Core..:? "width")
             Prelude.<*> (x Core..:? "x")
+            Prelude.<*> (x Core..:? "y")
       )
 
 instance Prelude.Hashable Rectangle
@@ -106,8 +106,8 @@ instance Core.ToJSON Rectangle where
     Core.object
       ( Prelude.catMaybes
           [ ("height" Core..=) Prelude.<$> height,
-            ("y" Core..=) Prelude.<$> y,
             ("width" Core..=) Prelude.<$> width,
-            ("x" Core..=) Prelude.<$> x
+            ("x" Core..=) Prelude.<$> x,
+            ("y" Core..=) Prelude.<$> y
           ]
       )

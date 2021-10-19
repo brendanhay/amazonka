@@ -80,7 +80,7 @@ msSmoothAdditionalManifest_manifestNameModifier = Lens.lens (\MsSmoothAdditional
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
 msSmoothAdditionalManifest_selectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe [Prelude.Text])
-msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
+msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON MsSmoothAdditionalManifest where
   parseJSON =

@@ -32,16 +32,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDolbyVision' smart constructor.
 data DolbyVision = DolbyVision'
-  { -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
+  { -- | In the current MediaConvert implementation, the Dolby Vision profile is
+    -- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
+    -- Vision frame interleaved data.
+    profile :: Prelude.Maybe DolbyVisionProfile,
+    -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
     -- MaxCLL and MaxFALL properies.
     l6Mode :: Prelude.Maybe DolbyVisionLevel6Mode,
     -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
     -- override the MaxCLL and MaxFALL values in your input with new values.
-    l6Metadata :: Prelude.Maybe DolbyVisionLevel6Metadata,
-    -- | In the current MediaConvert implementation, the Dolby Vision profile is
-    -- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
-    -- Vision frame interleaved data.
-    profile :: Prelude.Maybe DolbyVisionProfile
+    l6Metadata :: Prelude.Maybe DolbyVisionLevel6Metadata
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,23 +53,29 @@ data DolbyVision = DolbyVision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'profile', 'dolbyVision_profile' - In the current MediaConvert implementation, the Dolby Vision profile is
+-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
+-- Vision frame interleaved data.
+--
 -- 'l6Mode', 'dolbyVision_l6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision
 -- MaxCLL and MaxFALL properies.
 --
 -- 'l6Metadata', 'dolbyVision_l6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to
 -- override the MaxCLL and MaxFALL values in your input with new values.
---
--- 'profile', 'dolbyVision_profile' - In the current MediaConvert implementation, the Dolby Vision profile is
--- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
--- Vision frame interleaved data.
 newDolbyVision ::
   DolbyVision
 newDolbyVision =
   DolbyVision'
-    { l6Mode = Prelude.Nothing,
-      l6Metadata = Prelude.Nothing,
-      profile = Prelude.Nothing
+    { profile = Prelude.Nothing,
+      l6Mode = Prelude.Nothing,
+      l6Metadata = Prelude.Nothing
     }
+
+-- | In the current MediaConvert implementation, the Dolby Vision profile is
+-- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
+-- Vision frame interleaved data.
+dolbyVision_profile :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionProfile)
+dolbyVision_profile = Lens.lens (\DolbyVision' {profile} -> profile) (\s@DolbyVision' {} a -> s {profile = a} :: DolbyVision)
 
 -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision
 -- MaxCLL and MaxFALL properies.
@@ -81,21 +87,15 @@ dolbyVision_l6Mode = Lens.lens (\DolbyVision' {l6Mode} -> l6Mode) (\s@DolbyVisio
 dolbyVision_l6Metadata :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionLevel6Metadata)
 dolbyVision_l6Metadata = Lens.lens (\DolbyVision' {l6Metadata} -> l6Metadata) (\s@DolbyVision' {} a -> s {l6Metadata = a} :: DolbyVision)
 
--- | In the current MediaConvert implementation, the Dolby Vision profile is
--- always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby
--- Vision frame interleaved data.
-dolbyVision_profile :: Lens.Lens' DolbyVision (Prelude.Maybe DolbyVisionProfile)
-dolbyVision_profile = Lens.lens (\DolbyVision' {profile} -> profile) (\s@DolbyVision' {} a -> s {profile = a} :: DolbyVision)
-
 instance Core.FromJSON DolbyVision where
   parseJSON =
     Core.withObject
       "DolbyVision"
       ( \x ->
           DolbyVision'
-            Prelude.<$> (x Core..:? "l6Mode")
+            Prelude.<$> (x Core..:? "profile")
+            Prelude.<*> (x Core..:? "l6Mode")
             Prelude.<*> (x Core..:? "l6Metadata")
-            Prelude.<*> (x Core..:? "profile")
       )
 
 instance Prelude.Hashable DolbyVision
@@ -106,8 +106,8 @@ instance Core.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("l6Mode" Core..=) Prelude.<$> l6Mode,
-            ("l6Metadata" Core..=) Prelude.<$> l6Metadata,
-            ("profile" Core..=) Prelude.<$> profile
+          [ ("profile" Core..=) Prelude.<$> profile,
+            ("l6Mode" Core..=) Prelude.<$> l6Mode,
+            ("l6Metadata" Core..=) Prelude.<$> l6Metadata
           ]
       )

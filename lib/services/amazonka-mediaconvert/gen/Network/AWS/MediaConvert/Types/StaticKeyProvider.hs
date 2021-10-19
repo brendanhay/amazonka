@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStaticKeyProvider' smart constructor.
 data StaticKeyProvider = StaticKeyProvider'
-  { -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
-    -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
-    -- to indicate an implicit value of \'identity\'.
-    keyFormat :: Prelude.Maybe Prelude.Text,
-    -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
+  { -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
     -- specify Key Value (StaticKeyValue).
     staticKeyValue :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. The location of the license server used
     -- for protecting content.
     url :: Prelude.Maybe Prelude.Text,
+    -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
+    -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
+    -- to indicate an implicit value of \'identity\'.
+    keyFormat :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. Either a single positive integer version
     -- value or a slash delimited list of version values (1\/2\/3).
     keyFormatVersions :: Prelude.Maybe Prelude.Text
@@ -51,15 +51,15 @@ data StaticKeyProvider = StaticKeyProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyFormat', 'staticKeyProvider_keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT
--- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
--- to indicate an implicit value of \'identity\'.
---
 -- 'staticKeyValue', 'staticKeyProvider_staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to
 -- specify Key Value (StaticKeyValue).
 --
 -- 'url', 'staticKeyProvider_url' - Relates to DRM implementation. The location of the license server used
 -- for protecting content.
+--
+-- 'keyFormat', 'staticKeyProvider_keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT
+-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
+-- to indicate an implicit value of \'identity\'.
 --
 -- 'keyFormatVersions', 'staticKeyProvider_keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version
 -- value or a slash delimited list of version values (1\/2\/3).
@@ -67,17 +67,12 @@ newStaticKeyProvider ::
   StaticKeyProvider
 newStaticKeyProvider =
   StaticKeyProvider'
-    { keyFormat = Prelude.Nothing,
-      staticKeyValue = Prelude.Nothing,
+    { staticKeyValue =
+        Prelude.Nothing,
       url = Prelude.Nothing,
+      keyFormat = Prelude.Nothing,
       keyFormatVersions = Prelude.Nothing
     }
-
--- | Relates to DRM implementation. Sets the value of the KEYFORMAT
--- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
--- to indicate an implicit value of \'identity\'.
-staticKeyProvider_keyFormat :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
-staticKeyProvider_keyFormat = Lens.lens (\StaticKeyProvider' {keyFormat} -> keyFormat) (\s@StaticKeyProvider' {} a -> s {keyFormat = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
 -- specify Key Value (StaticKeyValue).
@@ -88,6 +83,12 @@ staticKeyProvider_staticKeyValue = Lens.lens (\StaticKeyProvider' {staticKeyValu
 -- for protecting content.
 staticKeyProvider_url :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_url = Lens.lens (\StaticKeyProvider' {url} -> url) (\s@StaticKeyProvider' {} a -> s {url = a} :: StaticKeyProvider)
+
+-- | Relates to DRM implementation. Sets the value of the KEYFORMAT
+-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
+-- to indicate an implicit value of \'identity\'.
+staticKeyProvider_keyFormat :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
+staticKeyProvider_keyFormat = Lens.lens (\StaticKeyProvider' {keyFormat} -> keyFormat) (\s@StaticKeyProvider' {} a -> s {keyFormat = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. Either a single positive integer version
 -- value or a slash delimited list of version values (1\/2\/3).
@@ -100,9 +101,9 @@ instance Core.FromJSON StaticKeyProvider where
       "StaticKeyProvider"
       ( \x ->
           StaticKeyProvider'
-            Prelude.<$> (x Core..:? "keyFormat")
-            Prelude.<*> (x Core..:? "staticKeyValue")
+            Prelude.<$> (x Core..:? "staticKeyValue")
             Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "keyFormat")
             Prelude.<*> (x Core..:? "keyFormatVersions")
       )
 
@@ -114,10 +115,10 @@ instance Core.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("keyFormat" Core..=) Prelude.<$> keyFormat,
-            ("staticKeyValue" Core..=)
+          [ ("staticKeyValue" Core..=)
               Prelude.<$> staticKeyValue,
             ("url" Core..=) Prelude.<$> url,
+            ("keyFormat" Core..=) Prelude.<$> keyFormat,
             ("keyFormatVersions" Core..=)
               Prelude.<$> keyFormatVersions
           ]

@@ -104,7 +104,7 @@ spekeKeyProvider_url = Lens.lens (\SpekeKeyProvider' {url} -> url) (\s@SpekeKeyP
 -- system id. See https:\/\/dashif.org\/identifiers\/content_protection\/
 -- for more details.
 spekeKeyProvider_systemIds :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe [Prelude.Text])
-spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Prelude.. Lens.mapping Lens._Coerce
+spekeKeyProvider_systemIds = Lens.lens (\SpekeKeyProvider' {systemIds} -> systemIds) (\s@SpekeKeyProvider' {} a -> s {systemIds = a} :: SpekeKeyProvider) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SpekeKeyProvider where
   parseJSON =

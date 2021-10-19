@@ -72,7 +72,7 @@ newStopDataCollectionByAgentIds =
 
 -- | The IDs of the agents or connectors from which to stop collecting data.
 stopDataCollectionByAgentIds_agentIds :: Lens.Lens' StopDataCollectionByAgentIds [Prelude.Text]
-stopDataCollectionByAgentIds_agentIds = Lens.lens (\StopDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StopDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StopDataCollectionByAgentIds) Prelude.. Lens._Coerce
+stopDataCollectionByAgentIds_agentIds = Lens.lens (\StopDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StopDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StopDataCollectionByAgentIds) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopDataCollectionByAgentIds where
   type
@@ -165,7 +165,7 @@ newStopDataCollectionByAgentIdsResponse pHttpStatus_ =
 -- description of the operation performed, and whether the agent\/connector
 -- configuration was updated.
 stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse (Prelude.Maybe [AgentConfigurationStatus])
-stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StopDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StopDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StopDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens._Coerce
+stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StopDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StopDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StopDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 stopDataCollectionByAgentIdsResponse_httpStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse Prelude.Int

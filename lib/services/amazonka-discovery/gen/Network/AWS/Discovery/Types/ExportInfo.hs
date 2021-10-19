@@ -29,12 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportInfo' smart constructor.
 data ExportInfo = ExportInfo'
-  { -- | If true, the export of agent information exceeded the size limit for a
-    -- single export and the exported data is incomplete for the requested time
-    -- range. To address this, select a smaller time range for the export by
-    -- using @startDate@ and @endDate@.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | A URL for an Amazon S3 bucket where you can review the exported data.
+  { -- | A URL for an Amazon S3 bucket where you can review the exported data.
     -- The URL is displayed only if the export succeeded.
     configurationsDownloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
@@ -44,6 +39,11 @@ data ExportInfo = ExportInfo'
     -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
     -- requested, this result does not appear in @ExportInfo@.
     requestedEndTime :: Prelude.Maybe Core.POSIX,
+    -- | If true, the export of agent information exceeded the size limit for a
+    -- single export and the exported data is incomplete for the requested time
+    -- range. To address this, select a smaller time range for the export by
+    -- using @startDate@ and @endDate@.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | A unique identifier used to query an export.
     exportId :: Prelude.Text,
     -- | The status of the data export job.
@@ -63,11 +63,6 @@ data ExportInfo = ExportInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isTruncated', 'exportInfo_isTruncated' - If true, the export of agent information exceeded the size limit for a
--- single export and the exported data is incomplete for the requested time
--- range. To address this, select a smaller time range for the export by
--- using @startDate@ and @endDate@.
---
 -- 'configurationsDownloadUrl', 'exportInfo_configurationsDownloadUrl' - A URL for an Amazon S3 bucket where you can review the exported data.
 -- The URL is displayed only if the export succeeded.
 --
@@ -77,6 +72,11 @@ data ExportInfo = ExportInfo'
 --
 -- 'requestedEndTime', 'exportInfo_requestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
 -- requested, this result does not appear in @ExportInfo@.
+--
+-- 'isTruncated', 'exportInfo_isTruncated' - If true, the export of agent information exceeded the size limit for a
+-- single export and the exported data is incomplete for the requested time
+-- range. To address this, select a smaller time range for the export by
+-- using @startDate@ and @endDate@.
 --
 -- 'exportId', 'exportInfo_exportId' - A unique identifier used to query an export.
 --
@@ -101,23 +101,17 @@ newExportInfo
   pStatusMessage_
   pExportRequestTime_ =
     ExportInfo'
-      { isTruncated = Prelude.Nothing,
-        configurationsDownloadUrl = Prelude.Nothing,
+      { configurationsDownloadUrl =
+          Prelude.Nothing,
         requestedStartTime = Prelude.Nothing,
         requestedEndTime = Prelude.Nothing,
+        isTruncated = Prelude.Nothing,
         exportId = pExportId_,
         exportStatus = pExportStatus_,
         statusMessage = pStatusMessage_,
         exportRequestTime =
           Core._Time Lens.# pExportRequestTime_
       }
-
--- | If true, the export of agent information exceeded the size limit for a
--- single export and the exported data is incomplete for the requested time
--- range. To address this, select a smaller time range for the export by
--- using @startDate@ and @endDate@.
-exportInfo_isTruncated :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Bool)
-exportInfo_isTruncated = Lens.lens (\ExportInfo' {isTruncated} -> isTruncated) (\s@ExportInfo' {} a -> s {isTruncated = a} :: ExportInfo)
 
 -- | A URL for an Amazon S3 bucket where you can review the exported data.
 -- The URL is displayed only if the export succeeded.
@@ -134,6 +128,13 @@ exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> 
 -- requested, this result does not appear in @ExportInfo@.
 exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
 exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Core._Time
+
+-- | If true, the export of agent information exceeded the size limit for a
+-- single export and the exported data is incomplete for the requested time
+-- range. To address this, select a smaller time range for the export by
+-- using @startDate@ and @endDate@.
+exportInfo_isTruncated :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Bool)
+exportInfo_isTruncated = Lens.lens (\ExportInfo' {isTruncated} -> isTruncated) (\s@ExportInfo' {} a -> s {isTruncated = a} :: ExportInfo)
 
 -- | A unique identifier used to query an export.
 exportInfo_exportId :: Lens.Lens' ExportInfo Prelude.Text
@@ -157,10 +158,10 @@ instance Core.FromJSON ExportInfo where
       "ExportInfo"
       ( \x ->
           ExportInfo'
-            Prelude.<$> (x Core..:? "isTruncated")
-            Prelude.<*> (x Core..:? "configurationsDownloadUrl")
+            Prelude.<$> (x Core..:? "configurationsDownloadUrl")
             Prelude.<*> (x Core..:? "requestedStartTime")
             Prelude.<*> (x Core..:? "requestedEndTime")
+            Prelude.<*> (x Core..:? "isTruncated")
             Prelude.<*> (x Core..: "exportId")
             Prelude.<*> (x Core..: "exportStatus")
             Prelude.<*> (x Core..: "statusMessage")

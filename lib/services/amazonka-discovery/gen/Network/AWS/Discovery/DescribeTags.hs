@@ -43,9 +43,9 @@ module Network.AWS.Discovery.DescribeTags
     newDescribeTags,
 
     -- * Request Lenses
+    describeTags_filters,
     describeTags_nextToken,
     describeTags_maxResults,
-    describeTags_filters,
 
     -- * Destructuring the Response
     DescribeTagsResponse (..),
@@ -67,16 +67,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { -- | A token to start the list. Use this token to get the next set of
+  { -- | You can filter the list using a /key/-/value/ format. You can separate
+    -- these items by using logical operators. Allowed filters include
+    -- @tagKey@, @tagValue@, and @configurationId@.
+    filters :: Prelude.Maybe [TagFilter],
+    -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of items to return in a single page of output. The
     -- maximum value is 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | You can filter the list using a /key/-/value/ format. You can separate
-    -- these items by using logical operators. Allowed filters include
-    -- @tagKey@, @tagValue@, and @configurationId@.
-    filters :: Prelude.Maybe [TagFilter]
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,23 +88,29 @@ data DescribeTags = DescribeTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeTags_filters' - You can filter the list using a /key/-/value/ format. You can separate
+-- these items by using logical operators. Allowed filters include
+-- @tagKey@, @tagValue@, and @configurationId@.
+--
 -- 'nextToken', 'describeTags_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
 -- 'maxResults', 'describeTags_maxResults' - The total number of items to return in a single page of output. The
 -- maximum value is 100.
---
--- 'filters', 'describeTags_filters' - You can filter the list using a /key/-/value/ format. You can separate
--- these items by using logical operators. Allowed filters include
--- @tagKey@, @tagValue@, and @configurationId@.
 newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | You can filter the list using a /key/-/value/ format. You can separate
+-- these items by using logical operators. Allowed filters include
+-- @tagKey@, @tagValue@, and @configurationId@.
+describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [TagFilter])
+describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
@@ -115,12 +121,6 @@ describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s
 -- maximum value is 100.
 describeTags_maxResults :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
 describeTags_maxResults = Lens.lens (\DescribeTags' {maxResults} -> maxResults) (\s@DescribeTags' {} a -> s {maxResults = a} :: DescribeTags)
-
--- | You can filter the list using a /key/-/value/ format. You can separate
--- these items by using logical operators. Allowed filters include
--- @tagKey@, @tagValue@, and @configurationId@.
-describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [TagFilter])
-describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeTags where
   page rq rs
@@ -176,9 +176,9 @@ instance Core.ToJSON DescribeTags where
   toJSON DescribeTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("filters" Core..=) Prelude.<$> filters
+          [ ("filters" Core..=) Prelude.<$> filters,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -235,7 +235,7 @@ describeTagsResponse_nextToken = Lens.lens (\DescribeTagsResponse' {nextToken} -
 -- with a specific tag, or a list of tags for a specific configuration
 -- item.
 describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [ConfigurationTag])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

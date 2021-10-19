@@ -29,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-  { -- | A type of tag on which to filter. For example, /serverType/.
-    key :: Prelude.Maybe Prelude.Text,
+  { -- | The time the configuration tag was created in Coordinated Universal Time
+    -- (UTC).
+    timeOfCreation :: Prelude.Maybe Core.POSIX,
     -- | The configuration ID for the item to tag. You can specify a list of keys
     -- and values.
     configurationId :: Prelude.Maybe Prelude.Text,
+    -- | A type of IT asset to tag.
+    configurationType :: Prelude.Maybe ConfigurationItemType,
     -- | A value on which to filter. For example /key = serverType/ and /value =
     -- web server/.
     value :: Prelude.Maybe Prelude.Text,
-    -- | A type of IT asset to tag.
-    configurationType :: Prelude.Maybe ConfigurationItemType,
-    -- | The time the configuration tag was created in Coordinated Universal Time
-    -- (UTC).
-    timeOfCreation :: Prelude.Maybe Core.POSIX
+    -- | A type of tag on which to filter. For example, /serverType/.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,51 +53,51 @@ data ConfigurationTag = ConfigurationTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'configurationTag_key' - A type of tag on which to filter. For example, /serverType/.
+-- 'timeOfCreation', 'configurationTag_timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time
+-- (UTC).
 --
 -- 'configurationId', 'configurationTag_configurationId' - The configuration ID for the item to tag. You can specify a list of keys
 -- and values.
 --
+-- 'configurationType', 'configurationTag_configurationType' - A type of IT asset to tag.
+--
 -- 'value', 'configurationTag_value' - A value on which to filter. For example /key = serverType/ and /value =
 -- web server/.
 --
--- 'configurationType', 'configurationTag_configurationType' - A type of IT asset to tag.
---
--- 'timeOfCreation', 'configurationTag_timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time
--- (UTC).
+-- 'key', 'configurationTag_key' - A type of tag on which to filter. For example, /serverType/.
 newConfigurationTag ::
   ConfigurationTag
 newConfigurationTag =
   ConfigurationTag'
-    { key = Prelude.Nothing,
+    { timeOfCreation = Prelude.Nothing,
       configurationId = Prelude.Nothing,
-      value = Prelude.Nothing,
       configurationType = Prelude.Nothing,
-      timeOfCreation = Prelude.Nothing
+      value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
 
--- | A type of tag on which to filter. For example, /serverType/.
-configurationTag_key :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
-configurationTag_key = Lens.lens (\ConfigurationTag' {key} -> key) (\s@ConfigurationTag' {} a -> s {key = a} :: ConfigurationTag)
+-- | The time the configuration tag was created in Coordinated Universal Time
+-- (UTC).
+configurationTag_timeOfCreation :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.UTCTime)
+configurationTag_timeOfCreation = Lens.lens (\ConfigurationTag' {timeOfCreation} -> timeOfCreation) (\s@ConfigurationTag' {} a -> s {timeOfCreation = a} :: ConfigurationTag) Prelude.. Lens.mapping Core._Time
 
 -- | The configuration ID for the item to tag. You can specify a list of keys
 -- and values.
 configurationTag_configurationId :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
 configurationTag_configurationId = Lens.lens (\ConfigurationTag' {configurationId} -> configurationId) (\s@ConfigurationTag' {} a -> s {configurationId = a} :: ConfigurationTag)
 
+-- | A type of IT asset to tag.
+configurationTag_configurationType :: Lens.Lens' ConfigurationTag (Prelude.Maybe ConfigurationItemType)
+configurationTag_configurationType = Lens.lens (\ConfigurationTag' {configurationType} -> configurationType) (\s@ConfigurationTag' {} a -> s {configurationType = a} :: ConfigurationTag)
+
 -- | A value on which to filter. For example /key = serverType/ and /value =
 -- web server/.
 configurationTag_value :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
 configurationTag_value = Lens.lens (\ConfigurationTag' {value} -> value) (\s@ConfigurationTag' {} a -> s {value = a} :: ConfigurationTag)
 
--- | A type of IT asset to tag.
-configurationTag_configurationType :: Lens.Lens' ConfigurationTag (Prelude.Maybe ConfigurationItemType)
-configurationTag_configurationType = Lens.lens (\ConfigurationTag' {configurationType} -> configurationType) (\s@ConfigurationTag' {} a -> s {configurationType = a} :: ConfigurationTag)
-
--- | The time the configuration tag was created in Coordinated Universal Time
--- (UTC).
-configurationTag_timeOfCreation :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.UTCTime)
-configurationTag_timeOfCreation = Lens.lens (\ConfigurationTag' {timeOfCreation} -> timeOfCreation) (\s@ConfigurationTag' {} a -> s {timeOfCreation = a} :: ConfigurationTag) Prelude.. Lens.mapping Core._Time
+-- | A type of tag on which to filter. For example, /serverType/.
+configurationTag_key :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
+configurationTag_key = Lens.lens (\ConfigurationTag' {key} -> key) (\s@ConfigurationTag' {} a -> s {key = a} :: ConfigurationTag)
 
 instance Core.FromJSON ConfigurationTag where
   parseJSON =
@@ -105,11 +105,11 @@ instance Core.FromJSON ConfigurationTag where
       "ConfigurationTag"
       ( \x ->
           ConfigurationTag'
-            Prelude.<$> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "timeOfCreation")
             Prelude.<*> (x Core..:? "configurationId")
-            Prelude.<*> (x Core..:? "value")
             Prelude.<*> (x Core..:? "configurationType")
-            Prelude.<*> (x Core..:? "timeOfCreation")
+            Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "key")
       )
 
 instance Prelude.Hashable ConfigurationTag

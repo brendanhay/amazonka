@@ -59,7 +59,7 @@ tagFilter_name = Lens.lens (\TagFilter' {name} -> name) (\s@TagFilter' {} a -> s
 
 -- | Values for the tag filter.
 tagFilter_values :: Lens.Lens' TagFilter [Prelude.Text]
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens._Coerce
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable TagFilter
 

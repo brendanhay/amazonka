@@ -90,7 +90,7 @@ filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = 
 -- @destinationServer.osVersion@ filter name, you could specify @Ubuntu@
 -- for the value.
 filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.coerced
 
 -- | A conditional operator. The following operators are valid: EQUALS,
 -- NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the

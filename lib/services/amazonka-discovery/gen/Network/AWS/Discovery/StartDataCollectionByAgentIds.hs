@@ -93,7 +93,7 @@ newStartDataCollectionByAgentIds =
 -- those agents\/connectors, the system does not throw an exception.
 -- Instead, the system shows @Failed@ in the /Description/ field.
 startDataCollectionByAgentIds_agentIds :: Lens.Lens' StartDataCollectionByAgentIds [Prelude.Text]
-startDataCollectionByAgentIds_agentIds = Lens.lens (\StartDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StartDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StartDataCollectionByAgentIds) Prelude.. Lens._Coerce
+startDataCollectionByAgentIds_agentIds = Lens.lens (\StartDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StartDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StartDataCollectionByAgentIds) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -189,7 +189,7 @@ newStartDataCollectionByAgentIdsResponse pHttpStatus_ =
 -- description of the operation performed, and whether the agent\/connector
 -- configuration was updated.
 startDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse (Prelude.Maybe [AgentConfigurationStatus])
-startDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens._Coerce
+startDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startDataCollectionByAgentIdsResponse_httpStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse Prelude.Int

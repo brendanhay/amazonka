@@ -28,10 +28,10 @@ module Network.AWS.Discovery.ListServerNeighbors
     newListServerNeighbors,
 
     -- * Request Lenses
-    listServerNeighbors_nextToken,
-    listServerNeighbors_maxResults,
     listServerNeighbors_portInformationNeeded,
     listServerNeighbors_neighborConfigurationIds,
+    listServerNeighbors_nextToken,
+    listServerNeighbors_maxResults,
     listServerNeighbors_configurationId,
 
     -- * Destructuring the Response
@@ -55,7 +55,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListServerNeighbors' smart constructor.
 data ListServerNeighbors = ListServerNeighbors'
-  { -- | Token to retrieve the next set of results. For example, if you
+  { -- | Flag to indicate if port and protocol information is needed as part of
+    -- the response.
+    portInformationNeeded :: Prelude.Maybe Prelude.Bool,
+    -- | List of configuration IDs to test for one-hop-away.
+    neighborConfigurationIds :: Prelude.Maybe [Prelude.Text],
+    -- | Token to retrieve the next set of results. For example, if you
     -- previously specified 100 IDs for
     -- @ListServerNeighborsRequest$neighborConfigurationIds@ but set
     -- @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10
@@ -64,11 +69,6 @@ data ListServerNeighbors = ListServerNeighbors'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return in a single page of output.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Flag to indicate if port and protocol information is needed as part of
-    -- the response.
-    portInformationNeeded :: Prelude.Maybe Prelude.Bool,
-    -- | List of configuration IDs to test for one-hop-away.
-    neighborConfigurationIds :: Prelude.Maybe [Prelude.Text],
     -- | Configuration ID of the server for which neighbors are being listed.
     configurationId :: Prelude.Text
   }
@@ -82,6 +82,11 @@ data ListServerNeighbors = ListServerNeighbors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'portInformationNeeded', 'listServerNeighbors_portInformationNeeded' - Flag to indicate if port and protocol information is needed as part of
+-- the response.
+--
+-- 'neighborConfigurationIds', 'listServerNeighbors_neighborConfigurationIds' - List of configuration IDs to test for one-hop-away.
+--
 -- 'nextToken', 'listServerNeighbors_nextToken' - Token to retrieve the next set of results. For example, if you
 -- previously specified 100 IDs for
 -- @ListServerNeighborsRequest$neighborConfigurationIds@ but set
@@ -91,11 +96,6 @@ data ListServerNeighbors = ListServerNeighbors'
 --
 -- 'maxResults', 'listServerNeighbors_maxResults' - Maximum number of results to return in a single page of output.
 --
--- 'portInformationNeeded', 'listServerNeighbors_portInformationNeeded' - Flag to indicate if port and protocol information is needed as part of
--- the response.
---
--- 'neighborConfigurationIds', 'listServerNeighbors_neighborConfigurationIds' - List of configuration IDs to test for one-hop-away.
---
 -- 'configurationId', 'listServerNeighbors_configurationId' - Configuration ID of the server for which neighbors are being listed.
 newListServerNeighbors ::
   -- | 'configurationId'
@@ -103,12 +103,22 @@ newListServerNeighbors ::
   ListServerNeighbors
 newListServerNeighbors pConfigurationId_ =
   ListServerNeighbors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      portInformationNeeded = Prelude.Nothing,
+    { portInformationNeeded =
+        Prelude.Nothing,
       neighborConfigurationIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       configurationId = pConfigurationId_
     }
+
+-- | Flag to indicate if port and protocol information is needed as part of
+-- the response.
+listServerNeighbors_portInformationNeeded :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Bool)
+listServerNeighbors_portInformationNeeded = Lens.lens (\ListServerNeighbors' {portInformationNeeded} -> portInformationNeeded) (\s@ListServerNeighbors' {} a -> s {portInformationNeeded = a} :: ListServerNeighbors)
+
+-- | List of configuration IDs to test for one-hop-away.
+listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Prelude.Maybe [Prelude.Text])
+listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token to retrieve the next set of results. For example, if you
 -- previously specified 100 IDs for
@@ -122,15 +132,6 @@ listServerNeighbors_nextToken = Lens.lens (\ListServerNeighbors' {nextToken} -> 
 -- | Maximum number of results to return in a single page of output.
 listServerNeighbors_maxResults :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Int)
 listServerNeighbors_maxResults = Lens.lens (\ListServerNeighbors' {maxResults} -> maxResults) (\s@ListServerNeighbors' {} a -> s {maxResults = a} :: ListServerNeighbors)
-
--- | Flag to indicate if port and protocol information is needed as part of
--- the response.
-listServerNeighbors_portInformationNeeded :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Bool)
-listServerNeighbors_portInformationNeeded = Lens.lens (\ListServerNeighbors' {portInformationNeeded} -> portInformationNeeded) (\s@ListServerNeighbors' {} a -> s {portInformationNeeded = a} :: ListServerNeighbors)
-
--- | List of configuration IDs to test for one-hop-away.
-listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Prelude.Maybe [Prelude.Text])
-listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Configuration ID of the server for which neighbors are being listed.
 listServerNeighbors_configurationId :: Lens.Lens' ListServerNeighbors Prelude.Text
@@ -174,12 +175,12 @@ instance Core.ToJSON ListServerNeighbors where
   toJSON ListServerNeighbors' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("portInformationNeeded" Core..=)
+          [ ("portInformationNeeded" Core..=)
               Prelude.<$> portInformationNeeded,
             ("neighborConfigurationIds" Core..=)
               Prelude.<$> neighborConfigurationIds,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("configurationId" Core..= configurationId)
           ]
@@ -258,6 +259,6 @@ listServerNeighborsResponse_httpStatus = Lens.lens (\ListServerNeighborsResponse
 
 -- | List of distinct servers that are one hop away from the given server.
 listServerNeighborsResponse_neighbors :: Lens.Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
-listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse' {neighbors} -> neighbors) (\s@ListServerNeighborsResponse' {} a -> s {neighbors = a} :: ListServerNeighborsResponse) Prelude.. Lens._Coerce
+listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse' {neighbors} -> neighbors) (\s@ListServerNeighborsResponse' {} a -> s {neighbors = a} :: ListServerNeighborsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListServerNeighborsResponse

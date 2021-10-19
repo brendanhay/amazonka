@@ -80,7 +80,7 @@ exportFilter_name = Lens.lens (\ExportFilter' {name} -> name) (\s@ExportFilter' 
 -- <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents>
 -- action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@.
 exportFilter_values :: Lens.Lens' ExportFilter [Prelude.Text]
-exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFilter' {} a -> s {values = a} :: ExportFilter) Prelude.. Lens._Coerce
+exportFilter_values = Lens.lens (\ExportFilter' {values} -> values) (\s@ExportFilter' {} a -> s {values = a} :: ExportFilter) Prelude.. Lens.coerced
 
 -- | Supported condition: @EQUALS@
 exportFilter_condition :: Lens.Lens' ExportFilter Prelude.Text

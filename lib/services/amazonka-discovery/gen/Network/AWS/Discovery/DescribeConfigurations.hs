@@ -92,7 +92,7 @@ newDescribeConfigurations =
 
 -- | One or more configuration IDs.
 describeConfigurations_configurationIds :: Lens.Lens' DescribeConfigurations [Prelude.Text]
-describeConfigurations_configurationIds = Lens.lens (\DescribeConfigurations' {configurationIds} -> configurationIds) (\s@DescribeConfigurations' {} a -> s {configurationIds = a} :: DescribeConfigurations) Prelude.. Lens._Coerce
+describeConfigurations_configurationIds = Lens.lens (\DescribeConfigurations' {configurationIds} -> configurationIds) (\s@DescribeConfigurations' {} a -> s {configurationIds = a} :: DescribeConfigurations) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeConfigurations where
   type
@@ -174,7 +174,7 @@ newDescribeConfigurationsResponse pHttpStatus_ =
 
 -- | A key in the response map. The value is an array of data.
 describeConfigurationsResponse_configurations :: Lens.Lens' DescribeConfigurationsResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-describeConfigurationsResponse_configurations = Lens.lens (\DescribeConfigurationsResponse' {configurations} -> configurations) (\s@DescribeConfigurationsResponse' {} a -> s {configurations = a} :: DescribeConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationsResponse_configurations = Lens.lens (\DescribeConfigurationsResponse' {configurations} -> configurations) (\s@DescribeConfigurationsResponse' {} a -> s {configurations = a} :: DescribeConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationsResponse_httpStatus :: Lens.Lens' DescribeConfigurationsResponse Prelude.Int

@@ -87,7 +87,7 @@ associateConfigurationItemsToApplication_applicationConfigurationId = Lens.lens 
 
 -- | The ID of each configuration item to be associated with an application.
 associateConfigurationItemsToApplication_configurationIds :: Lens.Lens' AssociateConfigurationItemsToApplication [Prelude.Text]
-associateConfigurationItemsToApplication_configurationIds = Lens.lens (\AssociateConfigurationItemsToApplication' {configurationIds} -> configurationIds) (\s@AssociateConfigurationItemsToApplication' {} a -> s {configurationIds = a} :: AssociateConfigurationItemsToApplication) Prelude.. Lens._Coerce
+associateConfigurationItemsToApplication_configurationIds = Lens.lens (\AssociateConfigurationItemsToApplication' {configurationIds} -> configurationIds) (\s@AssociateConfigurationItemsToApplication' {} a -> s {configurationIds = a} :: AssociateConfigurationItemsToApplication) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

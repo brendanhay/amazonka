@@ -32,10 +32,10 @@ module Network.AWS.Discovery.StartContinuousExport
     newStartContinuousExportResponse,
 
     -- * Response Lenses
-    startContinuousExportResponse_s3Bucket,
     startContinuousExportResponse_startTime,
-    startContinuousExportResponse_dataSource,
     startContinuousExportResponse_schemaStorageConfig,
+    startContinuousExportResponse_dataSource,
+    startContinuousExportResponse_s3Bucket,
     startContinuousExportResponse_exportId,
     startContinuousExportResponse_httpStatus,
   )
@@ -71,12 +71,12 @@ instance Core.AWSRequest StartContinuousExport where
     Response.receiveJSON
       ( \s h x ->
           StartContinuousExportResponse'
-            Prelude.<$> (x Core..?> "s3Bucket")
-            Prelude.<*> (x Core..?> "startTime")
-            Prelude.<*> (x Core..?> "dataSource")
+            Prelude.<$> (x Core..?> "startTime")
             Prelude.<*> ( x Core..?> "schemaStorageConfig"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "dataSource")
+            Prelude.<*> (x Core..?> "s3Bucket")
             Prelude.<*> (x Core..?> "exportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -111,19 +111,19 @@ instance Core.ToQuery StartContinuousExport where
 
 -- | /See:/ 'newStartContinuousExportResponse' smart constructor.
 data StartContinuousExportResponse = StartContinuousExportResponse'
-  { -- | The name of the s3 bucket where the export data parquet files are
-    -- stored.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp representing when the continuous export was started.
+  { -- | The timestamp representing when the continuous export was started.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of data collector used to gather this data (currently only
-    -- offered for AGENT).
-    dataSource :: Prelude.Maybe DataSource,
     -- | A dictionary which describes how the data is stored.
     --
     -- -   @databaseName@ - the name of the Glue database used to store the
     --     schema.
     schemaStorageConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of data collector used to gather this data (currently only
+    -- offered for AGENT).
+    dataSource :: Prelude.Maybe DataSource,
+    -- | The name of the s3 bucket where the export data parquet files are
+    -- stored.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The unique ID assigned to this export.
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -139,18 +139,18 @@ data StartContinuousExportResponse = StartContinuousExportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Bucket', 'startContinuousExportResponse_s3Bucket' - The name of the s3 bucket where the export data parquet files are
--- stored.
---
 -- 'startTime', 'startContinuousExportResponse_startTime' - The timestamp representing when the continuous export was started.
---
--- 'dataSource', 'startContinuousExportResponse_dataSource' - The type of data collector used to gather this data (currently only
--- offered for AGENT).
 --
 -- 'schemaStorageConfig', 'startContinuousExportResponse_schemaStorageConfig' - A dictionary which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
 --     schema.
+--
+-- 'dataSource', 'startContinuousExportResponse_dataSource' - The type of data collector used to gather this data (currently only
+-- offered for AGENT).
+--
+-- 's3Bucket', 'startContinuousExportResponse_s3Bucket' - The name of the s3 bucket where the export data parquet files are
+-- stored.
 --
 -- 'exportId', 'startContinuousExportResponse_exportId' - The unique ID assigned to this export.
 --
@@ -161,35 +161,35 @@ newStartContinuousExportResponse ::
   StartContinuousExportResponse
 newStartContinuousExportResponse pHttpStatus_ =
   StartContinuousExportResponse'
-    { s3Bucket =
+    { startTime =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      dataSource = Prelude.Nothing,
       schemaStorageConfig = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
       exportId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the s3 bucket where the export data parquet files are
--- stored.
-startContinuousExportResponse_s3Bucket :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)
-startContinuousExportResponse_s3Bucket = Lens.lens (\StartContinuousExportResponse' {s3Bucket} -> s3Bucket) (\s@StartContinuousExportResponse' {} a -> s {s3Bucket = a} :: StartContinuousExportResponse)
-
 -- | The timestamp representing when the continuous export was started.
 startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
 startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Core._Time
-
--- | The type of data collector used to gather this data (currently only
--- offered for AGENT).
-startContinuousExportResponse_dataSource :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe DataSource)
-startContinuousExportResponse_dataSource = Lens.lens (\StartContinuousExportResponse' {dataSource} -> dataSource) (\s@StartContinuousExportResponse' {} a -> s {dataSource = a} :: StartContinuousExportResponse)
 
 -- | A dictionary which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
 --     schema.
 startContinuousExportResponse_schemaStorageConfig :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startContinuousExportResponse_schemaStorageConfig = Lens.lens (\StartContinuousExportResponse' {schemaStorageConfig} -> schemaStorageConfig) (\s@StartContinuousExportResponse' {} a -> s {schemaStorageConfig = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Lens._Coerce
+startContinuousExportResponse_schemaStorageConfig = Lens.lens (\StartContinuousExportResponse' {schemaStorageConfig} -> schemaStorageConfig) (\s@StartContinuousExportResponse' {} a -> s {schemaStorageConfig = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of data collector used to gather this data (currently only
+-- offered for AGENT).
+startContinuousExportResponse_dataSource :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe DataSource)
+startContinuousExportResponse_dataSource = Lens.lens (\StartContinuousExportResponse' {dataSource} -> dataSource) (\s@StartContinuousExportResponse' {} a -> s {dataSource = a} :: StartContinuousExportResponse)
+
+-- | The name of the s3 bucket where the export data parquet files are
+-- stored.
+startContinuousExportResponse_s3Bucket :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)
+startContinuousExportResponse_s3Bucket = Lens.lens (\StartContinuousExportResponse' {s3Bucket} -> s3Bucket) (\s@StartContinuousExportResponse' {} a -> s {s3Bucket = a} :: StartContinuousExportResponse)
 
 -- | The unique ID assigned to this export.
 startContinuousExportResponse_exportId :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)

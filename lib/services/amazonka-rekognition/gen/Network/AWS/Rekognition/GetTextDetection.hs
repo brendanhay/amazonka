@@ -64,12 +64,12 @@ module Network.AWS.Rekognition.GetTextDetection
     newGetTextDetectionResponse,
 
     -- * Response Lenses
-    getTextDetectionResponse_statusMessage,
-    getTextDetectionResponse_videoMetadata,
-    getTextDetectionResponse_nextToken,
     getTextDetectionResponse_textDetections,
-    getTextDetectionResponse_jobStatus,
+    getTextDetectionResponse_nextToken,
+    getTextDetectionResponse_videoMetadata,
+    getTextDetectionResponse_statusMessage,
     getTextDetectionResponse_textModelVersion,
+    getTextDetectionResponse_jobStatus,
     getTextDetectionResponse_httpStatus,
   )
 where
@@ -155,12 +155,12 @@ instance Core.AWSRequest GetTextDetection where
     Response.receiveJSON
       ( \s h x ->
           GetTextDetectionResponse'
-            Prelude.<$> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "VideoMetadata")
+            Prelude.<$> (x Core..?> "TextDetections" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TextDetections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "VideoMetadata")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "TextModelVersion")
+            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,21 +201,21 @@ instance Core.ToQuery GetTextDetection where
 
 -- | /See:/ 'newGetTextDetectionResponse' smart constructor.
 data GetTextDetectionResponse = GetTextDetectionResponse'
-  { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    videoMetadata :: Prelude.Maybe VideoMetadata,
+  { -- | An array of text detected in the video. Each element contains the
+    -- detected text, the time in milliseconds from the start of the video that
+    -- the text was detected, and where it was detected on the screen.
+    textDetections :: Prelude.Maybe [TextDetectionResult],
     -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of text.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of text detected in the video. Each element contains the
-    -- detected text, the time in milliseconds from the start of the video that
-    -- the text was detected, and where it was detected on the screen.
-    textDetections :: Prelude.Maybe [TextDetectionResult],
-    -- | Current status of the text detection job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    videoMetadata :: Prelude.Maybe VideoMetadata,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Version number of the text detection model that was used to detect text.
     textModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Current status of the text detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,21 +229,21 @@ data GetTextDetectionResponse = GetTextDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'getTextDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- 'videoMetadata', 'getTextDetectionResponse_videoMetadata' - Undocumented member.
+-- 'textDetections', 'getTextDetectionResponse_textDetections' - An array of text detected in the video. Each element contains the
+-- detected text, the time in milliseconds from the start of the video that
+-- the text was detected, and where it was detected on the screen.
 --
 -- 'nextToken', 'getTextDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of text.
 --
--- 'textDetections', 'getTextDetectionResponse_textDetections' - An array of text detected in the video. Each element contains the
--- detected text, the time in milliseconds from the start of the video that
--- the text was detected, and where it was detected on the screen.
+-- 'videoMetadata', 'getTextDetectionResponse_videoMetadata' - Undocumented member.
 --
--- 'jobStatus', 'getTextDetectionResponse_jobStatus' - Current status of the text detection job.
+-- 'statusMessage', 'getTextDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'textModelVersion', 'getTextDetectionResponse_textModelVersion' - Version number of the text detection model that was used to detect text.
+--
+-- 'jobStatus', 'getTextDetectionResponse_jobStatus' - Current status of the text detection job.
 --
 -- 'httpStatus', 'getTextDetectionResponse_httpStatus' - The response's http status code.
 newGetTextDetectionResponse ::
@@ -252,23 +252,21 @@ newGetTextDetectionResponse ::
   GetTextDetectionResponse
 newGetTextDetectionResponse pHttpStatus_ =
   GetTextDetectionResponse'
-    { statusMessage =
+    { textDetections =
         Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      textDetections = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       textModelVersion = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getTextDetectionResponse_statusMessage :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
-getTextDetectionResponse_statusMessage = Lens.lens (\GetTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetTextDetectionResponse' {} a -> s {statusMessage = a} :: GetTextDetectionResponse)
-
--- | Undocumented member.
-getTextDetectionResponse_videoMetadata :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoMetadata)
-getTextDetectionResponse_videoMetadata = Lens.lens (\GetTextDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetTextDetectionResponse' {} a -> s {videoMetadata = a} :: GetTextDetectionResponse)
+-- | An array of text detected in the video. Each element contains the
+-- detected text, the time in milliseconds from the start of the video that
+-- the text was detected, and where it was detected on the screen.
+getTextDetectionResponse_textDetections :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe [TextDetectionResult])
+getTextDetectionResponse_textDetections = Lens.lens (\GetTextDetectionResponse' {textDetections} -> textDetections) (\s@GetTextDetectionResponse' {} a -> s {textDetections = a} :: GetTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -276,19 +274,21 @@ getTextDetectionResponse_videoMetadata = Lens.lens (\GetTextDetectionResponse' {
 getTextDetectionResponse_nextToken :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getTextDetectionResponse_nextToken = Lens.lens (\GetTextDetectionResponse' {nextToken} -> nextToken) (\s@GetTextDetectionResponse' {} a -> s {nextToken = a} :: GetTextDetectionResponse)
 
--- | An array of text detected in the video. Each element contains the
--- detected text, the time in milliseconds from the start of the video that
--- the text was detected, and where it was detected on the screen.
-getTextDetectionResponse_textDetections :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe [TextDetectionResult])
-getTextDetectionResponse_textDetections = Lens.lens (\GetTextDetectionResponse' {textDetections} -> textDetections) (\s@GetTextDetectionResponse' {} a -> s {textDetections = a} :: GetTextDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | Undocumented member.
+getTextDetectionResponse_videoMetadata :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoMetadata)
+getTextDetectionResponse_videoMetadata = Lens.lens (\GetTextDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetTextDetectionResponse' {} a -> s {videoMetadata = a} :: GetTextDetectionResponse)
 
--- | Current status of the text detection job.
-getTextDetectionResponse_jobStatus :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoJobStatus)
-getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetTextDetectionResponse' {} a -> s {jobStatus = a} :: GetTextDetectionResponse)
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getTextDetectionResponse_statusMessage :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
+getTextDetectionResponse_statusMessage = Lens.lens (\GetTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetTextDetectionResponse' {} a -> s {statusMessage = a} :: GetTextDetectionResponse)
 
 -- | Version number of the text detection model that was used to detect text.
 getTextDetectionResponse_textModelVersion :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getTextDetectionResponse_textModelVersion = Lens.lens (\GetTextDetectionResponse' {textModelVersion} -> textModelVersion) (\s@GetTextDetectionResponse' {} a -> s {textModelVersion = a} :: GetTextDetectionResponse)
+
+-- | Current status of the text detection job.
+getTextDetectionResponse_jobStatus :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoJobStatus)
+getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetTextDetectionResponse' {} a -> s {jobStatus = a} :: GetTextDetectionResponse)
 
 -- | The response's http status code.
 getTextDetectionResponse_httpStatus :: Lens.Lens' GetTextDetectionResponse Prelude.Int

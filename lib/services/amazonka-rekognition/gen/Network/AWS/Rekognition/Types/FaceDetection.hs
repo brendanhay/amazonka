@@ -29,11 +29,11 @@ import Network.AWS.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'newFaceDetection' smart constructor.
 data FaceDetection = FaceDetection'
-  { -- | The face properties for the detected face.
-    face :: Prelude.Maybe FaceDetail,
-    -- | Time, in milliseconds from the start of the video, that the face was
+  { -- | Time, in milliseconds from the start of the video, that the face was
     -- detected.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer,
+    -- | The face properties for the detected face.
+    face :: Prelude.Maybe FaceDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data FaceDetection = FaceDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'face', 'faceDetection_face' - The face properties for the detected face.
---
 -- 'timestamp', 'faceDetection_timestamp' - Time, in milliseconds from the start of the video, that the face was
 -- detected.
+--
+-- 'face', 'faceDetection_face' - The face properties for the detected face.
 newFaceDetection ::
   FaceDetection
 newFaceDetection =
   FaceDetection'
-    { face = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { timestamp = Prelude.Nothing,
+      face = Prelude.Nothing
     }
-
--- | The face properties for the detected face.
-faceDetection_face :: Lens.Lens' FaceDetection (Prelude.Maybe FaceDetail)
-faceDetection_face = Lens.lens (\FaceDetection' {face} -> face) (\s@FaceDetection' {} a -> s {face = a} :: FaceDetection)
 
 -- | Time, in milliseconds from the start of the video, that the face was
 -- detected.
 faceDetection_timestamp :: Lens.Lens' FaceDetection (Prelude.Maybe Prelude.Integer)
 faceDetection_timestamp = Lens.lens (\FaceDetection' {timestamp} -> timestamp) (\s@FaceDetection' {} a -> s {timestamp = a} :: FaceDetection)
+
+-- | The face properties for the detected face.
+faceDetection_face :: Lens.Lens' FaceDetection (Prelude.Maybe FaceDetail)
+faceDetection_face = Lens.lens (\FaceDetection' {face} -> face) (\s@FaceDetection' {} a -> s {face = a} :: FaceDetection)
 
 instance Core.FromJSON FaceDetection where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON FaceDetection where
       "FaceDetection"
       ( \x ->
           FaceDetection'
-            Prelude.<$> (x Core..:? "Face")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Face")
       )
 
 instance Prelude.Hashable FaceDetection

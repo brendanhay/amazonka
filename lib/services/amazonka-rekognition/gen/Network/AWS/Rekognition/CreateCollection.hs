@@ -100,7 +100,7 @@ newCreateCollection pCollectionId_ =
 -- | A set of tags (key-value pairs) that you want to attach to the
 -- collection.
 createCollection_tags :: Lens.Lens' CreateCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCollection_tags = Lens.lens (\CreateCollection' {tags} -> tags) (\s@CreateCollection' {} a -> s {tags = a} :: CreateCollection) Prelude.. Lens.mapping Lens._Coerce
+createCollection_tags = Lens.lens (\CreateCollection' {tags} -> tags) (\s@CreateCollection' {} a -> s {tags = a} :: CreateCollection) Prelude.. Lens.mapping Lens.coerced
 
 -- | ID for the collection that you are creating.
 createCollection_collectionId :: Lens.Lens' CreateCollection Prelude.Text

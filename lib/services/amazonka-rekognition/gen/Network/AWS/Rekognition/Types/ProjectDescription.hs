@@ -28,10 +28,10 @@ import Network.AWS.Rekognition.Types.ProjectStatus
 --
 -- /See:/ 'newProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { -- | The Unix timestamp for the date and time that the project was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The current status of the project.
+  { -- | The current status of the project.
     status :: Prelude.Maybe ProjectStatus,
+    -- | The Unix timestamp for the date and time that the project was created.
+    creationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the project.
     projectArn :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,27 @@ data ProjectDescription = ProjectDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'projectDescription_creationTimestamp' - The Unix timestamp for the date and time that the project was created.
---
 -- 'status', 'projectDescription_status' - The current status of the project.
+--
+-- 'creationTimestamp', 'projectDescription_creationTimestamp' - The Unix timestamp for the date and time that the project was created.
 --
 -- 'projectArn', 'projectDescription_projectArn' - The Amazon Resource Name (ARN) of the project.
 newProjectDescription ::
   ProjectDescription
 newProjectDescription =
   ProjectDescription'
-    { creationTimestamp =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
       projectArn = Prelude.Nothing
     }
-
--- | The Unix timestamp for the date and time that the project was created.
-projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.UTCTime)
-projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the project.
 projectDescription_status :: Lens.Lens' ProjectDescription (Prelude.Maybe ProjectStatus)
 projectDescription_status = Lens.lens (\ProjectDescription' {status} -> status) (\s@ProjectDescription' {} a -> s {status = a} :: ProjectDescription)
+
+-- | The Unix timestamp for the date and time that the project was created.
+projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.UTCTime)
+projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectDescription_projectArn :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.Text)
@@ -78,8 +77,8 @@ instance Core.FromJSON ProjectDescription where
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "CreationTimestamp")
             Prelude.<*> (x Core..:? "ProjectArn")
       )
 

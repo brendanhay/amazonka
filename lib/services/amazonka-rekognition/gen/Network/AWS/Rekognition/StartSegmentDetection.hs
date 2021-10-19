@@ -49,10 +49,10 @@ module Network.AWS.Rekognition.StartSegmentDetection
     newStartSegmentDetection,
 
     -- * Request Lenses
-    startSegmentDetection_notificationChannel,
-    startSegmentDetection_filters,
-    startSegmentDetection_clientRequestToken,
     startSegmentDetection_jobTag,
+    startSegmentDetection_filters,
+    startSegmentDetection_notificationChannel,
+    startSegmentDetection_clientRequestToken,
     startSegmentDetection_video,
     startSegmentDetection_segmentTypes,
 
@@ -75,24 +75,24 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartSegmentDetection' smart constructor.
 data StartSegmentDetection = StartSegmentDetection'
-  { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+  { -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | Filters for technical cue or shot detection.
+    filters :: Prelude.Maybe StartSegmentDetectionFilters,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
     -- Video to publish the completion status of the segment detection
     -- operation. Note that the Amazon SNS topic must have a topic name that
     -- begins with /AmazonRekognition/ if you are using the
     -- AmazonRekognitionServiceRole permissions policy to access the topic.
     notificationChannel :: Prelude.Maybe NotificationChannel,
-    -- | Filters for technical cue or shot detection.
-    filters :: Prelude.Maybe StartSegmentDetectionFilters,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartSegmentDetection@ requests, the same @JobId@
     -- is returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     video :: Video,
     -- | An array of segment types to detect in the video. Valid values are
     -- TECHNICAL_CUE and SHOT.
@@ -108,23 +108,23 @@ data StartSegmentDetection = StartSegmentDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobTag', 'startSegmentDetection_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
+-- 'filters', 'startSegmentDetection_filters' - Filters for technical cue or shot detection.
+--
 -- 'notificationChannel', 'startSegmentDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the segment detection
 -- operation. Note that the Amazon SNS topic must have a topic name that
 -- begins with /AmazonRekognition/ if you are using the
 -- AmazonRekognitionServiceRole permissions policy to access the topic.
 --
--- 'filters', 'startSegmentDetection_filters' - Filters for technical cue or shot detection.
---
 -- 'clientRequestToken', 'startSegmentDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartSegmentDetection@ requests, the same @JobId@
 -- is returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
---
--- 'jobTag', 'startSegmentDetection_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
 --
 -- 'video', 'startSegmentDetection_video' - Undocumented member.
 --
@@ -138,14 +138,24 @@ newStartSegmentDetection ::
   StartSegmentDetection
 newStartSegmentDetection pVideo_ pSegmentTypes_ =
   StartSegmentDetection'
-    { notificationChannel =
-        Prelude.Nothing,
+    { jobTag = Prelude.Nothing,
       filters = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
       video = pVideo_,
-      segmentTypes = Lens._Coerce Lens.# pSegmentTypes_
+      segmentTypes = Lens.coerced Lens.# pSegmentTypes_
     }
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startSegmentDetection_jobTag :: Lens.Lens' StartSegmentDetection (Prelude.Maybe Prelude.Text)
+startSegmentDetection_jobTag = Lens.lens (\StartSegmentDetection' {jobTag} -> jobTag) (\s@StartSegmentDetection' {} a -> s {jobTag = a} :: StartSegmentDetection)
+
+-- | Filters for technical cue or shot detection.
+startSegmentDetection_filters :: Lens.Lens' StartSegmentDetection (Prelude.Maybe StartSegmentDetectionFilters)
+startSegmentDetection_filters = Lens.lens (\StartSegmentDetection' {filters} -> filters) (\s@StartSegmentDetection' {} a -> s {filters = a} :: StartSegmentDetection)
 
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the segment detection
@@ -155,23 +165,12 @@ newStartSegmentDetection pVideo_ pSegmentTypes_ =
 startSegmentDetection_notificationChannel :: Lens.Lens' StartSegmentDetection (Prelude.Maybe NotificationChannel)
 startSegmentDetection_notificationChannel = Lens.lens (\StartSegmentDetection' {notificationChannel} -> notificationChannel) (\s@StartSegmentDetection' {} a -> s {notificationChannel = a} :: StartSegmentDetection)
 
--- | Filters for technical cue or shot detection.
-startSegmentDetection_filters :: Lens.Lens' StartSegmentDetection (Prelude.Maybe StartSegmentDetectionFilters)
-startSegmentDetection_filters = Lens.lens (\StartSegmentDetection' {filters} -> filters) (\s@StartSegmentDetection' {} a -> s {filters = a} :: StartSegmentDetection)
-
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartSegmentDetection@ requests, the same @JobId@
 -- is returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 startSegmentDetection_clientRequestToken :: Lens.Lens' StartSegmentDetection (Prelude.Maybe Prelude.Text)
 startSegmentDetection_clientRequestToken = Lens.lens (\StartSegmentDetection' {clientRequestToken} -> clientRequestToken) (\s@StartSegmentDetection' {} a -> s {clientRequestToken = a} :: StartSegmentDetection)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startSegmentDetection_jobTag :: Lens.Lens' StartSegmentDetection (Prelude.Maybe Prelude.Text)
-startSegmentDetection_jobTag = Lens.lens (\StartSegmentDetection' {jobTag} -> jobTag) (\s@StartSegmentDetection' {} a -> s {jobTag = a} :: StartSegmentDetection)
 
 -- | Undocumented member.
 startSegmentDetection_video :: Lens.Lens' StartSegmentDetection Video
@@ -180,7 +179,7 @@ startSegmentDetection_video = Lens.lens (\StartSegmentDetection' {video} -> vide
 -- | An array of segment types to detect in the video. Valid values are
 -- TECHNICAL_CUE and SHOT.
 startSegmentDetection_segmentTypes :: Lens.Lens' StartSegmentDetection (Prelude.NonEmpty SegmentType)
-startSegmentDetection_segmentTypes = Lens.lens (\StartSegmentDetection' {segmentTypes} -> segmentTypes) (\s@StartSegmentDetection' {} a -> s {segmentTypes = a} :: StartSegmentDetection) Prelude.. Lens._Coerce
+startSegmentDetection_segmentTypes = Lens.lens (\StartSegmentDetection' {segmentTypes} -> segmentTypes) (\s@StartSegmentDetection' {} a -> s {segmentTypes = a} :: StartSegmentDetection) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartSegmentDetection where
   type
@@ -218,12 +217,12 @@ instance Core.ToJSON StartSegmentDetection where
   toJSON StartSegmentDetection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
-              Prelude.<$> notificationChannel,
+          [ ("JobTag" Core..=) Prelude.<$> jobTag,
             ("Filters" Core..=) Prelude.<$> filters,
+            ("NotificationChannel" Core..=)
+              Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
             Prelude.Just ("Video" Core..= video),
             Prelude.Just ("SegmentTypes" Core..= segmentTypes)
           ]

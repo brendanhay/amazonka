@@ -34,11 +34,11 @@ import Network.AWS.Rekognition.Types.PersonDetail
 --
 -- /See:/ 'newPersonDetection' smart constructor.
 data PersonDetection = PersonDetection'
-  { -- | The time, in milliseconds from the start of the video, that the
+  { -- | Details about a person whose path was tracked in a video.
+    person :: Prelude.Maybe PersonDetail,
+    -- | The time, in milliseconds from the start of the video, that the
     -- person\'s path was tracked.
-    timestamp :: Prelude.Maybe Prelude.Integer,
-    -- | Details about a person whose path was tracked in a video.
-    person :: Prelude.Maybe PersonDetail
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,26 @@ data PersonDetection = PersonDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'person', 'personDetection_person' - Details about a person whose path was tracked in a video.
+--
 -- 'timestamp', 'personDetection_timestamp' - The time, in milliseconds from the start of the video, that the
 -- person\'s path was tracked.
---
--- 'person', 'personDetection_person' - Details about a person whose path was tracked in a video.
 newPersonDetection ::
   PersonDetection
 newPersonDetection =
   PersonDetection'
-    { timestamp = Prelude.Nothing,
-      person = Prelude.Nothing
+    { person = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
+
+-- | Details about a person whose path was tracked in a video.
+personDetection_person :: Lens.Lens' PersonDetection (Prelude.Maybe PersonDetail)
+personDetection_person = Lens.lens (\PersonDetection' {person} -> person) (\s@PersonDetection' {} a -> s {person = a} :: PersonDetection)
 
 -- | The time, in milliseconds from the start of the video, that the
 -- person\'s path was tracked.
 personDetection_timestamp :: Lens.Lens' PersonDetection (Prelude.Maybe Prelude.Integer)
 personDetection_timestamp = Lens.lens (\PersonDetection' {timestamp} -> timestamp) (\s@PersonDetection' {} a -> s {timestamp = a} :: PersonDetection)
-
--- | Details about a person whose path was tracked in a video.
-personDetection_person :: Lens.Lens' PersonDetection (Prelude.Maybe PersonDetail)
-personDetection_person = Lens.lens (\PersonDetection' {person} -> person) (\s@PersonDetection' {} a -> s {person = a} :: PersonDetection)
 
 instance Core.FromJSON PersonDetection where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON PersonDetection where
       "PersonDetection"
       ( \x ->
           PersonDetection'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Person")
+            Prelude.<$> (x Core..:? "Person")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
 instance Prelude.Hashable PersonDetection

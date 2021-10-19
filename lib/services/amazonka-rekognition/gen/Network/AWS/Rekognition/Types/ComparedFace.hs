@@ -34,25 +34,25 @@ import Network.AWS.Rekognition.Types.Smile
 --
 -- /See:/ 'newComparedFace' smart constructor.
 data ComparedFace = ComparedFace'
-  { -- | An array of facial landmarks.
-    landmarks :: Prelude.Maybe [Landmark],
-    -- | Indicates the pose of the face as determined by its pitch, roll, and
-    -- yaw.
-    pose :: Prelude.Maybe Pose,
+  { -- | Bounding box of the face.
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | The emotions that appear to be expressed on the face, and the confidence
     -- level in the determination. Valid values include \"Happy\", \"Sad\",
     -- \"Angry\", \"Confused\", \"Disgusted\", \"Surprised\", \"Calm\",
     -- \"Unknown\", and \"Fear\".
     emotions :: Prelude.Maybe [Emotion],
-    -- | Bounding box of the face.
-    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Indicates the pose of the face as determined by its pitch, roll, and
+    -- yaw.
+    pose :: Prelude.Maybe Pose,
     -- | Level of confidence that what the bounding box contains is a face.
     confidence :: Prelude.Maybe Prelude.Double,
+    -- | Identifies face image brightness and sharpness.
+    quality :: Prelude.Maybe ImageQuality,
     -- | Indicates whether or not the face is smiling, and the confidence level
     -- in the determination.
     smile :: Prelude.Maybe Smile,
-    -- | Identifies face image brightness and sharpness.
-    quality :: Prelude.Maybe ImageQuality
+    -- | An array of facial landmarks.
+    landmarks :: Prelude.Maybe [Landmark]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,69 +64,69 @@ data ComparedFace = ComparedFace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'landmarks', 'comparedFace_landmarks' - An array of facial landmarks.
---
--- 'pose', 'comparedFace_pose' - Indicates the pose of the face as determined by its pitch, roll, and
--- yaw.
+-- 'boundingBox', 'comparedFace_boundingBox' - Bounding box of the face.
 --
 -- 'emotions', 'comparedFace_emotions' - The emotions that appear to be expressed on the face, and the confidence
 -- level in the determination. Valid values include \"Happy\", \"Sad\",
 -- \"Angry\", \"Confused\", \"Disgusted\", \"Surprised\", \"Calm\",
 -- \"Unknown\", and \"Fear\".
 --
--- 'boundingBox', 'comparedFace_boundingBox' - Bounding box of the face.
+-- 'pose', 'comparedFace_pose' - Indicates the pose of the face as determined by its pitch, roll, and
+-- yaw.
 --
 -- 'confidence', 'comparedFace_confidence' - Level of confidence that what the bounding box contains is a face.
+--
+-- 'quality', 'comparedFace_quality' - Identifies face image brightness and sharpness.
 --
 -- 'smile', 'comparedFace_smile' - Indicates whether or not the face is smiling, and the confidence level
 -- in the determination.
 --
--- 'quality', 'comparedFace_quality' - Identifies face image brightness and sharpness.
+-- 'landmarks', 'comparedFace_landmarks' - An array of facial landmarks.
 newComparedFace ::
   ComparedFace
 newComparedFace =
   ComparedFace'
-    { landmarks = Prelude.Nothing,
-      pose = Prelude.Nothing,
+    { boundingBox = Prelude.Nothing,
       emotions = Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
+      pose = Prelude.Nothing,
       confidence = Prelude.Nothing,
+      quality = Prelude.Nothing,
       smile = Prelude.Nothing,
-      quality = Prelude.Nothing
+      landmarks = Prelude.Nothing
     }
 
--- | An array of facial landmarks.
-comparedFace_landmarks :: Lens.Lens' ComparedFace (Prelude.Maybe [Landmark])
-comparedFace_landmarks = Lens.lens (\ComparedFace' {landmarks} -> landmarks) (\s@ComparedFace' {} a -> s {landmarks = a} :: ComparedFace) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates the pose of the face as determined by its pitch, roll, and
--- yaw.
-comparedFace_pose :: Lens.Lens' ComparedFace (Prelude.Maybe Pose)
-comparedFace_pose = Lens.lens (\ComparedFace' {pose} -> pose) (\s@ComparedFace' {} a -> s {pose = a} :: ComparedFace)
+-- | Bounding box of the face.
+comparedFace_boundingBox :: Lens.Lens' ComparedFace (Prelude.Maybe BoundingBox)
+comparedFace_boundingBox = Lens.lens (\ComparedFace' {boundingBox} -> boundingBox) (\s@ComparedFace' {} a -> s {boundingBox = a} :: ComparedFace)
 
 -- | The emotions that appear to be expressed on the face, and the confidence
 -- level in the determination. Valid values include \"Happy\", \"Sad\",
 -- \"Angry\", \"Confused\", \"Disgusted\", \"Surprised\", \"Calm\",
 -- \"Unknown\", and \"Fear\".
 comparedFace_emotions :: Lens.Lens' ComparedFace (Prelude.Maybe [Emotion])
-comparedFace_emotions = Lens.lens (\ComparedFace' {emotions} -> emotions) (\s@ComparedFace' {} a -> s {emotions = a} :: ComparedFace) Prelude.. Lens.mapping Lens._Coerce
+comparedFace_emotions = Lens.lens (\ComparedFace' {emotions} -> emotions) (\s@ComparedFace' {} a -> s {emotions = a} :: ComparedFace) Prelude.. Lens.mapping Lens.coerced
 
--- | Bounding box of the face.
-comparedFace_boundingBox :: Lens.Lens' ComparedFace (Prelude.Maybe BoundingBox)
-comparedFace_boundingBox = Lens.lens (\ComparedFace' {boundingBox} -> boundingBox) (\s@ComparedFace' {} a -> s {boundingBox = a} :: ComparedFace)
+-- | Indicates the pose of the face as determined by its pitch, roll, and
+-- yaw.
+comparedFace_pose :: Lens.Lens' ComparedFace (Prelude.Maybe Pose)
+comparedFace_pose = Lens.lens (\ComparedFace' {pose} -> pose) (\s@ComparedFace' {} a -> s {pose = a} :: ComparedFace)
 
 -- | Level of confidence that what the bounding box contains is a face.
 comparedFace_confidence :: Lens.Lens' ComparedFace (Prelude.Maybe Prelude.Double)
 comparedFace_confidence = Lens.lens (\ComparedFace' {confidence} -> confidence) (\s@ComparedFace' {} a -> s {confidence = a} :: ComparedFace)
+
+-- | Identifies face image brightness and sharpness.
+comparedFace_quality :: Lens.Lens' ComparedFace (Prelude.Maybe ImageQuality)
+comparedFace_quality = Lens.lens (\ComparedFace' {quality} -> quality) (\s@ComparedFace' {} a -> s {quality = a} :: ComparedFace)
 
 -- | Indicates whether or not the face is smiling, and the confidence level
 -- in the determination.
 comparedFace_smile :: Lens.Lens' ComparedFace (Prelude.Maybe Smile)
 comparedFace_smile = Lens.lens (\ComparedFace' {smile} -> smile) (\s@ComparedFace' {} a -> s {smile = a} :: ComparedFace)
 
--- | Identifies face image brightness and sharpness.
-comparedFace_quality :: Lens.Lens' ComparedFace (Prelude.Maybe ImageQuality)
-comparedFace_quality = Lens.lens (\ComparedFace' {quality} -> quality) (\s@ComparedFace' {} a -> s {quality = a} :: ComparedFace)
+-- | An array of facial landmarks.
+comparedFace_landmarks :: Lens.Lens' ComparedFace (Prelude.Maybe [Landmark])
+comparedFace_landmarks = Lens.lens (\ComparedFace' {landmarks} -> landmarks) (\s@ComparedFace' {} a -> s {landmarks = a} :: ComparedFace) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ComparedFace where
   parseJSON =
@@ -134,13 +134,13 @@ instance Core.FromJSON ComparedFace where
       "ComparedFace"
       ( \x ->
           ComparedFace'
-            Prelude.<$> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Pose")
+            Prelude.<$> (x Core..:? "BoundingBox")
             Prelude.<*> (x Core..:? "Emotions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "Pose")
             Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Smile")
             Prelude.<*> (x Core..:? "Quality")
+            Prelude.<*> (x Core..:? "Smile")
+            Prelude.<*> (x Core..:? "Landmarks" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComparedFace

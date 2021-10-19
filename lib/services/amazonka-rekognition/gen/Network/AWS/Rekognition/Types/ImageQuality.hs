@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImageQuality' smart constructor.
 data ImageQuality = ImageQuality'
-  { -- | Value representing brightness of the face. The service returns a value
-    -- between 0 and 100 (inclusive). A higher value indicates a brighter face
-    -- image.
-    brightness :: Prelude.Maybe Prelude.Double,
-    -- | Value representing sharpness of the face. The service returns a value
+  { -- | Value representing sharpness of the face. The service returns a value
     -- between 0 and 100 (inclusive). A higher value indicates a sharper face
     -- image.
-    sharpness :: Prelude.Maybe Prelude.Double
+    sharpness :: Prelude.Maybe Prelude.Double,
+    -- | Value representing brightness of the face. The service returns a value
+    -- between 0 and 100 (inclusive). A higher value indicates a brighter face
+    -- image.
+    brightness :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,20 @@ data ImageQuality = ImageQuality'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'brightness', 'imageQuality_brightness' - Value representing brightness of the face. The service returns a value
--- between 0 and 100 (inclusive). A higher value indicates a brighter face
--- image.
---
 -- 'sharpness', 'imageQuality_sharpness' - Value representing sharpness of the face. The service returns a value
 -- between 0 and 100 (inclusive). A higher value indicates a sharper face
+-- image.
+--
+-- 'brightness', 'imageQuality_brightness' - Value representing brightness of the face. The service returns a value
+-- between 0 and 100 (inclusive). A higher value indicates a brighter face
 -- image.
 newImageQuality ::
   ImageQuality
 newImageQuality =
   ImageQuality'
-    { brightness = Prelude.Nothing,
-      sharpness = Prelude.Nothing
+    { sharpness = Prelude.Nothing,
+      brightness = Prelude.Nothing
     }
-
--- | Value representing brightness of the face. The service returns a value
--- between 0 and 100 (inclusive). A higher value indicates a brighter face
--- image.
-imageQuality_brightness :: Lens.Lens' ImageQuality (Prelude.Maybe Prelude.Double)
-imageQuality_brightness = Lens.lens (\ImageQuality' {brightness} -> brightness) (\s@ImageQuality' {} a -> s {brightness = a} :: ImageQuality)
 
 -- | Value representing sharpness of the face. The service returns a value
 -- between 0 and 100 (inclusive). A higher value indicates a sharper face
@@ -73,14 +67,20 @@ imageQuality_brightness = Lens.lens (\ImageQuality' {brightness} -> brightness) 
 imageQuality_sharpness :: Lens.Lens' ImageQuality (Prelude.Maybe Prelude.Double)
 imageQuality_sharpness = Lens.lens (\ImageQuality' {sharpness} -> sharpness) (\s@ImageQuality' {} a -> s {sharpness = a} :: ImageQuality)
 
+-- | Value representing brightness of the face. The service returns a value
+-- between 0 and 100 (inclusive). A higher value indicates a brighter face
+-- image.
+imageQuality_brightness :: Lens.Lens' ImageQuality (Prelude.Maybe Prelude.Double)
+imageQuality_brightness = Lens.lens (\ImageQuality' {brightness} -> brightness) (\s@ImageQuality' {} a -> s {brightness = a} :: ImageQuality)
+
 instance Core.FromJSON ImageQuality where
   parseJSON =
     Core.withObject
       "ImageQuality"
       ( \x ->
           ImageQuality'
-            Prelude.<$> (x Core..:? "Brightness")
-            Prelude.<*> (x Core..:? "Sharpness")
+            Prelude.<$> (x Core..:? "Sharpness")
+            Prelude.<*> (x Core..:? "Brightness")
       )
 
 instance Prelude.Hashable ImageQuality

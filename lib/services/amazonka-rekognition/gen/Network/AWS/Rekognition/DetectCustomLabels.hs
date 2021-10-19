@@ -69,8 +69,8 @@ module Network.AWS.Rekognition.DetectCustomLabels
     newDetectCustomLabels,
 
     -- * Request Lenses
-    detectCustomLabels_maxResults,
     detectCustomLabels_minConfidence,
+    detectCustomLabels_maxResults,
     detectCustomLabels_projectVersionArn,
     detectCustomLabels_image,
 
@@ -93,11 +93,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetectCustomLabels' smart constructor.
 data DetectCustomLabels = DetectCustomLabels'
-  { -- | Maximum number of results you want the service to return in the
-    -- response. The service returns the specified number of highest confidence
-    -- labels ranked from highest confidence to lowest.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the minimum confidence level for the labels to return.
+  { -- | Specifies the minimum confidence level for the labels to return.
     -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
     -- that\'s lower than this specified value. If you specify a value of 0,
     -- @DetectCustomLabels@ returns all labels, regardless of the assumed
@@ -105,6 +101,10 @@ data DetectCustomLabels = DetectCustomLabels'
     -- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
     -- assumed threshold of each label.
     minConfidence :: Prelude.Maybe Prelude.Double,
+    -- | Maximum number of results you want the service to return in the
+    -- response. The service returns the specified number of highest confidence
+    -- labels ranked from highest confidence to lowest.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the model version that you want to use.
     projectVersionArn :: Prelude.Text,
     image :: Image
@@ -119,10 +119,6 @@ data DetectCustomLabels = DetectCustomLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'detectCustomLabels_maxResults' - Maximum number of results you want the service to return in the
--- response. The service returns the specified number of highest confidence
--- labels ranked from highest confidence to lowest.
---
 -- 'minConfidence', 'detectCustomLabels_minConfidence' - Specifies the minimum confidence level for the labels to return.
 -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
 -- that\'s lower than this specified value. If you specify a value of 0,
@@ -130,6 +126,10 @@ data DetectCustomLabels = DetectCustomLabels'
 -- threshold applied to each label. If you don\'t specify a value for
 -- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
 -- assumed threshold of each label.
+--
+-- 'maxResults', 'detectCustomLabels_maxResults' - Maximum number of results you want the service to return in the
+-- response. The service returns the specified number of highest confidence
+-- labels ranked from highest confidence to lowest.
 --
 -- 'projectVersionArn', 'detectCustomLabels_projectVersionArn' - The ARN of the model version that you want to use.
 --
@@ -142,17 +142,12 @@ newDetectCustomLabels ::
   DetectCustomLabels
 newDetectCustomLabels pProjectVersionArn_ pImage_ =
   DetectCustomLabels'
-    { maxResults = Prelude.Nothing,
-      minConfidence = Prelude.Nothing,
+    { minConfidence =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       projectVersionArn = pProjectVersionArn_,
       image = pImage_
     }
-
--- | Maximum number of results you want the service to return in the
--- response. The service returns the specified number of highest confidence
--- labels ranked from highest confidence to lowest.
-detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
-detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
 -- | Specifies the minimum confidence level for the labels to return.
 -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
@@ -163,6 +158,12 @@ detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> 
 -- assumed threshold of each label.
 detectCustomLabels_minConfidence :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Double)
 detectCustomLabels_minConfidence = Lens.lens (\DetectCustomLabels' {minConfidence} -> minConfidence) (\s@DetectCustomLabels' {} a -> s {minConfidence = a} :: DetectCustomLabels)
+
+-- | Maximum number of results you want the service to return in the
+-- response. The service returns the specified number of highest confidence
+-- labels ranked from highest confidence to lowest.
+detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
+detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
 -- | The ARN of the model version that you want to use.
 detectCustomLabels_projectVersionArn :: Lens.Lens' DetectCustomLabels Prelude.Text
@@ -208,8 +209,8 @@ instance Core.ToJSON DetectCustomLabels where
   toJSON DetectCustomLabels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
+          [ ("MinConfidence" Core..=) Prelude.<$> minConfidence,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ProjectVersionArn" Core..= projectVersionArn),
             Prelude.Just ("Image" Core..= image)
@@ -255,7 +256,7 @@ newDetectCustomLabelsResponse pHttpStatus_ =
 
 -- | An array of custom labels detected in the input image.
 detectCustomLabelsResponse_customLabels :: Lens.Lens' DetectCustomLabelsResponse (Prelude.Maybe [CustomLabel])
-detectCustomLabelsResponse_customLabels = Lens.lens (\DetectCustomLabelsResponse' {customLabels} -> customLabels) (\s@DetectCustomLabelsResponse' {} a -> s {customLabels = a} :: DetectCustomLabelsResponse) Prelude.. Lens.mapping Lens._Coerce
+detectCustomLabelsResponse_customLabels = Lens.lens (\DetectCustomLabelsResponse' {customLabels} -> customLabels) (\s@DetectCustomLabelsResponse' {} a -> s {customLabels = a} :: DetectCustomLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectCustomLabelsResponse_httpStatus :: Lens.Lens' DetectCustomLabelsResponse Prelude.Int

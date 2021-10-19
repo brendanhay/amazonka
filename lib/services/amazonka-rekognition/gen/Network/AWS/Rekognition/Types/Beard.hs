@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBeard' smart constructor.
 data Beard = Beard'
-  { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | Boolean value that indicates whether the face has beard or not.
-    value :: Prelude.Maybe Prelude.Bool
+  { -- | Boolean value that indicates whether the face has beard or not.
+    value :: Prelude.Maybe Prelude.Bool,
+    -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Beard = Beard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'beard_confidence' - Level of confidence in the determination.
---
 -- 'value', 'beard_value' - Boolean value that indicates whether the face has beard or not.
+--
+-- 'confidence', 'beard_confidence' - Level of confidence in the determination.
 newBeard ::
   Beard
 newBeard =
   Beard'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
-
--- | Level of confidence in the determination.
-beard_confidence :: Lens.Lens' Beard (Prelude.Maybe Prelude.Double)
-beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} a -> s {confidence = a} :: Beard)
 
 -- | Boolean value that indicates whether the face has beard or not.
 beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
 beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
+
+-- | Level of confidence in the determination.
+beard_confidence :: Lens.Lens' Beard (Prelude.Maybe Prelude.Double)
+beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} a -> s {confidence = a} :: Beard)
 
 instance Core.FromJSON Beard where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Beard where
       "Beard"
       ( \x ->
           Beard'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable Beard

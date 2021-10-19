@@ -62,7 +62,7 @@ newValidationData =
 
 -- | The assets that comprise the validation data.
 validationData_assets :: Lens.Lens' ValidationData (Prelude.Maybe [Asset])
-validationData_assets = Lens.lens (\ValidationData' {assets} -> assets) (\s@ValidationData' {} a -> s {assets = a} :: ValidationData) Prelude.. Lens.mapping Lens._Coerce
+validationData_assets = Lens.lens (\ValidationData' {assets} -> assets) (\s@ValidationData' {} a -> s {assets = a} :: ValidationData) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ValidationData where
   parseJSON =

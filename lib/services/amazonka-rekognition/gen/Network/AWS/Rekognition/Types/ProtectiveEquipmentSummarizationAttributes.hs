@@ -113,7 +113,7 @@ protectiveEquipmentSummarizationAttributes_minConfidence = Lens.lens (\Protectiv
 -- @PersonsWithRequiredEquipment@ array field returned in
 -- ProtectiveEquipmentSummary by @DetectProtectiveEquipment@.
 protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes [ProtectiveEquipmentType]
-protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes = Lens.lens (\ProtectiveEquipmentSummarizationAttributes' {requiredEquipmentTypes} -> requiredEquipmentTypes) (\s@ProtectiveEquipmentSummarizationAttributes' {} a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes) Prelude.. Lens._Coerce
+protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes = Lens.lens (\ProtectiveEquipmentSummarizationAttributes' {requiredEquipmentTypes} -> requiredEquipmentTypes) (\s@ProtectiveEquipmentSummarizationAttributes' {} a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable

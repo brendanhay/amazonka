@@ -45,10 +45,10 @@ module Network.AWS.Rekognition.StartLabelDetection
     newStartLabelDetection,
 
     -- * Request Lenses
-    startLabelDetection_notificationChannel,
-    startLabelDetection_minConfidence,
-    startLabelDetection_clientRequestToken,
     startLabelDetection_jobTag,
+    startLabelDetection_notificationChannel,
+    startLabelDetection_clientRequestToken,
+    startLabelDetection_minConfidence,
     startLabelDetection_video,
 
     -- * Destructuring the Response
@@ -70,11 +70,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartLabelDetection' smart constructor.
 data StartLabelDetection = StartLabelDetection'
-  { -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
+  { -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
     -- the completion status of the label detection operation to. The Amazon
     -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
     -- you are using the AmazonRekognitionServiceRole permissions policy.
     notificationChannel :: Prelude.Maybe NotificationChannel,
+    -- | Idempotent token used to identify the start request. If you use the same
+    -- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
+    -- returned. Use @ClientRequestToken@ to prevent the same job from being
+    -- accidently started more than once.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the minimum confidence that Amazon Rekognition Video must have
     -- in order to return a detected label. Confidence represents how certain
     -- Amazon Rekognition is that a label is correctly identified.0 is the
@@ -85,16 +95,6 @@ data StartLabelDetection = StartLabelDetection'
     -- If you don\'t specify @MinConfidence@, the operation returns labels with
     -- confidence values greater than or equal to 50 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | Idempotent token used to identify the start request. If you use the same
-    -- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
-    -- returned. Use @ClientRequestToken@ to prevent the same job from being
-    -- accidently started more than once.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The video in which you want to detect labels. The video must be stored
     -- in an Amazon S3 bucket.
     video :: Video
@@ -109,10 +109,20 @@ data StartLabelDetection = StartLabelDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobTag', 'startLabelDetection_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'notificationChannel', 'startLabelDetection_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the label detection operation to. The Amazon
 -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
 -- you are using the AmazonRekognitionServiceRole permissions policy.
+--
+-- 'clientRequestToken', 'startLabelDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
 --
 -- 'minConfidence', 'startLabelDetection_minConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected label. Confidence represents how certain
@@ -124,16 +134,6 @@ data StartLabelDetection = StartLabelDetection'
 -- If you don\'t specify @MinConfidence@, the operation returns labels with
 -- confidence values greater than or equal to 50 percent.
 --
--- 'clientRequestToken', 'startLabelDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
--- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
--- returned. Use @ClientRequestToken@ to prevent the same job from being
--- accidently started more than once.
---
--- 'jobTag', 'startLabelDetection_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
---
 -- 'video', 'startLabelDetection_video' - The video in which you want to detect labels. The video must be stored
 -- in an Amazon S3 bucket.
 newStartLabelDetection ::
@@ -142,13 +142,19 @@ newStartLabelDetection ::
   StartLabelDetection
 newStartLabelDetection pVideo_ =
   StartLabelDetection'
-    { notificationChannel =
-        Prelude.Nothing,
-      minConfidence = Prelude.Nothing,
+    { jobTag = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       video = pVideo_
     }
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startLabelDetection_jobTag :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
+startLabelDetection_jobTag = Lens.lens (\StartLabelDetection' {jobTag} -> jobTag) (\s@StartLabelDetection' {} a -> s {jobTag = a} :: StartLabelDetection)
 
 -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the label detection operation to. The Amazon
@@ -156,6 +162,13 @@ newStartLabelDetection pVideo_ =
 -- you are using the AmazonRekognitionServiceRole permissions policy.
 startLabelDetection_notificationChannel :: Lens.Lens' StartLabelDetection (Prelude.Maybe NotificationChannel)
 startLabelDetection_notificationChannel = Lens.lens (\StartLabelDetection' {notificationChannel} -> notificationChannel) (\s@StartLabelDetection' {} a -> s {notificationChannel = a} :: StartLabelDetection)
+
+-- | Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+startLabelDetection_clientRequestToken :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
+startLabelDetection_clientRequestToken = Lens.lens (\StartLabelDetection' {clientRequestToken} -> clientRequestToken) (\s@StartLabelDetection' {} a -> s {clientRequestToken = a} :: StartLabelDetection)
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected label. Confidence represents how certain
@@ -168,20 +181,6 @@ startLabelDetection_notificationChannel = Lens.lens (\StartLabelDetection' {noti
 -- confidence values greater than or equal to 50 percent.
 startLabelDetection_minConfidence :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Double)
 startLabelDetection_minConfidence = Lens.lens (\StartLabelDetection' {minConfidence} -> minConfidence) (\s@StartLabelDetection' {} a -> s {minConfidence = a} :: StartLabelDetection)
-
--- | Idempotent token used to identify the start request. If you use the same
--- token with multiple @StartLabelDetection@ requests, the same @JobId@ is
--- returned. Use @ClientRequestToken@ to prevent the same job from being
--- accidently started more than once.
-startLabelDetection_clientRequestToken :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
-startLabelDetection_clientRequestToken = Lens.lens (\StartLabelDetection' {clientRequestToken} -> clientRequestToken) (\s@StartLabelDetection' {} a -> s {clientRequestToken = a} :: StartLabelDetection)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startLabelDetection_jobTag :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
-startLabelDetection_jobTag = Lens.lens (\StartLabelDetection' {jobTag} -> jobTag) (\s@StartLabelDetection' {} a -> s {jobTag = a} :: StartLabelDetection)
 
 -- | The video in which you want to detect labels. The video must be stored
 -- in an Amazon S3 bucket.
@@ -224,12 +223,12 @@ instance Core.ToJSON StartLabelDetection where
   toJSON StartLabelDetection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
+          [ ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
-            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
             Prelude.Just ("Video" Core..= video)
           ]
       )

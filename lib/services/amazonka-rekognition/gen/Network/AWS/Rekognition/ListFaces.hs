@@ -239,7 +239,7 @@ listFacesResponse_nextToken = Lens.lens (\ListFacesResponse' {nextToken} -> next
 
 -- | An array of @Face@ objects.
 listFacesResponse_faces :: Lens.Lens' ListFacesResponse (Prelude.Maybe [Face])
-listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@ListFacesResponse' {} a -> s {faces = a} :: ListFacesResponse) Prelude.. Lens.mapping Lens._Coerce
+listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@ListFacesResponse' {} a -> s {faces = a} :: ListFacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFacesResponse_httpStatus :: Lens.Lens' ListFacesResponse Prelude.Int

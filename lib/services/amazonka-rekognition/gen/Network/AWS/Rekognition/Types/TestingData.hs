@@ -30,11 +30,11 @@ import Network.AWS.Rekognition.Types.Asset
 --
 -- /See:/ 'newTestingData' smart constructor.
 data TestingData = TestingData'
-  { -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset
+  { -- | The assets used for testing.
+    assets :: Prelude.Maybe [Asset],
+    -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset
     -- with an 80\/20 split of the training dataset.
-    autoCreate :: Prelude.Maybe Prelude.Bool,
-    -- | The assets used for testing.
-    assets :: Prelude.Maybe [Asset]
+    autoCreate :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data TestingData = TestingData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assets', 'testingData_assets' - The assets used for testing.
+--
 -- 'autoCreate', 'testingData_autoCreate' - If specified, Amazon Rekognition Custom Labels creates a testing dataset
 -- with an 80\/20 split of the training dataset.
---
--- 'assets', 'testingData_assets' - The assets used for testing.
 newTestingData ::
   TestingData
 newTestingData =
   TestingData'
-    { autoCreate = Prelude.Nothing,
-      assets = Prelude.Nothing
+    { assets = Prelude.Nothing,
+      autoCreate = Prelude.Nothing
     }
+
+-- | The assets used for testing.
+testingData_assets :: Lens.Lens' TestingData (Prelude.Maybe [Asset])
+testingData_assets = Lens.lens (\TestingData' {assets} -> assets) (\s@TestingData' {} a -> s {assets = a} :: TestingData) Prelude.. Lens.mapping Lens.coerced
 
 -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset
 -- with an 80\/20 split of the training dataset.
 testingData_autoCreate :: Lens.Lens' TestingData (Prelude.Maybe Prelude.Bool)
 testingData_autoCreate = Lens.lens (\TestingData' {autoCreate} -> autoCreate) (\s@TestingData' {} a -> s {autoCreate = a} :: TestingData)
-
--- | The assets used for testing.
-testingData_assets :: Lens.Lens' TestingData (Prelude.Maybe [Asset])
-testingData_assets = Lens.lens (\TestingData' {assets} -> assets) (\s@TestingData' {} a -> s {assets = a} :: TestingData) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TestingData where
   parseJSON =
@@ -73,8 +73,8 @@ instance Core.FromJSON TestingData where
       "TestingData"
       ( \x ->
           TestingData'
-            Prelude.<$> (x Core..:? "AutoCreate")
-            Prelude.<*> (x Core..:? "Assets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Assets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AutoCreate")
       )
 
 instance Prelude.Hashable TestingData
@@ -85,7 +85,7 @@ instance Core.ToJSON TestingData where
   toJSON TestingData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AutoCreate" Core..=) Prelude.<$> autoCreate,
-            ("Assets" Core..=) Prelude.<$> assets
+          [ ("Assets" Core..=) Prelude.<$> assets,
+            ("AutoCreate" Core..=) Prelude.<$> autoCreate
           ]
       )

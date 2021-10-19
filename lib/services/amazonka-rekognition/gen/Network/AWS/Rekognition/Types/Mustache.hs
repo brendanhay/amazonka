@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMustache' smart constructor.
 data Mustache = Mustache'
-  { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | Boolean value that indicates whether the face has mustache or not.
-    value :: Prelude.Maybe Prelude.Bool
+  { -- | Boolean value that indicates whether the face has mustache or not.
+    value :: Prelude.Maybe Prelude.Bool,
+    -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Mustache = Mustache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'mustache_confidence' - Level of confidence in the determination.
---
 -- 'value', 'mustache_value' - Boolean value that indicates whether the face has mustache or not.
+--
+-- 'confidence', 'mustache_confidence' - Level of confidence in the determination.
 newMustache ::
   Mustache
 newMustache =
   Mustache'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
-
--- | Level of confidence in the determination.
-mustache_confidence :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Double)
-mustache_confidence = Lens.lens (\Mustache' {confidence} -> confidence) (\s@Mustache' {} a -> s {confidence = a} :: Mustache)
 
 -- | Boolean value that indicates whether the face has mustache or not.
 mustache_value :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Bool)
 mustache_value = Lens.lens (\Mustache' {value} -> value) (\s@Mustache' {} a -> s {value = a} :: Mustache)
+
+-- | Level of confidence in the determination.
+mustache_confidence :: Lens.Lens' Mustache (Prelude.Maybe Prelude.Double)
+mustache_confidence = Lens.lens (\Mustache' {confidence} -> confidence) (\s@Mustache' {} a -> s {confidence = a} :: Mustache)
 
 instance Core.FromJSON Mustache where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Mustache where
       "Mustache"
       ( \x ->
           Mustache'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable Mustache

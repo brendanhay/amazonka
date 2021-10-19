@@ -42,9 +42,9 @@ module Network.AWS.Rekognition.StartCelebrityRecognition
     newStartCelebrityRecognition,
 
     -- * Request Lenses
+    startCelebrityRecognition_jobTag,
     startCelebrityRecognition_notificationChannel,
     startCelebrityRecognition_clientRequestToken,
-    startCelebrityRecognition_jobTag,
     startCelebrityRecognition_video,
 
     -- * Destructuring the Response
@@ -66,7 +66,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartCelebrityRecognition' smart constructor.
 data StartCelebrityRecognition = StartCelebrityRecognition'
-  { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+  { -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
     -- publish the completion status of the celebrity recognition analysis to.
     -- The Amazon SNS topic must have a topic name that begins with
     -- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
@@ -77,11 +82,6 @@ data StartCelebrityRecognition = StartCelebrityRecognition'
     -- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
     -- from being accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The video in which you want to recognize celebrities. The video must be
     -- stored in an Amazon S3 bucket.
     video :: Video
@@ -96,6 +96,11 @@ data StartCelebrityRecognition = StartCelebrityRecognition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobTag', 'startCelebrityRecognition_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'notificationChannel', 'startCelebrityRecognition_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the celebrity recognition analysis to.
 -- The Amazon SNS topic must have a topic name that begins with
@@ -107,11 +112,6 @@ data StartCelebrityRecognition = StartCelebrityRecognition'
 -- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
 -- from being accidently started more than once.
 --
--- 'jobTag', 'startCelebrityRecognition_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
---
 -- 'video', 'startCelebrityRecognition_video' - The video in which you want to recognize celebrities. The video must be
 -- stored in an Amazon S3 bucket.
 newStartCelebrityRecognition ::
@@ -120,12 +120,19 @@ newStartCelebrityRecognition ::
   StartCelebrityRecognition
 newStartCelebrityRecognition pVideo_ =
   StartCelebrityRecognition'
-    { notificationChannel =
+    { jobTag =
         Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
       video = pVideo_
     }
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startCelebrityRecognition_jobTag :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
+startCelebrityRecognition_jobTag = Lens.lens (\StartCelebrityRecognition' {jobTag} -> jobTag) (\s@StartCelebrityRecognition' {} a -> s {jobTag = a} :: StartCelebrityRecognition)
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the celebrity recognition analysis to.
@@ -141,13 +148,6 @@ startCelebrityRecognition_notificationChannel = Lens.lens (\StartCelebrityRecogn
 -- from being accidently started more than once.
 startCelebrityRecognition_clientRequestToken :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
 startCelebrityRecognition_clientRequestToken = Lens.lens (\StartCelebrityRecognition' {clientRequestToken} -> clientRequestToken) (\s@StartCelebrityRecognition' {} a -> s {clientRequestToken = a} :: StartCelebrityRecognition)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startCelebrityRecognition_jobTag :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
-startCelebrityRecognition_jobTag = Lens.lens (\StartCelebrityRecognition' {jobTag} -> jobTag) (\s@StartCelebrityRecognition' {} a -> s {jobTag = a} :: StartCelebrityRecognition)
 
 -- | The video in which you want to recognize celebrities. The video must be
 -- stored in an Amazon S3 bucket.
@@ -190,11 +190,11 @@ instance Core.ToJSON StartCelebrityRecognition where
   toJSON StartCelebrityRecognition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
+          [ ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
             Prelude.Just ("Video" Core..= video)
           ]
       )

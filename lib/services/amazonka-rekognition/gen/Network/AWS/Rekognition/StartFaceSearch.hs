@@ -39,10 +39,10 @@ module Network.AWS.Rekognition.StartFaceSearch
     newStartFaceSearch,
 
     -- * Request Lenses
+    startFaceSearch_faceMatchThreshold,
+    startFaceSearch_jobTag,
     startFaceSearch_notificationChannel,
     startFaceSearch_clientRequestToken,
-    startFaceSearch_jobTag,
-    startFaceSearch_faceMatchThreshold,
     startFaceSearch_video,
     startFaceSearch_collectionId,
 
@@ -65,7 +65,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartFaceSearch' smart constructor.
 data StartFaceSearch = StartFaceSearch'
-  { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+  { -- | The minimum confidence in the person match to return. For example,
+    -- don\'t return any matches where confidence in matches is less than 70%.
+    -- The default value is 80%.
+    faceMatchThreshold :: Prelude.Maybe Prelude.Double,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
     -- Video to publish the completion status of the search. The Amazon SNS
     -- topic must have a topic name that begins with /AmazonRekognition/ if you
     -- are using the AmazonRekognitionServiceRole permissions policy to access
@@ -76,15 +85,6 @@ data StartFaceSearch = StartFaceSearch'
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
-    -- | The minimum confidence in the person match to return. For example,
-    -- don\'t return any matches where confidence in matches is less than 70%.
-    -- The default value is 80%.
-    faceMatchThreshold :: Prelude.Maybe Prelude.Double,
     -- | The video you want to search. The video must be stored in an Amazon S3
     -- bucket.
     video :: Video,
@@ -101,6 +101,15 @@ data StartFaceSearch = StartFaceSearch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'faceMatchThreshold', 'startFaceSearch_faceMatchThreshold' - The minimum confidence in the person match to return. For example,
+-- don\'t return any matches where confidence in matches is less than 70%.
+-- The default value is 80%.
+--
+-- 'jobTag', 'startFaceSearch_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'notificationChannel', 'startFaceSearch_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the search. The Amazon SNS
 -- topic must have a topic name that begins with /AmazonRekognition/ if you
@@ -111,15 +120,6 @@ data StartFaceSearch = StartFaceSearch'
 -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
---
--- 'jobTag', 'startFaceSearch_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
---
--- 'faceMatchThreshold', 'startFaceSearch_faceMatchThreshold' - The minimum confidence in the person match to return. For example,
--- don\'t return any matches where confidence in matches is less than 70%.
--- The default value is 80%.
 --
 -- 'video', 'startFaceSearch_video' - The video you want to search. The video must be stored in an Amazon S3
 -- bucket.
@@ -133,14 +133,27 @@ newStartFaceSearch ::
   StartFaceSearch
 newStartFaceSearch pVideo_ pCollectionId_ =
   StartFaceSearch'
-    { notificationChannel =
+    { faceMatchThreshold =
         Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       jobTag = Prelude.Nothing,
-      faceMatchThreshold = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       video = pVideo_,
       collectionId = pCollectionId_
     }
+
+-- | The minimum confidence in the person match to return. For example,
+-- don\'t return any matches where confidence in matches is less than 70%.
+-- The default value is 80%.
+startFaceSearch_faceMatchThreshold :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Double)
+startFaceSearch_faceMatchThreshold = Lens.lens (\StartFaceSearch' {faceMatchThreshold} -> faceMatchThreshold) (\s@StartFaceSearch' {} a -> s {faceMatchThreshold = a} :: StartFaceSearch)
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startFaceSearch_jobTag :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
+startFaceSearch_jobTag = Lens.lens (\StartFaceSearch' {jobTag} -> jobTag) (\s@StartFaceSearch' {} a -> s {jobTag = a} :: StartFaceSearch)
 
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the search. The Amazon SNS
@@ -156,19 +169,6 @@ startFaceSearch_notificationChannel = Lens.lens (\StartFaceSearch' {notification
 -- accidently started more than once.
 startFaceSearch_clientRequestToken :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
 startFaceSearch_clientRequestToken = Lens.lens (\StartFaceSearch' {clientRequestToken} -> clientRequestToken) (\s@StartFaceSearch' {} a -> s {clientRequestToken = a} :: StartFaceSearch)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startFaceSearch_jobTag :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
-startFaceSearch_jobTag = Lens.lens (\StartFaceSearch' {jobTag} -> jobTag) (\s@StartFaceSearch' {} a -> s {jobTag = a} :: StartFaceSearch)
-
--- | The minimum confidence in the person match to return. For example,
--- don\'t return any matches where confidence in matches is less than 70%.
--- The default value is 80%.
-startFaceSearch_faceMatchThreshold :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Double)
-startFaceSearch_faceMatchThreshold = Lens.lens (\StartFaceSearch' {faceMatchThreshold} -> faceMatchThreshold) (\s@StartFaceSearch' {} a -> s {faceMatchThreshold = a} :: StartFaceSearch)
 
 -- | The video you want to search. The video must be stored in an Amazon S3
 -- bucket.
@@ -215,13 +215,13 @@ instance Core.ToJSON StartFaceSearch where
   toJSON StartFaceSearch' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
+          [ ("FaceMatchThreshold" Core..=)
+              Prelude.<$> faceMatchThreshold,
+            ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("FaceMatchThreshold" Core..=)
-              Prelude.<$> faceMatchThreshold,
             Prelude.Just ("Video" Core..= video),
             Prelude.Just ("CollectionId" Core..= collectionId)
           ]

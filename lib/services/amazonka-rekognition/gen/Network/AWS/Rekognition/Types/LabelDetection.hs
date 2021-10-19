@@ -29,11 +29,11 @@ import Network.AWS.Rekognition.Types.Label
 --
 -- /See:/ 'newLabelDetection' smart constructor.
 data LabelDetection = LabelDetection'
-  { -- | Time, in milliseconds from the start of the video, that the label was
+  { -- | Details about the detected label.
+    label :: Prelude.Maybe Label,
+    -- | Time, in milliseconds from the start of the video, that the label was
     -- detected.
-    timestamp :: Prelude.Maybe Prelude.Integer,
-    -- | Details about the detected label.
-    label :: Prelude.Maybe Label
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data LabelDetection = LabelDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'label', 'labelDetection_label' - Details about the detected label.
+--
 -- 'timestamp', 'labelDetection_timestamp' - Time, in milliseconds from the start of the video, that the label was
 -- detected.
---
--- 'label', 'labelDetection_label' - Details about the detected label.
 newLabelDetection ::
   LabelDetection
 newLabelDetection =
   LabelDetection'
-    { timestamp = Prelude.Nothing,
-      label = Prelude.Nothing
+    { label = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
+
+-- | Details about the detected label.
+labelDetection_label :: Lens.Lens' LabelDetection (Prelude.Maybe Label)
+labelDetection_label = Lens.lens (\LabelDetection' {label} -> label) (\s@LabelDetection' {} a -> s {label = a} :: LabelDetection)
 
 -- | Time, in milliseconds from the start of the video, that the label was
 -- detected.
 labelDetection_timestamp :: Lens.Lens' LabelDetection (Prelude.Maybe Prelude.Integer)
 labelDetection_timestamp = Lens.lens (\LabelDetection' {timestamp} -> timestamp) (\s@LabelDetection' {} a -> s {timestamp = a} :: LabelDetection)
-
--- | Details about the detected label.
-labelDetection_label :: Lens.Lens' LabelDetection (Prelude.Maybe Label)
-labelDetection_label = Lens.lens (\LabelDetection' {label} -> label) (\s@LabelDetection' {} a -> s {label = a} :: LabelDetection)
 
 instance Core.FromJSON LabelDetection where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON LabelDetection where
       "LabelDetection"
       ( \x ->
           LabelDetection'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Label")
+            Prelude.<$> (x Core..:? "Label")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
 instance Prelude.Hashable LabelDetection

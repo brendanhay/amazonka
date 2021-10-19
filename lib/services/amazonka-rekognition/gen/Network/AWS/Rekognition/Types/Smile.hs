@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSmile' smart constructor.
 data Smile = Smile'
-  { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | Boolean value that indicates whether the face is smiling or not.
-    value :: Prelude.Maybe Prelude.Bool
+  { -- | Boolean value that indicates whether the face is smiling or not.
+    value :: Prelude.Maybe Prelude.Bool,
+    -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Smile = Smile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'smile_confidence' - Level of confidence in the determination.
---
 -- 'value', 'smile_value' - Boolean value that indicates whether the face is smiling or not.
+--
+-- 'confidence', 'smile_confidence' - Level of confidence in the determination.
 newSmile ::
   Smile
 newSmile =
   Smile'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
-
--- | Level of confidence in the determination.
-smile_confidence :: Lens.Lens' Smile (Prelude.Maybe Prelude.Double)
-smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} a -> s {confidence = a} :: Smile)
 
 -- | Boolean value that indicates whether the face is smiling or not.
 smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
 smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
+
+-- | Level of confidence in the determination.
+smile_confidence :: Lens.Lens' Smile (Prelude.Maybe Prelude.Double)
+smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} a -> s {confidence = a} :: Smile)
 
 instance Core.FromJSON Smile where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Smile where
       "Smile"
       ( \x ->
           Smile'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable Smile

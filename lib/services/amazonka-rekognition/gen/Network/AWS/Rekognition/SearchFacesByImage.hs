@@ -72,8 +72,8 @@ module Network.AWS.Rekognition.SearchFacesByImage
 
     -- * Request Lenses
     searchFacesByImage_qualityFilter,
-    searchFacesByImage_maxFaces,
     searchFacesByImage_faceMatchThreshold,
+    searchFacesByImage_maxFaces,
     searchFacesByImage_collectionId,
     searchFacesByImage_image,
 
@@ -82,8 +82,8 @@ module Network.AWS.Rekognition.SearchFacesByImage
     newSearchFacesByImageResponse,
 
     -- * Response Lenses
-    searchFacesByImageResponse_faceModelVersion,
     searchFacesByImageResponse_faceMatches,
+    searchFacesByImageResponse_faceModelVersion,
     searchFacesByImageResponse_searchedFaceBoundingBox,
     searchFacesByImageResponse_searchedFaceConfidence,
     searchFacesByImageResponse_httpStatus,
@@ -113,13 +113,13 @@ data SearchFacesByImage = SearchFacesByImage'
     -- To use quality filtering, the collection you are using must be
     -- associated with version 3 of the face model or higher.
     qualityFilter :: Prelude.Maybe QualityFilter,
-    -- | Maximum number of faces to return. The operation returns the maximum
-    -- number of faces with the highest confidence in the match.
-    maxFaces :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) Specifies the minimum confidence in the face match to return.
     -- For example, don\'t return any matches where confidence in matches is
     -- less than 70%. The default value is 80%.
     faceMatchThreshold :: Prelude.Maybe Prelude.Double,
+    -- | Maximum number of faces to return. The operation returns the maximum
+    -- number of faces with the highest confidence in the match.
+    maxFaces :: Prelude.Maybe Prelude.Natural,
     -- | ID of the collection to search.
     collectionId :: Prelude.Text,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
@@ -155,12 +155,12 @@ data SearchFacesByImage = SearchFacesByImage'
 -- To use quality filtering, the collection you are using must be
 -- associated with version 3 of the face model or higher.
 --
--- 'maxFaces', 'searchFacesByImage_maxFaces' - Maximum number of faces to return. The operation returns the maximum
--- number of faces with the highest confidence in the match.
---
 -- 'faceMatchThreshold', 'searchFacesByImage_faceMatchThreshold' - (Optional) Specifies the minimum confidence in the face match to return.
 -- For example, don\'t return any matches where confidence in matches is
 -- less than 70%. The default value is 80%.
+--
+-- 'maxFaces', 'searchFacesByImage_maxFaces' - Maximum number of faces to return. The operation returns the maximum
+-- number of faces with the highest confidence in the match.
 --
 -- 'collectionId', 'searchFacesByImage_collectionId' - ID of the collection to search.
 --
@@ -181,8 +181,8 @@ newSearchFacesByImage pCollectionId_ pImage_ =
   SearchFacesByImage'
     { qualityFilter =
         Prelude.Nothing,
-      maxFaces = Prelude.Nothing,
       faceMatchThreshold = Prelude.Nothing,
+      maxFaces = Prelude.Nothing,
       collectionId = pCollectionId_,
       image = pImage_
     }
@@ -203,16 +203,16 @@ newSearchFacesByImage pCollectionId_ pImage_ =
 searchFacesByImage_qualityFilter :: Lens.Lens' SearchFacesByImage (Prelude.Maybe QualityFilter)
 searchFacesByImage_qualityFilter = Lens.lens (\SearchFacesByImage' {qualityFilter} -> qualityFilter) (\s@SearchFacesByImage' {} a -> s {qualityFilter = a} :: SearchFacesByImage)
 
--- | Maximum number of faces to return. The operation returns the maximum
--- number of faces with the highest confidence in the match.
-searchFacesByImage_maxFaces :: Lens.Lens' SearchFacesByImage (Prelude.Maybe Prelude.Natural)
-searchFacesByImage_maxFaces = Lens.lens (\SearchFacesByImage' {maxFaces} -> maxFaces) (\s@SearchFacesByImage' {} a -> s {maxFaces = a} :: SearchFacesByImage)
-
 -- | (Optional) Specifies the minimum confidence in the face match to return.
 -- For example, don\'t return any matches where confidence in matches is
 -- less than 70%. The default value is 80%.
 searchFacesByImage_faceMatchThreshold :: Lens.Lens' SearchFacesByImage (Prelude.Maybe Prelude.Double)
 searchFacesByImage_faceMatchThreshold = Lens.lens (\SearchFacesByImage' {faceMatchThreshold} -> faceMatchThreshold) (\s@SearchFacesByImage' {} a -> s {faceMatchThreshold = a} :: SearchFacesByImage)
+
+-- | Maximum number of faces to return. The operation returns the maximum
+-- number of faces with the highest confidence in the match.
+searchFacesByImage_maxFaces :: Lens.Lens' SearchFacesByImage (Prelude.Maybe Prelude.Natural)
+searchFacesByImage_maxFaces = Lens.lens (\SearchFacesByImage' {maxFaces} -> maxFaces) (\s@SearchFacesByImage' {} a -> s {maxFaces = a} :: SearchFacesByImage)
 
 -- | ID of the collection to search.
 searchFacesByImage_collectionId :: Lens.Lens' SearchFacesByImage Prelude.Text
@@ -237,8 +237,8 @@ instance Core.AWSRequest SearchFacesByImage where
     Response.receiveJSON
       ( \s h x ->
           SearchFacesByImageResponse'
-            Prelude.<$> (x Core..?> "FaceModelVersion")
-            Prelude.<*> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (x Core..?> "SearchedFaceBoundingBox")
             Prelude.<*> (x Core..?> "SearchedFaceConfidence")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,9 +268,9 @@ instance Core.ToJSON SearchFacesByImage where
     Core.object
       ( Prelude.catMaybes
           [ ("QualityFilter" Core..=) Prelude.<$> qualityFilter,
-            ("MaxFaces" Core..=) Prelude.<$> maxFaces,
             ("FaceMatchThreshold" Core..=)
               Prelude.<$> faceMatchThreshold,
+            ("MaxFaces" Core..=) Prelude.<$> maxFaces,
             Prelude.Just ("CollectionId" Core..= collectionId),
             Prelude.Just ("Image" Core..= image)
           ]
@@ -284,12 +284,12 @@ instance Core.ToQuery SearchFacesByImage where
 
 -- | /See:/ 'newSearchFacesByImageResponse' smart constructor.
 data SearchFacesByImageResponse = SearchFacesByImageResponse'
-  { -- | Version number of the face detection model associated with the input
-    -- collection (@CollectionId@).
-    faceModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | An array of faces that match the input face, along with the confidence
+  { -- | An array of faces that match the input face, along with the confidence
     -- in the match.
     faceMatches :: Prelude.Maybe [FaceMatch],
+    -- | Version number of the face detection model associated with the input
+    -- collection (@CollectionId@).
+    faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The bounding box around the face in the input image that Amazon
     -- Rekognition used for the search.
     searchedFaceBoundingBox :: Prelude.Maybe BoundingBox,
@@ -309,11 +309,11 @@ data SearchFacesByImageResponse = SearchFacesByImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'faceModelVersion', 'searchFacesByImageResponse_faceModelVersion' - Version number of the face detection model associated with the input
--- collection (@CollectionId@).
---
 -- 'faceMatches', 'searchFacesByImageResponse_faceMatches' - An array of faces that match the input face, along with the confidence
 -- in the match.
+--
+-- 'faceModelVersion', 'searchFacesByImageResponse_faceModelVersion' - Version number of the face detection model associated with the input
+-- collection (@CollectionId@).
 --
 -- 'searchedFaceBoundingBox', 'searchFacesByImageResponse_searchedFaceBoundingBox' - The bounding box around the face in the input image that Amazon
 -- Rekognition used for the search.
@@ -328,23 +328,23 @@ newSearchFacesByImageResponse ::
   SearchFacesByImageResponse
 newSearchFacesByImageResponse pHttpStatus_ =
   SearchFacesByImageResponse'
-    { faceModelVersion =
+    { faceMatches =
         Prelude.Nothing,
-      faceMatches = Prelude.Nothing,
+      faceModelVersion = Prelude.Nothing,
       searchedFaceBoundingBox = Prelude.Nothing,
       searchedFaceConfidence = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | An array of faces that match the input face, along with the confidence
+-- in the match.
+searchFacesByImageResponse_faceMatches :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe [FaceMatch])
+searchFacesByImageResponse_faceMatches = Lens.lens (\SearchFacesByImageResponse' {faceMatches} -> faceMatches) (\s@SearchFacesByImageResponse' {} a -> s {faceMatches = a} :: SearchFacesByImageResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Version number of the face detection model associated with the input
 -- collection (@CollectionId@).
 searchFacesByImageResponse_faceModelVersion :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe Prelude.Text)
 searchFacesByImageResponse_faceModelVersion = Lens.lens (\SearchFacesByImageResponse' {faceModelVersion} -> faceModelVersion) (\s@SearchFacesByImageResponse' {} a -> s {faceModelVersion = a} :: SearchFacesByImageResponse)
-
--- | An array of faces that match the input face, along with the confidence
--- in the match.
-searchFacesByImageResponse_faceMatches :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe [FaceMatch])
-searchFacesByImageResponse_faceMatches = Lens.lens (\SearchFacesByImageResponse' {faceMatches} -> faceMatches) (\s@SearchFacesByImageResponse' {} a -> s {faceMatches = a} :: SearchFacesByImageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The bounding box around the face in the input image that Amazon
 -- Rekognition used for the search.

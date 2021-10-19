@@ -63,7 +63,7 @@ newStorageConnector pConnectorType_ =
 
 -- | The names of the domains for the account.
 storageConnector_domains :: Lens.Lens' StorageConnector (Prelude.Maybe [Prelude.Text])
-storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Prelude.. Lens.mapping Lens._Coerce
+storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the storage connector.
 storageConnector_resourceIdentifier :: Lens.Lens' StorageConnector (Prelude.Maybe Prelude.Text)

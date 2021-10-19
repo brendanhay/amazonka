@@ -27,8 +27,8 @@ module Network.AWS.AppStream.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_messageAction,
     createUser_lastName,
+    createUser_messageAction,
     createUser_firstName,
     createUser_userName,
     createUser_authenticationType,
@@ -51,7 +51,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The action to take for the welcome email that is sent to a user after
+  { -- | The last name, or surname, of the user.
+    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The action to take for the welcome email that is sent to a user after
     -- the user is created in the user pool. If you specify SUPPRESS, no email
     -- is sent. If you specify RESEND, do not specify the first name or last
     -- name of the user. If the value is null, the email is sent.
@@ -60,8 +62,6 @@ data CreateUser = CreateUser'
     -- users don’t set their passwords within 7 days, you must send them a new
     -- welcome email.
     messageAction :: Prelude.Maybe MessageAction,
-    -- | The last name, or surname, of the user.
-    lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The first name, or given name, of the user.
     firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The email address of the user.
@@ -84,6 +84,8 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastName', 'createUser_lastName' - The last name, or surname, of the user.
+--
 -- 'messageAction', 'createUser_messageAction' - The action to take for the welcome email that is sent to a user after
 -- the user is created in the user pool. If you specify SUPPRESS, no email
 -- is sent. If you specify RESEND, do not specify the first name or last
@@ -92,8 +94,6 @@ data CreateUser = CreateUser'
 -- The temporary password in the welcome email is valid for only 7 days. If
 -- users don’t set their passwords within 7 days, you must send them a new
 -- welcome email.
---
--- 'lastName', 'createUser_lastName' - The last name, or surname, of the user.
 --
 -- 'firstName', 'createUser_firstName' - The first name, or given name, of the user.
 --
@@ -113,12 +113,16 @@ newCreateUser ::
   CreateUser
 newCreateUser pUserName_ pAuthenticationType_ =
   CreateUser'
-    { messageAction = Prelude.Nothing,
-      lastName = Prelude.Nothing,
+    { lastName = Prelude.Nothing,
+      messageAction = Prelude.Nothing,
       firstName = Prelude.Nothing,
       userName = Core._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
+
+-- | The last name, or surname, of the user.
+createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The action to take for the welcome email that is sent to a user after
 -- the user is created in the user pool. If you specify SUPPRESS, no email
@@ -130,10 +134,6 @@ newCreateUser pUserName_ pAuthenticationType_ =
 -- welcome email.
 createUser_messageAction :: Lens.Lens' CreateUser (Prelude.Maybe MessageAction)
 createUser_messageAction = Lens.lens (\CreateUser' {messageAction} -> messageAction) (\s@CreateUser' {} a -> s {messageAction = a} :: CreateUser)
-
--- | The last name, or surname, of the user.
-createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The first name, or given name, of the user.
 createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
@@ -185,8 +185,8 @@ instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MessageAction" Core..=) Prelude.<$> messageAction,
-            ("LastName" Core..=) Prelude.<$> lastName,
+          [ ("LastName" Core..=) Prelude.<$> lastName,
+            ("MessageAction" Core..=) Prelude.<$> messageAction,
             ("FirstName" Core..=) Prelude.<$> firstName,
             Prelude.Just ("UserName" Core..= userName),
             Prelude.Just

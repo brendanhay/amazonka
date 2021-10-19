@@ -38,41 +38,41 @@ module Network.AWS.AppStream
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotAvailableException
-    _ResourceNotAvailableException,
+    -- ** InvalidRoleException
+    _InvalidRoleException,
 
-    -- ** IncompatibleImageException
-    _IncompatibleImageException,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** InvalidAccountStatusException
-    _InvalidAccountStatusException,
+    -- ** RequestLimitExceededException
+    _RequestLimitExceededException,
 
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** InvalidRoleException
-    _InvalidRoleException,
+    -- ** IncompatibleImageException
+    _IncompatibleImageException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidAccountStatusException
+    _InvalidAccountStatusException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** ResourceNotAvailableException
+    _ResourceNotAvailableException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** RequestLimitExceededException
-    _RequestLimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -86,180 +86,6 @@ module Network.AWS.AppStream
     -- * Operations
     -- $operations
 
-    -- ** ListAssociatedStacks (Paginated)
-    ListAssociatedStacks (ListAssociatedStacks'),
-    newListAssociatedStacks,
-    ListAssociatedStacksResponse (ListAssociatedStacksResponse'),
-    newListAssociatedStacksResponse,
-
-    -- ** DeleteImageBuilder
-    DeleteImageBuilder (DeleteImageBuilder'),
-    newDeleteImageBuilder,
-    DeleteImageBuilderResponse (DeleteImageBuilderResponse'),
-    newDeleteImageBuilderResponse,
-
-    -- ** BatchAssociateUserStack
-    BatchAssociateUserStack (BatchAssociateUserStack'),
-    newBatchAssociateUserStack,
-    BatchAssociateUserStackResponse (BatchAssociateUserStackResponse'),
-    newBatchAssociateUserStackResponse,
-
-    -- ** ListAssociatedFleets (Paginated)
-    ListAssociatedFleets (ListAssociatedFleets'),
-    newListAssociatedFleets,
-    ListAssociatedFleetsResponse (ListAssociatedFleetsResponse'),
-    newListAssociatedFleetsResponse,
-
-    -- ** DeleteUsageReportSubscription
-    DeleteUsageReportSubscription (DeleteUsageReportSubscription'),
-    newDeleteUsageReportSubscription,
-    DeleteUsageReportSubscriptionResponse (DeleteUsageReportSubscriptionResponse'),
-    newDeleteUsageReportSubscriptionResponse,
-
-    -- ** StopFleet
-    StopFleet (StopFleet'),
-    newStopFleet,
-    StopFleetResponse (StopFleetResponse'),
-    newStopFleetResponse,
-
-    -- ** StopImageBuilder
-    StopImageBuilder (StopImageBuilder'),
-    newStopImageBuilder,
-    StopImageBuilderResponse (StopImageBuilderResponse'),
-    newStopImageBuilderResponse,
-
-    -- ** StartFleet
-    StartFleet (StartFleet'),
-    newStartFleet,
-    StartFleetResponse (StartFleetResponse'),
-    newStartFleetResponse,
-
-    -- ** StartImageBuilder
-    StartImageBuilder (StartImageBuilder'),
-    newStartImageBuilder,
-    StartImageBuilderResponse (StartImageBuilderResponse'),
-    newStartImageBuilderResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeFleets (Paginated)
-    DescribeFleets (DescribeFleets'),
-    newDescribeFleets,
-    DescribeFleetsResponse (DescribeFleetsResponse'),
-    newDescribeFleetsResponse,
-
-    -- ** DescribeSessions (Paginated)
-    DescribeSessions (DescribeSessions'),
-    newDescribeSessions,
-    DescribeSessionsResponse (DescribeSessionsResponse'),
-    newDescribeSessionsResponse,
-
-    -- ** EnableUser
-    EnableUser (EnableUser'),
-    newEnableUser,
-    EnableUserResponse (EnableUserResponse'),
-    newEnableUserResponse,
-
-    -- ** DescribeStacks (Paginated)
-    DescribeStacks (DescribeStacks'),
-    newDescribeStacks,
-    DescribeStacksResponse (DescribeStacksResponse'),
-    newDescribeStacksResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** DeleteDirectoryConfig
-    DeleteDirectoryConfig (DeleteDirectoryConfig'),
-    newDeleteDirectoryConfig,
-    DeleteDirectoryConfigResponse (DeleteDirectoryConfigResponse'),
-    newDeleteDirectoryConfigResponse,
-
-    -- ** CopyImage
-    CopyImage (CopyImage'),
-    newCopyImage,
-    CopyImageResponse (CopyImageResponse'),
-    newCopyImageResponse,
-
-    -- ** CreateImageBuilder
-    CreateImageBuilder (CreateImageBuilder'),
-    newCreateImageBuilder,
-    CreateImageBuilderResponse (CreateImageBuilderResponse'),
-    newCreateImageBuilderResponse,
-
-    -- ** CreateStack
-    CreateStack (CreateStack'),
-    newCreateStack,
-    CreateStackResponse (CreateStackResponse'),
-    newCreateStackResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** UpdateDirectoryConfig
-    UpdateDirectoryConfig (UpdateDirectoryConfig'),
-    newUpdateDirectoryConfig,
-    UpdateDirectoryConfigResponse (UpdateDirectoryConfigResponse'),
-    newUpdateDirectoryConfigResponse,
-
-    -- ** AssociateFleet
-    AssociateFleet (AssociateFleet'),
-    newAssociateFleet,
-    AssociateFleetResponse (AssociateFleetResponse'),
-    newAssociateFleetResponse,
-
-    -- ** CreateDirectoryConfig
-    CreateDirectoryConfig (CreateDirectoryConfig'),
-    newCreateDirectoryConfig,
-    CreateDirectoryConfigResponse (CreateDirectoryConfigResponse'),
-    newCreateDirectoryConfigResponse,
-
-    -- ** DeleteStack
-    DeleteStack (DeleteStack'),
-    newDeleteStack,
-    DeleteStackResponse (DeleteStackResponse'),
-    newDeleteStackResponse,
-
-    -- ** DeleteFleet
-    DeleteFleet (DeleteFleet'),
-    newDeleteFleet,
-    DeleteFleetResponse (DeleteFleetResponse'),
-    newDeleteFleetResponse,
-
-    -- ** UpdateStack
-    UpdateStack (UpdateStack'),
-    newUpdateStack,
-    UpdateStackResponse (UpdateStackResponse'),
-    newUpdateStackResponse,
-
-    -- ** DescribeUsers (Paginated)
-    DescribeUsers (DescribeUsers'),
-    newDescribeUsers,
-    DescribeUsersResponse (DescribeUsersResponse'),
-    newDescribeUsersResponse,
-
-    -- ** UpdateFleet
-    UpdateFleet (UpdateFleet'),
-    newUpdateFleet,
-    UpdateFleetResponse (UpdateFleetResponse'),
-    newUpdateFleetResponse,
-
     -- ** CreateUsageReportSubscription
     CreateUsageReportSubscription (CreateUsageReportSubscription'),
     newCreateUsageReportSubscription,
@@ -272,17 +98,131 @@ module Network.AWS.AppStream
     DisassociateFleetResponse (DisassociateFleetResponse'),
     newDisassociateFleetResponse,
 
-    -- ** BatchDisassociateUserStack
-    BatchDisassociateUserStack (BatchDisassociateUserStack'),
-    newBatchDisassociateUserStack,
-    BatchDisassociateUserStackResponse (BatchDisassociateUserStackResponse'),
-    newBatchDisassociateUserStackResponse,
+    -- ** ListAssociatedFleets (Paginated)
+    ListAssociatedFleets (ListAssociatedFleets'),
+    newListAssociatedFleets,
+    ListAssociatedFleetsResponse (ListAssociatedFleetsResponse'),
+    newListAssociatedFleetsResponse,
 
-    -- ** DescribeImages (Paginated)
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
+    -- ** DeleteStack
+    DeleteStack (DeleteStack'),
+    newDeleteStack,
+    DeleteStackResponse (DeleteStackResponse'),
+    newDeleteStackResponse,
+
+    -- ** UpdateStack
+    UpdateStack (UpdateStack'),
+    newUpdateStack,
+    UpdateStackResponse (UpdateStackResponse'),
+    newUpdateStackResponse,
+
+    -- ** CreateDirectoryConfig
+    CreateDirectoryConfig (CreateDirectoryConfig'),
+    newCreateDirectoryConfig,
+    CreateDirectoryConfigResponse (CreateDirectoryConfigResponse'),
+    newCreateDirectoryConfigResponse,
+
+    -- ** DescribeUsers (Paginated)
+    DescribeUsers (DescribeUsers'),
+    newDescribeUsers,
+    DescribeUsersResponse (DescribeUsersResponse'),
+    newDescribeUsersResponse,
+
+    -- ** ListAssociatedStacks (Paginated)
+    ListAssociatedStacks (ListAssociatedStacks'),
+    newListAssociatedStacks,
+    ListAssociatedStacksResponse (ListAssociatedStacksResponse'),
+    newListAssociatedStacksResponse,
+
+    -- ** DeleteFleet
+    DeleteFleet (DeleteFleet'),
+    newDeleteFleet,
+    DeleteFleetResponse (DeleteFleetResponse'),
+    newDeleteFleetResponse,
+
+    -- ** UpdateFleet
+    UpdateFleet (UpdateFleet'),
+    newUpdateFleet,
+    UpdateFleetResponse (UpdateFleetResponse'),
+    newUpdateFleetResponse,
+
+    -- ** DeleteImageBuilder
+    DeleteImageBuilder (DeleteImageBuilder'),
+    newDeleteImageBuilder,
+    DeleteImageBuilderResponse (DeleteImageBuilderResponse'),
+    newDeleteImageBuilderResponse,
+
+    -- ** AssociateFleet
+    AssociateFleet (AssociateFleet'),
+    newAssociateFleet,
+    AssociateFleetResponse (AssociateFleetResponse'),
+    newAssociateFleetResponse,
+
+    -- ** CreateImageBuilder
+    CreateImageBuilder (CreateImageBuilder'),
+    newCreateImageBuilder,
+    CreateImageBuilderResponse (CreateImageBuilderResponse'),
+    newCreateImageBuilderResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DescribeDirectoryConfigs (Paginated)
+    DescribeDirectoryConfigs (DescribeDirectoryConfigs'),
+    newDescribeDirectoryConfigs,
+    DescribeDirectoryConfigsResponse (DescribeDirectoryConfigsResponse'),
+    newDescribeDirectoryConfigsResponse,
+
+    -- ** CreateImageBuilderStreamingURL
+    CreateImageBuilderStreamingURL (CreateImageBuilderStreamingURL'),
+    newCreateImageBuilderStreamingURL,
+    CreateImageBuilderStreamingURLResponse (CreateImageBuilderStreamingURLResponse'),
+    newCreateImageBuilderStreamingURLResponse,
+
+    -- ** DescribeSessions (Paginated)
+    DescribeSessions (DescribeSessions'),
+    newDescribeSessions,
+    DescribeSessionsResponse (DescribeSessionsResponse'),
+    newDescribeSessionsResponse,
+
+    -- ** DescribeStacks (Paginated)
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
+
+    -- ** DescribeFleets (Paginated)
+    DescribeFleets (DescribeFleets'),
+    newDescribeFleets,
+    DescribeFleetsResponse (DescribeFleetsResponse'),
+    newDescribeFleetsResponse,
+
+    -- ** DescribeImageBuilders (Paginated)
+    DescribeImageBuilders (DescribeImageBuilders'),
+    newDescribeImageBuilders,
+    DescribeImageBuildersResponse (DescribeImageBuildersResponse'),
+    newDescribeImageBuildersResponse,
+
+    -- ** EnableUser
+    EnableUser (EnableUser'),
+    newEnableUser,
+    EnableUserResponse (EnableUserResponse'),
+    newEnableUserResponse,
+
+    -- ** DescribeUserStackAssociations (Paginated)
+    DescribeUserStackAssociations (DescribeUserStackAssociations'),
+    newDescribeUserStackAssociations,
+    DescribeUserStackAssociationsResponse (DescribeUserStackAssociationsResponse'),
+    newDescribeUserStackAssociationsResponse,
+
+    -- ** CreateUpdatedImage
+    CreateUpdatedImage (CreateUpdatedImage'),
+    newCreateUpdatedImage,
+    CreateUpdatedImageResponse (CreateUpdatedImageResponse'),
+    newCreateUpdatedImageResponse,
 
     -- ** DescribeUsageReportSubscriptions
     DescribeUsageReportSubscriptions (DescribeUsageReportSubscriptions'),
@@ -296,59 +236,65 @@ module Network.AWS.AppStream
     UpdateImagePermissionsResponse (UpdateImagePermissionsResponse'),
     newUpdateImagePermissionsResponse,
 
-    -- ** CreateUpdatedImage
-    CreateUpdatedImage (CreateUpdatedImage'),
-    newCreateUpdatedImage,
-    CreateUpdatedImageResponse (CreateUpdatedImageResponse'),
-    newCreateUpdatedImageResponse,
-
-    -- ** DeleteImage
-    DeleteImage (DeleteImage'),
-    newDeleteImage,
-    DeleteImageResponse (DeleteImageResponse'),
-    newDeleteImageResponse,
-
     -- ** DeleteImagePermissions
     DeleteImagePermissions (DeleteImagePermissions'),
     newDeleteImagePermissions,
     DeleteImagePermissionsResponse (DeleteImagePermissionsResponse'),
     newDeleteImagePermissionsResponse,
 
-    -- ** CreateStreamingURL
-    CreateStreamingURL (CreateStreamingURL'),
-    newCreateStreamingURL,
-    CreateStreamingURLResponse (CreateStreamingURLResponse'),
-    newCreateStreamingURLResponse,
+    -- ** StopFleet
+    StopFleet (StopFleet'),
+    newStopFleet,
+    StopFleetResponse (StopFleetResponse'),
+    newStopFleetResponse,
 
-    -- ** DescribeImageBuilders (Paginated)
-    DescribeImageBuilders (DescribeImageBuilders'),
-    newDescribeImageBuilders,
-    DescribeImageBuildersResponse (DescribeImageBuildersResponse'),
-    newDescribeImageBuildersResponse,
+    -- ** StartImageBuilder
+    StartImageBuilder (StartImageBuilder'),
+    newStartImageBuilder,
+    StartImageBuilderResponse (StartImageBuilderResponse'),
+    newStartImageBuilderResponse,
 
-    -- ** DescribeUserStackAssociations (Paginated)
-    DescribeUserStackAssociations (DescribeUserStackAssociations'),
-    newDescribeUserStackAssociations,
-    DescribeUserStackAssociationsResponse (DescribeUserStackAssociationsResponse'),
-    newDescribeUserStackAssociationsResponse,
+    -- ** BatchAssociateUserStack
+    BatchAssociateUserStack (BatchAssociateUserStack'),
+    newBatchAssociateUserStack,
+    BatchAssociateUserStackResponse (BatchAssociateUserStackResponse'),
+    newBatchAssociateUserStackResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
+    -- ** DescribeImagePermissions
+    DescribeImagePermissions (DescribeImagePermissions'),
+    newDescribeImagePermissions,
+    DescribeImagePermissionsResponse (DescribeImagePermissionsResponse'),
+    newDescribeImagePermissionsResponse,
 
-    -- ** DisableUser
-    DisableUser (DisableUser'),
-    newDisableUser,
-    DisableUserResponse (DisableUserResponse'),
-    newDisableUserResponse,
+    -- ** DeleteDirectoryConfig
+    DeleteDirectoryConfig (DeleteDirectoryConfig'),
+    newDeleteDirectoryConfig,
+    DeleteDirectoryConfigResponse (DeleteDirectoryConfigResponse'),
+    newDeleteDirectoryConfigResponse,
 
-    -- ** CreateImageBuilderStreamingURL
-    CreateImageBuilderStreamingURL (CreateImageBuilderStreamingURL'),
-    newCreateImageBuilderStreamingURL,
-    CreateImageBuilderStreamingURLResponse (CreateImageBuilderStreamingURLResponse'),
-    newCreateImageBuilderStreamingURLResponse,
+    -- ** UpdateDirectoryConfig
+    UpdateDirectoryConfig (UpdateDirectoryConfig'),
+    newUpdateDirectoryConfig,
+    UpdateDirectoryConfigResponse (UpdateDirectoryConfigResponse'),
+    newUpdateDirectoryConfigResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** CreateStack
+    CreateStack (CreateStack'),
+    newCreateStack,
+    CreateStackResponse (CreateStackResponse'),
+    newCreateStackResponse,
+
+    -- ** CopyImage
+    CopyImage (CopyImage'),
+    newCopyImage,
+    CopyImageResponse (CopyImageResponse'),
+    newCopyImageResponse,
 
     -- ** ExpireSession
     ExpireSession (ExpireSession'),
@@ -356,23 +302,77 @@ module Network.AWS.AppStream
     ExpireSessionResponse (ExpireSessionResponse'),
     newExpireSessionResponse,
 
-    -- ** DescribeDirectoryConfigs (Paginated)
-    DescribeDirectoryConfigs (DescribeDirectoryConfigs'),
-    newDescribeDirectoryConfigs,
-    DescribeDirectoryConfigsResponse (DescribeDirectoryConfigsResponse'),
-    newDescribeDirectoryConfigsResponse,
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DisableUser
+    DisableUser (DisableUser'),
+    newDisableUser,
+    DisableUserResponse (DisableUserResponse'),
+    newDisableUserResponse,
 
-    -- ** DescribeImagePermissions
-    DescribeImagePermissions (DescribeImagePermissions'),
-    newDescribeImagePermissions,
-    DescribeImagePermissionsResponse (DescribeImagePermissionsResponse'),
-    newDescribeImagePermissionsResponse,
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** CreateStreamingURL
+    CreateStreamingURL (CreateStreamingURL'),
+    newCreateStreamingURL,
+    CreateStreamingURLResponse (CreateStreamingURLResponse'),
+    newCreateStreamingURLResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** StartFleet
+    StartFleet (StartFleet'),
+    newStartFleet,
+    StartFleetResponse (StartFleetResponse'),
+    newStartFleetResponse,
+
+    -- ** StopImageBuilder
+    StopImageBuilder (StopImageBuilder'),
+    newStopImageBuilder,
+    StopImageBuilderResponse (StopImageBuilderResponse'),
+    newStopImageBuilderResponse,
+
+    -- ** DeleteImage
+    DeleteImage (DeleteImage'),
+    newDeleteImage,
+    DeleteImageResponse (DeleteImageResponse'),
+    newDeleteImageResponse,
+
+    -- ** DeleteUsageReportSubscription
+    DeleteUsageReportSubscription (DeleteUsageReportSubscription'),
+    newDeleteUsageReportSubscription,
+    DeleteUsageReportSubscriptionResponse (DeleteUsageReportSubscriptionResponse'),
+    newDeleteUsageReportSubscriptionResponse,
+
+    -- ** BatchDisassociateUserStack
+    BatchDisassociateUserStack (BatchDisassociateUserStack'),
+    newBatchDisassociateUserStack,
+    BatchDisassociateUserStackResponse (BatchDisassociateUserStackResponse'),
+    newBatchDisassociateUserStackResponse,
+
+    -- ** DescribeImages (Paginated)
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
 
     -- * Types
 

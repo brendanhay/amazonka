@@ -31,8 +31,8 @@ module Network.AWS.AppStream.DescribeFleets
     newDescribeFleets,
 
     -- * Request Lenses
-    describeFleets_names,
     describeFleets_nextToken,
+    describeFleets_names,
 
     -- * Destructuring the Response
     DescribeFleetsResponse (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
-  { -- | The names of the fleets to describe.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the fleets to describe.
+    names :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data DescribeFleets = DescribeFleets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'describeFleets_names' - The names of the fleets to describe.
---
 -- 'nextToken', 'describeFleets_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
+--
+-- 'names', 'describeFleets_names' - The names of the fleets to describe.
 newDescribeFleets ::
   DescribeFleets
 newDescribeFleets =
   DescribeFleets'
-    { names = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      names = Prelude.Nothing
     }
-
--- | The names of the fleets to describe.
-describeFleets_names :: Lens.Lens' DescribeFleets (Prelude.Maybe [Prelude.Text])
-describeFleets_names = Lens.lens (\DescribeFleets' {names} -> names) (\s@DescribeFleets' {} a -> s {names = a} :: DescribeFleets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 describeFleets_nextToken :: Lens.Lens' DescribeFleets (Prelude.Maybe Prelude.Text)
 describeFleets_nextToken = Lens.lens (\DescribeFleets' {nextToken} -> nextToken) (\s@DescribeFleets' {} a -> s {nextToken = a} :: DescribeFleets)
+
+-- | The names of the fleets to describe.
+describeFleets_names :: Lens.Lens' DescribeFleets (Prelude.Maybe [Prelude.Text])
+describeFleets_names = Lens.lens (\DescribeFleets' {names} -> names) (\s@DescribeFleets' {} a -> s {names = a} :: DescribeFleets) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeFleets where
   page rq rs
@@ -148,8 +148,8 @@ instance Core.ToJSON DescribeFleets where
   toJSON DescribeFleets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Names" Core..=) Prelude.<$> names,
-            ("NextToken" Core..=) Prelude.<$> nextToken
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names
           ]
       )
 
@@ -204,7 +204,7 @@ describeFleetsResponse_nextToken = Lens.lens (\DescribeFleetsResponse' {nextToke
 
 -- | Information about the fleets.
 describeFleetsResponse_fleets :: Lens.Lens' DescribeFleetsResponse (Prelude.Maybe [Fleet])
-describeFleetsResponse_fleets = Lens.lens (\DescribeFleetsResponse' {fleets} -> fleets) (\s@DescribeFleetsResponse' {} a -> s {fleets = a} :: DescribeFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFleetsResponse_fleets = Lens.lens (\DescribeFleetsResponse' {fleets} -> fleets) (\s@DescribeFleetsResponse' {} a -> s {fleets = a} :: DescribeFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetsResponse_httpStatus :: Lens.Lens' DescribeFleetsResponse Prelude.Int

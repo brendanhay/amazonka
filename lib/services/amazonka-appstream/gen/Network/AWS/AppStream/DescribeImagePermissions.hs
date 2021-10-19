@@ -29,8 +29,8 @@ module Network.AWS.AppStream.DescribeImagePermissions
 
     -- * Request Lenses
     describeImagePermissions_nextToken,
-    describeImagePermissions_maxResults,
     describeImagePermissions_sharedAwsAccountIds,
+    describeImagePermissions_maxResults,
     describeImagePermissions_name,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ data DescribeImagePermissions = DescribeImagePermissions'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The 12-digit identifier of one or more AWS accounts with which the image
     -- is shared.
     sharedAwsAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the private image for which to describe permissions. The
     -- image must be one that you own.
     name :: Prelude.Text
@@ -79,10 +79,10 @@ data DescribeImagePermissions = DescribeImagePermissions'
 -- 'nextToken', 'describeImagePermissions_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'maxResults', 'describeImagePermissions_maxResults' - The maximum size of each page of results.
---
 -- 'sharedAwsAccountIds', 'describeImagePermissions_sharedAwsAccountIds' - The 12-digit identifier of one or more AWS accounts with which the image
 -- is shared.
+--
+-- 'maxResults', 'describeImagePermissions_maxResults' - The maximum size of each page of results.
 --
 -- 'name', 'describeImagePermissions_name' - The name of the private image for which to describe permissions. The
 -- image must be one that you own.
@@ -94,8 +94,8 @@ newDescribeImagePermissions pName_ =
   DescribeImagePermissions'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       sharedAwsAccountIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       name = pName_
     }
 
@@ -104,14 +104,14 @@ newDescribeImagePermissions pName_ =
 describeImagePermissions_nextToken :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Text)
 describeImagePermissions_nextToken = Lens.lens (\DescribeImagePermissions' {nextToken} -> nextToken) (\s@DescribeImagePermissions' {} a -> s {nextToken = a} :: DescribeImagePermissions)
 
--- | The maximum size of each page of results.
-describeImagePermissions_maxResults :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Natural)
-describeImagePermissions_maxResults = Lens.lens (\DescribeImagePermissions' {maxResults} -> maxResults) (\s@DescribeImagePermissions' {} a -> s {maxResults = a} :: DescribeImagePermissions)
-
 -- | The 12-digit identifier of one or more AWS accounts with which the image
 -- is shared.
 describeImagePermissions_sharedAwsAccountIds :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeImagePermissions_sharedAwsAccountIds = Lens.lens (\DescribeImagePermissions' {sharedAwsAccountIds} -> sharedAwsAccountIds) (\s@DescribeImagePermissions' {} a -> s {sharedAwsAccountIds = a} :: DescribeImagePermissions) Prelude.. Lens.mapping Lens._Coerce
+describeImagePermissions_sharedAwsAccountIds = Lens.lens (\DescribeImagePermissions' {sharedAwsAccountIds} -> sharedAwsAccountIds) (\s@DescribeImagePermissions' {} a -> s {sharedAwsAccountIds = a} :: DescribeImagePermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum size of each page of results.
+describeImagePermissions_maxResults :: Lens.Lens' DescribeImagePermissions (Prelude.Maybe Prelude.Natural)
+describeImagePermissions_maxResults = Lens.lens (\DescribeImagePermissions' {maxResults} -> maxResults) (\s@DescribeImagePermissions' {} a -> s {maxResults = a} :: DescribeImagePermissions)
 
 -- | The name of the private image for which to describe permissions. The
 -- image must be one that you own.
@@ -159,9 +159,9 @@ instance Core.ToJSON DescribeImagePermissions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SharedAwsAccountIds" Core..=)
               Prelude.<$> sharedAwsAccountIds,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("Name" Core..= name)
           ]
       )
@@ -217,7 +217,7 @@ newDescribeImagePermissionsResponse pHttpStatus_ =
 
 -- | The permissions for a private image that you own.
 describeImagePermissionsResponse_sharedImagePermissionsList :: Lens.Lens' DescribeImagePermissionsResponse (Prelude.Maybe [SharedImagePermissions])
-describeImagePermissionsResponse_sharedImagePermissionsList = Lens.lens (\DescribeImagePermissionsResponse' {sharedImagePermissionsList} -> sharedImagePermissionsList) (\s@DescribeImagePermissionsResponse' {} a -> s {sharedImagePermissionsList = a} :: DescribeImagePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeImagePermissionsResponse_sharedImagePermissionsList = Lens.lens (\DescribeImagePermissionsResponse' {sharedImagePermissionsList} -> sharedImagePermissionsList) (\s@DescribeImagePermissionsResponse' {} a -> s {sharedImagePermissionsList = a} :: DescribeImagePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.

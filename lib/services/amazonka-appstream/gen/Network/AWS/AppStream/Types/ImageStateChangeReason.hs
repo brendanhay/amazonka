@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImageStateChangeReason' smart constructor.
 data ImageStateChangeReason = ImageStateChangeReason'
-  { -- | The state change reason message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state change reason code.
-    code :: Prelude.Maybe ImageStateChangeReasonCode
+  { -- | The state change reason code.
+    code :: Prelude.Maybe ImageStateChangeReasonCode,
+    -- | The state change reason message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ImageStateChangeReason = ImageStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'imageStateChangeReason_message' - The state change reason message.
---
 -- 'code', 'imageStateChangeReason_code' - The state change reason code.
+--
+-- 'message', 'imageStateChangeReason_message' - The state change reason message.
 newImageStateChangeReason ::
   ImageStateChangeReason
 newImageStateChangeReason =
   ImageStateChangeReason'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The state change reason message.
-imageStateChangeReason_message :: Lens.Lens' ImageStateChangeReason (Prelude.Maybe Prelude.Text)
-imageStateChangeReason_message = Lens.lens (\ImageStateChangeReason' {message} -> message) (\s@ImageStateChangeReason' {} a -> s {message = a} :: ImageStateChangeReason)
 
 -- | The state change reason code.
 imageStateChangeReason_code :: Lens.Lens' ImageStateChangeReason (Prelude.Maybe ImageStateChangeReasonCode)
 imageStateChangeReason_code = Lens.lens (\ImageStateChangeReason' {code} -> code) (\s@ImageStateChangeReason' {} a -> s {code = a} :: ImageStateChangeReason)
+
+-- | The state change reason message.
+imageStateChangeReason_message :: Lens.Lens' ImageStateChangeReason (Prelude.Maybe Prelude.Text)
+imageStateChangeReason_message = Lens.lens (\ImageStateChangeReason' {message} -> message) (\s@ImageStateChangeReason' {} a -> s {message = a} :: ImageStateChangeReason)
 
 instance Core.FromJSON ImageStateChangeReason where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ImageStateChangeReason where
       "ImageStateChangeReason"
       ( \x ->
           ImageStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable ImageStateChangeReason

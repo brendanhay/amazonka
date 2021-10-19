@@ -17,18 +17,18 @@ module Network.AWS.AppStream.Types
     defaultService,
 
     -- * Errors
-    _ResourceNotAvailableException,
-    _IncompatibleImageException,
-    _InvalidParameterCombinationException,
-    _InvalidAccountStatusException,
-    _ResourceAlreadyExistsException,
-    _OperationNotPermittedException,
     _InvalidRoleException,
+    _RequestLimitExceededException,
+    _ResourceAlreadyExistsException,
+    _IncompatibleImageException,
     _ConcurrentModificationException,
+    _OperationNotPermittedException,
+    _InvalidAccountStatusException,
+    _ResourceNotFoundException,
+    _InvalidParameterCombinationException,
+    _ResourceNotAvailableException,
     _LimitExceededException,
     _ResourceInUseException,
-    _ResourceNotFoundException,
-    _RequestLimitExceededException,
 
     -- * AccessEndpointType
     AccessEndpointType (..),
@@ -111,13 +111,13 @@ module Network.AWS.AppStream.Types
     -- * Application
     Application (..),
     newApplication,
-    application_iconURL,
-    application_launchPath,
-    application_metadata,
     application_enabled,
-    application_name,
+    application_launchPath,
     application_launchParameters,
+    application_name,
     application_displayName,
+    application_metadata,
+    application_iconURL,
 
     -- * ApplicationSettings
     ApplicationSettings (..),
@@ -140,16 +140,16 @@ module Network.AWS.AppStream.Types
     -- * ComputeCapacityStatus
     ComputeCapacityStatus (..),
     newComputeCapacityStatus,
+    computeCapacityStatus_inUse,
     computeCapacityStatus_running,
     computeCapacityStatus_available,
-    computeCapacityStatus_inUse,
     computeCapacityStatus_desired,
 
     -- * DirectoryConfig
     DirectoryConfig (..),
     newDirectoryConfig,
-    directoryConfig_serviceAccountCredentials,
     directoryConfig_createdTime,
+    directoryConfig_serviceAccountCredentials,
     directoryConfig_organizationalUnitDistinguishedNames,
     directoryConfig_directoryName,
 
@@ -162,21 +162,21 @@ module Network.AWS.AppStream.Types
     -- * Fleet
     Fleet (..),
     newFleet,
+    fleet_domainJoinInfo,
+    fleet_iamRoleArn,
     fleet_disconnectTimeoutInSeconds,
     fleet_maxUserDurationInSeconds,
-    fleet_vpcConfig,
-    fleet_iamRoleArn,
-    fleet_domainJoinInfo,
-    fleet_fleetType,
-    fleet_idleDisconnectTimeoutInSeconds,
-    fleet_imageName,
     fleet_createdTime,
-    fleet_streamView,
-    fleet_description,
-    fleet_enableDefaultInternetAccess,
+    fleet_idleDisconnectTimeoutInSeconds,
+    fleet_fleetType,
+    fleet_vpcConfig,
+    fleet_imageArn,
     fleet_fleetErrors,
     fleet_displayName,
-    fleet_imageArn,
+    fleet_enableDefaultInternetAccess,
+    fleet_imageName,
+    fleet_description,
+    fleet_streamView,
     fleet_arn,
     fleet_name,
     fleet_instanceType,
@@ -186,75 +186,75 @@ module Network.AWS.AppStream.Types
     -- * FleetError
     FleetError (..),
     newFleetError,
-    fleetError_errorMessage,
     fleetError_errorCode,
+    fleetError_errorMessage,
 
     -- * Image
     Image (..),
     newImage,
+    image_state,
     image_imagePermissions,
     image_platform,
-    image_imageErrors,
-    image_imageBuilderName,
+    image_publicBaseImageReleasedDate,
+    image_stateChangeReason,
     image_arn,
     image_createdTime,
-    image_stateChangeReason,
-    image_baseImageArn,
-    image_state,
-    image_applications,
-    image_appstreamAgentVersion,
-    image_description,
-    image_visibility,
     image_imageBuilderSupported,
+    image_visibility,
+    image_imageBuilderName,
+    image_imageErrors,
+    image_baseImageArn,
     image_displayName,
-    image_publicBaseImageReleasedDate,
+    image_description,
+    image_appstreamAgentVersion,
+    image_applications,
     image_name,
 
     -- * ImageBuilder
     ImageBuilder (..),
     newImageBuilder,
-    imageBuilder_vpcConfig,
-    imageBuilder_platform,
-    imageBuilder_iamRoleArn,
-    imageBuilder_accessEndpoints,
     imageBuilder_domainJoinInfo,
-    imageBuilder_instanceType,
+    imageBuilder_iamRoleArn,
+    imageBuilder_state,
+    imageBuilder_platform,
+    imageBuilder_networkAccessConfiguration,
+    imageBuilder_stateChangeReason,
     imageBuilder_arn,
     imageBuilder_createdTime,
-    imageBuilder_stateChangeReason,
-    imageBuilder_networkAccessConfiguration,
-    imageBuilder_state,
-    imageBuilder_appstreamAgentVersion,
-    imageBuilder_description,
-    imageBuilder_enableDefaultInternetAccess,
     imageBuilder_imageBuilderErrors,
-    imageBuilder_displayName,
+    imageBuilder_instanceType,
+    imageBuilder_accessEndpoints,
+    imageBuilder_vpcConfig,
     imageBuilder_imageArn,
+    imageBuilder_displayName,
+    imageBuilder_enableDefaultInternetAccess,
+    imageBuilder_description,
+    imageBuilder_appstreamAgentVersion,
     imageBuilder_name,
 
     -- * ImageBuilderStateChangeReason
     ImageBuilderStateChangeReason (..),
     newImageBuilderStateChangeReason,
-    imageBuilderStateChangeReason_message,
     imageBuilderStateChangeReason_code,
+    imageBuilderStateChangeReason_message,
 
     -- * ImagePermissions
     ImagePermissions (..),
     newImagePermissions,
-    imagePermissions_allowImageBuilder,
     imagePermissions_allowFleet,
+    imagePermissions_allowImageBuilder,
 
     -- * ImageStateChangeReason
     ImageStateChangeReason (..),
     newImageStateChangeReason,
-    imageStateChangeReason_message,
     imageStateChangeReason_code,
+    imageStateChangeReason_message,
 
     -- * LastReportGenerationExecutionError
     LastReportGenerationExecutionError (..),
     newLastReportGenerationExecutionError,
-    lastReportGenerationExecutionError_errorMessage,
     lastReportGenerationExecutionError_errorCode,
+    lastReportGenerationExecutionError_errorMessage,
 
     -- * NetworkAccessConfiguration
     NetworkAccessConfiguration (..),
@@ -265,9 +265,9 @@ module Network.AWS.AppStream.Types
     -- * ResourceError
     ResourceError (..),
     newResourceError,
-    resourceError_errorTimestamp,
-    resourceError_errorMessage,
     resourceError_errorCode,
+    resourceError_errorMessage,
+    resourceError_errorTimestamp,
 
     -- * ServiceAccountCredentials
     ServiceAccountCredentials (..),
@@ -278,11 +278,11 @@ module Network.AWS.AppStream.Types
     -- * Session
     Session (..),
     newSession,
-    session_connectionState,
-    session_startTime,
     session_networkAccessConfiguration,
-    session_authenticationType,
     session_maxExpirationTime,
+    session_startTime,
+    session_authenticationType,
+    session_connectionState,
     session_id,
     session_userId,
     session_stackName,
@@ -299,24 +299,24 @@ module Network.AWS.AppStream.Types
     Stack (..),
     newStack,
     stack_userSettings,
-    stack_accessEndpoints,
-    stack_redirectURL,
+    stack_applicationSettings,
+    stack_feedbackURL,
     stack_arn,
     stack_createdTime,
-    stack_applicationSettings,
     stack_storageConnectors,
-    stack_description,
-    stack_embedHostDomains,
-    stack_stackErrors,
+    stack_accessEndpoints,
     stack_displayName,
-    stack_feedbackURL,
+    stack_stackErrors,
+    stack_embedHostDomains,
+    stack_description,
+    stack_redirectURL,
     stack_name,
 
     -- * StackError
     StackError (..),
     newStackError,
-    stackError_errorMessage,
     stackError_errorCode,
+    stackError_errorMessage,
 
     -- * StorageConnector
     StorageConnector (..),
@@ -328,20 +328,20 @@ module Network.AWS.AppStream.Types
     -- * UsageReportSubscription
     UsageReportSubscription (..),
     newUsageReportSubscription,
-    usageReportSubscription_subscriptionErrors,
     usageReportSubscription_lastGeneratedReportDate,
-    usageReportSubscription_s3BucketName,
     usageReportSubscription_schedule,
+    usageReportSubscription_subscriptionErrors,
+    usageReportSubscription_s3BucketName,
 
     -- * User
     User (..),
     newUser,
     user_status,
-    user_arn,
     user_enabled,
+    user_lastName,
+    user_arn,
     user_createdTime,
     user_userName,
-    user_lastName,
     user_firstName,
     user_authenticationType,
 
@@ -363,8 +363,8 @@ module Network.AWS.AppStream.Types
     UserStackAssociationError (..),
     newUserStackAssociationError,
     userStackAssociationError_userStackAssociation,
-    userStackAssociationError_errorMessage,
     userStackAssociationError_errorCode,
+    userStackAssociationError_errorMessage,
 
     -- * VpcConfig
     VpcConfig (..),
@@ -458,37 +458,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -501,14 +478,53 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified resource exists and is not in use, but isn\'t available.
-_ResourceNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotAvailableException =
+-- | The specified role is invalid.
+_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRoleException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotAvailableException"
+    "InvalidRoleException"
+
+-- | AppStream 2.0 can’t process the request right now because the Describe
+-- calls from your AWS account are being throttled by Amazon EC2. Try again
+-- later.
+_RequestLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "RequestLimitExceededException"
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
 
 -- | The image can\'t be updated because it\'s not compatible for updates.
 _IncompatibleImageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -517,13 +533,19 @@ _IncompatibleImageException =
     defaultService
     "IncompatibleImageException"
 
--- | Indicates an incorrect combination of parameters, or a missing
--- parameter.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
+-- | An API error occurred. Wait a few minutes and try again.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterCombinationException"
+    "ConcurrentModificationException"
+
+-- | The attempted operation is not permitted.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermittedException"
 
 -- | The resource cannot be created because your AWS account is suspended.
 -- For assistance, contact AWS Support.
@@ -533,33 +555,27 @@ _InvalidAccountStatusException =
     defaultService
     "InvalidAccountStatusException"
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
+    "ResourceNotFoundException"
 
--- | The attempted operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
+-- | Indicates an incorrect combination of parameters, or a missing
+-- parameter.
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
   Core._MatchServiceError
     defaultService
-    "OperationNotPermittedException"
+    "InvalidParameterCombinationException"
 
--- | The specified role is invalid.
-_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRoleException =
+-- | The specified resource exists and is not in use, but isn\'t available.
+_ResourceNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotAvailableException =
   Core._MatchServiceError
     defaultService
-    "InvalidRoleException"
-
--- | An API error occurred. Wait a few minutes and try again.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
+    "ResourceNotAvailableException"
 
 -- | The requested limit exceeds the permitted limit for an account.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -574,19 +590,3 @@ _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | AppStream 2.0 can’t process the request right now because the Describe
--- calls from your AWS account are being throttled by Amazon EC2. Try again
--- later.
-_RequestLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "RequestLimitExceededException"

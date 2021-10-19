@@ -31,8 +31,8 @@ module Network.AWS.AppStream.DescribeStacks
     newDescribeStacks,
 
     -- * Request Lenses
-    describeStacks_names,
     describeStacks_nextToken,
+    describeStacks_names,
 
     -- * Destructuring the Response
     DescribeStacksResponse (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
-  { -- | The names of the stacks to describe.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the stacks to describe.
+    names :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data DescribeStacks = DescribeStacks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'describeStacks_names' - The names of the stacks to describe.
---
 -- 'nextToken', 'describeStacks_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
+--
+-- 'names', 'describeStacks_names' - The names of the stacks to describe.
 newDescribeStacks ::
   DescribeStacks
 newDescribeStacks =
   DescribeStacks'
-    { names = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      names = Prelude.Nothing
     }
-
--- | The names of the stacks to describe.
-describeStacks_names :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
-describeStacks_names = Lens.lens (\DescribeStacks' {names} -> names) (\s@DescribeStacks' {} a -> s {names = a} :: DescribeStacks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 describeStacks_nextToken :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
 describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken) (\s@DescribeStacks' {} a -> s {nextToken = a} :: DescribeStacks)
+
+-- | The names of the stacks to describe.
+describeStacks_names :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
+describeStacks_names = Lens.lens (\DescribeStacks' {names} -> names) (\s@DescribeStacks' {} a -> s {names = a} :: DescribeStacks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeStacks where
   page rq rs
@@ -148,8 +148,8 @@ instance Core.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Names" Core..=) Prelude.<$> names,
-            ("NextToken" Core..=) Prelude.<$> nextToken
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names
           ]
       )
 
@@ -204,7 +204,7 @@ describeStacksResponse_nextToken = Lens.lens (\DescribeStacksResponse' {nextToke
 
 -- | Information about the stacks.
 describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int

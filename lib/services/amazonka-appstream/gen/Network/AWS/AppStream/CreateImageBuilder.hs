@@ -31,17 +31,17 @@ module Network.AWS.AppStream.CreateImageBuilder
     newCreateImageBuilder,
 
     -- * Request Lenses
-    createImageBuilder_vpcConfig,
+    createImageBuilder_domainJoinInfo,
     createImageBuilder_iamRoleArn,
     createImageBuilder_accessEndpoints,
-    createImageBuilder_domainJoinInfo,
-    createImageBuilder_imageName,
-    createImageBuilder_tags,
-    createImageBuilder_appstreamAgentVersion,
-    createImageBuilder_description,
-    createImageBuilder_enableDefaultInternetAccess,
-    createImageBuilder_displayName,
+    createImageBuilder_vpcConfig,
     createImageBuilder_imageArn,
+    createImageBuilder_displayName,
+    createImageBuilder_enableDefaultInternetAccess,
+    createImageBuilder_imageName,
+    createImageBuilder_description,
+    createImageBuilder_appstreamAgentVersion,
+    createImageBuilder_tags,
     createImageBuilder_name,
     createImageBuilder_instanceType,
 
@@ -64,9 +64,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateImageBuilder' smart constructor.
 data CreateImageBuilder = CreateImageBuilder'
-  { -- | The VPC configuration for the image builder. You can specify only one
-    -- subnet.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+  { -- | The name of the directory and organizational unit (OU) to use to join
+    -- the image builder to a Microsoft Active Directory domain.
+    domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the image
     -- builder. To assume a role, the image builder calls the AWS Security
     -- Token Service (STS) @AssumeRole@ API operation and passes the ARN of the
@@ -83,11 +83,22 @@ data CreateImageBuilder = CreateImageBuilder'
     -- Administrators can connect to the image builder only through the
     -- specified endpoints.
     accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
-    -- | The name of the directory and organizational unit (OU) to use to join
-    -- the image builder to a Microsoft Active Directory domain.
-    domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
+    -- | The VPC configuration for the image builder. You can specify only one
+    -- subnet.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | The ARN of the public, private, or shared image to use.
+    imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The image builder name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | Enables or disables default internet access for the image builder.
+    enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | The name of the image used to create the image builder.
     imageName :: Prelude.Maybe Prelude.Text,
+    -- | The description to display.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The version of the AppStream 2.0 agent to use for this image builder. To
+    -- use the latest version of the AppStream 2.0 agent, specify [LATEST].
+    appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
     -- | The tags to associate with the image builder. A tag is a key-value pair,
     -- and the value is optional. For example, Environment=Test. If you do not
     -- specify a value, Environment=.
@@ -103,17 +114,6 @@ data CreateImageBuilder = CreateImageBuilder'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The version of the AppStream 2.0 agent to use for this image builder. To
-    -- use the latest version of the AppStream 2.0 agent, specify [LATEST].
-    appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The description to display.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Enables or disables default internet access for the image builder.
-    enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
-    -- | The image builder name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the public, private, or shared image to use.
-    imageArn :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the image builder.
     name :: Prelude.Text,
     -- | The instance type to use when launching the image builder. The following
@@ -196,8 +196,8 @@ data CreateImageBuilder = CreateImageBuilder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createImageBuilder_vpcConfig' - The VPC configuration for the image builder. You can specify only one
--- subnet.
+-- 'domainJoinInfo', 'createImageBuilder_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join
+-- the image builder to a Microsoft Active Directory domain.
 --
 -- 'iamRoleArn', 'createImageBuilder_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role to apply to the image
 -- builder. To assume a role, the image builder calls the AWS Security
@@ -215,10 +215,21 @@ data CreateImageBuilder = CreateImageBuilder'
 -- Administrators can connect to the image builder only through the
 -- specified endpoints.
 --
--- 'domainJoinInfo', 'createImageBuilder_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join
--- the image builder to a Microsoft Active Directory domain.
+-- 'vpcConfig', 'createImageBuilder_vpcConfig' - The VPC configuration for the image builder. You can specify only one
+-- subnet.
+--
+-- 'imageArn', 'createImageBuilder_imageArn' - The ARN of the public, private, or shared image to use.
+--
+-- 'displayName', 'createImageBuilder_displayName' - The image builder name to display.
+--
+-- 'enableDefaultInternetAccess', 'createImageBuilder_enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
 --
 -- 'imageName', 'createImageBuilder_imageName' - The name of the image used to create the image builder.
+--
+-- 'description', 'createImageBuilder_description' - The description to display.
+--
+-- 'appstreamAgentVersion', 'createImageBuilder_appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To
+-- use the latest version of the AppStream 2.0 agent, specify [LATEST].
 --
 -- 'tags', 'createImageBuilder_tags' - The tags to associate with the image builder. A tag is a key-value pair,
 -- and the value is optional. For example, Environment=Test. If you do not
@@ -234,17 +245,6 @@ data CreateImageBuilder = CreateImageBuilder'
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
---
--- 'appstreamAgentVersion', 'createImageBuilder_appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To
--- use the latest version of the AppStream 2.0 agent, specify [LATEST].
---
--- 'description', 'createImageBuilder_description' - The description to display.
---
--- 'enableDefaultInternetAccess', 'createImageBuilder_enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
---
--- 'displayName', 'createImageBuilder_displayName' - The image builder name to display.
---
--- 'imageArn', 'createImageBuilder_imageArn' - The ARN of the public, private, or shared image to use.
 --
 -- 'name', 'createImageBuilder_name' - A unique name for the image builder.
 --
@@ -324,25 +324,26 @@ newCreateImageBuilder ::
   CreateImageBuilder
 newCreateImageBuilder pName_ pInstanceType_ =
   CreateImageBuilder'
-    { vpcConfig = Prelude.Nothing,
+    { domainJoinInfo =
+        Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
       accessEndpoints = Prelude.Nothing,
-      domainJoinInfo = Prelude.Nothing,
-      imageName = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      appstreamAgentVersion = Prelude.Nothing,
-      description = Prelude.Nothing,
-      enableDefaultInternetAccess = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       imageArn = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      enableDefaultInternetAccess = Prelude.Nothing,
+      imageName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      appstreamAgentVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       instanceType = pInstanceType_
     }
 
--- | The VPC configuration for the image builder. You can specify only one
--- subnet.
-createImageBuilder_vpcConfig :: Lens.Lens' CreateImageBuilder (Prelude.Maybe VpcConfig)
-createImageBuilder_vpcConfig = Lens.lens (\CreateImageBuilder' {vpcConfig} -> vpcConfig) (\s@CreateImageBuilder' {} a -> s {vpcConfig = a} :: CreateImageBuilder)
+-- | The name of the directory and organizational unit (OU) to use to join
+-- the image builder to a Microsoft Active Directory domain.
+createImageBuilder_domainJoinInfo :: Lens.Lens' CreateImageBuilder (Prelude.Maybe DomainJoinInfo)
+createImageBuilder_domainJoinInfo = Lens.lens (\CreateImageBuilder' {domainJoinInfo} -> domainJoinInfo) (\s@CreateImageBuilder' {} a -> s {domainJoinInfo = a} :: CreateImageBuilder)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to apply to the image
 -- builder. To assume a role, the image builder calls the AWS Security
@@ -362,16 +363,37 @@ createImageBuilder_iamRoleArn = Lens.lens (\CreateImageBuilder' {iamRoleArn} -> 
 -- Administrators can connect to the image builder only through the
 -- specified endpoints.
 createImageBuilder_accessEndpoints :: Lens.Lens' CreateImageBuilder (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
-createImageBuilder_accessEndpoints = Lens.lens (\CreateImageBuilder' {accessEndpoints} -> accessEndpoints) (\s@CreateImageBuilder' {} a -> s {accessEndpoints = a} :: CreateImageBuilder) Prelude.. Lens.mapping Lens._Coerce
+createImageBuilder_accessEndpoints = Lens.lens (\CreateImageBuilder' {accessEndpoints} -> accessEndpoints) (\s@CreateImageBuilder' {} a -> s {accessEndpoints = a} :: CreateImageBuilder) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the directory and organizational unit (OU) to use to join
--- the image builder to a Microsoft Active Directory domain.
-createImageBuilder_domainJoinInfo :: Lens.Lens' CreateImageBuilder (Prelude.Maybe DomainJoinInfo)
-createImageBuilder_domainJoinInfo = Lens.lens (\CreateImageBuilder' {domainJoinInfo} -> domainJoinInfo) (\s@CreateImageBuilder' {} a -> s {domainJoinInfo = a} :: CreateImageBuilder)
+-- | The VPC configuration for the image builder. You can specify only one
+-- subnet.
+createImageBuilder_vpcConfig :: Lens.Lens' CreateImageBuilder (Prelude.Maybe VpcConfig)
+createImageBuilder_vpcConfig = Lens.lens (\CreateImageBuilder' {vpcConfig} -> vpcConfig) (\s@CreateImageBuilder' {} a -> s {vpcConfig = a} :: CreateImageBuilder)
+
+-- | The ARN of the public, private, or shared image to use.
+createImageBuilder_imageArn :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
+createImageBuilder_imageArn = Lens.lens (\CreateImageBuilder' {imageArn} -> imageArn) (\s@CreateImageBuilder' {} a -> s {imageArn = a} :: CreateImageBuilder)
+
+-- | The image builder name to display.
+createImageBuilder_displayName :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
+createImageBuilder_displayName = Lens.lens (\CreateImageBuilder' {displayName} -> displayName) (\s@CreateImageBuilder' {} a -> s {displayName = a} :: CreateImageBuilder)
+
+-- | Enables or disables default internet access for the image builder.
+createImageBuilder_enableDefaultInternetAccess :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Bool)
+createImageBuilder_enableDefaultInternetAccess = Lens.lens (\CreateImageBuilder' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@CreateImageBuilder' {} a -> s {enableDefaultInternetAccess = a} :: CreateImageBuilder)
 
 -- | The name of the image used to create the image builder.
 createImageBuilder_imageName :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
 createImageBuilder_imageName = Lens.lens (\CreateImageBuilder' {imageName} -> imageName) (\s@CreateImageBuilder' {} a -> s {imageName = a} :: CreateImageBuilder)
+
+-- | The description to display.
+createImageBuilder_description :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
+createImageBuilder_description = Lens.lens (\CreateImageBuilder' {description} -> description) (\s@CreateImageBuilder' {} a -> s {description = a} :: CreateImageBuilder)
+
+-- | The version of the AppStream 2.0 agent to use for this image builder. To
+-- use the latest version of the AppStream 2.0 agent, specify [LATEST].
+createImageBuilder_appstreamAgentVersion :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
+createImageBuilder_appstreamAgentVersion = Lens.lens (\CreateImageBuilder' {appstreamAgentVersion} -> appstreamAgentVersion) (\s@CreateImageBuilder' {} a -> s {appstreamAgentVersion = a} :: CreateImageBuilder)
 
 -- | The tags to associate with the image builder. A tag is a key-value pair,
 -- and the value is optional. For example, Environment=Test. If you do not
@@ -388,28 +410,7 @@ createImageBuilder_imageName = Lens.lens (\CreateImageBuilder' {imageName} -> im
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 createImageBuilder_tags :: Lens.Lens' CreateImageBuilder (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createImageBuilder_tags = Lens.lens (\CreateImageBuilder' {tags} -> tags) (\s@CreateImageBuilder' {} a -> s {tags = a} :: CreateImageBuilder) Prelude.. Lens.mapping Lens._Coerce
-
--- | The version of the AppStream 2.0 agent to use for this image builder. To
--- use the latest version of the AppStream 2.0 agent, specify [LATEST].
-createImageBuilder_appstreamAgentVersion :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
-createImageBuilder_appstreamAgentVersion = Lens.lens (\CreateImageBuilder' {appstreamAgentVersion} -> appstreamAgentVersion) (\s@CreateImageBuilder' {} a -> s {appstreamAgentVersion = a} :: CreateImageBuilder)
-
--- | The description to display.
-createImageBuilder_description :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
-createImageBuilder_description = Lens.lens (\CreateImageBuilder' {description} -> description) (\s@CreateImageBuilder' {} a -> s {description = a} :: CreateImageBuilder)
-
--- | Enables or disables default internet access for the image builder.
-createImageBuilder_enableDefaultInternetAccess :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Bool)
-createImageBuilder_enableDefaultInternetAccess = Lens.lens (\CreateImageBuilder' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@CreateImageBuilder' {} a -> s {enableDefaultInternetAccess = a} :: CreateImageBuilder)
-
--- | The image builder name to display.
-createImageBuilder_displayName :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
-createImageBuilder_displayName = Lens.lens (\CreateImageBuilder' {displayName} -> displayName) (\s@CreateImageBuilder' {} a -> s {displayName = a} :: CreateImageBuilder)
-
--- | The ARN of the public, private, or shared image to use.
-createImageBuilder_imageArn :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
-createImageBuilder_imageArn = Lens.lens (\CreateImageBuilder' {imageArn} -> imageArn) (\s@CreateImageBuilder' {} a -> s {imageArn = a} :: CreateImageBuilder)
+createImageBuilder_tags = Lens.lens (\CreateImageBuilder' {tags} -> tags) (\s@CreateImageBuilder' {} a -> s {tags = a} :: CreateImageBuilder) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique name for the image builder.
 createImageBuilder_name :: Lens.Lens' CreateImageBuilder Prelude.Text
@@ -522,21 +523,21 @@ instance Core.ToJSON CreateImageBuilder where
   toJSON CreateImageBuilder' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+          [ ("DomainJoinInfo" Core..=)
+              Prelude.<$> domainJoinInfo,
             ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
             ("AccessEndpoints" Core..=)
               Prelude.<$> accessEndpoints,
-            ("DomainJoinInfo" Core..=)
-              Prelude.<$> domainJoinInfo,
-            ("ImageName" Core..=) Prelude.<$> imageName,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("AppstreamAgentVersion" Core..=)
-              Prelude.<$> appstreamAgentVersion,
-            ("Description" Core..=) Prelude.<$> description,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("ImageArn" Core..=) Prelude.<$> imageArn,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EnableDefaultInternetAccess" Core..=)
               Prelude.<$> enableDefaultInternetAccess,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("ImageArn" Core..=) Prelude.<$> imageArn,
+            ("ImageName" Core..=) Prelude.<$> imageName,
+            ("Description" Core..=) Prelude.<$> description,
+            ("AppstreamAgentVersion" Core..=)
+              Prelude.<$> appstreamAgentVersion,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("InstanceType" Core..= instanceType)
           ]

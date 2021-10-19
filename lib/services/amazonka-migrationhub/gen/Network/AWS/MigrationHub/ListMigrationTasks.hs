@@ -37,9 +37,9 @@ module Network.AWS.MigrationHub.ListMigrationTasks
     newListMigrationTasks,
 
     -- * Request Lenses
+    listMigrationTasks_resourceName,
     listMigrationTasks_nextToken,
     listMigrationTasks_maxResults,
-    listMigrationTasks_resourceName,
 
     -- * Destructuring the Response
     ListMigrationTasksResponse (..),
@@ -61,14 +61,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListMigrationTasks' smart constructor.
 data ListMigrationTasks = ListMigrationTasks'
-  { -- | If a @NextToken@ was returned by a previous call, there are more results
+  { -- | Filter migration tasks by discovered resource name.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Value to specify how many results are returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filter migration tasks by discovered resource name.
-    resourceName :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,21 +80,25 @@ data ListMigrationTasks = ListMigrationTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceName', 'listMigrationTasks_resourceName' - Filter migration tasks by discovered resource name.
+--
 -- 'nextToken', 'listMigrationTasks_nextToken' - If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
 --
 -- 'maxResults', 'listMigrationTasks_maxResults' - Value to specify how many results are returned per page.
---
--- 'resourceName', 'listMigrationTasks_resourceName' - Filter migration tasks by discovered resource name.
 newListMigrationTasks ::
   ListMigrationTasks
 newListMigrationTasks =
   ListMigrationTasks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+    { resourceName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Filter migration tasks by discovered resource name.
+listMigrationTasks_resourceName :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Text)
+listMigrationTasks_resourceName = Lens.lens (\ListMigrationTasks' {resourceName} -> resourceName) (\s@ListMigrationTasks' {} a -> s {resourceName = a} :: ListMigrationTasks)
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
@@ -105,10 +109,6 @@ listMigrationTasks_nextToken = Lens.lens (\ListMigrationTasks' {nextToken} -> ne
 -- | Value to specify how many results are returned per page.
 listMigrationTasks_maxResults :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Natural)
 listMigrationTasks_maxResults = Lens.lens (\ListMigrationTasks' {maxResults} -> maxResults) (\s@ListMigrationTasks' {} a -> s {maxResults = a} :: ListMigrationTasks)
-
--- | Filter migration tasks by discovered resource name.
-listMigrationTasks_resourceName :: Lens.Lens' ListMigrationTasks (Prelude.Maybe Prelude.Text)
-listMigrationTasks_resourceName = Lens.lens (\ListMigrationTasks' {resourceName} -> resourceName) (\s@ListMigrationTasks' {} a -> s {resourceName = a} :: ListMigrationTasks)
 
 instance Core.AWSPager ListMigrationTasks where
   page rq rs
@@ -171,9 +171,9 @@ instance Core.ToJSON ListMigrationTasks where
   toJSON ListMigrationTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ResourceName" Core..=) Prelude.<$> resourceName
+          [ ("ResourceName" Core..=) Prelude.<$> resourceName,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -231,7 +231,7 @@ newListMigrationTasksResponse pHttpStatus_ =
 -- @ProgressPercent@, @ProgressUpdateStream@, @Status@, and the
 -- @UpdateDateTime@ for each task.
 listMigrationTasksResponse_migrationTaskSummaryList :: Lens.Lens' ListMigrationTasksResponse (Prelude.Maybe [MigrationTaskSummary])
-listMigrationTasksResponse_migrationTaskSummaryList = Lens.lens (\ListMigrationTasksResponse' {migrationTaskSummaryList} -> migrationTaskSummaryList) (\s@ListMigrationTasksResponse' {} a -> s {migrationTaskSummaryList = a} :: ListMigrationTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+listMigrationTasksResponse_migrationTaskSummaryList = Lens.lens (\ListMigrationTasksResponse' {migrationTaskSummaryList} -> migrationTaskSummaryList) (\s@ListMigrationTasksResponse' {} a -> s {migrationTaskSummaryList = a} :: ListMigrationTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more migration tasks than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start

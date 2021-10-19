@@ -39,8 +39,8 @@ module Network.AWS.MigrationHub.ListDiscoveredResources
     newListDiscoveredResourcesResponse,
 
     -- * Response Lenses
-    listDiscoveredResourcesResponse_nextToken,
     listDiscoveredResourcesResponse_discoveredResourceList,
+    listDiscoveredResourcesResponse_nextToken,
     listDiscoveredResourcesResponse_httpStatus,
   )
 where
@@ -153,10 +153,10 @@ instance Core.AWSRequest ListDiscoveredResources where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoveredResourcesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DiscoveredResourceList"
+            Prelude.<$> ( x Core..?> "DiscoveredResourceList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,13 +202,13 @@ instance Core.ToQuery ListDiscoveredResources where
 
 -- | /See:/ 'newListDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-  { -- | If there are more discovered resources than the max result, return the
+  { -- | Returned list of discovered resources associated with the given
+    -- MigrationTask.
+    discoveredResourceList :: Prelude.Maybe [DiscoveredResource],
+    -- | If there are more discovered resources than the max result, return the
     -- next token to be passed to the next call as a bookmark of where to start
     -- from.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returned list of discovered resources associated with the given
-    -- MigrationTask.
-    discoveredResourceList :: Prelude.Maybe [DiscoveredResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,12 +222,12 @@ data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'discoveredResourceList', 'listDiscoveredResourcesResponse_discoveredResourceList' - Returned list of discovered resources associated with the given
+-- MigrationTask.
+--
 -- 'nextToken', 'listDiscoveredResourcesResponse_nextToken' - If there are more discovered resources than the max result, return the
 -- next token to be passed to the next call as a bookmark of where to start
 -- from.
---
--- 'discoveredResourceList', 'listDiscoveredResourcesResponse_discoveredResourceList' - Returned list of discovered resources associated with the given
--- MigrationTask.
 --
 -- 'httpStatus', 'listDiscoveredResourcesResponse_httpStatus' - The response's http status code.
 newListDiscoveredResourcesResponse ::
@@ -236,22 +236,22 @@ newListDiscoveredResourcesResponse ::
   ListDiscoveredResourcesResponse
 newListDiscoveredResourcesResponse pHttpStatus_ =
   ListDiscoveredResourcesResponse'
-    { nextToken =
+    { discoveredResourceList =
         Prelude.Nothing,
-      discoveredResourceList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returned list of discovered resources associated with the given
+-- MigrationTask.
+listDiscoveredResourcesResponse_discoveredResourceList :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe [DiscoveredResource])
+listDiscoveredResourcesResponse_discoveredResourceList = Lens.lens (\ListDiscoveredResourcesResponse' {discoveredResourceList} -> discoveredResourceList) (\s@ListDiscoveredResourcesResponse' {} a -> s {discoveredResourceList = a} :: ListDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more discovered resources than the max result, return the
 -- next token to be passed to the next call as a bookmark of where to start
 -- from.
 listDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
 listDiscoveredResourcesResponse_nextToken = Lens.lens (\ListDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListDiscoveredResourcesResponse)
-
--- | Returned list of discovered resources associated with the given
--- MigrationTask.
-listDiscoveredResourcesResponse_discoveredResourceList :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe [DiscoveredResource])
-listDiscoveredResourcesResponse_discoveredResourceList = Lens.lens (\ListDiscoveredResourcesResponse' {discoveredResourceList} -> discoveredResourceList) (\s@ListDiscoveredResourcesResponse' {} a -> s {discoveredResourceList = a} :: ListDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListDiscoveredResourcesResponse Prelude.Int

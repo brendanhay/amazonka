@@ -30,8 +30,8 @@ module Network.AWS.MigrationHub.NotifyApplicationState
     newNotifyApplicationState,
 
     -- * Request Lenses
-    notifyApplicationState_dryRun,
     notifyApplicationState_updateDateTime,
+    notifyApplicationState_dryRun,
     notifyApplicationState_applicationId,
     notifyApplicationState_status,
 
@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newNotifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-  { -- | Optional boolean flag to indicate whether any effect should take place.
+  { -- | The timestamp when the application state changed.
+    updateDateTime :: Prelude.Maybe Core.POSIX,
+    -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The timestamp when the application state changed.
-    updateDateTime :: Prelude.Maybe Core.POSIX,
     -- | The configurationId in Application Discovery Service that uniquely
     -- identifies the grouped application.
     applicationId :: Prelude.Text,
@@ -74,10 +74,10 @@ data NotifyApplicationState = NotifyApplicationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'updateDateTime', 'notifyApplicationState_updateDateTime' - The timestamp when the application state changed.
+--
 -- 'dryRun', 'notifyApplicationState_dryRun' - Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
---
--- 'updateDateTime', 'notifyApplicationState_updateDateTime' - The timestamp when the application state changed.
 --
 -- 'applicationId', 'notifyApplicationState_applicationId' - The configurationId in Application Discovery Service that uniquely
 -- identifies the grouped application.
@@ -91,20 +91,21 @@ newNotifyApplicationState ::
   NotifyApplicationState
 newNotifyApplicationState pApplicationId_ pStatus_ =
   NotifyApplicationState'
-    { dryRun = Prelude.Nothing,
-      updateDateTime = Prelude.Nothing,
+    { updateDateTime =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       applicationId = pApplicationId_,
       status = pStatus_
     }
+
+-- | The timestamp when the application state changed.
+notifyApplicationState_updateDateTime :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.UTCTime)
+notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Core._Time
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
 notifyApplicationState_dryRun :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.Bool)
 notifyApplicationState_dryRun = Lens.lens (\NotifyApplicationState' {dryRun} -> dryRun) (\s@NotifyApplicationState' {} a -> s {dryRun = a} :: NotifyApplicationState)
-
--- | The timestamp when the application state changed.
-notifyApplicationState_updateDateTime :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.UTCTime)
-notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Core._Time
 
 -- | The configurationId in Application Discovery Service that uniquely
 -- identifies the grouped application.
@@ -150,9 +151,9 @@ instance Core.ToJSON NotifyApplicationState where
   toJSON NotifyApplicationState' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("UpdateDateTime" Core..=)
+          [ ("UpdateDateTime" Core..=)
               Prelude.<$> updateDateTime,
+            ("DryRun" Core..=) Prelude.<$> dryRun,
             Prelude.Just ("ApplicationId" Core..= applicationId),
             Prelude.Just ("Status" Core..= status)
           ]

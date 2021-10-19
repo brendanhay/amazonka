@@ -25,35 +25,35 @@ module Network.AWS.MigrationHub
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** PolicyErrorException
-    _PolicyErrorException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** HomeRegionNotSetException
     _HomeRegionNotSetException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** DryRunOperation
+    _DryRunOperation,
+
+    -- ** PolicyErrorException
+    _PolicyErrorException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** DryRunOperation
-    _DryRunOperation,
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
 
     -- * Waiters
     -- $waiters
@@ -61,11 +61,11 @@ module Network.AWS.MigrationHub
     -- * Operations
     -- $operations
 
-    -- ** ListCreatedArtifacts (Paginated)
-    ListCreatedArtifacts (ListCreatedArtifacts'),
-    newListCreatedArtifacts,
-    ListCreatedArtifactsResponse (ListCreatedArtifactsResponse'),
-    newListCreatedArtifactsResponse,
+    -- ** AssociateDiscoveredResource
+    AssociateDiscoveredResource (AssociateDiscoveredResource'),
+    newAssociateDiscoveredResource,
+    AssociateDiscoveredResourceResponse (AssociateDiscoveredResourceResponse'),
+    newAssociateDiscoveredResourceResponse,
 
     -- ** CreateProgressUpdateStream
     CreateProgressUpdateStream (CreateProgressUpdateStream'),
@@ -73,47 +73,17 @@ module Network.AWS.MigrationHub
     CreateProgressUpdateStreamResponse (CreateProgressUpdateStreamResponse'),
     newCreateProgressUpdateStreamResponse,
 
-    -- ** PutResourceAttributes
-    PutResourceAttributes (PutResourceAttributes'),
-    newPutResourceAttributes,
-    PutResourceAttributesResponse (PutResourceAttributesResponse'),
-    newPutResourceAttributesResponse,
+    -- ** ListApplicationStates (Paginated)
+    ListApplicationStates (ListApplicationStates'),
+    newListApplicationStates,
+    ListApplicationStatesResponse (ListApplicationStatesResponse'),
+    newListApplicationStatesResponse,
 
-    -- ** ImportMigrationTask
-    ImportMigrationTask (ImportMigrationTask'),
-    newImportMigrationTask,
-    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
-    newImportMigrationTaskResponse,
-
-    -- ** DisassociateCreatedArtifact
-    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
-    newDisassociateCreatedArtifact,
-    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
-    newDisassociateCreatedArtifactResponse,
-
-    -- ** DescribeMigrationTask
-    DescribeMigrationTask (DescribeMigrationTask'),
-    newDescribeMigrationTask,
-    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
-    newDescribeMigrationTaskResponse,
-
-    -- ** ListDiscoveredResources (Paginated)
-    ListDiscoveredResources (ListDiscoveredResources'),
-    newListDiscoveredResources,
-    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
-    newListDiscoveredResourcesResponse,
-
-    -- ** DeleteProgressUpdateStream
-    DeleteProgressUpdateStream (DeleteProgressUpdateStream'),
-    newDeleteProgressUpdateStream,
-    DeleteProgressUpdateStreamResponse (DeleteProgressUpdateStreamResponse'),
-    newDeleteProgressUpdateStreamResponse,
-
-    -- ** NotifyMigrationTaskState
-    NotifyMigrationTaskState (NotifyMigrationTaskState'),
-    newNotifyMigrationTaskState,
-    NotifyMigrationTaskStateResponse (NotifyMigrationTaskStateResponse'),
-    newNotifyMigrationTaskStateResponse,
+    -- ** ListCreatedArtifacts (Paginated)
+    ListCreatedArtifacts (ListCreatedArtifacts'),
+    newListCreatedArtifacts,
+    ListCreatedArtifactsResponse (ListCreatedArtifactsResponse'),
+    newListCreatedArtifactsResponse,
 
     -- ** DisassociateDiscoveredResource
     DisassociateDiscoveredResource (DisassociateDiscoveredResource'),
@@ -121,17 +91,17 @@ module Network.AWS.MigrationHub
     DisassociateDiscoveredResourceResponse (DisassociateDiscoveredResourceResponse'),
     newDisassociateDiscoveredResourceResponse,
 
-    -- ** AssociateDiscoveredResource
-    AssociateDiscoveredResource (AssociateDiscoveredResource'),
-    newAssociateDiscoveredResource,
-    AssociateDiscoveredResourceResponse (AssociateDiscoveredResourceResponse'),
-    newAssociateDiscoveredResourceResponse,
+    -- ** NotifyApplicationState
+    NotifyApplicationState (NotifyApplicationState'),
+    newNotifyApplicationState,
+    NotifyApplicationStateResponse (NotifyApplicationStateResponse'),
+    newNotifyApplicationStateResponse,
 
-    -- ** ListApplicationStates (Paginated)
-    ListApplicationStates (ListApplicationStates'),
-    newListApplicationStates,
-    ListApplicationStatesResponse (ListApplicationStatesResponse'),
-    newListApplicationStatesResponse,
+    -- ** DeleteProgressUpdateStream
+    DeleteProgressUpdateStream (DeleteProgressUpdateStream'),
+    newDeleteProgressUpdateStream,
+    DeleteProgressUpdateStreamResponse (DeleteProgressUpdateStreamResponse'),
+    newDeleteProgressUpdateStreamResponse,
 
     -- ** ListProgressUpdateStreams (Paginated)
     ListProgressUpdateStreams (ListProgressUpdateStreams'),
@@ -139,17 +109,41 @@ module Network.AWS.MigrationHub
     ListProgressUpdateStreamsResponse (ListProgressUpdateStreamsResponse'),
     newListProgressUpdateStreamsResponse,
 
-    -- ** NotifyApplicationState
-    NotifyApplicationState (NotifyApplicationState'),
-    newNotifyApplicationState,
-    NotifyApplicationStateResponse (NotifyApplicationStateResponse'),
-    newNotifyApplicationStateResponse,
+    -- ** DisassociateCreatedArtifact
+    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
+    newDisassociateCreatedArtifact,
+    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
+    newDisassociateCreatedArtifactResponse,
 
-    -- ** ListMigrationTasks (Paginated)
-    ListMigrationTasks (ListMigrationTasks'),
-    newListMigrationTasks,
-    ListMigrationTasksResponse (ListMigrationTasksResponse'),
-    newListMigrationTasksResponse,
+    -- ** ImportMigrationTask
+    ImportMigrationTask (ImportMigrationTask'),
+    newImportMigrationTask,
+    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
+    newImportMigrationTaskResponse,
+
+    -- ** DescribeMigrationTask
+    DescribeMigrationTask (DescribeMigrationTask'),
+    newDescribeMigrationTask,
+    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
+    newDescribeMigrationTaskResponse,
+
+    -- ** PutResourceAttributes
+    PutResourceAttributes (PutResourceAttributes'),
+    newPutResourceAttributes,
+    PutResourceAttributesResponse (PutResourceAttributesResponse'),
+    newPutResourceAttributesResponse,
+
+    -- ** AssociateCreatedArtifact
+    AssociateCreatedArtifact (AssociateCreatedArtifact'),
+    newAssociateCreatedArtifact,
+    AssociateCreatedArtifactResponse (AssociateCreatedArtifactResponse'),
+    newAssociateCreatedArtifactResponse,
+
+    -- ** NotifyMigrationTaskState
+    NotifyMigrationTaskState (NotifyMigrationTaskState'),
+    newNotifyMigrationTaskState,
+    NotifyMigrationTaskStateResponse (NotifyMigrationTaskStateResponse'),
+    newNotifyMigrationTaskStateResponse,
 
     -- ** DescribeApplicationState
     DescribeApplicationState (DescribeApplicationState'),
@@ -157,11 +151,17 @@ module Network.AWS.MigrationHub
     DescribeApplicationStateResponse (DescribeApplicationStateResponse'),
     newDescribeApplicationStateResponse,
 
-    -- ** AssociateCreatedArtifact
-    AssociateCreatedArtifact (AssociateCreatedArtifact'),
-    newAssociateCreatedArtifact,
-    AssociateCreatedArtifactResponse (AssociateCreatedArtifactResponse'),
-    newAssociateCreatedArtifactResponse,
+    -- ** ListMigrationTasks (Paginated)
+    ListMigrationTasks (ListMigrationTasks'),
+    newListMigrationTasks,
+    ListMigrationTasksResponse (ListMigrationTasksResponse'),
+    newListMigrationTasksResponse,
+
+    -- ** ListDiscoveredResources (Paginated)
+    ListDiscoveredResources (ListDiscoveredResources'),
+    newListDiscoveredResources,
+    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
+    newListDiscoveredResourcesResponse,
 
     -- * Types
 

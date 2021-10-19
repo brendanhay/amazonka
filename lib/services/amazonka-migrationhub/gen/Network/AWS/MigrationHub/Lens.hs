@@ -14,32 +14,60 @@
 module Network.AWS.MigrationHub.Lens
   ( -- * Operations
 
-    -- ** ListCreatedArtifacts
-    listCreatedArtifacts_nextToken,
-    listCreatedArtifacts_maxResults,
-    listCreatedArtifacts_progressUpdateStream,
-    listCreatedArtifacts_migrationTaskName,
-    listCreatedArtifactsResponse_createdArtifactList,
-    listCreatedArtifactsResponse_nextToken,
-    listCreatedArtifactsResponse_httpStatus,
+    -- ** AssociateDiscoveredResource
+    associateDiscoveredResource_dryRun,
+    associateDiscoveredResource_progressUpdateStream,
+    associateDiscoveredResource_migrationTaskName,
+    associateDiscoveredResource_discoveredResource,
+    associateDiscoveredResourceResponse_httpStatus,
 
     -- ** CreateProgressUpdateStream
     createProgressUpdateStream_dryRun,
     createProgressUpdateStream_progressUpdateStreamName,
     createProgressUpdateStreamResponse_httpStatus,
 
-    -- ** PutResourceAttributes
-    putResourceAttributes_dryRun,
-    putResourceAttributes_progressUpdateStream,
-    putResourceAttributes_migrationTaskName,
-    putResourceAttributes_resourceAttributeList,
-    putResourceAttributesResponse_httpStatus,
+    -- ** ListApplicationStates
+    listApplicationStates_nextToken,
+    listApplicationStates_applicationIds,
+    listApplicationStates_maxResults,
+    listApplicationStatesResponse_applicationStateList,
+    listApplicationStatesResponse_nextToken,
+    listApplicationStatesResponse_httpStatus,
 
-    -- ** ImportMigrationTask
-    importMigrationTask_dryRun,
-    importMigrationTask_progressUpdateStream,
-    importMigrationTask_migrationTaskName,
-    importMigrationTaskResponse_httpStatus,
+    -- ** ListCreatedArtifacts
+    listCreatedArtifacts_nextToken,
+    listCreatedArtifacts_maxResults,
+    listCreatedArtifacts_progressUpdateStream,
+    listCreatedArtifacts_migrationTaskName,
+    listCreatedArtifactsResponse_nextToken,
+    listCreatedArtifactsResponse_createdArtifactList,
+    listCreatedArtifactsResponse_httpStatus,
+
+    -- ** DisassociateDiscoveredResource
+    disassociateDiscoveredResource_dryRun,
+    disassociateDiscoveredResource_progressUpdateStream,
+    disassociateDiscoveredResource_migrationTaskName,
+    disassociateDiscoveredResource_configurationId,
+    disassociateDiscoveredResourceResponse_httpStatus,
+
+    -- ** NotifyApplicationState
+    notifyApplicationState_updateDateTime,
+    notifyApplicationState_dryRun,
+    notifyApplicationState_applicationId,
+    notifyApplicationState_status,
+    notifyApplicationStateResponse_httpStatus,
+
+    -- ** DeleteProgressUpdateStream
+    deleteProgressUpdateStream_dryRun,
+    deleteProgressUpdateStream_progressUpdateStreamName,
+    deleteProgressUpdateStreamResponse_httpStatus,
+
+    -- ** ListProgressUpdateStreams
+    listProgressUpdateStreams_nextToken,
+    listProgressUpdateStreams_maxResults,
+    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
+    listProgressUpdateStreamsResponse_nextToken,
+    listProgressUpdateStreamsResponse_httpStatus,
 
     -- ** DisassociateCreatedArtifact
     disassociateCreatedArtifact_dryRun,
@@ -48,25 +76,31 @@ module Network.AWS.MigrationHub.Lens
     disassociateCreatedArtifact_createdArtifactName,
     disassociateCreatedArtifactResponse_httpStatus,
 
+    -- ** ImportMigrationTask
+    importMigrationTask_dryRun,
+    importMigrationTask_progressUpdateStream,
+    importMigrationTask_migrationTaskName,
+    importMigrationTaskResponse_httpStatus,
+
     -- ** DescribeMigrationTask
     describeMigrationTask_progressUpdateStream,
     describeMigrationTask_migrationTaskName,
     describeMigrationTaskResponse_migrationTask,
     describeMigrationTaskResponse_httpStatus,
 
-    -- ** ListDiscoveredResources
-    listDiscoveredResources_nextToken,
-    listDiscoveredResources_maxResults,
-    listDiscoveredResources_progressUpdateStream,
-    listDiscoveredResources_migrationTaskName,
-    listDiscoveredResourcesResponse_nextToken,
-    listDiscoveredResourcesResponse_discoveredResourceList,
-    listDiscoveredResourcesResponse_httpStatus,
+    -- ** PutResourceAttributes
+    putResourceAttributes_dryRun,
+    putResourceAttributes_progressUpdateStream,
+    putResourceAttributes_migrationTaskName,
+    putResourceAttributes_resourceAttributeList,
+    putResourceAttributesResponse_httpStatus,
 
-    -- ** DeleteProgressUpdateStream
-    deleteProgressUpdateStream_dryRun,
-    deleteProgressUpdateStream_progressUpdateStreamName,
-    deleteProgressUpdateStreamResponse_httpStatus,
+    -- ** AssociateCreatedArtifact
+    associateCreatedArtifact_dryRun,
+    associateCreatedArtifact_progressUpdateStream,
+    associateCreatedArtifact_migrationTaskName,
+    associateCreatedArtifact_createdArtifact,
+    associateCreatedArtifactResponse_httpStatus,
 
     -- ** NotifyMigrationTaskState
     notifyMigrationTaskState_dryRun,
@@ -77,69 +111,35 @@ module Network.AWS.MigrationHub.Lens
     notifyMigrationTaskState_nextUpdateSeconds,
     notifyMigrationTaskStateResponse_httpStatus,
 
-    -- ** DisassociateDiscoveredResource
-    disassociateDiscoveredResource_dryRun,
-    disassociateDiscoveredResource_progressUpdateStream,
-    disassociateDiscoveredResource_migrationTaskName,
-    disassociateDiscoveredResource_configurationId,
-    disassociateDiscoveredResourceResponse_httpStatus,
-
-    -- ** AssociateDiscoveredResource
-    associateDiscoveredResource_dryRun,
-    associateDiscoveredResource_progressUpdateStream,
-    associateDiscoveredResource_migrationTaskName,
-    associateDiscoveredResource_discoveredResource,
-    associateDiscoveredResourceResponse_httpStatus,
-
-    -- ** ListApplicationStates
-    listApplicationStates_nextToken,
-    listApplicationStates_maxResults,
-    listApplicationStates_applicationIds,
-    listApplicationStatesResponse_applicationStateList,
-    listApplicationStatesResponse_nextToken,
-    listApplicationStatesResponse_httpStatus,
-
-    -- ** ListProgressUpdateStreams
-    listProgressUpdateStreams_nextToken,
-    listProgressUpdateStreams_maxResults,
-    listProgressUpdateStreamsResponse_nextToken,
-    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
-    listProgressUpdateStreamsResponse_httpStatus,
-
-    -- ** NotifyApplicationState
-    notifyApplicationState_dryRun,
-    notifyApplicationState_updateDateTime,
-    notifyApplicationState_applicationId,
-    notifyApplicationState_status,
-    notifyApplicationStateResponse_httpStatus,
+    -- ** DescribeApplicationState
+    describeApplicationState_applicationId,
+    describeApplicationStateResponse_lastUpdatedTime,
+    describeApplicationStateResponse_applicationStatus,
+    describeApplicationStateResponse_httpStatus,
 
     -- ** ListMigrationTasks
+    listMigrationTasks_resourceName,
     listMigrationTasks_nextToken,
     listMigrationTasks_maxResults,
-    listMigrationTasks_resourceName,
     listMigrationTasksResponse_migrationTaskSummaryList,
     listMigrationTasksResponse_nextToken,
     listMigrationTasksResponse_httpStatus,
 
-    -- ** DescribeApplicationState
-    describeApplicationState_applicationId,
-    describeApplicationStateResponse_applicationStatus,
-    describeApplicationStateResponse_lastUpdatedTime,
-    describeApplicationStateResponse_httpStatus,
-
-    -- ** AssociateCreatedArtifact
-    associateCreatedArtifact_dryRun,
-    associateCreatedArtifact_progressUpdateStream,
-    associateCreatedArtifact_migrationTaskName,
-    associateCreatedArtifact_createdArtifact,
-    associateCreatedArtifactResponse_httpStatus,
+    -- ** ListDiscoveredResources
+    listDiscoveredResources_nextToken,
+    listDiscoveredResources_maxResults,
+    listDiscoveredResources_progressUpdateStream,
+    listDiscoveredResources_migrationTaskName,
+    listDiscoveredResourcesResponse_discoveredResourceList,
+    listDiscoveredResourcesResponse_nextToken,
+    listDiscoveredResourcesResponse_httpStatus,
 
     -- * Types
 
     -- ** ApplicationState
+    applicationState_lastUpdatedTime,
     applicationState_applicationId,
     applicationState_applicationStatus,
-    applicationState_lastUpdatedTime,
 
     -- ** CreatedArtifact
     createdArtifact_description,
@@ -150,19 +150,19 @@ module Network.AWS.MigrationHub.Lens
     discoveredResource_configurationId,
 
     -- ** MigrationTask
-    migrationTask_resourceAttributeList,
     migrationTask_updateDateTime,
+    migrationTask_resourceAttributeList,
     migrationTask_task,
-    migrationTask_migrationTaskName,
     migrationTask_progressUpdateStream,
+    migrationTask_migrationTaskName,
 
     -- ** MigrationTaskSummary
     migrationTaskSummary_status,
-    migrationTaskSummary_progressPercent,
     migrationTaskSummary_updateDateTime,
+    migrationTaskSummary_progressPercent,
     migrationTaskSummary_statusDetail,
-    migrationTaskSummary_migrationTaskName,
     migrationTaskSummary_progressUpdateStream,
+    migrationTaskSummary_migrationTaskName,
 
     -- ** ProgressUpdateStreamSummary
     progressUpdateStreamSummary_progressUpdateStreamName,

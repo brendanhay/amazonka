@@ -93,7 +93,7 @@ newAddTags pResourceId_ =
 
 -- | Contains a list of tags, up to a limit of 50
 addTags_tagsList :: Lens.Lens' AddTags (Prelude.Maybe [Tag])
-addTags_tagsList = Lens.lens (\AddTags' {tagsList} -> tagsList) (\s@AddTags' {} a -> s {tagsList = a} :: AddTags) Prelude.. Lens.mapping Lens._Coerce
+addTags_tagsList = Lens.lens (\AddTags' {tagsList} -> tagsList) (\s@AddTags' {} a -> s {tagsList = a} :: AddTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the ARN of the trail to which one or more tags will be added.
 -- The format of a trail ARN is:

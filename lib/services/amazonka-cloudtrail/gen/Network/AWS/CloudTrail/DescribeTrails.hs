@@ -28,8 +28,8 @@ module Network.AWS.CloudTrail.DescribeTrails
     newDescribeTrails,
 
     -- * Request Lenses
-    describeTrails_trailNameList,
     describeTrails_includeShadowTrails,
+    describeTrails_trailNameList,
 
     -- * Destructuring the Response
     DescribeTrailsResponse (..),
@@ -52,7 +52,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
-  { -- | Specifies a list of trail names, trail ARNs, or both, of the trails to
+  { -- | Specifies whether to include shadow trails in the response. A shadow
+    -- trail is the replication in a region of a trail that was created in a
+    -- different region, or in the case of an organization trail, the
+    -- replication of an organization trail in member accounts. If you do not
+    -- include shadow trails, organization trails in a member account and
+    -- region replication trails will not be returned. The default is true.
+    includeShadowTrails :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies a list of trail names, trail ARNs, or both, of the trails to
     -- describe. The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
@@ -71,14 +78,7 @@ data DescribeTrails = DescribeTrails'
     -- if the names match the names of trails belonging only to the current
     -- region. To return information about a trail in another region, you must
     -- specify its trail ARN.
-    trailNameList :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether to include shadow trails in the response. A shadow
-    -- trail is the replication in a region of a trail that was created in a
-    -- different region, or in the case of an organization trail, the
-    -- replication of an organization trail in member accounts. If you do not
-    -- include shadow trails, organization trails in a member account and
-    -- region replication trails will not be returned. The default is true.
-    includeShadowTrails :: Prelude.Maybe Prelude.Bool
+    trailNameList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,13 @@ data DescribeTrails = DescribeTrails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'includeShadowTrails', 'describeTrails_includeShadowTrails' - Specifies whether to include shadow trails in the response. A shadow
+-- trail is the replication in a region of a trail that was created in a
+-- different region, or in the case of an organization trail, the
+-- replication of an organization trail in member accounts. If you do not
+-- include shadow trails, organization trails in a member account and
+-- region replication trails will not be returned. The default is true.
 --
 -- 'trailNameList', 'describeTrails_trailNameList' - Specifies a list of trail names, trail ARNs, or both, of the trails to
 -- describe. The format of a trail ARN is:
@@ -109,20 +116,23 @@ data DescribeTrails = DescribeTrails'
 -- if the names match the names of trails belonging only to the current
 -- region. To return information about a trail in another region, you must
 -- specify its trail ARN.
---
--- 'includeShadowTrails', 'describeTrails_includeShadowTrails' - Specifies whether to include shadow trails in the response. A shadow
+newDescribeTrails ::
+  DescribeTrails
+newDescribeTrails =
+  DescribeTrails'
+    { includeShadowTrails =
+        Prelude.Nothing,
+      trailNameList = Prelude.Nothing
+    }
+
+-- | Specifies whether to include shadow trails in the response. A shadow
 -- trail is the replication in a region of a trail that was created in a
 -- different region, or in the case of an organization trail, the
 -- replication of an organization trail in member accounts. If you do not
 -- include shadow trails, organization trails in a member account and
 -- region replication trails will not be returned. The default is true.
-newDescribeTrails ::
-  DescribeTrails
-newDescribeTrails =
-  DescribeTrails'
-    { trailNameList = Prelude.Nothing,
-      includeShadowTrails = Prelude.Nothing
-    }
+describeTrails_includeShadowTrails :: Lens.Lens' DescribeTrails (Prelude.Maybe Prelude.Bool)
+describeTrails_includeShadowTrails = Lens.lens (\DescribeTrails' {includeShadowTrails} -> includeShadowTrails) (\s@DescribeTrails' {} a -> s {includeShadowTrails = a} :: DescribeTrails)
 
 -- | Specifies a list of trail names, trail ARNs, or both, of the trails to
 -- describe. The format of a trail ARN is:
@@ -144,16 +154,7 @@ newDescribeTrails =
 -- region. To return information about a trail in another region, you must
 -- specify its trail ARN.
 describeTrails_trailNameList :: Lens.Lens' DescribeTrails (Prelude.Maybe [Prelude.Text])
-describeTrails_trailNameList = Lens.lens (\DescribeTrails' {trailNameList} -> trailNameList) (\s@DescribeTrails' {} a -> s {trailNameList = a} :: DescribeTrails) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies whether to include shadow trails in the response. A shadow
--- trail is the replication in a region of a trail that was created in a
--- different region, or in the case of an organization trail, the
--- replication of an organization trail in member accounts. If you do not
--- include shadow trails, organization trails in a member account and
--- region replication trails will not be returned. The default is true.
-describeTrails_includeShadowTrails :: Lens.Lens' DescribeTrails (Prelude.Maybe Prelude.Bool)
-describeTrails_includeShadowTrails = Lens.lens (\DescribeTrails' {includeShadowTrails} -> includeShadowTrails) (\s@DescribeTrails' {} a -> s {includeShadowTrails = a} :: DescribeTrails)
+describeTrails_trailNameList = Lens.lens (\DescribeTrails' {trailNameList} -> trailNameList) (\s@DescribeTrails' {} a -> s {trailNameList = a} :: DescribeTrails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeTrails where
   type
@@ -191,9 +192,9 @@ instance Core.ToJSON DescribeTrails where
   toJSON DescribeTrails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("trailNameList" Core..=) Prelude.<$> trailNameList,
-            ("includeShadowTrails" Core..=)
-              Prelude.<$> includeShadowTrails
+          [ ("includeShadowTrails" Core..=)
+              Prelude.<$> includeShadowTrails,
+            ("trailNameList" Core..=) Prelude.<$> trailNameList
           ]
       )
 
@@ -254,7 +255,7 @@ newDescribeTrailsResponse pHttpStatus_ =
 -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
 -- with KMS customer managed keys.
 describeTrailsResponse_trailList :: Lens.Lens' DescribeTrailsResponse (Prelude.Maybe [Trail])
-describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailList} -> trailList) (\s@DescribeTrailsResponse' {} a -> s {trailList = a} :: DescribeTrailsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailList} -> trailList) (\s@DescribeTrailsResponse' {} a -> s {trailList = a} :: DescribeTrailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTrailsResponse_httpStatus :: Lens.Lens' DescribeTrailsResponse Prelude.Int

@@ -240,7 +240,7 @@ newDataResource =
 -- -   To log data events for all DynamoDB tables in your Amazon Web
 --     Services account, specify the prefix as @arn:aws:dynamodb@.
 dataResource_values :: Lens.Lens' DataResource (Prelude.Maybe [Prelude.Text])
-dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Prelude.. Lens.mapping Lens._Coerce
+dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type in which you want to log data events. You can specify
 -- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@

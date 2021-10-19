@@ -196,7 +196,7 @@ newPutEventSelectors pTrailName_ =
 -- If you apply @EventSelectors@ to a trail, any existing
 -- @AdvancedEventSelectors@ are overwritten.
 putEventSelectors_eventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [EventSelector])
-putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelectors} -> eventSelectors) (\s@PutEventSelectors' {} a -> s {eventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens._Coerce
+putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelectors} -> eventSelectors) (\s@PutEventSelectors' {} a -> s {eventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the settings for advanced event selectors. You can add
 -- advanced event selectors, and conditions for your advanced event
@@ -208,7 +208,7 @@ putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelector
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
 -- in the /CloudTrail User Guide/.
 putEventSelectors_advancedEventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [AdvancedEventSelector])
-putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens._Coerce
+putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail
 -- name, the string must meet the following requirements:
@@ -341,11 +341,11 @@ putEventSelectorsResponse_trailARN = Lens.lens (\PutEventSelectorsResponse' {tra
 
 -- | Specifies the event selectors configured for your trail.
 putEventSelectorsResponse_eventSelectors :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe [EventSelector])
-putEventSelectorsResponse_eventSelectors = Lens.lens (\PutEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {eventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+putEventSelectorsResponse_eventSelectors = Lens.lens (\PutEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {eventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the advanced event selectors configured for your trail.
 putEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
-putEventSelectorsResponse_advancedEventSelectors = Lens.lens (\PutEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+putEventSelectorsResponse_advancedEventSelectors = Lens.lens (\PutEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putEventSelectorsResponse_httpStatus :: Lens.Lens' PutEventSelectorsResponse Prelude.Int

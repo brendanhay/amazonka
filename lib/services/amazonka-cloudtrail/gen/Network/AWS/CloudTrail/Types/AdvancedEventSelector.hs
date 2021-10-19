@@ -76,7 +76,7 @@ newAdvancedEventSelector pFieldSelectors_ =
   AdvancedEventSelector'
     { name = Prelude.Nothing,
       fieldSelectors =
-        Lens._Coerce Lens.# pFieldSelectors_
+        Lens.coerced Lens.# pFieldSelectors_
     }
 
 -- | An optional, descriptive name for an advanced event selector, such as
@@ -86,7 +86,7 @@ advancedEventSelector_name = Lens.lens (\AdvancedEventSelector' {name} -> name) 
 
 -- | Contains all selector statements in an advanced event selector.
 advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Prelude.NonEmpty AdvancedFieldSelector)
-advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Prelude.. Lens._Coerce
+advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Prelude.. Lens.coerced
 
 instance Core.FromJSON AdvancedEventSelector where
   parseJSON =

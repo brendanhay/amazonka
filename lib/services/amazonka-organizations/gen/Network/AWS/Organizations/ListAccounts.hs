@@ -49,8 +49,8 @@ module Network.AWS.Organizations.ListAccounts
     newListAccountsResponse,
 
     -- * Response Lenses
-    listAccountsResponse_nextToken,
     listAccountsResponse_accounts,
+    listAccountsResponse_nextToken,
     listAccountsResponse_httpStatus,
   )
 where
@@ -163,8 +163,8 @@ instance Core.AWSRequest ListAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,14 +204,14 @@ instance Core.ToQuery ListAccounts where
 
 -- | /See:/ 'newListAccountsResponse' smart constructor.
 data ListAccountsResponse = ListAccountsResponse'
-  { -- | If present, indicates that more output is available than is included in
+  { -- | A list of objects in the organization.
+    accounts :: Prelude.Maybe [Account],
+    -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects in the organization.
-    accounts :: Prelude.Maybe [Account],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,13 +225,13 @@ data ListAccountsResponse = ListAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accounts', 'listAccountsResponse_accounts' - A list of objects in the organization.
+--
 -- 'nextToken', 'listAccountsResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
---
--- 'accounts', 'listAccountsResponse_accounts' - A list of objects in the organization.
 --
 -- 'httpStatus', 'listAccountsResponse_httpStatus' - The response's http status code.
 newListAccountsResponse ::
@@ -240,10 +240,14 @@ newListAccountsResponse ::
   ListAccountsResponse
 newListAccountsResponse pHttpStatus_ =
   ListAccountsResponse'
-    { nextToken = Prelude.Nothing,
-      accounts = Prelude.Nothing,
+    { accounts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of objects in the organization.
+listAccountsResponse_accounts :: Lens.Lens' ListAccountsResponse (Prelude.Maybe [Account])
+listAccountsResponse_accounts = Lens.lens (\ListAccountsResponse' {accounts} -> accounts) (\s@ListAccountsResponse' {} a -> s {accounts = a} :: ListAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -252,10 +256,6 @@ newListAccountsResponse pHttpStatus_ =
 -- element comes back as @null@.
 listAccountsResponse_nextToken :: Lens.Lens' ListAccountsResponse (Prelude.Maybe Prelude.Text)
 listAccountsResponse_nextToken = Lens.lens (\ListAccountsResponse' {nextToken} -> nextToken) (\s@ListAccountsResponse' {} a -> s {nextToken = a} :: ListAccountsResponse)
-
--- | A list of objects in the organization.
-listAccountsResponse_accounts :: Lens.Lens' ListAccountsResponse (Prelude.Maybe [Account])
-listAccountsResponse_accounts = Lens.lens (\ListAccountsResponse' {accounts} -> accounts) (\s@ListAccountsResponse' {} a -> s {accounts = a} :: ListAccountsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listAccountsResponse_httpStatus :: Lens.Lens' ListAccountsResponse Prelude.Int

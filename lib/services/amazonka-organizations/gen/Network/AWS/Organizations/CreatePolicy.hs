@@ -170,7 +170,7 @@ newCreatePolicy pContent_ pDescription_ pName_ pType_ =
 -- tags for a policy, then the entire request fails and the policy is not
 -- created.
 createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
-createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens._Coerce
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The policy text content to add to the new policy. The text that you
 -- supply must adhere to the rules of the policy type you specify in the

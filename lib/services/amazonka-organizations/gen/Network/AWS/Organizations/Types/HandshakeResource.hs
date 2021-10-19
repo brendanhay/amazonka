@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHandshakeResource' smart constructor.
 data HandshakeResource = HandshakeResource'
-  { -- | When needed, contains an additional array of @HandshakeResource@
-    -- objects.
-    resources :: Prelude.Maybe [HandshakeResource],
-    -- | The information that is passed to the other party in the handshake. The
+  { -- | The information that is passed to the other party in the handshake. The
     -- format of the value string must match the requirements of the specified
     -- type.
     value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | When needed, contains an additional array of @HandshakeResource@
+    -- objects.
+    resources :: Prelude.Maybe [HandshakeResource],
     -- | The type of information being passed, specifying how the value is to be
     -- interpreted by the other party:
     --
@@ -65,12 +65,12 @@ data HandshakeResource = HandshakeResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'handshakeResource_resources' - When needed, contains an additional array of @HandshakeResource@
--- objects.
---
 -- 'value', 'handshakeResource_value' - The information that is passed to the other party in the handshake. The
 -- format of the value string must match the requirements of the specified
 -- type.
+--
+-- 'resources', 'handshakeResource_resources' - When needed, contains an additional array of @HandshakeResource@
+-- objects.
 --
 -- 'type'', 'handshakeResource_type' - The type of information being passed, specifying how the value is to be
 -- interpreted by the other party:
@@ -94,21 +94,21 @@ newHandshakeResource ::
   HandshakeResource
 newHandshakeResource =
   HandshakeResource'
-    { resources = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { value = Prelude.Nothing,
+      resources = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | When needed, contains an additional array of @HandshakeResource@
--- objects.
-handshakeResource_resources :: Lens.Lens' HandshakeResource (Prelude.Maybe [HandshakeResource])
-handshakeResource_resources = Lens.lens (\HandshakeResource' {resources} -> resources) (\s@HandshakeResource' {} a -> s {resources = a} :: HandshakeResource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The information that is passed to the other party in the handshake. The
 -- format of the value string must match the requirements of the specified
 -- type.
 handshakeResource_value :: Lens.Lens' HandshakeResource (Prelude.Maybe Prelude.Text)
 handshakeResource_value = Lens.lens (\HandshakeResource' {value} -> value) (\s@HandshakeResource' {} a -> s {value = a} :: HandshakeResource) Prelude.. Lens.mapping Core._Sensitive
+
+-- | When needed, contains an additional array of @HandshakeResource@
+-- objects.
+handshakeResource_resources :: Lens.Lens' HandshakeResource (Prelude.Maybe [HandshakeResource])
+handshakeResource_resources = Lens.lens (\HandshakeResource' {resources} -> resources) (\s@HandshakeResource' {} a -> s {resources = a} :: HandshakeResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of information being passed, specifying how the value is to be
 -- interpreted by the other party:
@@ -137,8 +137,8 @@ instance Core.FromJSON HandshakeResource where
       "HandshakeResource"
       ( \x ->
           HandshakeResource'
-            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Type")
       )
 

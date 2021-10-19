@@ -146,8 +146,8 @@ module Network.AWS.Organizations.CreateGovCloudAccount
     newCreateGovCloudAccount,
 
     -- * Request Lenses
-    createGovCloudAccount_roleName,
     createGovCloudAccount_iamUserAccessToBilling,
+    createGovCloudAccount_roleName,
     createGovCloudAccount_tags,
     createGovCloudAccount_email,
     createGovCloudAccount_accountName,
@@ -171,7 +171,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGovCloudAccount' smart constructor.
 data CreateGovCloudAccount = CreateGovCloudAccount'
-  { -- | (Optional)
+  { -- | If set to @ALLOW@, the new linked account in the commercial Region
+    -- enables IAM users to access account billing information /if/ they have
+    -- the required permissions. If set to @DENY@, only the root user of the
+    -- new account can access account billing information. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+    -- in the /AWS Billing and Cost Management User Guide./
+    --
+    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+    -- IAM users and roles with the required permissions can access billing
+    -- information for the new account.
+    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
+    -- | (Optional)
     --
     -- The name of an IAM role that AWS Organizations automatically
     -- preconfigures in the new member accounts in both the AWS GovCloud (US)
@@ -195,18 +207,6 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- lowercase letters, digits with no spaces, and any of the following
     -- characters: =,.\@-
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | If set to @ALLOW@, the new linked account in the commercial Region
-    -- enables IAM users to access account billing information /if/ they have
-    -- the required permissions. If set to @DENY@, only the root user of the
-    -- new account can access account billing information. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
-    -- in the /AWS Billing and Cost Management User Guide./
-    --
-    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
-    -- IAM users and roles with the required permissions can access billing
-    -- information for the new account.
-    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
     -- | A list of tags that you want to attach to the newly created account.
     -- These tags are attached to the commercial account associated with the
     -- GovCloud account, and not to the GovCloud account itself. To add tags to
@@ -245,6 +245,18 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'iamUserAccessToBilling', 'createGovCloudAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new linked account in the commercial Region
+-- enables IAM users to access account billing information /if/ they have
+-- the required permissions. If set to @DENY@, only the root user of the
+-- new account can access account billing information. For more
+-- information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /AWS Billing and Cost Management User Guide./
+--
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
+--
 -- 'roleName', 'createGovCloudAccount_roleName' - (Optional)
 --
 -- The name of an IAM role that AWS Organizations automatically
@@ -268,18 +280,6 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- validate this parameter. The pattern can include uppercase letters,
 -- lowercase letters, digits with no spaces, and any of the following
 -- characters: =,.\@-
---
--- 'iamUserAccessToBilling', 'createGovCloudAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new linked account in the commercial Region
--- enables IAM users to access account billing information /if/ they have
--- the required permissions. If set to @DENY@, only the root user of the
--- new account can access account billing information. For more
--- information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide./
---
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
 --
 -- 'tags', 'createGovCloudAccount_tags' - A list of tags that you want to attach to the newly created account.
 -- These tags are attached to the commercial account associated with the
@@ -315,12 +315,27 @@ newCreateGovCloudAccount ::
   CreateGovCloudAccount
 newCreateGovCloudAccount pEmail_ pAccountName_ =
   CreateGovCloudAccount'
-    { roleName = Prelude.Nothing,
-      iamUserAccessToBilling = Prelude.Nothing,
+    { iamUserAccessToBilling =
+        Prelude.Nothing,
+      roleName = Prelude.Nothing,
       tags = Prelude.Nothing,
       email = Core._Sensitive Lens.# pEmail_,
       accountName = Core._Sensitive Lens.# pAccountName_
     }
+
+-- | If set to @ALLOW@, the new linked account in the commercial Region
+-- enables IAM users to access account billing information /if/ they have
+-- the required permissions. If set to @DENY@, only the root user of the
+-- new account can access account billing information. For more
+-- information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /AWS Billing and Cost Management User Guide./
+--
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
+createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe IAMUserAccessToBilling)
+createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateGovCloudAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateGovCloudAccount)
 
 -- | (Optional)
 --
@@ -348,20 +363,6 @@ newCreateGovCloudAccount pEmail_ pAccountName_ =
 createGovCloudAccount_roleName :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe Prelude.Text)
 createGovCloudAccount_roleName = Lens.lens (\CreateGovCloudAccount' {roleName} -> roleName) (\s@CreateGovCloudAccount' {} a -> s {roleName = a} :: CreateGovCloudAccount)
 
--- | If set to @ALLOW@, the new linked account in the commercial Region
--- enables IAM users to access account billing information /if/ they have
--- the required permissions. If set to @DENY@, only the root user of the
--- new account can access account billing information. For more
--- information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide./
---
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
-createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe IAMUserAccessToBilling)
-createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateGovCloudAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateGovCloudAccount)
-
 -- | A list of tags that you want to attach to the newly created account.
 -- These tags are attached to the commercial account associated with the
 -- GovCloud account, and not to the GovCloud account itself. To add tags to
@@ -378,7 +379,7 @@ createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount
 -- tags for an account, then the entire request fails and the account is
 -- not created.
 createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe [Tag])
-createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Prelude.. Lens.mapping Lens._Coerce
+createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address of the owner to assign to the new member account in
 -- the commercial Region. This email address must not already be associated
@@ -431,9 +432,9 @@ instance Core.ToJSON CreateGovCloudAccount where
   toJSON CreateGovCloudAccount' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleName" Core..=) Prelude.<$> roleName,
-            ("IamUserAccessToBilling" Core..=)
+          [ ("IamUserAccessToBilling" Core..=)
               Prelude.<$> iamUserAccessToBilling,
+            ("RoleName" Core..=) Prelude.<$> roleName,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Email" Core..= email),
             Prelude.Just ("AccountName" Core..= accountName)

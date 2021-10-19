@@ -34,6 +34,12 @@ data Account = Account'
     status :: Prelude.Maybe AccountStatus,
     -- | The method by which the account joined the organization.
     joinedMethod :: Prelude.Maybe AccountJoinedMethod,
+    -- | The email address associated with the AWS account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
+    -- is a string of characters that represents a standard internet email
+    -- address.
+    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the account.
     --
     -- For more information about ARNs in Organizations, see
@@ -42,23 +48,17 @@ data Account = Account'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date the account became a part of the organization.
     joinedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier (ID) of the account.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
-    -- string requires exactly 12 digits.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The email address associated with the AWS account.
+    -- | The unique identifier (ID) of the account.
     --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
-    -- is a string of characters that represents a standard internet email
-    -- address.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+    -- string requires exactly 12 digits.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,6 +74,12 @@ data Account = Account'
 --
 -- 'joinedMethod', 'account_joinedMethod' - The method by which the account joined the organization.
 --
+-- 'email', 'account_email' - The email address associated with the AWS account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
+-- is a string of characters that represents a standard internet email
+-- address.
+--
 -- 'arn', 'account_arn' - The Amazon Resource Name (ARN) of the account.
 --
 -- For more information about ARNs in Organizations, see
@@ -82,33 +88,27 @@ data Account = Account'
 --
 -- 'joinedTimestamp', 'account_joinedTimestamp' - The date the account became a part of the organization.
 --
--- 'id', 'account_id' - The unique identifier (ID) of the account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
--- string requires exactly 12 digits.
---
 -- 'name', 'account_name' - The friendly name of the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
 --
--- 'email', 'account_email' - The email address associated with the AWS account.
+-- 'id', 'account_id' - The unique identifier (ID) of the account.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
--- is a string of characters that represents a standard internet email
--- address.
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
 newAccount ::
   Account
 newAccount =
   Account'
     { status = Prelude.Nothing,
       joinedMethod = Prelude.Nothing,
+      email = Prelude.Nothing,
       arn = Prelude.Nothing,
       joinedTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
-      email = Prelude.Nothing
+      id = Prelude.Nothing
     }
 
 -- | The status of the account in the organization.
@@ -118,6 +118,14 @@ account_status = Lens.lens (\Account' {status} -> status) (\s@Account' {} a -> s
 -- | The method by which the account joined the organization.
 account_joinedMethod :: Lens.Lens' Account (Prelude.Maybe AccountJoinedMethod)
 account_joinedMethod = Lens.lens (\Account' {joinedMethod} -> joinedMethod) (\s@Account' {} a -> s {joinedMethod = a} :: Account)
+
+-- | The email address associated with the AWS account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
+-- is a string of characters that represents a standard internet email
+-- address.
+account_email :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the account.
 --
@@ -131,13 +139,6 @@ account_arn = Lens.lens (\Account' {arn} -> arn) (\s@Account' {} a -> s {arn = a
 account_joinedTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
 account_joinedTimestamp = Lens.lens (\Account' {joinedTimestamp} -> joinedTimestamp) (\s@Account' {} a -> s {joinedTimestamp = a} :: Account) Prelude.. Lens.mapping Core._Time
 
--- | The unique identifier (ID) of the account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
--- string requires exactly 12 digits.
-account_id :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
-account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} :: Account)
-
 -- | The friendly name of the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -146,13 +147,12 @@ account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} ::
 account_name :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
 
--- | The email address associated with the AWS account.
+-- | The unique identifier (ID) of the account.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
--- is a string of characters that represents a standard internet email
--- address.
-account_email :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
-account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {email = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
+account_id :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
+account_id = Lens.lens (\Account' {id} -> id) (\s@Account' {} a -> s {id = a} :: Account)
 
 instance Core.FromJSON Account where
   parseJSON =
@@ -162,11 +162,11 @@ instance Core.FromJSON Account where
           Account'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "JoinedMethod")
+            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "JoinedTimestamp")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable Account

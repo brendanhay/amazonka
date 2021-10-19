@@ -149,7 +149,7 @@ newCreateOrganizationalUnit pParentId_ pName_ =
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an OU, then the entire request fails and the OU is not created.
 createOrganizationalUnit_tags :: Lens.Lens' CreateOrganizationalUnit (Prelude.Maybe [Tag])
-createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> tags) (\s@CreateOrganizationalUnit' {} a -> s {tags = a} :: CreateOrganizationalUnit) Prelude.. Lens.mapping Lens._Coerce
+createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> tags) (\s@CreateOrganizationalUnit' {} a -> s {tags = a} :: CreateOrganizationalUnit) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier (ID) of the parent root or OU that you want to
 -- create the new OU in.

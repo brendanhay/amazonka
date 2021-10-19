@@ -31,33 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCreateAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
-  { -- | If the account was created successfully, the unique identifier (ID) of
-    -- the new account.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
-    -- string requires exactly 12 digits.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The account name given to the account when it was created.
-    accountName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The date and time that the request was made for the account creation.
-    requestedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | If the account was created successfully, the unique identifier (ID) of
-    -- the new account in the AWS GovCloud (US) Region.
-    govCloudAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the account was created and the request
-    -- completed.
-    completedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier (ID) that references this request. You get this
-    -- value from the response of the initial CreateAccount request to create
-    -- the account.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
-    -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
-    -- letters or digits.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The status of the asynchronous request to create an AWS account.
-    state :: Prelude.Maybe CreateAccountState,
-    -- | If the request failed, a description of the reason for the failure.
+  { -- | If the request failed, a description of the reason for the failure.
     --
     -- -   ACCOUNT_LIMIT_EXCEEDED: The account couldn\'t be created because you
     --     reached the limit on the number of accounts in your organization.
@@ -101,7 +75,33 @@ data CreateAccountStatus = CreateAccountStatus'
     --
     -- -   UNKNOWN_BUSINESS_VALIDATION: The AWS account that owns your
     --     organization has an unknown issue with business license validation.
-    failureReason :: Prelude.Maybe CreateAccountFailureReason
+    failureReason :: Prelude.Maybe CreateAccountFailureReason,
+    -- | The status of the asynchronous request to create an AWS account.
+    state :: Prelude.Maybe CreateAccountState,
+    -- | The date and time that the account was created and the request
+    -- completed.
+    completedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The account name given to the account when it was created.
+    accountName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | If the account was created successfully, the unique identifier (ID) of
+    -- the new account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+    -- string requires exactly 12 digits.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier (ID) that references this request. You get this
+    -- value from the response of the initial CreateAccount request to create
+    -- the account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
+    -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
+    -- letters or digits.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | If the account was created successfully, the unique identifier (ID) of
+    -- the new account in the AWS GovCloud (US) Region.
+    govCloudAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the request was made for the account creation.
+    requestedTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -112,32 +112,6 @@ data CreateAccountStatus = CreateAccountStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'accountId', 'createAccountStatus_accountId' - If the account was created successfully, the unique identifier (ID) of
--- the new account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
--- string requires exactly 12 digits.
---
--- 'accountName', 'createAccountStatus_accountName' - The account name given to the account when it was created.
---
--- 'requestedTimestamp', 'createAccountStatus_requestedTimestamp' - The date and time that the request was made for the account creation.
---
--- 'govCloudAccountId', 'createAccountStatus_govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of
--- the new account in the AWS GovCloud (US) Region.
---
--- 'completedTimestamp', 'createAccountStatus_completedTimestamp' - The date and time that the account was created and the request
--- completed.
---
--- 'id', 'createAccountStatus_id' - The unique identifier (ID) that references this request. You get this
--- value from the response of the initial CreateAccount request to create
--- the account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
--- request ID string requires \"car-\" followed by from 8 to 32 lowercase
--- letters or digits.
---
--- 'state', 'createAccountStatus_state' - The status of the asynchronous request to create an AWS account.
 --
 -- 'failureReason', 'createAccountStatus_failureReason' - If the request failed, a description of the reason for the failure.
 --
@@ -183,59 +157,46 @@ data CreateAccountStatus = CreateAccountStatus'
 --
 -- -   UNKNOWN_BUSINESS_VALIDATION: The AWS account that owns your
 --     organization has an unknown issue with business license validation.
-newCreateAccountStatus ::
-  CreateAccountStatus
-newCreateAccountStatus =
-  CreateAccountStatus'
-    { accountId = Prelude.Nothing,
-      accountName = Prelude.Nothing,
-      requestedTimestamp = Prelude.Nothing,
-      govCloudAccountId = Prelude.Nothing,
-      completedTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing,
-      failureReason = Prelude.Nothing
-    }
-
--- | If the account was created successfully, the unique identifier (ID) of
+--
+-- 'state', 'createAccountStatus_state' - The status of the asynchronous request to create an AWS account.
+--
+-- 'completedTimestamp', 'createAccountStatus_completedTimestamp' - The date and time that the account was created and the request
+-- completed.
+--
+-- 'accountName', 'createAccountStatus_accountName' - The account name given to the account when it was created.
+--
+-- 'accountId', 'createAccountStatus_accountId' - If the account was created successfully, the unique identifier (ID) of
 -- the new account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-createAccountStatus_accountId :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
-createAccountStatus_accountId = Lens.lens (\CreateAccountStatus' {accountId} -> accountId) (\s@CreateAccountStatus' {} a -> s {accountId = a} :: CreateAccountStatus)
-
--- | The account name given to the account when it was created.
-createAccountStatus_accountName :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
-createAccountStatus_accountName = Lens.lens (\CreateAccountStatus' {accountName} -> accountName) (\s@CreateAccountStatus' {} a -> s {accountName = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Sensitive
-
--- | The date and time that the request was made for the account creation.
-createAccountStatus_requestedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
-createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
-
--- | If the account was created successfully, the unique identifier (ID) of
--- the new account in the AWS GovCloud (US) Region.
-createAccountStatus_govCloudAccountId :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
-createAccountStatus_govCloudAccountId = Lens.lens (\CreateAccountStatus' {govCloudAccountId} -> govCloudAccountId) (\s@CreateAccountStatus' {} a -> s {govCloudAccountId = a} :: CreateAccountStatus)
-
--- | The date and time that the account was created and the request
--- completed.
-createAccountStatus_completedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
-createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {completedTimestamp} -> completedTimestamp) (\s@CreateAccountStatus' {} a -> s {completedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
-
--- | The unique identifier (ID) that references this request. You get this
+--
+-- 'id', 'createAccountStatus_id' - The unique identifier (ID) that references this request. You get this
 -- value from the response of the initial CreateAccount request to create
 -- the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
 -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
 -- letters or digits.
-createAccountStatus_id :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
-createAccountStatus_id = Lens.lens (\CreateAccountStatus' {id} -> id) (\s@CreateAccountStatus' {} a -> s {id = a} :: CreateAccountStatus)
-
--- | The status of the asynchronous request to create an AWS account.
-createAccountStatus_state :: Lens.Lens' CreateAccountStatus (Prelude.Maybe CreateAccountState)
-createAccountStatus_state = Lens.lens (\CreateAccountStatus' {state} -> state) (\s@CreateAccountStatus' {} a -> s {state = a} :: CreateAccountStatus)
+--
+-- 'govCloudAccountId', 'createAccountStatus_govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of
+-- the new account in the AWS GovCloud (US) Region.
+--
+-- 'requestedTimestamp', 'createAccountStatus_requestedTimestamp' - The date and time that the request was made for the account creation.
+newCreateAccountStatus ::
+  CreateAccountStatus
+newCreateAccountStatus =
+  CreateAccountStatus'
+    { failureReason =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
+      completedTimestamp = Prelude.Nothing,
+      accountName = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      id = Prelude.Nothing,
+      govCloudAccountId = Prelude.Nothing,
+      requestedTimestamp = Prelude.Nothing
+    }
 
 -- | If the request failed, a description of the reason for the failure.
 --
@@ -284,20 +245,60 @@ createAccountStatus_state = Lens.lens (\CreateAccountStatus' {state} -> state) (
 createAccountStatus_failureReason :: Lens.Lens' CreateAccountStatus (Prelude.Maybe CreateAccountFailureReason)
 createAccountStatus_failureReason = Lens.lens (\CreateAccountStatus' {failureReason} -> failureReason) (\s@CreateAccountStatus' {} a -> s {failureReason = a} :: CreateAccountStatus)
 
+-- | The status of the asynchronous request to create an AWS account.
+createAccountStatus_state :: Lens.Lens' CreateAccountStatus (Prelude.Maybe CreateAccountState)
+createAccountStatus_state = Lens.lens (\CreateAccountStatus' {state} -> state) (\s@CreateAccountStatus' {} a -> s {state = a} :: CreateAccountStatus)
+
+-- | The date and time that the account was created and the request
+-- completed.
+createAccountStatus_completedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
+createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {completedTimestamp} -> completedTimestamp) (\s@CreateAccountStatus' {} a -> s {completedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
+
+-- | The account name given to the account when it was created.
+createAccountStatus_accountName :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
+createAccountStatus_accountName = Lens.lens (\CreateAccountStatus' {accountName} -> accountName) (\s@CreateAccountStatus' {} a -> s {accountName = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Sensitive
+
+-- | If the account was created successfully, the unique identifier (ID) of
+-- the new account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
+createAccountStatus_accountId :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
+createAccountStatus_accountId = Lens.lens (\CreateAccountStatus' {accountId} -> accountId) (\s@CreateAccountStatus' {} a -> s {accountId = a} :: CreateAccountStatus)
+
+-- | The unique identifier (ID) that references this request. You get this
+-- value from the response of the initial CreateAccount request to create
+-- the account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a create account
+-- request ID string requires \"car-\" followed by from 8 to 32 lowercase
+-- letters or digits.
+createAccountStatus_id :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
+createAccountStatus_id = Lens.lens (\CreateAccountStatus' {id} -> id) (\s@CreateAccountStatus' {} a -> s {id = a} :: CreateAccountStatus)
+
+-- | If the account was created successfully, the unique identifier (ID) of
+-- the new account in the AWS GovCloud (US) Region.
+createAccountStatus_govCloudAccountId :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
+createAccountStatus_govCloudAccountId = Lens.lens (\CreateAccountStatus' {govCloudAccountId} -> govCloudAccountId) (\s@CreateAccountStatus' {} a -> s {govCloudAccountId = a} :: CreateAccountStatus)
+
+-- | The date and time that the request was made for the account creation.
+createAccountStatus_requestedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
+createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON CreateAccountStatus where
   parseJSON =
     Core.withObject
       "CreateAccountStatus"
       ( \x ->
           CreateAccountStatus'
-            Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AccountName")
-            Prelude.<*> (x Core..:? "RequestedTimestamp")
-            Prelude.<*> (x Core..:? "GovCloudAccountId")
-            Prelude.<*> (x Core..:? "CompletedTimestamp")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "CompletedTimestamp")
+            Prelude.<*> (x Core..:? "AccountName")
+            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "GovCloudAccountId")
+            Prelude.<*> (x Core..:? "RequestedTimestamp")
       )
 
 instance Prelude.Hashable CreateAccountStatus

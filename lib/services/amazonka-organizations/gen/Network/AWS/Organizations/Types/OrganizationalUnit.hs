@@ -36,6 +36,12 @@ data OrganizationalUnit = OrganizationalUnit'
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of this OU.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) associated with this OU.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an
@@ -43,13 +49,7 @@ data OrganizationalUnit = OrganizationalUnit'
     -- lowercase letters or digits (the ID of the root that contains the OU).
     -- This string is followed by a second \"-\" dash and from 8 to 32
     -- additional lowercase letters or digits.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of this OU.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
-    -- validate this parameter is a string of any of the characters in the
-    -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +67,12 @@ data OrganizationalUnit = OrganizationalUnit'
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
 --
+-- 'name', 'organizationalUnit_name' - The friendly name of this OU.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+--
 -- 'id', 'organizationalUnit_id' - The unique identifier (ID) associated with this OU.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an
@@ -74,19 +80,13 @@ data OrganizationalUnit = OrganizationalUnit'
 -- lowercase letters or digits (the ID of the root that contains the OU).
 -- This string is followed by a second \"-\" dash and from 8 to 32
 -- additional lowercase letters or digits.
---
--- 'name', 'organizationalUnit_name' - The friendly name of this OU.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
 newOrganizationalUnit ::
   OrganizationalUnit
 newOrganizationalUnit =
   OrganizationalUnit'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of this OU.
@@ -96,6 +96,14 @@ newOrganizationalUnit =
 -- in the /AWS Service Authorization Reference/.
 organizationalUnit_arn :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
 organizationalUnit_arn = Lens.lens (\OrganizationalUnit' {arn} -> arn) (\s@OrganizationalUnit' {} a -> s {arn = a} :: OrganizationalUnit)
+
+-- | The friendly name of this OU.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+organizationalUnit_name :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
+organizationalUnit_name = Lens.lens (\OrganizationalUnit' {name} -> name) (\s@OrganizationalUnit' {} a -> s {name = a} :: OrganizationalUnit)
 
 -- | The unique identifier (ID) associated with this OU.
 --
@@ -107,14 +115,6 @@ organizationalUnit_arn = Lens.lens (\OrganizationalUnit' {arn} -> arn) (\s@Organ
 organizationalUnit_id :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
 organizationalUnit_id = Lens.lens (\OrganizationalUnit' {id} -> id) (\s@OrganizationalUnit' {} a -> s {id = a} :: OrganizationalUnit)
 
--- | The friendly name of this OU.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
-organizationalUnit_name :: Lens.Lens' OrganizationalUnit (Prelude.Maybe Prelude.Text)
-organizationalUnit_name = Lens.lens (\OrganizationalUnit' {name} -> name) (\s@OrganizationalUnit' {} a -> s {name = a} :: OrganizationalUnit)
-
 instance Core.FromJSON OrganizationalUnit where
   parseJSON =
     Core.withObject
@@ -122,8 +122,8 @@ instance Core.FromJSON OrganizationalUnit where
       ( \x ->
           OrganizationalUnit'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable OrganizationalUnit

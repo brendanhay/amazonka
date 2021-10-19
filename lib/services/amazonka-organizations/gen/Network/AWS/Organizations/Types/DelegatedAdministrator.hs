@@ -35,21 +35,21 @@ data DelegatedAdministrator = DelegatedAdministrator'
     -- | The method by which the delegated administrator\'s account joined the
     -- organization.
     joinedMethod :: Prelude.Maybe AccountJoinedMethod,
+    -- | The email address that is associated with the delegated administrator\'s
+    -- AWS account.
+    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the delegated administrator\'s
     -- account.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date when the delegated administrator\'s account became a part of
     -- the organization.
     joinedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier (ID) of the delegated administrator\'s account.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The date when the account was made a delegated administrator.
+    delegationEnabledDate :: Prelude.Maybe Core.POSIX,
     -- | The friendly name of the delegated administrator\'s account.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The email address that is associated with the delegated administrator\'s
-    -- AWS account.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The date when the account was made a delegated administrator.
-    delegationEnabledDate :: Prelude.Maybe Core.POSIX
+    -- | The unique identifier (ID) of the delegated administrator\'s account.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,32 +67,32 @@ data DelegatedAdministrator = DelegatedAdministrator'
 -- 'joinedMethod', 'delegatedAdministrator_joinedMethod' - The method by which the delegated administrator\'s account joined the
 -- organization.
 --
+-- 'email', 'delegatedAdministrator_email' - The email address that is associated with the delegated administrator\'s
+-- AWS account.
+--
 -- 'arn', 'delegatedAdministrator_arn' - The Amazon Resource Name (ARN) of the delegated administrator\'s
 -- account.
 --
 -- 'joinedTimestamp', 'delegatedAdministrator_joinedTimestamp' - The date when the delegated administrator\'s account became a part of
 -- the organization.
 --
--- 'id', 'delegatedAdministrator_id' - The unique identifier (ID) of the delegated administrator\'s account.
+-- 'delegationEnabledDate', 'delegatedAdministrator_delegationEnabledDate' - The date when the account was made a delegated administrator.
 --
 -- 'name', 'delegatedAdministrator_name' - The friendly name of the delegated administrator\'s account.
 --
--- 'email', 'delegatedAdministrator_email' - The email address that is associated with the delegated administrator\'s
--- AWS account.
---
--- 'delegationEnabledDate', 'delegatedAdministrator_delegationEnabledDate' - The date when the account was made a delegated administrator.
+-- 'id', 'delegatedAdministrator_id' - The unique identifier (ID) of the delegated administrator\'s account.
 newDelegatedAdministrator ::
   DelegatedAdministrator
 newDelegatedAdministrator =
   DelegatedAdministrator'
     { status = Prelude.Nothing,
       joinedMethod = Prelude.Nothing,
+      email = Prelude.Nothing,
       arn = Prelude.Nothing,
       joinedTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
+      delegationEnabledDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      email = Prelude.Nothing,
-      delegationEnabledDate = Prelude.Nothing
+      id = Prelude.Nothing
     }
 
 -- | The status of the delegated administrator\'s account in the
@@ -105,6 +105,11 @@ delegatedAdministrator_status = Lens.lens (\DelegatedAdministrator' {status} -> 
 delegatedAdministrator_joinedMethod :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe AccountJoinedMethod)
 delegatedAdministrator_joinedMethod = Lens.lens (\DelegatedAdministrator' {joinedMethod} -> joinedMethod) (\s@DelegatedAdministrator' {} a -> s {joinedMethod = a} :: DelegatedAdministrator)
 
+-- | The email address that is associated with the delegated administrator\'s
+-- AWS account.
+delegatedAdministrator_email :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
+delegatedAdministrator_email = Lens.lens (\DelegatedAdministrator' {email} -> email) (\s@DelegatedAdministrator' {} a -> s {email = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The Amazon Resource Name (ARN) of the delegated administrator\'s
 -- account.
 delegatedAdministrator_arn :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
@@ -115,22 +120,17 @@ delegatedAdministrator_arn = Lens.lens (\DelegatedAdministrator' {arn} -> arn) (
 delegatedAdministrator_joinedTimestamp :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.UTCTime)
 delegatedAdministrator_joinedTimestamp = Lens.lens (\DelegatedAdministrator' {joinedTimestamp} -> joinedTimestamp) (\s@DelegatedAdministrator' {} a -> s {joinedTimestamp = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Time
 
--- | The unique identifier (ID) of the delegated administrator\'s account.
-delegatedAdministrator_id :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
-delegatedAdministrator_id = Lens.lens (\DelegatedAdministrator' {id} -> id) (\s@DelegatedAdministrator' {} a -> s {id = a} :: DelegatedAdministrator)
+-- | The date when the account was made a delegated administrator.
+delegatedAdministrator_delegationEnabledDate :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.UTCTime)
+delegatedAdministrator_delegationEnabledDate = Lens.lens (\DelegatedAdministrator' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedAdministrator' {} a -> s {delegationEnabledDate = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Time
 
 -- | The friendly name of the delegated administrator\'s account.
 delegatedAdministrator_name :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
 delegatedAdministrator_name = Lens.lens (\DelegatedAdministrator' {name} -> name) (\s@DelegatedAdministrator' {} a -> s {name = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Sensitive
 
--- | The email address that is associated with the delegated administrator\'s
--- AWS account.
-delegatedAdministrator_email :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
-delegatedAdministrator_email = Lens.lens (\DelegatedAdministrator' {email} -> email) (\s@DelegatedAdministrator' {} a -> s {email = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Sensitive
-
--- | The date when the account was made a delegated administrator.
-delegatedAdministrator_delegationEnabledDate :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.UTCTime)
-delegatedAdministrator_delegationEnabledDate = Lens.lens (\DelegatedAdministrator' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedAdministrator' {} a -> s {delegationEnabledDate = a} :: DelegatedAdministrator) Prelude.. Lens.mapping Core._Time
+-- | The unique identifier (ID) of the delegated administrator\'s account.
+delegatedAdministrator_id :: Lens.Lens' DelegatedAdministrator (Prelude.Maybe Prelude.Text)
+delegatedAdministrator_id = Lens.lens (\DelegatedAdministrator' {id} -> id) (\s@DelegatedAdministrator' {} a -> s {id = a} :: DelegatedAdministrator)
 
 instance Core.FromJSON DelegatedAdministrator where
   parseJSON =
@@ -140,12 +140,12 @@ instance Core.FromJSON DelegatedAdministrator where
           DelegatedAdministrator'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "JoinedMethod")
+            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "JoinedTimestamp")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "DelegationEnabledDate")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable DelegatedAdministrator

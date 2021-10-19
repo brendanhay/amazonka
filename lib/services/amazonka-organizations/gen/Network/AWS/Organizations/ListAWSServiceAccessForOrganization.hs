@@ -298,7 +298,7 @@ listAWSServiceAccessForOrganizationResponse_nextToken = Lens.lens (\ListAWSServi
 -- includes the name and the date that it was enabled for integration with
 -- AWS Organizations.
 listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe [EnabledServicePrincipal])
-listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
+listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAWSServiceAccessForOrganizationResponse_httpStatus :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse Prelude.Int

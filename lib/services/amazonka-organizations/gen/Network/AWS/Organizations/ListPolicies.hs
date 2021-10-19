@@ -300,7 +300,7 @@ listPoliciesResponse_nextToken = Lens.lens (\ListPoliciesResponse' {nextToken} -
 -- output list doesn\'t include the policy contents. To see the content for
 -- a policy, see DescribePolicy.
 listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [PolicySummary])
-listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
